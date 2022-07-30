@@ -14,7 +14,7 @@ sudo git clone https://github.com/zdharma/fast-syntax-highlighting.git \
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # p10k theme
 #sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 # end ====== oh-my-zsh
 
 # set zsh as default
@@ -46,7 +46,7 @@ EOF
 imwheel --kill
 
 echo "=========================== heroku and set multiple accounts ==========================="
-curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+sudo curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 heroku plugins:install heroku-accounts
 
 echo "=========================== gnome-tweaks ==========================="
@@ -68,3 +68,15 @@ sudo apt-get install -y lm-sensors hddtemp
 sudo dpkg-reconfigure hddtemp
 sudo sensors-detect
 sudo apt-get install -y psensor
+
+echo "=========================== Ulauncher ==========================="
+sudo apt install -y ulauncher
+
+echo "=========================== Bleachbit ==========================="
+sudo apt install -y bleachbit
+
+echo "=========================== dconf-editor ==========================="
+sudo apt-get install -y dconf-editor
+
+echo "=========================== dconf-editor ==========================="
+sudo apt install -y obs-studio
