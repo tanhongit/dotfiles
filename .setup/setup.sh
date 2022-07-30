@@ -47,7 +47,7 @@ imwheel --kill
 
 echo "=========================== heroku and set multiple accounts ==========================="
 sudo curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
-heroku plugins:install heroku-accounts
+sodo heroku plugins:install heroku-accounts
 
 echo "=========================== gnome-tweaks ==========================="
 sudo apt install -y gnome-tweaks
