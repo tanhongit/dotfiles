@@ -13,7 +13,6 @@ sudo git clone https://github.com/zdharma/fast-syntax-highlighting.git \
 # ZSH Autosuggestions
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # p10k theme
-#sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 # end ====== oh-my-zsh
 
@@ -52,6 +51,9 @@ sodo heroku plugins:install heroku-accounts
 echo "=========================== gnome-tweaks ==========================="
 sudo apt install -y gnome-tweaks
 
+echo "=========================== set time on dual boot system ==========================="
+timedatectl set-local-rtc 1 --adjust-system-clock
+
 echo '####################################################################'
 echo '############################# softwares ############################'
 echo '####################################################################'
@@ -78,5 +80,15 @@ sudo apt install -y bleachbit
 echo "=========================== dconf-editor ==========================="
 sudo apt-get install -y dconf-editor
 
-echo "=========================== dconf-editor ==========================="
+echo "=========================== obs-studio ==========================="
 sudo apt install -y obs-studio
+
+echo "=========================== GNOME ==========================="
+sudo apt install -y gnome-shell-extensions
+sudo apt install -y chrome-gnome-shell
+
+echo "=========================== VLC ==========================="
+sudo apt install -y vlc
+
+echo "=========================== flameshot ==========================="
+sudo apt install -y flameshot
