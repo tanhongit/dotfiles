@@ -10,3 +10,5 @@ fi
 echo "=========================== Postman ==========================="
 sudo snap install -y postman
 
+# echo "=========================== mysql workbench ==========================="
+# sudo snap install -y mysql-workbench-community 

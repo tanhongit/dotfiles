@@ -4,7 +4,6 @@ sh pre-install.sh
 echo '####################################################################'
 echo '########################### start setup ############################'
 echo '####################################################################'
-sudo apt-get install -y terminator vim-gtk3 nano
 
 echo "=========================== zsh ==========================="
 REQUIRED_PKG="zsh"
@@ -29,16 +28,64 @@ if [ "" = "$PKG_OK" ]; then
     chsh -s /bin/$REQUIRED_PKG
 fi
 
+echo "=========================== terminator ==========================="
+REQUIRED_PKG="terminator"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    sudo apt-get install -y $REQUIRED_PKG
+fi
+
+echo "=========================== nano ==========================="
+REQUIRED_PKG="nano"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    sudo apt-get install -y $REQUIRED_PKG
+fi
+
+sudo apt-get install -y vim-gtk3
+
 echo "=========================== wget ==========================="
-sudo apt install -y wget curl
-wget --version
+REQUIRED_PKG="wget"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    sudo apt install -y $REQUIRED_PKG
+fi
+
+echo "=========================== curl ==========================="
+REQUIRED_PKG="curl"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    sudo apt install -y $REQUIRED_PKG
+fi
 
 echo "=========================== nodejs, npm, deno ==========================="
-sudo apt-get install -y nodejs
+REQUIRED_PKG="nodejs"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    sudo apt-get -y install $REQUIRED_PKG
+fi
 sudo npm cache clean -f
 sudo npm install -g n stable
 sudo npm install -g npm
-sudo apt-get install -y npm
+
+REQUIRED_PKG="npm"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    sudo apt-get -y install $REQUIRED_PKG
+fi
+
 sudo apt-get install -y deno
 
 echo "=========================== imwheel ==========================="
@@ -96,7 +143,7 @@ echo '############################# softwares ############################'
 echo '####################################################################'
 echo ''
 
-echo "=========================== some softs ==========================="
+echo "=========================== gparted ==========================="
 REQUIRED_PKG="gparted"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
 echo Checking for $REQUIRED_PKG: $PKG_OK
@@ -105,14 +152,7 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt install -y $REQUIRED_PKG
 fi
 
-REQUIRED_PKG="filezilla"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
-echo Checking for $REQUIRED_PKG: $PKG_OK
-if [ "" = "$PKG_OK" ]; then
-    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-    sudo apt install -y $REQUIRED_PKG
-fi
-
+echo "=========================== playonlinux ==========================="
 REQUIRED_PKG="playonlinux"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
 echo Checking for $REQUIRED_PKG: $PKG_OK
@@ -168,9 +208,6 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt-get install -y $REQUIRED_PKG
 fi
 
-echo "=========================== obs-studio ==========================="
-sudo apt install -y obs-studio
-
 echo "=========================== GNOME ==========================="
 sudo apt install -y gnome-shell-extensions
 
@@ -182,17 +219,14 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt -y install $REQUIRED_PKG
 fi
 
-echo "=========================== VLC ==========================="
-REQUIRED_PKG="vlc"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
-echo Checking for $REQUIRED_PKG: $PKG_OK
-if [ "" = "$PKG_OK" ]; then
-    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-    sudo apt -y install $REQUIRED_PKG
-fi
-
 echo "=========================== flameshot ==========================="
 sudo apt install -y flameshot
+
+echo '####################################################################'
+echo '############################### utils ##############################'
+echo '####################################################################'
+echo ''
+sh options/utils.sh
 
 echo '####################################################################'
 echo '########################### after setup ############################'
