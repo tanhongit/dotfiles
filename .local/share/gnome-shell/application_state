@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<application-state>
+  <context id="">
+    <application id="gnome-control-center.desktop" score="57" last-seen="1659281343"/>
+    <application id="org.bleachbit.BleachBit.desktop" score="215" last-seen="1659119937"/>
+    <application id="obs-studio_obs-studio.desktop" score="5" last-seen="1659112325"/>
+    <application id="phpstorm_phpstorm.desktop" score="4305" last-seen="1659206894"/>
+    <application id="software-properties-gtk.desktop" score="1" last-seen="1658811132"/>
+    <application id="vlc.desktop" score="0" last-seen="1658828858"/>
+    <application id="org.gnome.eog.desktop" score="7" last-seen="1659021503"/>
+    <application id="dbeaver-ce_dbeaver-ce.desktop" score="119" last-seen="1659087998"/>
+    <application id="gcr-viewer.desktop" score="0" last-seen="1659283527"/>
+    <application id="libreoffice-draw.desktop" score="0" last-seen="1658806861"/>
+    <application id="code_code.desktop" score="2783" last-seen="1659282918"/>
+    <application id="libreoffice-writer.desktop" score="4" last-seen="1658806893"/>
+    <application id="org.gnome.Calculator.desktop" score="22" last-seen="1659000821"/>
+    <application id="org.gnome.Calendar.desktop" score="7" last-seen="1659108583"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="2" last-seen="1658840711"/>
+    <application id="org.gnome.Terminal.desktop" score="58" last-seen="1659163361"/>
+    <application id="slack_slack.desktop" score="1676" last-seen="1659280594"/>
+    <application id="gnome-system-monitor.desktop" score="54" last-seen="1659281345"/>
+    <application id="org.gnome.Nautilus.desktop" score="557" last-seen="1659283527"/>
+    <application id="gparted.desktop" score="30" last-seen="1658942740"/>
+    <application id="timeshift-gtk.desktop" score="44" last-seen="1658882489"/>
+    <application id="org.gnome.Evince.desktop" score="13" last-seen="1659239586"/>
+    <application id="flameshot_flameshot.desktop" score="3" last-seen="1659172236"/>
+    <application id="update-manager.desktop" score="12" last-seen="1658882611"/>
+    <application id="snap-store_ubuntu-software.desktop" score="12" last-seen="1659171929"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="888" last-seen="1659089115"/>
+    <application id="google-chrome.desktop" score="18963" last-seen="1659283255"/>
+    <application id="rhythmbox.desktop" score="4" last-seen="1658911173"/>
+    <application id="org.gnome.baobab.desktop" score="1" last-seen="1658891120"/>
+    <application id="rambox.desktop" score="4198" last-seen="1659282013"/>
+    <application id="org.gnome.gedit.desktop" score="51" last-seen="1659283512"/>
+  </context>
+</application-state>
