@@ -1,5 +1,8 @@
 sh pre-install.sh
 
+echo '####################################################################'
+echo '########################### start setup ############################'
+echo '####################################################################'
 sudo apt-get install -y terminator vim-gtk3 nano
 
 echo "=========================== zsh ==========================="
@@ -71,9 +74,6 @@ sudo dpkg-reconfigure hddtemp
 sudo sensors-detect
 sudo apt-get install -y psensor
 
-echo "=========================== Ulauncher ==========================="
-sudo apt install -y ulauncher
-
 echo "=========================== Bleachbit ==========================="
 sudo apt install -y bleachbit
 
@@ -92,3 +92,8 @@ sudo apt install -y vlc
 
 echo "=========================== flameshot ==========================="
 sudo apt install -y flameshot
+
+echo '####################################################################'
+echo '########################## before setup ############################'
+echo '####################################################################'
+sh before-setup.sh
