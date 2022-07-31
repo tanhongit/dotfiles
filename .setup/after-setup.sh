@@ -1,2 +1,2 @@
-echo "=========================== copy .config ==========================="
-cp -TRv ../.config/ ${ZSH_CUSTOM:-$HOME/.config}/
+echo "=========================== copy overwrite ==========================="
+cp -TRv ../ ${ZSH_CUSTOM:-$HOME/}/
