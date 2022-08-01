@@ -72,6 +72,16 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt-get install -y $REQUIRED_PKG
 fi
 
+echo "=========================== chrome ==========================="
+COMMAND_NAME="google-chrome"
+if ! [ -x "$(command -v $COMMAND_NAME)" ]; then
+    cho "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
+
 echo ''
 echo '####################################################################'
 echo '######################### Run package list #########################'
@@ -79,7 +89,7 @@ echo '####################################################################'
 echo ''
 
 installPackages() {
-    PACKAGE_LIST=("curl" "wget" "vim" "tmux" "nano" "terminator" "nodejs" "npm" "gnome-tweaks" "snapd" "gparted" "playonlinux" "bleachbit" "dconf-editor" "chrome-gnome-shell")
+    PACKAGE_LIST=("curl" "wget" "vim" "tmux" "nano" "terminator" "nodejs" "npm" "gnome-tweaks" "snapd" "gparted" "playonlinux" "bleachbit" "dconf-editor" "chrome-gnome-shell" "gnome-shell-extensions")
 
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
@@ -106,16 +116,6 @@ else
     echo "$COMMAND_NAME install ok installed"
 fi
 
-echo "=========================== chrome ==========================="
-COMMAND_NAME="google-chrome"
-if ! [ -x "$(command -v $COMMAND_NAME)" ]; then
-    cho "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo dpkg -i google-chrome-stable_current_amd64.deb
-else
-    echo "$COMMAND_NAME install ok installed"
-fi
-
 echo "=========================== ulauncher ==========================="
 REQUIRED_PKG="ulauncher"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
@@ -135,9 +135,6 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 else
     echo "$COMMAND_NAME install ok installed"
 fi
-
-echo "=========================== GNOME ==========================="
-sudo apt install -y gnome-shell-extensions
 
 echo "=========================== flameshot ==========================="
 COMMAND_NAME="flameshot"
