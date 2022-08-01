@@ -1,5 +1,10 @@
-# clone tool create virtual host 
+# clone tool create virtual host
 sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git ${ZSH_CUSTOM:-$HOME}/plugins/avhc_tool
+
+echo '####################################################################'
+echo '############################### lamp ###############################'
+echo ''
+bash lamp.sh
 
 echo "=========================== filezilla ==========================="
 REQUIRED_PKG="filezilla"
@@ -10,13 +15,19 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt install -y $REQUIRED_PKG
 fi
 
-echo "=========================== Postman ==========================="
-COMMAND_NAME="postman"
-if ! command -v $COMMAND_NAME &> /dev/null
-then
-    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo snap install $COMMAND_NAME
-fi
+installSnapDevPackages() {
+    PACKAGE_LIST=("postman" "mysql-workbench-community")
 
-# echo "=========================== mysql workbench ==========================="
-# sudo snap install -y mysql-workbench-community 
+    for packageName in "${PACKAGE_LIST[@]}"; do
+        echo "=========================== $packageName ==========================="
+        COMMAND_NAME=$packageName
+        if ! command -v $COMMAND_NAME &>/dev/null; then
+            echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+            sudo snap install $COMMAND_NAME
+        else
+            echo "$COMMAND_NAME install ok installed"
+        fi
+        echo ""
+    done
+}
+installSnapDevPackages
