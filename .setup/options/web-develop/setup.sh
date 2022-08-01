@@ -15,7 +15,7 @@ COMMAND_NAME="postman"
 if ! command -v $COMMAND_NAME &> /dev/null
 then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo snap install -y $COMMAND_NAME
+    sudo snap install $COMMAND_NAME
 fi
 
 # echo "=========================== mysql workbench ==========================="

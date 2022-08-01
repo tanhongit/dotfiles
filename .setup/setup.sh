@@ -72,6 +72,7 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt-get install -y $REQUIRED_PKG
 fi
 
+echo ''
 echo '####################################################################'
 echo '######################### Run package list #########################'
 echo '####################################################################'
@@ -126,10 +127,11 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt -y install $REQUIRED_PKG
 fi
 
+echo "=========================== deno ==========================="
 COMMAND_NAME="deno"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo snap install -y $COMMAND_NAME
+    sudo snap install $COMMAND_NAME
 else
     echo "$COMMAND_NAME install ok installed"
 fi
@@ -152,6 +154,7 @@ echo '####################################################################'
 echo ''
 bash options/utils.sh
 
+echo ''
 echo '####################################################################'
 echo '########################### after setup ############################'
 echo '####################################################################'
