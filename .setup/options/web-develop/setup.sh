@@ -1,3 +1,4 @@
+# clone tool create virtual host 
 sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git ${ZSH_CUSTOM:-$HOME}/plugins/avhc_tool
 
 echo "=========================== filezilla ==========================="
@@ -10,7 +11,12 @@ if [ "" = "$PKG_OK" ]; then
 fi
 
 echo "=========================== Postman ==========================="
-sudo snap install -y postman
+COMMAND_NAME="postman"
+if ! command -v $COMMAND_NAME &> /dev/null
+then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    sudo snap install -y $COMMAND_NAME
+fi
 
 # echo "=========================== mysql workbench ==========================="
 # sudo snap install -y mysql-workbench-community 

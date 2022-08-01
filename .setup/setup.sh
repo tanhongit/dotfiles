@@ -78,7 +78,7 @@ echo '####################################################################'
 echo ''
 
 installPackages() {
-    PACKAGE_LIST=("curl" "wget" "vim" "tmux" "nano" "filezilla" "terminator" "nodejs" "npm" "gnome-tweaks" "snapd" "gparted" "playonlinux" "bleachbit" "dconf-editor" "chrome-gnome-shell")
+    PACKAGE_LIST=("curl" "wget" "vim" "tmux" "nano" "terminator" "nodejs" "npm" "gnome-tweaks" "snapd" "gparted" "playonlinux" "bleachbit" "dconf-editor" "chrome-gnome-shell")
 
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
@@ -96,13 +96,24 @@ installPackages
 
 sudo npm cache clean -f
 sudo npm install -g n stable
-sudo npm install -g npm
 
-sudo apt-get install -y deno
+COMMAND_NAME="npm"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    sudo npm install -g $COMMAND_NAME
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
 
 echo "=========================== chrome ==========================="
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
+COMMAND_NAME="google-chrome"
+if ! [ -x "$(command -v $COMMAND_NAME)" ]; then
+    cho "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
 
 echo "=========================== ulauncher ==========================="
 REQUIRED_PKG="ulauncher"
@@ -115,11 +126,25 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt -y install $REQUIRED_PKG
 fi
 
+COMMAND_NAME="deno"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    sudo snap install -y $COMMAND_NAME
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
+
 echo "=========================== GNOME ==========================="
 sudo apt install -y gnome-shell-extensions
 
 echo "=========================== flameshot ==========================="
-sudo apt install -y flameshot
+COMMAND_NAME="flameshot"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    sudo apt install -y $COMMAND_NAME
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
 
 echo '####################################################################'
 echo '############################### utils ##############################'
