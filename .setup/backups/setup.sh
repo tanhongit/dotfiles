@@ -113,7 +113,7 @@ PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install 
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
     echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-    sudo curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+    curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
     sodo $REQUIRED_PKG plugins:install heroku-accounts
 fi
 
