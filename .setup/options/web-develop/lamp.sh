@@ -86,7 +86,43 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "***Press Enter***"
     echo "*****************"
     sudo add-apt-repository ppa:ondrej/php
-    PHP_VERSION=8.1 # or 7.3 or 7.2 or 7.1 or 7.0 or 5.6 or 5.5 or 5.4 or 5.3 or 5.2 or 5.1 or 5.0
+
+    echo "*****************"
+    PHP_VERSION=8.1
+    setPHPVersion() {
+        PHP_VERSION=$1
+        echo "You choose php$PHP_VERSION"
+        break
+    }
+    PS3="Select setup the php version (press * to setup default version - php$PHP_VERSION): "
+    select opt in "8.1" "8.0" "7.4" "7.2" "7.0" "5.6"; do
+        case $opt in
+        "8.1")
+            setPHPVersion "8.1"
+            ;;
+        "8.0")
+            setPHPVersion "8.0"
+            ;;
+        "7.4")
+            setPHPVersion "7.4"
+            ;;
+        "7.2")
+            setPHPVersion "7.2"
+            ;;
+        "7.0")
+            setPHPVersion "7.0"
+            ;;
+        "5.6")
+            setPHPVersion "5.6"
+            ;;
+        *)
+            echo "Invalid option $REPLY"
+            echo "Auto set default: php$PHP_VERSION"
+            break
+            ;;
+        esac
+    done
+
     sudo apt install php$PHP_VERSION php$PHP_VERSION-common php$PHP_VERSION-mysql php$PHP_VERSION-curl php$PHP_VERSION-gd php$PHP_VERSION-redis php$PHP_VERSION-mbstring php$PHP_VERSION-xml php$PHP_VERSION-zip -y
     sudo a2enmod php$PHP_VERSION
     sudo a2enmod ssl
