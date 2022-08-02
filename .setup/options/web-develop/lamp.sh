@@ -36,7 +36,8 @@ if [ "" = "$PKG_OK" ]; then
     sudo add-apt-repository ppa:ondrej/php
     PHP_VERSION=8.1
     sudo apt install php$PHP_VERSION php$PHP_VERSION-common php$PHP_VERSION-mysql php$PHP_VERSION-curl php$PHP_VERSION-gd php$PHP_VERSION-redis php$PHP_VERSION-mbstring php$PHP_VERSION-xml php$PHP_VERSION-zip -y
-    a2enmod php$PHP_VERSION
+    sudo a2enmod php$PHP_VERSION
+    sudo a2enmod ssl
     sudo systemctl reload apache2
     sudo chmod 777 /var/www/
     sudo chmod 777 /var/www/html
@@ -68,7 +69,6 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     mkdir /var/www/logs
     mkcert -cert-file /var/www/certs/localhost.pem -key-file /var/www/certs/localhost-key.pem localhost
     sudo chmod 777 /etc/apache2/sites-enabled/*
-    cp -TRv etc/ /etc/
     sudo systemctl reload apache2
 else
     echo "$COMMAND_NAME install ok installed"
