@@ -47,16 +47,6 @@ EOF
     imwheel --kill
 fi
 
-echo "=========================== heroku and set multiple accounts ==========================="
-REQUIRED_PKG="heroku"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
-echo Checking for $REQUIRED_PKG: $PKG_OK
-if [ "" = "$PKG_OK" ]; then
-    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-    sudo curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
-    sodo $REQUIRED_PKG plugins:install heroku-accounts
-fi
-
 echo "=========================== set time on dual boot system ==========================="
 timedatectl set-local-rtc 1 --adjust-system-clock
 
@@ -114,6 +104,16 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo npm install -g $COMMAND_NAME
 else
     echo "$COMMAND_NAME install ok installed"
+fi
+
+echo "=========================== heroku and set multiple accounts ==========================="
+REQUIRED_PKG="heroku"
+PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+echo Checking for $REQUIRED_PKG: $PKG_OK
+if [ "" = "$PKG_OK" ]; then
+    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+    curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+    sodo $REQUIRED_PKG plugins:install heroku-accounts
 fi
 
 echo "=========================== ulauncher ==========================="
