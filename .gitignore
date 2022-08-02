@@ -3,3 +3,5 @@
 !.config/gtk-4.0/settings.ini
 .config/gtk-4.0/
 .setup/*.deb
+.vscode
+.idea
