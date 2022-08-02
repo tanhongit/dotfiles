@@ -240,7 +240,7 @@ class ClipboardIndicator extends PanelMenu.Button {
     if (ENABLE_KEYBINDING) {
       this._bindShortcuts();
     }
-    this._keyPressCallbackId = global.stage.connect(
+    this._keyPressCallbackId = this.menu.actor.connect(
       'key-press-event',
       (_, event) => this._handleGlobalKeyEvent(event),
     );
@@ -298,10 +298,6 @@ class ClipboardIndicator extends PanelMenu.Button {
   }
 
   _handleGlobalKeyEvent(event) {
-    if (!this.menu.isOpen) {
-      return;
-    }
-
     this._handleCtrlSelectKeyEvent(event);
     this._handleSettingsKeyEvent(event);
     this._handleNavigationKeyEvent(event);
@@ -404,7 +400,7 @@ class ClipboardIndicator extends PanelMenu.Button {
     });
 
     menuItem.actor.add_child(icofavBtn);
-    icofavBtn.connect('button-press-event', () => {
+    icofavBtn.connect('clicked', () => {
       this._favoriteToggle(menuItem);
     });
 
@@ -424,7 +420,7 @@ class ClipboardIndicator extends PanelMenu.Button {
     });
 
     menuItem.actor.add_child(icoBtn);
-    icoBtn.connect('button-press-event', () => {
+    icoBtn.connect('clicked', () => {
       this._deleteEntryAndRestoreLatest(menuItem.entry);
     });
 
