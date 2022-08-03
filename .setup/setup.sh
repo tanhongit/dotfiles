@@ -151,8 +151,22 @@ echo '####################################################################'
 echo ''
 bash options/utils.sh
 
+echo '####################################################################'
+while true; do
+    read -p "Do you want to install some packages, programs for web developer? (Y/N)  " yn
+    case $yn in
+    [Yy]*)
+        bash options/web-develop/setup.sh
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+done
+
 echo ''
 echo '####################################################################'
 echo '########################### after setup ############################'
 echo '####################################################################'
+echo ''
 sh after-setup.sh
