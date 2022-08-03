@@ -12,10 +12,24 @@ for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
     echo ""
 done
 
-echo "=========================== obs-studio ==========================="
-COMMAND_NAME="obs-studio"
-if ! command -v $COMMAND_NAME &> /dev/null
-then
-    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo snap install $COMMAND_NAME
-fi
+UTILS_PACKAGE_LIST=("obs-studio" "rambox" "skype" "telegram-desktop")
+for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
+    echo "=========================== $packageName ==========================="
+    if ! command -v $packageName &>/dev/null; then
+        echo "$packageName could not be found. Setting up $packageName."
+        while true; do
+            read -p "Do you wish to install this program? (Y/N)  " yn
+            case $yn in
+            [Yy]*)
+                sudo snap install $packageName
+                break
+                ;;
+            [Nn]*) break ;;
+            *) echo "Please answer yes or no." ;;
+            esac
+        done
+    else
+        echo "$packageName install ok installed"
+    fi
+    echo ""
+done
