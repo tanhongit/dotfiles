@@ -156,7 +156,9 @@ while true; do
     read -p "Do you want to install some packages, programs for web developer? (Y/N)  " yn
     case $yn in
     [Yy]*)
-        bash options/web-develop/setup.sh
+        cd options/web-develop/
+        bash setup.sh
+        cd ../../
         break
         ;;
     [Nn]*) break ;;
