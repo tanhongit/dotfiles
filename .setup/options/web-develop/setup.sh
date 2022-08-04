@@ -36,7 +36,7 @@ installAptDevPackages() {
 installAptDevPackages
 
 installSnapDevPackages() {
-    PACKAGE_LIST=("postman" "mysql-workbench-community" "dbeaver-ce")
+    PACKAGE_LIST=("postman" "mysql-workbench-community" "dbeaver-ce" "ngrok")
 
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
@@ -77,6 +77,15 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     HASH=$(curl -sS https://composer.github.io/installer.sig)
     php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
     sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
+fi
+echo ""
+
+echo "=========================== localtunnel ==========================="
+echo "how it works : lt --port 8000"
+COMMAND_NAME="localtunnel"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    sudo npm install -g $COMMAND_NAME
 else
     echo "$COMMAND_NAME install ok installed"
 fi
