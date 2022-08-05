@@ -83,12 +83,12 @@ fi
 echo ""
 
 echo "=========================== localtunnel ==========================="
-echo "how it works : lt --port 8000"
-COMMAND_NAME="localtunnel"
-if ! command -v $COMMAND_NAME &>/dev/null; then
-    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo npm install -g $COMMAND_NAME
+PACKAGE_NAME='localtunnel'
+if [[ "$(npm list -g $PACKAGE_NAME)" =~ "empty" ]]; then
+    echo "$PACKAGE_NAME could not be found. Setting up $PACKAGE_NAME."
+    sudo npm install -g $PACKAGE_NAME
 else
-    echo "$COMMAND_NAME install ok installed"
+    echo "$PACKAGE_NAME is already installed"
 fi
+echo "how it works : lt --port 8000"
 echo ""
