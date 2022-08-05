@@ -158,11 +158,13 @@ echo ''
 bash options/utils.sh
 
 echo '####################################################################'
+WEB_DEVELOP="0"
 while true; do
     read -p "Do you want to install some packages, programs for web developer? (Y/N)  " yn
     case $yn in
     [Yy]*)
         cd options/web-develop/
+        WEB_DEVELOP="1"
         bash setup.sh
         cd ../../
         break
@@ -178,3 +180,19 @@ echo '########################### after setup ############################'
 echo '####################################################################'
 echo ''
 sh after-setup.sh
+
+if [ "1" = "$WEB_DEVELOP" ]; then
+    while true; do
+        read -p "Do you want to install docker? (Y/N)  " yn
+        case $yn in
+        [Yy]*)
+            cd options/web-develop/docker/
+            bash run.sh
+            cd ../../../
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    done
+fi
