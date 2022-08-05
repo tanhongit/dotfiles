@@ -181,6 +181,7 @@ echo '####################################################################'
 echo ''
 sh after-setup.sh
 
+echo ''
 if [ "1" = "$WEB_DEVELOP" ]; then
     while true; do
         read -p "Do you want to install docker? (Y/N)  " yn

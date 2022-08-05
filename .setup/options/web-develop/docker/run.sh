@@ -7,7 +7,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
     sudo apt update
     apt-cache policy docker-ce
-    sudo apt install docker-ce
+    sudo apt install docker-ce -y
 
     sudo usermod -aG docker ${USER}
     su - ${USER}+
@@ -15,7 +15,8 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     docker
 
     REBOOT_TIME=2
-    shutdown –r +$REBOOT_TIME "After installing docker, you need to reboot to make sure the features work properly, the OS will restart in $REBOOT_TIME minutes"
+    echo "After installing docker, you need to reboot to make sure the features work properly. Rebooting in $REBOOT_TIME seconds."
+    shutdown –r -t $REBOOT_TIME 
 else
     echo "$COMMAND_NAME install ok installed"
 fi
