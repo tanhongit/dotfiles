@@ -2,12 +2,16 @@
 
 This script will install dotfiles to your system. It also will install some useful tools, packages, and programs.
 
+After installed Ubuntu, you can run this script to install dotfiles. I added some programs, packages, and tools to this script. All of them need to be installed for Ubuntu.
+
 It's a simple script, so you can run it easily.
 
-## 1. Requirements
-You will need to have an Ubuntu or Debian based system. 
+# 1. Requirements
+You will need to have an Ubuntu or Debian based system.
 
-## 2. Installing
+For Ubuntu, you should use the version 22.04 or higher.
+
+# 2. Installing
 
 Before run this script, please clone the repository to your local machine.
 
@@ -36,3 +40,14 @@ Now, wait for a while, and you will see some messages question do you want to in
 ![image](https://user-images.githubusercontent.com/35853002/182054350-18d1f956-da9a-4a22-b7d8-ac7f805349a6.png)
 
 ![image](https://user-images.githubusercontent.com/35853002/182054403-677c1724-4ed8-4ce3-9a6f-c8ac707de322.png)
+
+# 4. Backup your dotfiles from your local machine
+
+If you want to backup your dotfiles from your local machine, please run the following command.
+
+```bash
+cd .backup
+bash run.sh
+```
+
+Please wait for a while, it will take some time to backup your dotfiles. When you are ready, you can run the following command from step 2 to restore your dotfiles.
