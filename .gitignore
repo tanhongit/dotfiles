@@ -2,6 +2,9 @@
 .config/gtk-3.0/
 !.config/gtk-4.0/settings.ini
 .config/gtk-4.0/
+.config/bleachbit/
+!.config/bleachbit/bleachbit.ini
 .setup/*.deb
+.psensor/log
 .vscode
 .idea

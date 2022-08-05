@@ -68,6 +68,8 @@ application/x-bittorrent=transmission-gtk.desktop;
 image/svg+xml=google-chrome.desktop;
 application/vnd.ms-publisher=org.gnome.gedit.desktop;
 application/octet-stream=org.gnome.gedit.desktop;
+text/x-python=code_code.desktop;
+text/plain=code_code.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
