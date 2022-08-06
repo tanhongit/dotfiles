@@ -94,24 +94,61 @@ echo "how it works : lt --port 8000"
 echo ""
 
 echo "=========================== mongodb ==========================="
-while true; do
-    read -p "Do you want to install mongodb ? (Y/N)  " yn
-    MONGODB_VERSION="4.2"
-    case $yn in
-    [Yy]*)
-        sudo apt remove --autoremove mongodb-org
-        sudo rm /etc/apt/sources.list.d/mongodb*.list
-        sudo apt update
-        sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 4B7C549A058F8B6B
-        echo "deb [arch=amd64] http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/$MONGODB_VERSION multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-$MONGODB_VERSION.list
-        sudo apt update
-        sudo apt install mongodb-org
+COMMAND_NAME="mongo"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    while true; do
+        read -p "Do you want to install mongodb ? (Y/N)  " yn
+        case $yn in
+        [Yy]*)
+            # http://keyserver.ubuntu.com/pks/lookup?search=mongodb&fingerprint=on&op=index
+            MONGODB_VERSION="4.2"
+            KEYSERVER="4B7C549A058F8B6B"
 
-        sudo systemctl enable mongod.service
-        sudo systemctl start mongod.service
-        break
-        ;;
-    [Nn]*) break ;;
-    *) echo "Please answer yes or no." ;;
-    esac
-done
+            setMongoDBVersion() {
+                MONGODB_VERSION=$1
+                KEYSERVER=$2
+                break
+            }
+
+            select opt in "4.2" "4.8" "5.0"; do
+                case $opt in
+                "4.2")
+                    setMongoDBVersion "4.2" "4B7C549A058F8B6B"
+                    ;;
+                "4.4")
+                    setMongoDBVersion "4.4" "656408E390CFB1F5"
+                    ;;
+                "4.8")
+                    setMongoDBVersion "4.8" "0EBB00BA3BC3DCCB"
+                    ;;
+                "5.0")
+                    setMongoDBVersion "5.0" "B00A0BD1E2C63C11"
+                    ;;
+                *)
+                    echo "Invalid option $REPLY"
+                    echo "Auto set default vesion: $MONGODB_VERSION"
+                    break
+                    ;;
+                esac
+            done
+
+            sudo apt remove --autoremove mongodb-org
+            sudo rm /etc/apt/sources.list.d/mongodb*.list
+            sudo apt update
+            sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv $KEYSERVER
+            echo "deb [arch=amd64] http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/$MONGODB_VERSION multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-$MONGODB_VERSION.list
+            sudo apt update
+            sudo apt install mongodb-org
+
+            sudo systemctl enable mongod.service
+            sudo systemctl start mongod.service
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    done
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
+echo ""
