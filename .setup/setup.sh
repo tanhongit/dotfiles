@@ -79,7 +79,7 @@ echo '####################################################################'
 echo ''
 
 installPackages() {
-    PACKAGE_LIST=("curl" "wget" "vim" "tmux" "nano" "terminator" "nodejs" "npm" "gnome-tweaks" "snapd" "gparted" "playonlinux" "bleachbit" "dconf-editor" "chrome-gnome-shell" "gnome-shell-extensions")
+    PACKAGE_LIST=("curl" "wget" "vim" "tmux" "nano" "terminator" "nodejs" "npm" "gnome-tweaks" "snapd" "lighttpd" "gparted" "playonlinux" "bleachbit" "dconf-editor" "chrome-gnome-shell" "gnome-shell-extensions")
 
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
