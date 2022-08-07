@@ -92,28 +92,33 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     setPHPVersion() {
         PHP_VERSION=$1
         echo "You choose php$PHP_VERSION"
-        break
     }
     PS3="Select setup the php version (press * to setup default version - php$PHP_VERSION): "
     select opt in "8.1" "8.0" "7.4" "7.2" "7.0" "5.6"; do
         case $opt in
         "8.1")
             setPHPVersion "8.1"
+            break
             ;;
         "8.0")
             setPHPVersion "8.0"
+            break
             ;;
         "7.4")
             setPHPVersion "7.4"
+            break
             ;;
         "7.2")
             setPHPVersion "7.2"
+            break
             ;;
         "7.0")
             setPHPVersion "7.0"
+            break
             ;;
         "5.6")
             setPHPVersion "5.6"
+            break
             ;;
         *)
             echo "Invalid option $REPLY"
