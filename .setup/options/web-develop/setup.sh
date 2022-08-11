@@ -100,8 +100,8 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
     source ~/.profile
     reset
-    nvm install node
-    nvm install 18.7.0
+    # nvm install node
+    # nvm install 18.7.0
 else
     echo "$COMMAND_NAME install ok installed"
 fi
