@@ -14,9 +14,16 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     id -nG
     docker
 
+    echo 'Install docker compose:'
+    echo 'Check new version at https://github.com/docker/compose/releases'
+    DOCKER_COMPOSE_VERSION=v2.9.0 
+    sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo mv /usr/local/bin/docker-compose /usr/bin/docker-compose
+    sudo chmod +x /usr/bin/docker-compose
+
     REBOOT_TIME=2
     echo "After installing docker, you need to reboot to make sure the features work properly. Rebooting in $REBOOT_TIME seconds."
-    shutdown –r -t $REBOOT_TIME 
+    shutdown –r -t $REBOOT_TIME
 else
     echo "$COMMAND_NAME install ok installed"
 fi
