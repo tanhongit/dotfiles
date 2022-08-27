@@ -101,10 +101,6 @@ class ClipboardIndicator extends PanelMenu.Button {
       Mainloop.source_remove(this._pasteHackCallbackId);
       this._pasteHackCallbackId = undefined;
     }
-    if (this._keyPressCallbackId) {
-      global.stage.disconnect(this._keyPressCallbackId);
-      this._keyPressCallbackId = undefined;
-    }
     if (this._primaryClipboardCallbackId) {
       Mainloop.source_remove(this._primaryClipboardCallbackId);
       this._primaryClipboardCallbackId = undefined;
@@ -125,6 +121,7 @@ class ClipboardIndicator extends PanelMenu.Button {
     });
 
     const entryItem = new PopupMenu.PopupBaseMenuItem({
+      style_class: 'ci-history-search-section',
       reactive: false,
       can_focus: false,
     });
@@ -176,6 +173,7 @@ class ClipboardIndicator extends PanelMenu.Button {
 
     const actionsSection = new PopupMenu.PopupMenuSection();
     const actionsBox = new St.BoxLayout({
+      style_class: 'ci-history-actions-section',
       vertical: false,
     });
 
@@ -240,9 +238,8 @@ class ClipboardIndicator extends PanelMenu.Button {
     if (ENABLE_KEYBINDING) {
       this._bindShortcuts();
     }
-    this._keyPressCallbackId = this.menu.actor.connect(
-      'key-press-event',
-      (_, event) => this._handleGlobalKeyEvent(event),
+    this.menu.actor.connect('key-press-event', (_, event) =>
+      this._handleGlobalKeyEvent(event),
     );
 
     Store.buildClipboardStateFromLog((entries, favoriteEntries, nextId) => {
@@ -366,7 +363,7 @@ class ClipboardIndicator extends PanelMenu.Button {
       return;
     }
 
-    const menuItem = new PopupMenu.PopupMenuItem('');
+    const menuItem = new PopupMenu.PopupMenuItem('', { hover: false });
 
     menuItem.entry = entry;
     entry.menuItem = menuItem;
@@ -769,13 +766,19 @@ class ClipboardIndicator extends PanelMenu.Button {
       forward = true;
     }
 
-    const searchExp = new RegExp(query, 'i');
+    let searchExp;
+    try {
+      searchExp = new RegExp(query, 'i');
+    } catch {}
     const start = forward ? this.searchEntryFront : this.searchEntryBack;
     let entry = start;
 
     while (this.activeHistoryMenuItems < PAGE_SIZE) {
       if (entry.type === DS.TYPE_TEXT) {
-        const match = entry.text.search(searchExp);
+        let match = entry.text.indexOf(query);
+        if (searchExp && match < 0) {
+          match = entry.text.search(searchExp);
+        }
         if (match >= 0) {
           this._addEntry(
             entry,
@@ -1266,6 +1269,10 @@ function init() {
 let clipboardIndicator;
 
 function enable() {
+  if (clipboardIndicator) {
+    return;
+  }
+
   Store.init();
 
   clipboardIndicator = new ClipboardIndicatorObj();
