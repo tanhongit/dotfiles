@@ -1,4 +1,4 @@
-UTILS_PACKAGE_LIST=("wine-stable" "vlc" "timeshift")
+UTILS_PACKAGE_LIST=("wine-stable" "vlc" "timeshift" "python3-pip")
 
 for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
     echo "=========================== $packageName ==========================="
@@ -8,6 +8,11 @@ for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
     if [ "" = "$PKG_OK" ]; then
         echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
         sudo apt-get install -y $REQUIRED_PKG
+
+        echo "=========================== pip3 - algoliasearch for ulauncher extension ==========================="
+        if [ "python3-pip" = "$REQUIRED_PKG" ]; then
+            pip3 install algoliasearch --user
+        fi
     fi
     echo ""
 done

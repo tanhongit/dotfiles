@@ -1,29 +1,35 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="gparted.desktop" score="6" last-seen="1661583856"/>
-    <application id="org.gnome.tweaks.desktop" score="0" last-seen="1661535005"/>
-    <application id="org.gnome.FileRoller.desktop" score="2" last-seen="1661568631"/>
-    <application id="rambox_rambox.desktop" score="53" last-seen="1661586266"/>
-    <application id="google-chrome.desktop" score="18534" last-seen="1661588432"/>
-    <application id="software-properties-gtk.desktop" score="1" last-seen="1661577528"/>
-    <application id="anydesk.desktop" score="7" last-seen="1661586197"/>
-    <application id="gnome-control-center.desktop" score="385" last-seen="1661588190"/>
-    <application id="org.gnome.gedit.desktop" score="13" last-seen="1661587201"/>
-    <application id="update-manager.desktop" score="39" last-seen="1661586368"/>
-    <application id="org.gnome.Nautilus.desktop" score="357" last-seen="1661587346"/>
-    <application id="apport-gtk.desktop" score="0" last-seen="1661565594"/>
+    <application id="gnome-control-center.desktop" score="466" last-seen="1661680033"/>
+    <application id="gnome-session-properties.desktop" score="3" last-seen="1661592301"/>
+    <application id="apport-gtk.desktop" score="2" last-seen="1661618807"/>
     <application id="xdg-desktop-portal-gnome.desktop" score="3" last-seen="1661568103"/>
-    <application id="snap-store_ubuntu-software.desktop" score="48" last-seen="1661582662"/>
-    <application id="phpstorm_phpstorm.desktop" score="673" last-seen="1661586378"/>
+    <application id="obs-studio_obs-studio.desktop" score="11" last-seen="1661592527"/>
+    <application id="phpstorm_phpstorm.desktop" score="1489" last-seen="1661679871"/>
+    <application id="org.gnome.tweaks.desktop" score="0" last-seen="1661535005"/>
+    <application id="software-properties-gtk.desktop" score="1" last-seen="1661577528"/>
     <application id="org.gnome.eog.desktop" score="2" last-seen="1661587170"/>
-    <application id="org.gnome.Terminal.desktop" score="77" last-seen="1661583991"/>
-    <application id="rhythmbox.desktop" score="19" last-seen="1661587420"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="238" last-seen="1661588421"/>
-    <application id="postman_postman.desktop" score="8" last-seen="1661577288"/>
     <application id="thunderbird.desktop" score="4" last-seen="1661577127"/>
-    <application id="code.desktop" score="287" last-seen="1661588195"/>
-    <application id="gnome-system-monitor.desktop" score="5" last-seen="1661585528"/>
+    <application id="gnome-system-monitor.desktop" score="8" last-seen="1661613409"/>
+    <application id="code.desktop" score="482" last-seen="1661678659"/>
+    <application id="rambox_rambox.desktop" score="1032" last-seen="1661678646"/>
     <application id="org.gnome.Extensions.desktop" score="2" last-seen="1661560254"/>
+    <application id="skype_skypeforlinux.desktop" score="0" last-seen="0"/>
+    <application id="org.gnome.Terminal.desktop" score="110" last-seen="1661619165"/>
+    <application id="postman_postman.desktop" score="8" last-seen="1661577288"/>
+    <application id="org.gnome.Nautilus.desktop" score="472" last-seen="1661680138"/>
+    <application id="snap-store_ubuntu-software.desktop" score="57" last-seen="1661592444"/>
+    <application id="gparted.desktop" score="11" last-seen="1661611961"/>
+    <application id="org.gnome.FileRoller.desktop" score="2" last-seen="1661568631"/>
+    <application id="ulauncher.desktop" score="28" last-seen="1661680171"/>
+    <application id="update-manager.desktop" score="64" last-seen="1661619608"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="309" last-seen="1661615862"/>
+    <application id="anydesk.desktop" score="7" last-seen="1661586197"/>
+    <application id="google-chrome.desktop" score="21091" last-seen="1661680036"/>
+    <application id="rhythmbox.desktop" score="19" last-seen="1661593615"/>
+    <application id="simple-scan.desktop" score="1" last-seen="1661663683"/>
+    <application id="org.gnome.gedit.desktop" score="30" last-seen="1661619192"/>
+    <application id="timeshift-gtk.desktop" score="6" last-seen="1661611976"/>
   </context>
 </application-state>
