@@ -21,9 +21,22 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo mv /usr/local/bin/docker-compose /usr/bin/docker-compose
     sudo chmod +x /usr/bin/docker-compose
 
-    REBOOT_TIME=2
+    REBOOT_TIME=3
+    echo ""
     echo "After installing docker, you need to reboot to make sure the features work properly. Rebooting in $REBOOT_TIME seconds."
-    shutdown –r -t $REBOOT_TIME
+    sudo shutdown -r $REBOOT_TIME
+    echo "If you do not want to reboot, please press 'shutdown -c' to cancel the reboot. If you want to reboot now, please press 'shutdown -r now'."
+    while true; do
+        read -p "Do you want to reboot now? (Y/N)  " yn
+        case $yn in
+        [Yy]*)
+            sudo shutdown -r now
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    dones
 else
     echo "$COMMAND_NAME install ok installed"
 fi
