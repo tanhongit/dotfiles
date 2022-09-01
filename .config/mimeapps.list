@@ -1,6 +1,6 @@
 [Added Associations]
 application/vnd.debian.binary-package=snap-store_ubuntu-software-local-file.desktop;
-inode/directory=code.desktop;phpstorm_phpstorm.desktop;code_code.desktop;
+inode/directory=phpstorm_phpstorm.desktop;code.desktop;code_code.desktop;
 x-content/audio-player=rhythmbox-device.desktop;
 x-content/image-dcf=org.gnome.eog.desktop;
 video/mp4=org.gnome.Totem.desktop;vlc.desktop;
@@ -70,6 +70,7 @@ application/vnd.ms-publisher=org.gnome.gedit.desktop;
 application/octet-stream=org.gnome.gedit.desktop;
 text/x-python=code_code.desktop;
 text/plain=phpstorm_phpstorm.desktop;code_code.desktop;
+application/zip=mysql-workbench-community_mysql-workbench-community.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop

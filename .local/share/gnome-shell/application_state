@@ -1,39 +1,40 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="gnome-control-center.desktop" score="470" last-seen="1661742666"/>
-    <application id="gnome-session-properties.desktop" score="3" last-seen="1661592301"/>
-    <application id="apport-gtk.desktop" score="5" last-seen="1661756422"/>
-    <application id="xdg-desktop-portal-gnome.desktop" score="3" last-seen="1661568103"/>
-    <application id="obs-studio_obs-studio.desktop" score="11" last-seen="1661592527"/>
-    <application id="phpstorm_phpstorm.desktop" score="3597" last-seen="1661767370"/>
+    <application id="gnome-control-center.desktop" score="239.5" last-seen="1662022026"/>
+    <application id="gnome-session-properties.desktop" score="1.5" last-seen="1661592301"/>
+    <application id="apport-gtk.desktop" score="7.5" last-seen="1662027272"/>
+    <application id="xdg-desktop-portal-gnome.desktop" score="1.5" last-seen="1661568103"/>
+    <application id="obs-studio_obs-studio.desktop" score="5.5" last-seen="1661592527"/>
+    <application id="phpstorm_phpstorm.desktop" score="5790" last-seen="1662024786"/>
     <application id="org.gnome.tweaks.desktop" score="0" last-seen="1661535005"/>
-    <application id="software-properties-gtk.desktop" score="1" last-seen="1661577528"/>
-    <application id="org.gnome.eog.desktop" score="2" last-seen="1661587170"/>
-    <application id="thunderbird.desktop" score="4" last-seen="1661577127"/>
-    <application id="code.desktop" score="905" last-seen="1661769871"/>
-    <application id="ca.desrt.dconf-editor.desktop" score="15" last-seen="1661742210"/>
-    <application id="rambox_rambox.desktop" score="1461" last-seen="1661747247"/>
-    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="162" last-seen="1661767498"/>
-    <application id="org.gnome.Calculator.desktop" score="7" last-seen="1661754962"/>
-    <application id="org.gnome.Extensions.desktop" score="2" last-seen="1661560254"/>
-    <application id="libreoffice-writer.desktop" score="11" last-seen="1661741432"/>
-    <application id="org.gnome.Terminal.desktop" score="134" last-seen="1661768466"/>
-    <application id="postman_postman.desktop" score="8" last-seen="1661577288"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="0" last-seen="1661746150"/>
-    <application id="org.gnome.Nautilus.desktop" score="558" last-seen="1661768632"/>
-    <application id="snap-store_ubuntu-software.desktop" score="57" last-seen="1661592444"/>
-    <application id="gparted.desktop" score="11" last-seen="1661611961"/>
-    <application id="org.gnome.FileRoller.desktop" score="2" last-seen="1661568631"/>
-    <application id="ulauncher.desktop" score="30" last-seen="1661680204"/>
-    <application id="update-manager.desktop" score="66" last-seen="1661766008"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="1054" last-seen="1661770751"/>
-    <application id="anydesk.desktop" score="9" last-seen="1661766551"/>
-    <application id="rhythmbox.desktop" score="19" last-seen="1661593615"/>
-    <application id="timeshift-gtk.desktop" score="6" last-seen="1661611976"/>
-    <application id="simple-scan.desktop" score="1" last-seen="1661663683"/>
-    <application id="google-chrome.desktop" score="23995" last-seen="1661791473"/>
-    <application id="org.gnome.gedit.desktop" score="125" last-seen="1661768203"/>
-    <application id="gnome-system-monitor.desktop" score="8" last-seen="1661768220"/>
+    <application id="software-properties-gtk.desktop" score="0.5" last-seen="1661577528"/>
+    <application id="org.gnome.eog.desktop" score="1" last-seen="1661844663"/>
+    <application id="thunderbird.desktop" score="2" last-seen="1661914264"/>
+    <application id="code.desktop" score="511" last-seen="1662029535"/>
+    <application id="ca.desrt.dconf-editor.desktop" score="7.5" last-seen="1661742210"/>
+    <application id="rambox_rambox.desktop" score="1333" last-seen="1662023776"/>
+    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="120.5" last-seen="1661954701"/>
+    <application id="org.flameshot.Flameshot.desktop" score="0" last-seen="1661911133"/>
+    <application id="org.gnome.Calculator.desktop" score="3.5" last-seen="1661754962"/>
+    <application id="org.gnome.Extensions.desktop" score="1" last-seen="1661560254"/>
+    <application id="libreoffice-writer.desktop" score="5.5" last-seen="1661741432"/>
+    <application id="org.gnome.Terminal.desktop" score="71.5" last-seen="1661877514"/>
+    <application id="postman_postman.desktop" score="233" last-seen="1661954006"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="119" last-seen="1662029518"/>
+    <application id="org.gnome.Nautilus.desktop" score="324" last-seen="1662027492"/>
+    <application id="snap-store_ubuntu-software.desktop" score="28.5" last-seen="1661592444"/>
+    <application id="gparted.desktop" score="5.5" last-seen="1661611961"/>
+    <application id="org.gnome.FileRoller.desktop" score="1" last-seen="1661844177"/>
+    <application id="ulauncher.desktop" score="15" last-seen="1661680204"/>
+    <application id="update-manager.desktop" score="33" last-seen="1661766008"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="1250.5" last-seen="1661955692"/>
+    <application id="anydesk.desktop" score="4.5" last-seen="1661766551"/>
+    <application id="rhythmbox.desktop" score="9.5" last-seen="1661593615"/>
+    <application id="timeshift-gtk.desktop" score="10" last-seen="1661878887"/>
+    <application id="simple-scan.desktop" score="0.5" last-seen="1661663683"/>
+    <application id="google-chrome.desktop" score="15459.5" last-seen="1662029545"/>
+    <application id="org.gnome.gedit.desktop" score="94.5" last-seen="1661954642"/>
+    <application id="gnome-system-monitor.desktop" score="6" last-seen="1661998697"/>
   </context>
 </application-state>
