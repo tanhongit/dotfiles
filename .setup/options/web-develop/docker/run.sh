@@ -36,7 +36,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
         [Nn]*) break ;;
         *) echo "Please answer yes or no." ;;
         esac
-    dones
+    done
 else
     echo "$COMMAND_NAME install ok installed"
 fi
