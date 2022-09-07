@@ -52,6 +52,9 @@ installSnapDevPackages() {
 }
 installSnapDevPackages
 
+echo "===================== config for workbrench ==================="
+sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
+
 echo "=========================== vs code ==========================="
 COMMAND_NAME="code"
 if ! command -v $COMMAND_NAME &>/dev/null; then
@@ -63,6 +66,16 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     rm -f packages.microsoft.gpg
     sudo apt update
     sudo apt install code # or code-insiders
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
+echo ""
+
+echo "=========================== phpstorm ==========================="
+COMMAND_NAME="phpstorm"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    sudo snap install $COMMAND_NAME
 else
     echo "$COMMAND_NAME install ok installed"
 fi
