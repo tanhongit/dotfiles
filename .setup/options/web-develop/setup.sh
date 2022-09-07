@@ -68,6 +68,16 @@ else
 fi
 echo ""
 
+echo "=========================== phpstorm ==========================="
+COMMAND_NAME="phpstorm"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+    sudo snap install $COMMAND_NAME
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
+echo ""
+
 echo "=========================== composer ==========================="
 COMMAND_NAME="composer"
 if ! command -v $COMMAND_NAME &>/dev/null; then
