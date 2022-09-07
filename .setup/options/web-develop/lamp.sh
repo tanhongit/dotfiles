@@ -154,7 +154,9 @@ echo "=========================== mkcert ==========================="
 COMMAND_NAME="mkcert"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64
+    
+    cd ~/
+    wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64
     sudo mv mkcert-v1.4.3-linux-amd64 mkcert
     sudo chmod +x mkcert
     sudo cp mkcert /usr/local/bin/
