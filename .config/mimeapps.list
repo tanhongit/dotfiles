@@ -71,6 +71,7 @@ application/octet-stream=org.gnome.gedit.desktop;
 text/x-python=code_code.desktop;
 text/plain=phpstorm_phpstorm.desktop;code_code.desktop;
 application/zip=mysql-workbench-community_mysql-workbench-community.desktop;
+application/pdf=google-chrome.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
