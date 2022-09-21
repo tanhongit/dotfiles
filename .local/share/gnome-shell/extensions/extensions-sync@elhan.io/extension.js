@@ -1,4 +1,4 @@
-var init = (function (gio2, glib2, meta10, soup2, st1) {
+var init = (function (gio2, glib2, soup3, meta10, st1) {
     'use strict';
 
     const logger = (prefix) => (content) => log(`[extensions-sync] [${prefix}] ${content}`);
@@ -35,92 +35,6 @@ var init = (function (gio2, glib2, meta10, soup2, st1) {
     })
         .filter((value) => value !== undefined);
 
-    var ByteString = {};
-
-    ByteString.require = () =>
-      imports.byteArray.toString(imports.byteArray.fromString("_")) !== "_" &&
-      (imports.byteArray.toString = String);
-
-    ByteString.require();
-    const { fromString, toString } = imports.byteArray;
-    const { DataInputStream } = imports.gi.Gio;
-    const GLib = imports.gi.GLib;
-    const { Message, Session, URI } = imports.gi.Soup;
-    class Context {
-      static async fetch(url, ctx) {
-        ctx = ctx || {};
-        const headers = ctx.headers || {};
-        const method = ctx.method || "GET";
-        const msg = new Message({ method, uri: new URI(url) });
-        for (const name of Object.keys(headers)) {
-          const header = headers[name];
-          if (header) {
-            msg.request_headers.append(name, header);
-          }
-        }
-        if (ctx.body !== undefined) {
-          msg.request_body.append(fromString(JSON.stringify(ctx.body)));
-        }
-        const session = new Session();
-        const response = await new Promise(resolve =>
-          session.send_async(msg, null, (_, $) => resolve(session.send_finish($)))
-        );
-        const body = await new Promise(resolve => {
-          const stream = new DataInputStream({ base_stream: response });
-          stream.read_line_async(GLib.PRIORITY_DEFAULT, null, (_, $) => {
-            const [maybe] = stream.read_line_finish($);
-            resolve(maybe && maybe.length ? toString(maybe) : "null");
-          });
-        });
-        const responseCtx = new Context();
-        try {
-          responseCtx.body = JSON.parse(body);
-        } catch (_) {
-          responseCtx.body = body;
-        }
-        responseCtx.status = msg.status_code;
-        return responseCtx;
-      }
-      constructor( props) {
-         this.body = {};
-         this.headers = {};
-        this.id = "";
-        this.ip = "";
-        this.length = 0;
-        this.method = "GET";
-        this.path = "";
-        this.protocol = "HTTP/1.1";
-        this.query = "";
-        this.props = props;
-        this.status = 200;
-        this.userId = "";
-      }
-      toString() {
-        const date = new Date();
-        const d = `0${date.getUTCDate()}`.slice(-2);
-        const m = "JanFebMarAprMayJunJulAugSepOctNovDec".substr(
-          date.getUTCMonth() * 3,
-          3
-        );
-        const Y = date.getUTCFullYear();
-        const H = `0${date.getUTCHours()}`.slice(-2);
-        const M = `0${date.getUTCMinutes()}`.slice(-2);
-        const S = `0${date.getUTCSeconds()}`.slice(-2);
-        return `${this.ip} - ${this.userId ||
-      "-"} [${d}/${m}/${Y}:${H}:${M}:${S} +0000] ${JSON.stringify(
-      `${this.method} ${this.path}${this.query ? `?${this.query}` : ""} ${
-        this.protocol
-      }`
-    )} ${this.status} ${this.length} ${JSON.stringify(
-      "Referer" in this.headers ? this.headers.Referer : "-"
-    )} ${JSON.stringify(
-      "User-Agent" in this.headers ? this.headers["User-Agent"] : "-"
-    )}`;
-      }
-    }
-     Context.watch = [];
-    var Context_2 = Context;
-
     var SyncOperationStatus;
     (function (SyncOperationStatus) {
         SyncOperationStatus[SyncOperationStatus["SUCCESS"] = 0] = "SUCCESS";
@@ -145,6 +59,7 @@ var init = (function (gio2, glib2, meta10, soup2, st1) {
         constructor(gistId, userToken) {
             this.gistId = gistId;
             this.userToken = userToken;
+            this.session = new soup3.Session();
         }
         async save(syncData) {
             const files = Object.keys(syncData).reduce((acc, key) => {
@@ -152,33 +67,38 @@ var init = (function (gio2, glib2, meta10, soup2, st1) {
                         content: JSON.stringify(syncData[key]),
                     } });
             }, {});
-            const { status } = await Context_2.fetch(`${Github.GIST_API_URL}/${this.gistId}`, {
-                headers: {
-                    'User-Agent': 'Mozilla/5.0',
-                    Authorization: `token ${this.userToken}`,
-                },
-                body: {
-                    description: 'Extensions Sync',
-                    files,
-                },
-                method: 'PATCH',
+            const message = soup3.Message.new('PATCH', `${Github.GIST_API_URL}/${this.gistId}`);
+            message.request_headers.append('User-Agent', 'Mozilla/5.0');
+            message.request_headers.append('Authorization', `token ${this.userToken}`);
+            const requestBody = JSON.stringify({
+                description: 'Extensions Sync',
+                files,
             });
-            if (status !== 200) {
-                throw new Error(`failed to save data to ${this.getName()}. Server status: ${status}`);
+            message.set_request_body_from_bytes('application/json', new glib2.Bytes(imports.byteArray.fromString(requestBody)));
+            await this.session.send_and_read_async(message, glib2.PRIORITY_DEFAULT, null);
+            const { statusCode } = message;
+            const phrase = soup3.status_get_phrase(statusCode);
+            if (statusCode !== soup3.Status.OK) {
+                throw new Error(`failed to save data to ${this.getName()}. Server status: ${phrase}`);
             }
-            return status === 200 ? SyncOperationStatus.SUCCESS : SyncOperationStatus.FAIL;
+            return SyncOperationStatus.SUCCESS;
         }
         async read() {
-            const { body, status } = await Context_2.fetch(`${Github.GIST_API_URL}/${this.gistId}`, {
-                headers: {
-                    'User-Agent': 'Mozilla/5.0',
-                    Authorization: `token ${this.userToken}`,
-                },
-                method: 'GET',
-            });
-            if (status !== 200) {
-                throw new Error(`failed to read data from ${this.getName()}. Server status: ${status}`);
+            const message = soup3.Message.new('GET', `${Github.GIST_API_URL}/${this.gistId}`);
+            message.request_headers.append('User-Agent', 'Mozilla/5.0');
+            message.request_headers.append('Authorization', `token ${this.userToken}`);
+            const bytes = await this.session.send_and_read_async(message, glib2.PRIORITY_DEFAULT, null);
+            const { statusCode } = message;
+            const phrase = soup3.status_get_phrase(statusCode);
+            if (statusCode !== soup3.Status.OK) {
+                throw new Error(`failed to read data from ${this.getName()}. Server status: ${phrase}`);
             }
+            const data = bytes.get_data();
+            if (data === null) {
+                throw new Error(`failed to read data from ${this.getName()}. Empty response`);
+            }
+            const json = imports.byteArray.toString(data);
+            const body = JSON.parse(json);
             const syncData = Object.keys(body.files).reduce((acc, key) => {
                 try {
                     return Object.assign(Object.assign({}, acc), { [key]: JSON.parse(body.files[key].content) });
@@ -200,37 +120,42 @@ var init = (function (gio2, glib2, meta10, soup2, st1) {
         constructor(snippetId, userToken) {
             this.snippetId = snippetId;
             this.userToken = userToken;
+            this.session = new soup3.Session();
         }
         async save(syncData) {
-            const { status } = await Context_2.fetch(`${Gitlab.SNIPPETS_API_URL}/${this.snippetId}`, {
-                headers: {
-                    'User-Agent': 'Mozilla/5.0',
-                    'PRIVATE-TOKEN': `${this.userToken}`,
-                    'Content-Type': 'application/json',
-                },
-                body: {
-                    title: 'Extensions Sync',
-                    content: JSON.stringify(syncData),
-                },
-                method: 'PUT',
+            const message = soup3.Message.new('PUT', `${Gitlab.SNIPPETS_API_URL}/${this.snippetId}`);
+            message.request_headers.append('User-Agent', 'Mozilla/5.0');
+            message.request_headers.append('PRIVATE-TOKEN', `${this.userToken}`);
+            const requestBody = JSON.stringify({
+                title: 'Extensions Sync',
+                content: JSON.stringify(syncData),
             });
-            if (status !== 200) {
-                throw new Error(`failed to save data to ${this.getName()}. Server status: ${status}`);
+            message.set_request_body_from_bytes('application/json', new glib2.Bytes(imports.byteArray.fromString(requestBody)));
+            await this.session.send_and_read_async(message, glib2.PRIORITY_DEFAULT, null);
+            const { statusCode } = message;
+            const phrase = soup3.status_get_phrase(statusCode);
+            if (statusCode !== soup3.Status.OK) {
+                throw new Error(`failed to save data to ${this.getName()}. Server status: ${phrase}`);
             }
-            return status === 200 ? SyncOperationStatus.SUCCESS : SyncOperationStatus.FAIL;
+            return SyncOperationStatus.SUCCESS;
         }
         async read() {
-            const { body, status } = await Context_2.fetch(`${Gitlab.SNIPPETS_API_URL}/${this.snippetId}/raw`, {
-                headers: {
-                    'User-Agent': 'Mozilla/5.0',
-                    'PRIVATE-TOKEN': `${this.userToken}`,
-                },
-                method: 'GET',
-            });
-            if (status !== 200) {
-                throw new Error(`failed to read data from ${this.getName()}. Server status: ${status}`);
+            const message = soup3.Message.new('GET', `${Gitlab.SNIPPETS_API_URL}/${this.snippetId}/raw`);
+            message.request_headers.append('User-Agent', 'Mozilla/5.0');
+            message.request_headers.append('PRIVATE-TOKEN', `${this.userToken}`);
+            const bytes = await this.session.send_and_read_async(message, glib2.PRIORITY_DEFAULT, null);
+            const { statusCode } = message;
+            const phrase = soup3.status_get_phrase(statusCode);
+            if (statusCode !== soup3.Status.OK) {
+                throw new Error(`failed to read data from ${this.getName()}. Server status: ${phrase}`);
             }
-            return body;
+            const data = bytes.get_data();
+            if (data === null) {
+                throw new Error(`failed to read data from ${this.getName()}. Empty response`);
+            }
+            const json = imports.byteArray.toString(data);
+            const syncData = JSON.parse(json);
+            return syncData;
         }
         getName() {
             return 'Gitlab';
@@ -290,7 +215,7 @@ var init = (function (gio2, glib2, meta10, soup2, st1) {
             debug$9(`cannot load settings for ${schemaPath}`);
         }
         file.delete(null);
-        ioStream.close_async(glib2.PRIORITY_DEFAULT, null, null);
+        ioStream.close_async(glib2.PRIORITY_DEFAULT, null);
     };
     const readDconfData = async (schemaPath) => {
         return execute(`dconf dump ${schemaPath}`);
@@ -1708,60 +1633,36 @@ var init = (function (gio2, glib2, meta10, soup2, st1) {
         imports.ui.extensionDownloader.uninstallExtension(extensionId);
         debug$7(`removed extension ${extensionId}`);
     };
-    const extractExtensionArchive = (bytes, dir, callback) => {
+    const extractExtensionArchive = async (bytes, dir) => {
         if (!dir.query_exists(null)) {
             dir.make_directory_with_parents(null);
         }
         const [file, stream] = gio2.File.new_tmp('XXXXXX.shell-extension.zip');
-        stream.output_stream.write_bytes(bytes, null);
-        stream.close(null);
-        const [success, pid] = glib2.spawn_async(null, ['unzip', '-uod', `${dir.get_path()}`, '--', `${file.get_path()}`], null, glib2.SpawnFlags.SEARCH_PATH | glib2.SpawnFlags.DO_NOT_REAP_CHILD, null);
-        if (!success) {
-            throw new Error('failed to extract extension');
-        }
-        if (pid) {
-            glib2.child_watch_add(glib2.PRIORITY_DEFAULT, pid, (o, status) => {
-                glib2.spawn_close_pid(pid);
-                if (status != 0) {
-                    throw new Error('failed to extract extension');
-                }
-                else {
-                    callback();
-                }
-            });
-        }
+        await stream.output_stream.write_bytes_async(bytes, glib2.PRIORITY_DEFAULT, null);
+        stream.close_async(glib2.PRIORITY_DEFAULT, null);
+        const unzip = gio2.Subprocess.new(['unzip', '-uod', dir.get_path(), '--', file.get_path()], gio2.SubprocessFlags.NONE);
+        await unzip.wait_check_async(null);
     };
     const installExtension = async (extensionId) => {
-        return new Promise((resolve) => {
-            const params = { shell_version: imports.misc.config.PACKAGE_VERSION };
-            const soupUri = new soup2.URI(`https://extensions.gnome.org/download-extension/${extensionId}.shell-extension.zip`);
-            soupUri.set_query(soup2.form_encode_hash(params));
-            const message = soup2.Message.new_from_uri('GET', soupUri);
-            const dir = gio2.File.new_for_path(glib2.build_filenamev([glib2.get_user_data_dir(), 'gnome-shell', 'extensions', extensionId]));
-            try {
-                const httpSession = new soup2.Session();
-                httpSession.queue_message(message, () => {
-                    const { statusCode } = message;
-                    const phrase = soup2.status_get_phrase(statusCode);
-                    if (statusCode !== soup2.Status.OK) {
-                        throw new Error(`Unexpected response: ${phrase}`);
-                    }
-                    const bytes = message.response_body.flatten().get_as_bytes();
-                    extractExtensionArchive(bytes, dir, () => {
-                        const extension = getExtensionManager().createExtensionObject(extensionId, dir, ExtensionType.PER_USER);
-                        getExtensionManager().loadExtension(extension);
-                        if (!getExtensionManager().enableExtension(extensionId)) {
-                            throw new Error(`Cannot enable ${extensionId}`);
-                        }
-                        resolve();
-                    });
-                });
+        const params = { shell_version: imports.misc.config.PACKAGE_VERSION };
+        const message = soup3.Message.new_from_encoded_form('GET', `https://extensions.gnome.org/download-extension/${extensionId}.shell-extension.zip`, soup3.form_encode_hash(params));
+        const dir = gio2.File.new_for_path(glib2.build_filenamev([glib2.get_user_data_dir(), 'gnome-shell', 'extensions', extensionId]));
+        try {
+            const bytes = await new soup3.Session().send_and_read_async(message, glib2.PRIORITY_DEFAULT, null);
+            const { statusCode } = message;
+            const phrase = soup3.status_get_phrase(statusCode);
+            if (statusCode !== soup3.Status.OK)
+                throw new Error(`Unexpected response: ${phrase}`);
+            await extractExtensionArchive(bytes, dir);
+            const extension = getExtensionManager().createExtensionObject(extensionId, dir, ExtensionType.PER_USER);
+            getExtensionManager().loadExtension(extension);
+            if (!getExtensionManager().enableExtension(extensionId)) {
+                throw new Error(`Cannot enable ${extensionId}`);
             }
-            catch (e) {
-                debug$7(`error occurred during installation of ${extensionId}. Error: ${e}`);
-                resolve();
-            }
-        });
+        }
+        catch (e) {
+            debug$7(`error occurred during installation of ${extensionId}. Error: ${e}`);
+        }
     };
 
     const debug$6 = logger('extension-provider');
@@ -2448,4 +2349,4 @@ var init = (function (gio2, glib2, meta10, soup2, st1) {
 
     return extension;
 
-})(imports.gi.Gio, imports.gi.GLib, imports.gi.Meta, imports.gi.Soup, imports.gi.St);
+})(imports.gi.Gio, imports.gi.GLib, imports.gi.Soup, imports.gi.Meta, imports.gi.St);
