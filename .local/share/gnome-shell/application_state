@@ -1,30 +1,28 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="org.flameshot.Flameshot.desktop" score="42" last-seen="1663484735"/>
-    <application id="libreoffice-writer.desktop" score="22.25" last-seen="1663243630"/>
+    <application id="libreoffice-writer.desktop" score="23.25" last-seen="1663781702"/>
     <application id="org.gnome.Evince.desktop" score="0.25" last-seen="1663242098"/>
     <application id="org.gnome.FileRoller.desktop" score="4.75" last-seen="1663385294"/>
-    <application id="rambox_rambox.desktop" score="1045.25" last-seen="1663484092"/>
-    <application id="google-chrome.desktop" score="14203.375" last-seen="1663484789"/>
-    <application id="anydesk.desktop" score="435" last-seen="1663435175"/>
+    <application id="rambox_rambox.desktop" score="3406.25" last-seen="1663782618"/>
+    <application id="google-chrome.desktop" score="23656.375" last-seen="1663782616"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="14" last-seen="1663548599"/>
+    <application id="anydesk.desktop" score="643" last-seen="1663695281"/>
     <application id="gnome-control-center.desktop" score="77.375" last-seen="1663245109"/>
-    <application id="phpstorm_phpstorm.desktop" score="7774.75" last-seen="1663483236"/>
-    <application id="org.gnome.eog.desktop" score="0.5" last-seen="1663157385"/>
-    <application id="update-manager.desktop" score="27.25" last-seen="1663385256"/>
-    <application id="org.gnome.Nautilus.desktop" score="352" last-seen="1663484739"/>
-    <application id="xdg-desktop-portal-gnome.desktop" score="0" last-seen="1663126868"/>
+    <application id="org.gnome.gedit.desktop" score="70" last-seen="1663781682"/>
+    <application id="org.gnome.eog.desktop" score="9.5" last-seen="1663555177"/>
+    <application id="update-manager.desktop" score="28.25" last-seen="1663490917"/>
+    <application id="org.gnome.Nautilus.desktop" score="439" last-seen="1663781738"/>
     <application id="snap-store_ubuntu-software.desktop" score="8.25" last-seen="1663484277"/>
-    <application id="org.gnome.gedit.desktop" score="58" last-seen="1663355492"/>
-    <application id="org.gnome.Calculator.desktop" score="2.25" last-seen="1662967038"/>
-    <application id="org.gnome.Terminal.desktop" score="10.75" last-seen="1663321941"/>
-    <application id="org.gnome.Shell.PortalHelper.desktop" score="1" last-seen="1663156084"/>
-    <application id="vlc.desktop" score="281.5" last-seen="1663454796"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="2485.375" last-seen="1663391991"/>
-    <application id="postman_postman.desktop" score="60.75" last-seen="1663131834"/>
-    <application id="gnome-system-monitor.desktop" score="8.75" last-seen="1663484351"/>
-    <application id="code.desktop" score="614" last-seen="1663449541"/>
-    <application id="timeshift-gtk.desktop" score="49.5" last-seen="1663484347"/>
-    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="78.25" last-seen="1663318623"/>
+    <application id="org.flameshot.Flameshot.desktop" score="45" last-seen="1663745301"/>
+    <application id="org.gnome.Calculator.desktop" score="2.25" last-seen="1663757066"/>
+    <application id="org.gnome.Terminal.desktop" score="12.75" last-seen="1663656726"/>
+    <application id="phpstorm_phpstorm.desktop" score="13561.75" last-seen="1663782335"/>
+    <application id="vlc.desktop" score="1373.5" last-seen="1663617523"/>
+    <application id="gnome-system-monitor.desktop" score="14.75" last-seen="1663656354"/>
+    <application id="code.desktop" score="734" last-seen="1663780183"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="5830.375" last-seen="1663781791"/>
+    <application id="timeshift-gtk.desktop" score="63.5" last-seen="1663756686"/>
+    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="111.25" last-seen="1663756263"/>
   </context>
 </application-state>

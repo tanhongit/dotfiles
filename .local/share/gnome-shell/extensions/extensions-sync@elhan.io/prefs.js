@@ -1,4 +1,3 @@
-imports.gi.versions.Gtk = '4.0';
 var prefs = (function (gobject2, gtk4, gio2, glib2) {
     'use strict';
 
@@ -312,11 +311,13 @@ var prefs = (function (gobject2, gtk4, gio2, glib2) {
                 dialog.connect('response', (_, response) => {
                     if (response === gtk4.ResponseType.OK) {
                         const backupFile = dialog.get_file();
-                        if (!backupFile.query_exists(null)) {
-                            backupFile.create(gio2.FileCreateFlags.PRIVATE, null);
+                        if (backupFile) {
+                            if (!backupFile.query_exists(null)) {
+                                backupFile.create(gio2.FileCreateFlags.PRIVATE, null);
+                            }
+                            locationButton.label = backupFile.get_uri();
+                            this.settings.set_string('backup-file-location', backupFile.get_uri());
                         }
-                        locationButton.label = backupFile.get_uri();
-                        this.settings.set_string('backup-file-location', backupFile.get_uri());
                     }
                     dialog.destroy();
                 });
