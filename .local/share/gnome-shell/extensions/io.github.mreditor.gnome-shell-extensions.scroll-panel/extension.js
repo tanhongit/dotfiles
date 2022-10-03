@@ -1,6 +1,6 @@
 /* exported init */
 
-const { Clutter, GLib, Meta } = imports.gi;
+const {Clutter, GLib, Meta} = imports.gi;
 const WorkspaceSwitcherPopup = imports.ui.workspaceSwitcherPopup;
 const Me = imports.misc.extensionUtils.getCurrentExtension();
 // WARNING: No extension imports allowed here since it will break method calls
@@ -174,6 +174,16 @@ class ExtensionModule {
         this._signalDisconnectors = [];
         this._windowsSwitcherHandler.handleActor(null);
         this._workspacesSwitcherHandler.handleActor(null);
+
+        // clean timeouts according to https://gjs.guide/extensions/review-guidelines/review-guidelines.html#remove-main-loop-sources
+        if (this._workspaceSwitchTimeoutHandle !== null) {
+            GLib.Source.remove(this._workspaceSwitchTimeoutHandle);
+            this._workspaceSwitchTimeoutHandle = null;
+        }
+        if (this._windowSwitchTimeoutHandle !== null) {
+            GLib.Source.remove(this._windowSwitchTimeoutHandle);
+            this._windowSwitchTimeoutHandle = null;
+        }
     }
 
     _updateHandler(handler, switcher) {
@@ -289,8 +299,8 @@ class ExtensionModule {
         }
 
         const displayWorkspacesSwitcherPopup = imports.misc.config.PACKAGE_VERSION >= '42'
-            ? (direction, index) => this._workspacesSwitcherPopup?.display(index)
-            : (direction, index) => this._workspacesSwitcherPopup?.display(direction, index);
+            ? (_, ind) => this._workspacesSwitcherPopup?.display(ind)
+            : (dir, ind) => this._workspacesSwitcherPopup?.display(dir, ind);
         if (distance < 0) {
             // such that `modBallast > abs(distance) && modBallast % count == 0`
             const modBallast = Math.abs(distance) * count;

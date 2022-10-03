@@ -1,28 +1,27 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="libreoffice-writer.desktop" score="23.25" last-seen="1663781702"/>
-    <application id="org.gnome.Evince.desktop" score="0.25" last-seen="1663242098"/>
-    <application id="org.gnome.FileRoller.desktop" score="4.75" last-seen="1663385294"/>
-    <application id="rambox_rambox.desktop" score="3406.25" last-seen="1663782618"/>
-    <application id="google-chrome.desktop" score="23656.375" last-seen="1663782616"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="14" last-seen="1663548599"/>
-    <application id="anydesk.desktop" score="643" last-seen="1663695281"/>
-    <application id="gnome-control-center.desktop" score="77.375" last-seen="1663245109"/>
-    <application id="org.gnome.gedit.desktop" score="70" last-seen="1663781682"/>
-    <application id="org.gnome.eog.desktop" score="9.5" last-seen="1663555177"/>
-    <application id="update-manager.desktop" score="28.25" last-seen="1663490917"/>
-    <application id="org.gnome.Nautilus.desktop" score="439" last-seen="1663781738"/>
-    <application id="snap-store_ubuntu-software.desktop" score="8.25" last-seen="1663484277"/>
-    <application id="org.flameshot.Flameshot.desktop" score="45" last-seen="1663745301"/>
-    <application id="org.gnome.Calculator.desktop" score="2.25" last-seen="1663757066"/>
-    <application id="org.gnome.Terminal.desktop" score="12.75" last-seen="1663656726"/>
-    <application id="phpstorm_phpstorm.desktop" score="13561.75" last-seen="1663782335"/>
-    <application id="vlc.desktop" score="1373.5" last-seen="1663617523"/>
-    <application id="gnome-system-monitor.desktop" score="14.75" last-seen="1663656354"/>
-    <application id="code.desktop" score="734" last-seen="1663780183"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="5830.375" last-seen="1663781791"/>
-    <application id="timeshift-gtk.desktop" score="63.5" last-seen="1663756686"/>
-    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="111.25" last-seen="1663756263"/>
+    <application id="rambox_rambox.desktop" score="1524.5625" last-seen="1664790281"/>
+    <application id="google-chrome.desktop" score="22362.34375" last-seen="1664790465"/>
+    <application id="software-properties-gtk.desktop" score="1" last-seen="1664790381"/>
+    <application id="anydesk.desktop" score="60.5" last-seen="1664423016"/>
+    <application id="gnome-control-center.desktop" score="11" last-seen="1664492536"/>
+    <application id="org.gnome.gedit.desktop" score="27" last-seen="1664502504"/>
+    <application id="org.gnome.eog.desktop" score="0.5" last-seen="1664425002"/>
+    <application id="update-manager.desktop" score="24.5" last-seen="1664790383"/>
+    <application id="org.gnome.Nautilus.desktop" score="160" last-seen="1664790353"/>
+    <application id="snap-store_ubuntu-software.desktop" score="11.5" last-seen="1664790500"/>
+    <application id="filezilla.desktop" score="0.5" last-seen="1664243230"/>
+    <application id="org.gnome.Calculator.desktop" score="38" last-seen="1664719571"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="4665.34375" last-seen="1664790172"/>
+    <application id="libreoffice-impress.desktop" score="1" last-seen="1664789977"/>
+    <application id="vlc.desktop" score="168" last-seen="1664546968"/>
+    <application id="org.flameshot.Flameshot.desktop" score="0" last-seen="1664785617"/>
+    <application id="code.desktop" score="393.25" last-seen="1664303508"/>
+    <application id="phpstorm_phpstorm.desktop" score="14244.9375" last-seen="1664789953"/>
+    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="110.3125" last-seen="1664790287"/>
+    <application id="libreoffice-startcenter.desktop" score="1" last-seen="1664789984"/>
+    <application id="timeshift-gtk.desktop" score="1" last-seen="1664790352"/>
+    <application id="gnome-system-monitor.desktop" score="3.5" last-seen="1664424691"/>
   </context>
 </application-state>
