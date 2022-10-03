@@ -1,4 +1,3 @@
-const Bytes      = imports.byteArray
 const GLib       = imports.gi.GLib
 const GObject    = imports.gi.GObject
 const Meta       = imports.gi.Meta
@@ -17,19 +16,10 @@ const VALID_TYPES = [
   Meta.WindowType.UTILITY
 ]
 
-const UNITE_HINTS = '_UNITE_ORIGINAL_STATE'
 const MOTIF_HINTS = '_MOTIF_WM_HINTS'
 
 const _SHOW_FLAGS = ['0x2', '0x0', '0x1', '0x0', '0x0']
 const _HIDE_FLAGS = ['0x2', '0x0', '0x2', '0x0', '0x0']
-
-function safeSpawn(command) {
-  try {
-    return GLib.spawn_command_line_sync(command)
-  } catch (e) {
-    return [false, Bytes.fromString('')]
-  }
-}
 
 function isValid(win) {
   return win && VALID_TYPES.includes(win.window_type)
@@ -46,45 +36,12 @@ function getXid(win) {
   return match && match[0]
 }
 
-function getHint(xid, name, fallback) {
-  const result = safeSpawn(`xprop -id ${xid} ${name}`)
-  const string = Bytes.toString(result[1])
-
-  if (!string.match(/=/)) {
-    return fallback
-  }
-
-  return string.split('=')[1].trim().split(',').map(part => {
-    part = part.trim()
-    return part.match(/\dx/) ? part : `0x${part}`
-  })
-}
-
 function setHint(xid, hint, value) {
   value = value.join(', ')
   Util.spawn(['xprop', '-id', xid, '-f', hint, '32c', '-set', hint, value])
 }
 
-function getHints(xid) {
-  let value = getHint(xid, UNITE_HINTS)
-
-  if (!value) {
-    value = getHint(xid, MOTIF_HINTS, _SHOW_FLAGS)
-    setHint(xid, UNITE_HINTS, value)
-  }
-
-  return value
-}
-
-function isDecorated(hints) {
-  return hints[2] != '0x2' && hints[2] != '0x0'
-}
-
 var ClientDecorations = class ClientDecorations {
-  constructor(xid) {
-    this.xid = xid
-  }
-
   show() {
     return false
   }
@@ -99,30 +56,27 @@ var ClientDecorations = class ClientDecorations {
 }
 
 var ServerDecorations = class ServerDecorations {
-  constructor(xid) {
-    this.xid     = xid
-    this.initial = getHints(xid)
-    this.current = this.initial
+  constructor({ xid, win }) {
+    this.xid = xid
+    this.win = win
   }
 
   get decorated() {
-    return isDecorated(this.current)
+    return this.win.get_frame_type() !== Meta.FrameType.BORDER
   }
 
   get handle() {
-    return isDecorated(this.initial)
+    return this.win.decorated
   }
 
   show() {
     if (this.handle && !this.decorated) {
-      this.current = _SHOW_FLAGS
       setHint(this.xid, MOTIF_HINTS, _SHOW_FLAGS)
     }
   }
 
   hide() {
     if (this.handle && this.decorated) {
-      this.current = _HIDE_FLAGS
       setHint(this.xid, MOTIF_HINTS, _HIDE_FLAGS)
     }
   }
@@ -146,9 +100,9 @@ var MetaWindow = GObject.registerClass(
       this.settings = new Handlers.Settings()
 
       if (this.xid && !this.clientDecorated) {
-        this.decorations = new ServerDecorations(this.xid)
+        this.decorations = new ServerDecorations(this)
       } else {
-        this.decorations = new ClientDecorations(this.xid)
+        this.decorations = new ClientDecorations(this)
       }
 
       this.signals.connect(
@@ -206,20 +160,16 @@ var MetaWindow = GObject.registerClass(
       return this.win.minimized
     }
 
+    get anyMaximized() {
+      return this.win.maximized_horizontally || this.win.maximized_vertically
+    }
+
     get maximized() {
       return this.win.maximized_horizontally && this.win.maximized_vertically
     }
 
     get tiled() {
-      if (this.maximized) {
-        return false
-      } else {
-        return this.win.maximized_horizontally || this.win.maximized_vertically
-      }
-    }
-
-    get bothMaximized() {
-      return this.maximized || this.tiled
+      return !this.maximized && this.anyMaximized
     }
 
     get restrictToPrimary() {
@@ -303,8 +253,11 @@ var MetaWindow = GObject.registerClass(
       if (this.hasFocus) {
         const overview = Main.overview.visibleTarget
         const controls = Main.panel.statusArea.uniteWindowControls
+        const skipTbar = Meta.is_wayland_compositor() && this.win.skip_taskbar
 
-        controls && controls.setVisible(!overview && this.showButtons)
+        controls && controls.setVisible(
+          !overview && !skipTbar && this.showButtons
+        )
       }
     }
 
@@ -331,7 +284,7 @@ var MetaWindow = GObject.registerClass(
         case 'never':     return false
         case 'tiled':     return this.handleScreen && this.tiled
         case 'maximized': return this.handleScreen && this.maximized
-        case 'both':      return this.handleScreen && this.bothMaximized
+        case 'both':      return this.handleScreen && this.anyMaximized
       }
     }
 
