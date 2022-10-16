@@ -3,23 +3,23 @@
 /* jshint esnext:true */
 /* exported enable disable init */
 /**
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-**/
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ **/
 
 'use strict';
 
-const { Atk, Gio, GObject, Shell, St } = imports.gi;
+const { Atk, Gio, GObject, Shell, St, Meta } = imports.gi;
 const Main = imports.ui.main;
 const Mainloop = imports.mainloop;
 const PanelMenu = imports.ui.panelMenu;
@@ -31,6 +31,7 @@ const USER_ENABLED_KEY = 'user-enabled';
 const RESTORE_KEY = 'restore-state';
 const FULLSCREEN_KEY = 'enable-fullscreen';
 const NIGHT_LIGHT_KEY = 'control-nightlight';
+const TOGGLE_SHORTCUT = 'toggle-shortcut';
 
 const Gettext = imports.gettext.domain('gnome-shell-extension-caffeine');
 const _ = Gettext.gettext;
@@ -147,6 +148,7 @@ class Caffeine extends PanelMenu.Button {
         this._icon.gicon = Gio.icon_new_for_string(`${Me.path}/icons/${DisabledIcon}.svg`);
 
         this._state = false;
+        this._userState = false;
         // who has requested the inhibition
         this._last_app = '';
         this._last_cookie = '';
@@ -173,6 +175,8 @@ class Caffeine extends PanelMenu.Button {
         this._appData = new Map();
 
         this._settings.connect(`changed::${INHIBIT_APPS_KEY}`, this._updateAppConfigs.bind(this));
+        this._settings.connect(`changed::${USER_ENABLED_KEY}`, this._updateUserState.bind(this));
+
         this._updateAppConfigs();
     }
 
@@ -237,7 +241,7 @@ class Caffeine extends PanelMenu.Button {
                     appId = String(appId);
                     if (appId !== '' && appId === this._last_app) {
                         if (this._last_app === 'user')
-                            this._settings.set_boolean(USER_ENABLED_KEY, true);
+                            this._saveUserState(true);
                         this._apps.push(this._last_app);
                         this._cookies.push(this._last_cookie);
                         this._objects.push(object);
@@ -259,7 +263,7 @@ class Caffeine extends PanelMenu.Button {
         let index = this._objects.indexOf(object);
         if (index !== -1) {
             if (this._apps[index] === 'user')
-                this._settings.set_boolean(USER_ENABLED_KEY, false);
+                this._saveUserState(false);
             // Remove app from list
             this._apps.splice(index, 1);
             this._cookies.splice(index, 1);
@@ -315,6 +319,18 @@ class Caffeine extends PanelMenu.Button {
             this._appConfigs.push(appId);
         });
         this._updateAppData();
+    }
+
+    _updateUserState() {
+        if (this._settings.get_boolean(USER_ENABLED_KEY) !== this._userState) {
+            this._userState = !this._userState;
+            this.toggleState();
+        }
+    }
+
+    _saveUserState(state) {
+        this._userState = state;
+        this._settings.set_boolean(USER_ENABLED_KEY, state);
     }
 
     _updateAppData() {
@@ -391,10 +407,16 @@ class Caffeine extends PanelMenu.Button {
     }
 });
 
+/**
+ * Steps to run on initialization of the extension
+ */
 function init() {
     ExtensionUtils.initTranslations();
 }
 
+/**
+ * Steps to run when the extension is enabled
+ */
 function enable() {
     // Migrate old nightlight settings
     const _settings = ExtensionUtils.getSettings();
@@ -412,9 +434,20 @@ function enable() {
 
     CaffeineIndicator = new Caffeine();
     Main.panel.addToStatusArea(IndicatorName, CaffeineIndicator);
+
+    // Register shortcut
+    Main.wm.addKeybinding(TOGGLE_SHORTCUT, _settings, Meta.KeyBindingFlags.IGNORE_AUTOREPEAT, Shell.ActionMode.ALL, () => {
+        CaffeineIndicator.toggleState();
+    });
 }
 
+/**
+ * Steps to run when the extension is disabled
+ */
 function disable() {
     CaffeineIndicator.destroy();
     CaffeineIndicator = null;
+
+    // Unregister shortcut
+    Main.wm.removeKeybinding(TOGGLE_SHORTCUT);
 }
