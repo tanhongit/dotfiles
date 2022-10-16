@@ -65,11 +65,11 @@ application/x-php=phpstorm_phpstorm.desktop;code_code.desktop;code_code-url-hand
 application/vnd.appimage=apturl.desktop;
 text/html=org.gnome.gedit.desktop;code_code.desktop;
 application/x-bittorrent=transmission-gtk.desktop;
-image/svg+xml=google-chrome.desktop;
+image/svg+xml=org.gnome.gedit.desktop;google-chrome.desktop;
 application/vnd.ms-publisher=org.gnome.gedit.desktop;
 application/octet-stream=org.gnome.gedit.desktop;
 text/x-python=code_code.desktop;
-text/plain=phpstorm_phpstorm.desktop;code_code.desktop;
+text/plain=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;code_code.desktop;
 application/zip=mysql-workbench-community_mysql-workbench-community.desktop;
 application/pdf=google-chrome.desktop;
 
