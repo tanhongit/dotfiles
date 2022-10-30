@@ -1,3 +1,87 @@
+43.0
+====
+
+Contributors:
+  Florian Müllner
+
+Translators:
+  Pawan Chitrakar [ne], Zurab Kargareteli [ka], Aleksandr Melman [ru]
+
+43.rc
+=====
+* Misc. bug fixes and cleanups [Florian; !240]
+
+Contributors:
+  Florian Müllner
+
+43.beta
+=======
+* Misc. bug fixes and cleanups [Florian; !237, !238]
+
+Contributors:
+  Florian Müllner
+
+Translators:
+  Nart Tlisha [ab]
+
+43.alpha
+========
+
+Contributors:
+  Florian Müllner
+
+Translators:
+  Marco Ciampa [it]
+
+42.3
+====
+* screenshot-window-sizer: Fix reported sizes on wayland [Florian; !232]
+* window-list: Improve touch support [Florian; !233]
+
+Contributors:
+  Florian Müllner
+
+42.2
+====
+* native-window-placement: Adjust to gnome-shell 42 changes [Florian; !229]
+* window-list: Fix visibility on non-primary monitors [Jason; !230]
+
+Contributors:
+  Jason Lynch, Florian Müllner
+
+Translators:
+  Cheng-Chia Tseng [zh_TW]
+
+42.1
+====
+* Misc. bug fixes and cleanups [Florian; !223, !222, !225]
+
+Contributors:
+  Florian Müllner
+
+Translators:
+  Milo Casagrande [it], Rūdolfs Mazurs [lv], Nathan Follens [nl],
+  Ngọc Quân Trần [vi], Zurab Kargareteli [ka]
+
+42.0
+====
+
+Translators:
+  Philipp Kiemle [de], Balázs Úr [hu], Марко Костић [sr], sicklylife [ja],
+  Baurzhan Muftakhidinov [kk]
+
+42.rc
+=====
+* Misc. bug fixes and cleanups [Florian; !215, !218]
+
+Contributors:
+  Florian Müllner
+
+Translators:
+  Marek Černocký [cs], Dušan Kazik [sk], Piotr Drąg [pl], Jiri Grönroos [fi],
+  Luna Jernberg [sv], Alan Mortensen [da], Charles Monzat [fr],
+  Changwoo Ryu [ko]
+
 42.beta
 =======
 * workspace-indicator: Fix cancelling editing with Esc [Florian; !208]
