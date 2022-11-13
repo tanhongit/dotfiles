@@ -1,36 +1,25 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="org.gnome.TextEditor.desktop" score="24" last-seen="1666930381"/>
-    <application id="apport-gtk.desktop" score="0" last-seen="1666661570"/>
-    <application id="obs-studio_obs-studio.desktop" score="6" last-seen="1666859346"/>
-    <application id="phpstorm_phpstorm.desktop" score="9423" last-seen="1667170155"/>
-    <application id="org.gnome.tweaks.desktop" score="0" last-seen="1666827871"/>
-    <application id="software-properties-gtk.desktop" score="7.5" last-seen="1666678945"/>
-    <application id="org.gnome.eog.desktop" score="0" last-seen="1666930562"/>
-    <application id="code.desktop" score="223.5" last-seen="1666739297"/>
-    <application id="gnome-sound-panel.desktop" score="0" last-seen="0"/>
-    <application id="ca.desrt.dconf-editor.desktop" score="0.5" last-seen="1666828166"/>
-    <application id="rambox_rambox.desktop" score="889.5" last-seen="1667168262"/>
-    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="12.5" last-seen="1666696856"/>
-    <application id="org.gnome.Settings.desktop" score="51.5" last-seen="1667133895"/>
-    <application id="org.flameshot.Flameshot.desktop" score="1" last-seen="1666889560"/>
-    <application id="libreoffice-writer.desktop" score="511" last-seen="1666858624"/>
-    <application id="org.gnome.Terminal.desktop" score="40" last-seen="1667170173"/>
-    <application id="postman_postman.desktop" score="1.5" last-seen="1666738226"/>
-    <application id="slack_slack.desktop" score="103" last-seen="1667034395"/>
-    <application id="org.gnome.Nautilus.desktop" score="470.5" last-seen="1667170109"/>
-    <application id="snap-store_ubuntu-software.desktop" score="47" last-seen="1666944270"/>
-    <application id="gparted.desktop" score="31.5" last-seen="1666828109"/>
-    <application id="gnome-system-monitor.desktop" score="32.5" last-seen="1666934441"/>
-    <application id="ulauncher.desktop" score="0" last-seen="1666738456"/>
-    <application id="org.gnome.Totem.desktop" score="1" last-seen="1667016285"/>
-    <application id="update-manager.desktop" score="32" last-seen="1667143828"/>
-    <application id="PlayOnLinux.desktop" score="5.5" last-seen="1666672598"/>
-    <application id="anydesk.desktop" score="10.5" last-seen="1666954675"/>
-    <application id="google-chrome.desktop" score="25388.91796875" last-seen="1667170159"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="5312.29296875" last-seen="1667169780"/>
-    <application id="org.gnome.gedit.desktop" score="3" last-seen="1666828414"/>
-    <application id="timeshift-gtk.desktop" score="80.5" last-seen="1666828968"/>
+    <application id="org.gnome.TextEditor.desktop" score="23" last-seen="1668070460"/>
+    <application id="rambox_rambox.desktop" score="748.125" last-seen="1668238567"/>
+    <application id="google-chrome.desktop" score="25226.2294921875" last-seen="1668308173"/>
+    <application id="org.gnome.Evolution-alarm-notify.desktop" score="4" last-seen="1667979033"/>
+    <application id="anydesk.desktop" score="60.625" last-seen="1667963749"/>
+    <application id="phpstorm_phpstorm.desktop" score="17998.5" last-seen="1668308405"/>
+    <application id="org.gnome.eog.desktop" score="0" last-seen="1667781626"/>
+    <application id="libreoffice-calc.desktop" score="22.5" last-seen="1668075079"/>
+    <application id="org.gnome.Nautilus.desktop" score="221.375" last-seen="1668255647"/>
+    <application id="update-manager.desktop" score="12" last-seen="1667781707"/>
+    <application id="org.flameshot.Flameshot.desktop" score="1" last-seen="1667969912"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="5667.5732421875" last-seen="1668078178"/>
+    <application id="org.gnome.Calculator.desktop" score="294" last-seen="1667985366"/>
+    <application id="org.gnome.Terminal.desktop" score="22" last-seen="1668234707"/>
+    <application id="slack_slack.desktop" score="305.25" last-seen="1668149731"/>
+    <application id="thunderbird.desktop" score="1" last-seen="1667890457"/>
+    <application id="code.desktop" score="312.625" last-seen="1668236608"/>
+    <application id="gnome-system-monitor.desktop" score="19.125" last-seen="1668255557"/>
+    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="43.5" last-seen="1667815560"/>
+    <application id="org.gnome.Settings.desktop" score="27.375" last-seen="1667846474"/>
   </context>
 </application-state>
