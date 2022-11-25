@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # clone tool create virtual host
 sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git ${ZSH_CUSTOM:-$HOME}/tools/avhc_tool
 
