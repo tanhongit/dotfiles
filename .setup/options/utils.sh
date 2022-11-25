@@ -1,3 +1,5 @@
+#!/bin/bash
+
 UTILS_PACKAGE_LIST=("wine-stable" "vlc" "timeshift" "python3-pip")
 
 for packageName in "${UTILS_PACKAGE_LIST[@]}"; do

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "=========================== docker ==========================="
 COMMAND_NAME="docker"
 if ! command -v $COMMAND_NAME &>/dev/null; then
