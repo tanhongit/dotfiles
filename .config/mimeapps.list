@@ -72,6 +72,8 @@ text/x-python=code_code.desktop;
 text/plain=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;code_code.desktop;
 application/zip=mysql-workbench-community_mysql-workbench-community.desktop;
 application/pdf=google-chrome.desktop;
+application/xml=code.desktop;
+application/sql=code.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
@@ -139,3 +141,5 @@ audio/x-mod=rhythmbox.desktop
 audio/x-s3m=rhythmbox.desktop
 audio/x-stm=rhythmbox.desktop
 audio/x-xm=rhythmbox.desktop
+application/xml=code.desktop
+application/sql=code.desktop
