@@ -27,8 +27,9 @@ snap list --all | awk '/disabled/{print $1, $3}' |
     done
 
 echo "======================= Clear thumbnails cache ======================="
-du -sh ~/.cache/thumbnails
-rm -rf ~/.cache/thumbnails/*
+if [ -d "$HOME/.cache/thumbnails" ]; then
+    rm -rfv $HOME/.cache/thumbnails/*
+fi
 
 echo "=========================== copy overwrite ==========================="
 while true; do
