@@ -2,7 +2,7 @@
  * Manager Library
  *
  * @author     Javad Rahmatzadeh <j.rahmatzadeh@gmail.com>
- * @copyright  2020-2022
+ * @copyright  2020-2023
  * @license    GPL-3.0-only
  */
 
@@ -234,6 +234,10 @@ var Manager = class
             this._applyDoubleSuperToAppgrid(false);
         });
 
+        this._settings.connect('changed::switcher-popup-delay', () => {
+            this._applySwitcherPopupDelay(false);
+        });
+
         this._settings.connect('changed::world-clock', () => {
             this._applyWorldClock(false);
         });
@@ -284,6 +288,18 @@ var Manager = class
 
         this._settings.connect('changed::alt-tab-icon-size', () => {
             this._applyAltTabIconSize(false);
+        });
+
+        this._settings.connect('changed::screen-sharing-indicator', () => {
+            this._applyScreenSharingIndicator(false);
+        });
+        
+        this._settings.connect('changed::screen-recording-indicator', () => {
+            this._applyScreenRecordingIndicator(false);
+        });
+
+        this._settings.connect('changed::controls-manager-spacing-size', () => {
+            this._applyControlsManagerSpacingSize(false);
         });
     }
 
@@ -340,6 +356,7 @@ var Manager = class
         this._applyWorkspaceWrapAround(false);
         this._applyRippleBox(false);
         this._applyDoubleSuperToAppgrid(false);
+        this._applySwitcherPopupDelay(false);
         this._applyWorldClock(false);
         this._applyWeather(false);
         this._applyPanelIconSize(false);
@@ -352,6 +369,9 @@ var Manager = class
         this._applyAltTabWindowPreviewSize(false);
         this._applyAltTabSmallIconSize(false);
         this._applyAltTabIconSize(false);
+        this._applyScreenSharingIndicator(false);
+        this._applyScreenRecordingIndicator(false);
+        this._applyControlsManagerSpacingSize(false);
     }
 
     /**
@@ -407,6 +427,7 @@ var Manager = class
         this._applyWorkspaceWrapAround(true);
         this._applyRippleBox(true);
         this._applyDoubleSuperToAppgrid(true);
+        this._applySwitcherPopupDelay(true);
         this._applyWorldClock(true);
         this._applyWeather(true);
         this._applyPanelIconSize(true);
@@ -419,6 +440,9 @@ var Manager = class
         this._applyAltTabWindowPreviewSize(true);
         this._applyAltTabSmallIconSize(true);
         this._applyAltTabIconSize(true);
+        this._applyScreenSharingIndicator(true);
+        this._applyScreenRecordingIndicator(true);
+        this._applyControlsManagerSpacingSize(true);
     }
 
     /**
@@ -889,7 +913,7 @@ var Manager = class
     _applyClockMenuPosition(forceOriginal)
     {
         if (forceOriginal) {
-            this._api.clockMenuPositionSet(0, 0);
+            this._api.clockMenuPositionSetDefault();
         } else {
             let pos = this._settings.get_int('clock-menu-position');
             let offset = this._settings.get_int('clock-menu-position-offset');
@@ -925,7 +949,7 @@ var Manager = class
         let animation = this._settings.get_int('animation');
 
         let factors = [
-            0.4, // fastest
+            0.2, // fastest
             0.6, // faster
             0.8, // fast
             1.3, // slow
@@ -1242,6 +1266,24 @@ var Manager = class
     }
 
     /**
+     * apply switcher popup delay settings
+     *
+     * @param {boolean} forceOriginal force original shell setting
+     *
+     * @returns {void}
+     */
+    _applySwitcherPopupDelay(forceOriginal)
+    {
+        let status = this._settings.get_boolean('switcher-popup-delay');
+
+        if (forceOriginal || status) {
+            this._api.switcherPopupDelaySetDefault();
+        } else {
+            this._api.removeSwitcherPopupDelay();
+        }
+    }
+
+    /**
      * apply world clock settings
      *
      * @param {boolean} forceOriginal force original shell setting
@@ -1457,6 +1499,60 @@ var Manager = class
             this._api.altTabIconSetDefaultSize();
         } else {
             this._api.altTabIconSetSize(size);
+        }
+    }
+
+    /**
+     * apply screen sharing indicator settings
+     *
+     * @param {boolean} forceOriginal force original shell setting
+     *
+     * @returns {void}
+     */
+    _applyScreenSharingIndicator(forceOriginal)
+    {
+        let status = this._settings.get_boolean('screen-sharing-indicator');
+
+        if (forceOriginal || status) {
+            this._api.screenSharingIndicatorEnable();
+        } else {
+            this._api.screenSharingIndicatorDisable();
+        }
+    }
+
+    /**
+     * apply screen recording indicator settings
+     *
+     * @param {boolean} forceOriginal force original shell setting
+     *
+     * @returns {void}
+     */
+    _applyScreenRecordingIndicator(forceOriginal)
+    {
+        let status = this._settings.get_boolean('screen-recording-indicator');
+
+        if (forceOriginal || status) {
+            this._api.screenRecordingIndicatorEnable();
+        } else {
+            this._api.screenRecordingIndicatorDisable();
+        }
+    }
+
+    /**
+     * apply controls manager spacing size settings
+     *
+     * @param {boolean} forceOriginal force original shell setting
+     *
+     * @returns {void}
+     */
+    _applyControlsManagerSpacingSize(forceOriginal)
+    {
+        let size = this._settings.get_int('controls-manager-spacing-size');
+
+        if (forceOriginal || size === 0) {
+            this._api.controlsManagerSpacingSetDefault();
+        } else {
+            this._api.controlsManagerSpacingSizeSet(size);
         }
     }
 }

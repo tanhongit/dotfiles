@@ -2,7 +2,7 @@
  * Prefs Dialog
  *
  * @author     Javad Rahmatzadeh <j.rahmatzadeh@gmail.com>
- * @copyright  2020-2022
+ * @copyright  2020-2023
  * @license    GPL-3.0-only
  */
 
@@ -60,7 +60,7 @@ function init()
 /**
  * fill prefs window
  *
- * @returns {Adw.PreferencesWindow}
+ * @returns {void}
  */
 function fillPreferencesWindow(window)
 {
