@@ -2,7 +2,7 @@
  * Extension
  *
  * @author     Javad Rahmatzadeh <j.rahmatzadeh@gmail.com>
- * @copyright  2020-2022
+ * @copyright  2020-2023
  * @license    GPL-3.0-only
  */
 
@@ -20,6 +20,7 @@ const Main = imports.ui.main;
 const BackgroundMenu = imports.ui.backgroundMenu;
 const OverviewControls = imports.ui.overviewControls;
 const WorkspaceSwitcherPopup = imports.ui.workspaceSwitcherPopup;
+const SwitcherPopup = imports.ui.switcherPopup;
 const ViewSelector = (shellVersion < 40) ? imports.ui.viewSelector : null;
 const WorkspaceThumbnail = imports.ui.workspaceThumbnail;
 const SearchController = (shellVersion >= 40) ? imports.ui.searchController : null;
@@ -66,6 +67,7 @@ function enable()
         BackgroundMenu,
         OverviewControls,
         WorkspaceSwitcherPopup,
+        SwitcherPopup,
         InterfaceSettings,
         SearchController,
         ViewSelector,

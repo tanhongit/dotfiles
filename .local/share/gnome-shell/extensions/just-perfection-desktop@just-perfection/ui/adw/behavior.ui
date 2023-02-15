@@ -101,6 +101,19 @@
         </child>
 
         <child>
+          <object class="AdwActionRow" id="switcher_popup_delay_row">
+            <property name="title" translatable="yes">Switcher Popup Delay</property>
+            <property name="subtitle" translatable="yes">Removes the delay for all switcher popups like alt-tab, ctrl-alt-tab, keyboard layout, ...</property>
+            <property name="activatable-widget">switcher_popup_delay_switch</property>
+            <child>
+              <object class="GtkSwitch" id="switcher_popup_delay_switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
           <object class="AdwComboRow" id="startup_status_row">
             <property name="title" translatable="yes">Startup Status</property>
             <property name="subtitle" translatable="yes">When GNOME Shell is starting up for the first time</property>

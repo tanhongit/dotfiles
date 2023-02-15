@@ -2,7 +2,7 @@
  * PrefsKeys Library
  *
  * @author     Javad Rahmatzadeh <j.rahmatzadeh@gmail.com>
- * @copyright  2020-2022
+ * @copyright  2020-2023
  * @license    GPL-3.0-only
  */
 
@@ -150,6 +150,30 @@ var PrefsKeys = class
         this.setKey(
             'visibility',
             'quick-settings',
+            'GtkSwitch',
+            this._shellVersion >= 43,
+            {
+                default: true,
+                minimal: true,
+                superminimal: true,
+            }
+        );
+
+        this.setKey(
+            'visibility',
+            'screen-sharing-indicator',
+            'GtkSwitch',
+            this._shellVersion >= 43,
+            {
+                default: true,
+                minimal: true,
+                superminimal: true,
+            }
+        );
+
+        this.setKey(
+            'visibility',
+            'screen-recording-indicator',
             'GtkSwitch',
             this._shellVersion >= 43,
             {
@@ -556,6 +580,30 @@ var PrefsKeys = class
         );
 
         this.setKey(
+            'behavior',
+            'switcher-popup-delay',
+            'GtkSwitch',
+            true,
+            {
+                default: true,
+                minimal: true,
+                superminimal: true,
+            }
+        );
+
+        this.setKey(
+            'customize',
+            'controls-manager-spacing-size',
+            'GtkComboBoxText',
+            this._shellVersion >= 40,
+            {
+                default: 0,
+                minimal: 0,
+                superminimal: 22,
+            }
+        );
+
+        this.setKey(
             'customize',
             'workspace-background-corner-size',
             'GtkComboBoxText',
@@ -650,9 +698,14 @@ var PrefsKeys = class
                 superminimal: 0,
             },
             {
-                '1': 32,
-                '2': 48,
-                '3': 64,
+                '1': 16,
+                '2': 22,
+                '3': 24,
+                '4': 32,
+                '5': 40,
+                '6': 48,
+                '7': 56,
+                '8': 64,
             }
         );
 

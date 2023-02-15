@@ -278,24 +278,6 @@
     width: 100000px;
 }
 
-.just-perfection-api-gnome40.just-perfection-api-no-workspace .workspace-thumbnails,
-.just-perfection-api-gnome41.just-perfection-api-no-workspace .workspace-thumbnails,
-.just-perfection-api-gnome42.just-perfection-api-no-workspace .workspace-thumbnails,
-.just-perfection-api-gnome43.just-perfection-api-no-workspace .workspace-thumbnails,
-.just-perfection-api-gnome40.just-perfection-api-no-workspace .workspace-thumbnail-indicator,
-.just-perfection-api-gnome41.just-perfection-api-no-workspace .workspace-thumbnail-indicator,
-.just-perfection-api-gnome42.just-perfection-api-no-workspace .workspace-thumbnail-indicator,
-.just-perfection-api-gnome43.just-perfection-api-no-workspace .workspace-thumbnail-indicator
-{
-    /* we use scale=0 which is giving us the same width and height as 0 */
-    /* spacing: 0; */
-    /* width: 0; */
-    /* height: 0; */
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-
 .just-perfection-api-gnome3.just-perfection-api-no-panel .search-entry
 {
     margin-top: 10px;
@@ -487,7 +469,9 @@
 .just-perfection-api-dash-icon-size22 #dash StIcon { height: 22px; width: 22px; }
 .just-perfection-api-dash-icon-size24 #dash StIcon { height: 24px; width: 24px; }
 .just-perfection-api-dash-icon-size32 #dash StIcon { height: 32px; width: 32px; }
+.just-perfection-api-dash-icon-size40 #dash StIcon { height: 40px; width: 40px; }
 .just-perfection-api-dash-icon-size48 #dash StIcon { height: 48px; width: 48px; }
+.just-perfection-api-dash-icon-size56 #dash StIcon { height: 56px; width: 56px; }
 .just-perfection-api-dash-icon-size64 #dash StIcon { height: 64px; width: 64px; }
 
 
@@ -691,7 +675,7 @@
 .just-perfection-api-no-window-close.just-perfection .window-close
 {
     height: 0;
-    width: 0;
+    width: 30px;
     background: transparent;
     border-radius: 0;
     border: 0;
@@ -723,7 +707,11 @@
 .just-perfection-api-no-world-clocks .world-clocks-button,
 .just-perfection-api-no-world-clocks .world-clocks-button *,
 .just-perfection-api-no-events-button .events-button,
-.just-perfection-api-no-events-button .events-button *
+.just-perfection-api-no-events-button .events-button *,
+.just-perfection-api-no-screen-sharing-indicator .screen-sharing-indicator,
+.just-perfection-api-no-screen-sharing-indicator .screen-sharing-indicator *,
+.just-perfection-api-no-screen-recording-indicator .screen-recording-indicator,
+.just-perfection-api-no-screen-recording-indicator .screen-recording-indicator *
 {
     padding: 0;
     margin: 0;
@@ -793,13 +781,164 @@
 .just-perfection-api-panel-icon-size59 .system-status-icon, .just-perfection-api-panel-icon-size59 .panel-button StIcon { icon-size: 59px; }
 .just-perfection-api-panel-icon-size60 .system-status-icon, .just-perfection-api-panel-icon-size60 .panel-button StIcon { icon-size: 60px; }
 
+.just-perfection-api-controls-manager-spacing-size0 .controls-manager, .just-perfection-api-controls-manager-spacing-size0 .secondary-monitor-workspaces { spacing: 0; }
+.just-perfection-api-controls-manager-spacing-size1 .controls-manager, .just-perfection-api-controls-manager-spacing-size1 .secondary-monitor-workspaces { spacing: 1px; }
+.just-perfection-api-controls-manager-spacing-size2 .controls-manager, .just-perfection-api-controls-manager-spacing-size2 .secondary-monitor-workspaces { spacing: 2px; }
+.just-perfection-api-controls-manager-spacing-size3 .controls-manager, .just-perfection-api-controls-manager-spacing-size3 .secondary-monitor-workspaces { spacing: 3px; }
+.just-perfection-api-controls-manager-spacing-size4 .controls-manager, .just-perfection-api-controls-manager-spacing-size4 .secondary-monitor-workspaces { spacing: 4px; }
+.just-perfection-api-controls-manager-spacing-size5 .controls-manager, .just-perfection-api-controls-manager-spacing-size5 .secondary-monitor-workspaces { spacing: 5px; }
+.just-perfection-api-controls-manager-spacing-size6 .controls-manager, .just-perfection-api-controls-manager-spacing-size6 .secondary-monitor-workspaces { spacing: 6px; }
+.just-perfection-api-controls-manager-spacing-size7 .controls-manager, .just-perfection-api-controls-manager-spacing-size7 .secondary-monitor-workspaces { spacing: 7px; }
+.just-perfection-api-controls-manager-spacing-size8 .controls-manager, .just-perfection-api-controls-manager-spacing-size8 .secondary-monitor-workspaces { spacing: 8px; }
+.just-perfection-api-controls-manager-spacing-size9 .controls-manager, .just-perfection-api-controls-manager-spacing-size9 .secondary-monitor-workspaces { spacing: 9px; }
+.just-perfection-api-controls-manager-spacing-size10 .controls-manager, .just-perfection-api-controls-manager-spacing-size10 .secondary-monitor-workspaces { spacing: 10px; }
+.just-perfection-api-controls-manager-spacing-size11 .controls-manager, .just-perfection-api-controls-manager-spacing-size11 .secondary-monitor-workspaces { spacing: 11px; }
+.just-perfection-api-controls-manager-spacing-size12 .controls-manager, .just-perfection-api-controls-manager-spacing-size12 .secondary-monitor-workspaces { spacing: 12px; }
+.just-perfection-api-controls-manager-spacing-size13 .controls-manager, .just-perfection-api-controls-manager-spacing-size13 .secondary-monitor-workspaces { spacing: 13px; }
+.just-perfection-api-controls-manager-spacing-size14 .controls-manager, .just-perfection-api-controls-manager-spacing-size14 .secondary-monitor-workspaces { spacing: 14px; }
+.just-perfection-api-controls-manager-spacing-size15 .controls-manager, .just-perfection-api-controls-manager-spacing-size15 .secondary-monitor-workspaces { spacing: 15px; }
+.just-perfection-api-controls-manager-spacing-size16 .controls-manager, .just-perfection-api-controls-manager-spacing-size16 .secondary-monitor-workspaces { spacing: 16px; }
+.just-perfection-api-controls-manager-spacing-size17 .controls-manager, .just-perfection-api-controls-manager-spacing-size17 .secondary-monitor-workspaces { spacing: 17px; }
+.just-perfection-api-controls-manager-spacing-size18 .controls-manager, .just-perfection-api-controls-manager-spacing-size18 .secondary-monitor-workspaces { spacing: 18px; }
+.just-perfection-api-controls-manager-spacing-size19 .controls-manager, .just-perfection-api-controls-manager-spacing-size19 .secondary-monitor-workspaces { spacing: 19px; }
+.just-perfection-api-controls-manager-spacing-size20 .controls-manager, .just-perfection-api-controls-manager-spacing-size20 .secondary-monitor-workspaces { spacing: 20px; }
+.just-perfection-api-controls-manager-spacing-size21 .controls-manager, .just-perfection-api-controls-manager-spacing-size21 .secondary-monitor-workspaces { spacing: 21px; }
+.just-perfection-api-controls-manager-spacing-size22 .controls-manager, .just-perfection-api-controls-manager-spacing-size22 .secondary-monitor-workspaces { spacing: 22px; }
+.just-perfection-api-controls-manager-spacing-size23 .controls-manager, .just-perfection-api-controls-manager-spacing-size23 .secondary-monitor-workspaces { spacing: 23px; }
+.just-perfection-api-controls-manager-spacing-size24 .controls-manager, .just-perfection-api-controls-manager-spacing-size24 .secondary-monitor-workspaces { spacing: 24px; }
+.just-perfection-api-controls-manager-spacing-size25 .controls-manager, .just-perfection-api-controls-manager-spacing-size25 .secondary-monitor-workspaces { spacing: 25px; }
+.just-perfection-api-controls-manager-spacing-size26 .controls-manager, .just-perfection-api-controls-manager-spacing-size26 .secondary-monitor-workspaces { spacing: 26px; }
+.just-perfection-api-controls-manager-spacing-size27 .controls-manager, .just-perfection-api-controls-manager-spacing-size27 .secondary-monitor-workspaces { spacing: 27px; }
+.just-perfection-api-controls-manager-spacing-size28 .controls-manager, .just-perfection-api-controls-manager-spacing-size28 .secondary-monitor-workspaces { spacing: 28px; }
+.just-perfection-api-controls-manager-spacing-size29 .controls-manager, .just-perfection-api-controls-manager-spacing-size29 .secondary-monitor-workspaces { spacing: 29px; }
+.just-perfection-api-controls-manager-spacing-size30 .controls-manager, .just-perfection-api-controls-manager-spacing-size30 .secondary-monitor-workspaces { spacing: 30px; }
+.just-perfection-api-controls-manager-spacing-size31 .controls-manager, .just-perfection-api-controls-manager-spacing-size31 .secondary-monitor-workspaces { spacing: 31px; }
+.just-perfection-api-controls-manager-spacing-size32 .controls-manager, .just-perfection-api-controls-manager-spacing-size32 .secondary-monitor-workspaces { spacing: 32px; }
+.just-perfection-api-controls-manager-spacing-size33 .controls-manager, .just-perfection-api-controls-manager-spacing-size33 .secondary-monitor-workspaces { spacing: 33px; }
+.just-perfection-api-controls-manager-spacing-size34 .controls-manager, .just-perfection-api-controls-manager-spacing-size34 .secondary-monitor-workspaces { spacing: 34px; }
+.just-perfection-api-controls-manager-spacing-size35 .controls-manager, .just-perfection-api-controls-manager-spacing-size35 .secondary-monitor-workspaces { spacing: 35px; }
+.just-perfection-api-controls-manager-spacing-size36 .controls-manager, .just-perfection-api-controls-manager-spacing-size36 .secondary-monitor-workspaces { spacing: 36px; }
+.just-perfection-api-controls-manager-spacing-size37 .controls-manager, .just-perfection-api-controls-manager-spacing-size37 .secondary-monitor-workspaces { spacing: 37px; }
+.just-perfection-api-controls-manager-spacing-size38 .controls-manager, .just-perfection-api-controls-manager-spacing-size38 .secondary-monitor-workspaces { spacing: 38px; }
+.just-perfection-api-controls-manager-spacing-size39 .controls-manager, .just-perfection-api-controls-manager-spacing-size39 .secondary-monitor-workspaces { spacing: 39px; }
+.just-perfection-api-controls-manager-spacing-size40 .controls-manager, .just-perfection-api-controls-manager-spacing-size40 .secondary-monitor-workspaces { spacing: 40px; }
+.just-perfection-api-controls-manager-spacing-size41 .controls-manager, .just-perfection-api-controls-manager-spacing-size41 .secondary-monitor-workspaces { spacing: 41px; }
+.just-perfection-api-controls-manager-spacing-size42 .controls-manager, .just-perfection-api-controls-manager-spacing-size42 .secondary-monitor-workspaces { spacing: 42px; }
+.just-perfection-api-controls-manager-spacing-size43 .controls-manager, .just-perfection-api-controls-manager-spacing-size43 .secondary-monitor-workspaces { spacing: 43px; }
+.just-perfection-api-controls-manager-spacing-size44 .controls-manager, .just-perfection-api-controls-manager-spacing-size44 .secondary-monitor-workspaces { spacing: 44px; }
+.just-perfection-api-controls-manager-spacing-size45 .controls-manager, .just-perfection-api-controls-manager-spacing-size45 .secondary-monitor-workspaces { spacing: 45px; }
+.just-perfection-api-controls-manager-spacing-size46 .controls-manager, .just-perfection-api-controls-manager-spacing-size46 .secondary-monitor-workspaces { spacing: 46px; }
+.just-perfection-api-controls-manager-spacing-size47 .controls-manager, .just-perfection-api-controls-manager-spacing-size47 .secondary-monitor-workspaces { spacing: 47px; }
+.just-perfection-api-controls-manager-spacing-size48 .controls-manager, .just-perfection-api-controls-manager-spacing-size48 .secondary-monitor-workspaces { spacing: 48px; }
+.just-perfection-api-controls-manager-spacing-size49 .controls-manager, .just-perfection-api-controls-manager-spacing-size49 .secondary-monitor-workspaces { spacing: 49px; }
+.just-perfection-api-controls-manager-spacing-size50 .controls-manager, .just-perfection-api-controls-manager-spacing-size50 .secondary-monitor-workspaces { spacing: 50px; }
+.just-perfection-api-controls-manager-spacing-size51 .controls-manager, .just-perfection-api-controls-manager-spacing-size51 .secondary-monitor-workspaces { spacing: 51px; }
+.just-perfection-api-controls-manager-spacing-size52 .controls-manager, .just-perfection-api-controls-manager-spacing-size52 .secondary-monitor-workspaces { spacing: 52px; }
+.just-perfection-api-controls-manager-spacing-size53 .controls-manager, .just-perfection-api-controls-manager-spacing-size53 .secondary-monitor-workspaces { spacing: 53px; }
+.just-perfection-api-controls-manager-spacing-size54 .controls-manager, .just-perfection-api-controls-manager-spacing-size54 .secondary-monitor-workspaces { spacing: 54px; }
+.just-perfection-api-controls-manager-spacing-size55 .controls-manager, .just-perfection-api-controls-manager-spacing-size55 .secondary-monitor-workspaces { spacing: 55px; }
+.just-perfection-api-controls-manager-spacing-size56 .controls-manager, .just-perfection-api-controls-manager-spacing-size56 .secondary-monitor-workspaces { spacing: 56px; }
+.just-perfection-api-controls-manager-spacing-size57 .controls-manager, .just-perfection-api-controls-manager-spacing-size57 .secondary-monitor-workspaces { spacing: 57px; }
+.just-perfection-api-controls-manager-spacing-size58 .controls-manager, .just-perfection-api-controls-manager-spacing-size58 .secondary-monitor-workspaces { spacing: 58px; }
+.just-perfection-api-controls-manager-spacing-size59 .controls-manager, .just-perfection-api-controls-manager-spacing-size59 .secondary-monitor-workspaces { spacing: 59px; }
+.just-perfection-api-controls-manager-spacing-size60 .controls-manager, .just-perfection-api-controls-manager-spacing-size60 .secondary-monitor-workspaces { spacing: 60px; }
+.just-perfection-api-controls-manager-spacing-size61 .controls-manager, .just-perfection-api-controls-manager-spacing-size61 .secondary-monitor-workspaces { spacing: 61px; }
+.just-perfection-api-controls-manager-spacing-size62 .controls-manager, .just-perfection-api-controls-manager-spacing-size62 .secondary-monitor-workspaces { spacing: 62px; }
+.just-perfection-api-controls-manager-spacing-size63 .controls-manager, .just-perfection-api-controls-manager-spacing-size63 .secondary-monitor-workspaces { spacing: 63px; }
+.just-perfection-api-controls-manager-spacing-size64 .controls-manager, .just-perfection-api-controls-manager-spacing-size64 .secondary-monitor-workspaces { spacing: 64px; }
+.just-perfection-api-controls-manager-spacing-size65 .controls-manager, .just-perfection-api-controls-manager-spacing-size65 .secondary-monitor-workspaces { spacing: 65px; }
+.just-perfection-api-controls-manager-spacing-size66 .controls-manager, .just-perfection-api-controls-manager-spacing-size66 .secondary-monitor-workspaces { spacing: 66px; }
+.just-perfection-api-controls-manager-spacing-size67 .controls-manager, .just-perfection-api-controls-manager-spacing-size67 .secondary-monitor-workspaces { spacing: 67px; }
+.just-perfection-api-controls-manager-spacing-size68 .controls-manager, .just-perfection-api-controls-manager-spacing-size68 .secondary-monitor-workspaces { spacing: 68px; }
+.just-perfection-api-controls-manager-spacing-size69 .controls-manager, .just-perfection-api-controls-manager-spacing-size69 .secondary-monitor-workspaces { spacing: 69px; }
+.just-perfection-api-controls-manager-spacing-size70 .controls-manager, .just-perfection-api-controls-manager-spacing-size70 .secondary-monitor-workspaces { spacing: 70px; }
+.just-perfection-api-controls-manager-spacing-size71 .controls-manager, .just-perfection-api-controls-manager-spacing-size71 .secondary-monitor-workspaces { spacing: 71px; }
+.just-perfection-api-controls-manager-spacing-size72 .controls-manager, .just-perfection-api-controls-manager-spacing-size72 .secondary-monitor-workspaces { spacing: 72px; }
+.just-perfection-api-controls-manager-spacing-size73 .controls-manager, .just-perfection-api-controls-manager-spacing-size73 .secondary-monitor-workspaces { spacing: 73px; }
+.just-perfection-api-controls-manager-spacing-size74 .controls-manager, .just-perfection-api-controls-manager-spacing-size74 .secondary-monitor-workspaces { spacing: 74px; }
+.just-perfection-api-controls-manager-spacing-size75 .controls-manager, .just-perfection-api-controls-manager-spacing-size75 .secondary-monitor-workspaces { spacing: 75px; }
+.just-perfection-api-controls-manager-spacing-size76 .controls-manager, .just-perfection-api-controls-manager-spacing-size76 .secondary-monitor-workspaces { spacing: 76px; }
+.just-perfection-api-controls-manager-spacing-size77 .controls-manager, .just-perfection-api-controls-manager-spacing-size77 .secondary-monitor-workspaces { spacing: 77px; }
+.just-perfection-api-controls-manager-spacing-size78 .controls-manager, .just-perfection-api-controls-manager-spacing-size78 .secondary-monitor-workspaces { spacing: 78px; }
+.just-perfection-api-controls-manager-spacing-size79 .controls-manager, .just-perfection-api-controls-manager-spacing-size79 .secondary-monitor-workspaces { spacing: 79px; }
+.just-perfection-api-controls-manager-spacing-size80 .controls-manager, .just-perfection-api-controls-manager-spacing-size80 .secondary-monitor-workspaces { spacing: 80px; }
+.just-perfection-api-controls-manager-spacing-size81 .controls-manager, .just-perfection-api-controls-manager-spacing-size81 .secondary-monitor-workspaces { spacing: 81px; }
+.just-perfection-api-controls-manager-spacing-size82 .controls-manager, .just-perfection-api-controls-manager-spacing-size82 .secondary-monitor-workspaces { spacing: 82px; }
+.just-perfection-api-controls-manager-spacing-size83 .controls-manager, .just-perfection-api-controls-manager-spacing-size83 .secondary-monitor-workspaces { spacing: 83px; }
+.just-perfection-api-controls-manager-spacing-size84 .controls-manager, .just-perfection-api-controls-manager-spacing-size84 .secondary-monitor-workspaces { spacing: 84px; }
+.just-perfection-api-controls-manager-spacing-size85 .controls-manager, .just-perfection-api-controls-manager-spacing-size85 .secondary-monitor-workspaces { spacing: 85px; }
+.just-perfection-api-controls-manager-spacing-size86 .controls-manager, .just-perfection-api-controls-manager-spacing-size86 .secondary-monitor-workspaces { spacing: 86px; }
+.just-perfection-api-controls-manager-spacing-size87 .controls-manager, .just-perfection-api-controls-manager-spacing-size87 .secondary-monitor-workspaces { spacing: 87px; }
+.just-perfection-api-controls-manager-spacing-size88 .controls-manager, .just-perfection-api-controls-manager-spacing-size88 .secondary-monitor-workspaces { spacing: 88px; }
+.just-perfection-api-controls-manager-spacing-size89 .controls-manager, .just-perfection-api-controls-manager-spacing-size89 .secondary-monitor-workspaces { spacing: 89px; }
+.just-perfection-api-controls-manager-spacing-size90 .controls-manager, .just-perfection-api-controls-manager-spacing-size90 .secondary-monitor-workspaces { spacing: 90px; }
+.just-perfection-api-controls-manager-spacing-size91 .controls-manager, .just-perfection-api-controls-manager-spacing-size91 .secondary-monitor-workspaces { spacing: 91px; }
+.just-perfection-api-controls-manager-spacing-size92 .controls-manager, .just-perfection-api-controls-manager-spacing-size92 .secondary-monitor-workspaces { spacing: 92px; }
+.just-perfection-api-controls-manager-spacing-size93 .controls-manager, .just-perfection-api-controls-manager-spacing-size93 .secondary-monitor-workspaces { spacing: 93px; }
+.just-perfection-api-controls-manager-spacing-size94 .controls-manager, .just-perfection-api-controls-manager-spacing-size94 .secondary-monitor-workspaces { spacing: 94px; }
+.just-perfection-api-controls-manager-spacing-size95 .controls-manager, .just-perfection-api-controls-manager-spacing-size95 .secondary-monitor-workspaces { spacing: 95px; }
+.just-perfection-api-controls-manager-spacing-size96 .controls-manager, .just-perfection-api-controls-manager-spacing-size96 .secondary-monitor-workspaces { spacing: 96px; }
+.just-perfection-api-controls-manager-spacing-size97 .controls-manager, .just-perfection-api-controls-manager-spacing-size97 .secondary-monitor-workspaces { spacing: 97px; }
+.just-perfection-api-controls-manager-spacing-size98 .controls-manager, .just-perfection-api-controls-manager-spacing-size98 .secondary-monitor-workspaces { spacing: 98px; }
+.just-perfection-api-controls-manager-spacing-size99 .controls-manager, .just-perfection-api-controls-manager-spacing-size99 .secondary-monitor-workspaces { spacing: 99px; }
+.just-perfection-api-controls-manager-spacing-size100 .controls-manager, .just-perfection-api-controls-manager-spacing-size100 .secondary-monitor-workspaces { spacing: 100px; }
+.just-perfection-api-controls-manager-spacing-size101 .controls-manager, .just-perfection-api-controls-manager-spacing-size101 .secondary-monitor-workspaces { spacing: 101px; }
+.just-perfection-api-controls-manager-spacing-size102 .controls-manager, .just-perfection-api-controls-manager-spacing-size102 .secondary-monitor-workspaces { spacing: 102px; }
+.just-perfection-api-controls-manager-spacing-size103 .controls-manager, .just-perfection-api-controls-manager-spacing-size103 .secondary-monitor-workspaces { spacing: 103px; }
+.just-perfection-api-controls-manager-spacing-size104 .controls-manager, .just-perfection-api-controls-manager-spacing-size104 .secondary-monitor-workspaces { spacing: 104px; }
+.just-perfection-api-controls-manager-spacing-size105 .controls-manager, .just-perfection-api-controls-manager-spacing-size105 .secondary-monitor-workspaces { spacing: 105px; }
+.just-perfection-api-controls-manager-spacing-size106 .controls-manager, .just-perfection-api-controls-manager-spacing-size106 .secondary-monitor-workspaces { spacing: 106px; }
+.just-perfection-api-controls-manager-spacing-size107 .controls-manager, .just-perfection-api-controls-manager-spacing-size107 .secondary-monitor-workspaces { spacing: 107px; }
+.just-perfection-api-controls-manager-spacing-size108 .controls-manager, .just-perfection-api-controls-manager-spacing-size108 .secondary-monitor-workspaces { spacing: 108px; }
+.just-perfection-api-controls-manager-spacing-size109 .controls-manager, .just-perfection-api-controls-manager-spacing-size109 .secondary-monitor-workspaces { spacing: 109px; }
+.just-perfection-api-controls-manager-spacing-size110 .controls-manager, .just-perfection-api-controls-manager-spacing-size110 .secondary-monitor-workspaces { spacing: 110px; }
+.just-perfection-api-controls-manager-spacing-size111 .controls-manager, .just-perfection-api-controls-manager-spacing-size111 .secondary-monitor-workspaces { spacing: 111px; }
+.just-perfection-api-controls-manager-spacing-size112 .controls-manager, .just-perfection-api-controls-manager-spacing-size112 .secondary-monitor-workspaces { spacing: 112px; }
+.just-perfection-api-controls-manager-spacing-size113 .controls-manager, .just-perfection-api-controls-manager-spacing-size113 .secondary-monitor-workspaces { spacing: 113px; }
+.just-perfection-api-controls-manager-spacing-size114 .controls-manager, .just-perfection-api-controls-manager-spacing-size114 .secondary-monitor-workspaces { spacing: 114px; }
+.just-perfection-api-controls-manager-spacing-size115 .controls-manager, .just-perfection-api-controls-manager-spacing-size115 .secondary-monitor-workspaces { spacing: 115px; }
+.just-perfection-api-controls-manager-spacing-size116 .controls-manager, .just-perfection-api-controls-manager-spacing-size116 .secondary-monitor-workspaces { spacing: 116px; }
+.just-perfection-api-controls-manager-spacing-size117 .controls-manager, .just-perfection-api-controls-manager-spacing-size117 .secondary-monitor-workspaces { spacing: 117px; }
+.just-perfection-api-controls-manager-spacing-size118 .controls-manager, .just-perfection-api-controls-manager-spacing-size118 .secondary-monitor-workspaces { spacing: 118px; }
+.just-perfection-api-controls-manager-spacing-size119 .controls-manager, .just-perfection-api-controls-manager-spacing-size119 .secondary-monitor-workspaces { spacing: 119px; }
+.just-perfection-api-controls-manager-spacing-size120 .controls-manager, .just-perfection-api-controls-manager-spacing-size120 .secondary-monitor-workspaces { spacing: 120px; }
+.just-perfection-api-controls-manager-spacing-size121 .controls-manager, .just-perfection-api-controls-manager-spacing-size121 .secondary-monitor-workspaces { spacing: 121px; }
+.just-perfection-api-controls-manager-spacing-size122 .controls-manager, .just-perfection-api-controls-manager-spacing-size122 .secondary-monitor-workspaces { spacing: 122px; }
+.just-perfection-api-controls-manager-spacing-size123 .controls-manager, .just-perfection-api-controls-manager-spacing-size123 .secondary-monitor-workspaces { spacing: 123px; }
+.just-perfection-api-controls-manager-spacing-size124 .controls-manager, .just-perfection-api-controls-manager-spacing-size124 .secondary-monitor-workspaces { spacing: 124px; }
+.just-perfection-api-controls-manager-spacing-size125 .controls-manager, .just-perfection-api-controls-manager-spacing-size125 .secondary-monitor-workspaces { spacing: 125px; }
+.just-perfection-api-controls-manager-spacing-size126 .controls-manager, .just-perfection-api-controls-manager-spacing-size126 .secondary-monitor-workspaces { spacing: 126px; }
+.just-perfection-api-controls-manager-spacing-size127 .controls-manager, .just-perfection-api-controls-manager-spacing-size127 .secondary-monitor-workspaces { spacing: 127px; }
+.just-perfection-api-controls-manager-spacing-size128 .controls-manager, .just-perfection-api-controls-manager-spacing-size128 .secondary-monitor-workspaces { spacing: 128px; }
+.just-perfection-api-controls-manager-spacing-size129 .controls-manager, .just-perfection-api-controls-manager-spacing-size129 .secondary-monitor-workspaces { spacing: 129px; }
+.just-perfection-api-controls-manager-spacing-size130 .controls-manager, .just-perfection-api-controls-manager-spacing-size130 .secondary-monitor-workspaces { spacing: 130px; }
+.just-perfection-api-controls-manager-spacing-size131 .controls-manager, .just-perfection-api-controls-manager-spacing-size131 .secondary-monitor-workspaces { spacing: 131px; }
+.just-perfection-api-controls-manager-spacing-size132 .controls-manager, .just-perfection-api-controls-manager-spacing-size132 .secondary-monitor-workspaces { spacing: 132px; }
+.just-perfection-api-controls-manager-spacing-size133 .controls-manager, .just-perfection-api-controls-manager-spacing-size133 .secondary-monitor-workspaces { spacing: 133px; }
+.just-perfection-api-controls-manager-spacing-size134 .controls-manager, .just-perfection-api-controls-manager-spacing-size134 .secondary-monitor-workspaces { spacing: 134px; }
+.just-perfection-api-controls-manager-spacing-size135 .controls-manager, .just-perfection-api-controls-manager-spacing-size135 .secondary-monitor-workspaces { spacing: 135px; }
+.just-perfection-api-controls-manager-spacing-size136 .controls-manager, .just-perfection-api-controls-manager-spacing-size136 .secondary-monitor-workspaces { spacing: 136px; }
+.just-perfection-api-controls-manager-spacing-size137 .controls-manager, .just-perfection-api-controls-manager-spacing-size137 .secondary-monitor-workspaces { spacing: 137px; }
+.just-perfection-api-controls-manager-spacing-size138 .controls-manager, .just-perfection-api-controls-manager-spacing-size138 .secondary-monitor-workspaces { spacing: 138px; }
+.just-perfection-api-controls-manager-spacing-size139 .controls-manager, .just-perfection-api-controls-manager-spacing-size139 .secondary-monitor-workspaces { spacing: 139px; }
+.just-perfection-api-controls-manager-spacing-size140 .controls-manager, .just-perfection-api-controls-manager-spacing-size140 .secondary-monitor-workspaces { spacing: 140px; }
+.just-perfection-api-controls-manager-spacing-size141 .controls-manager, .just-perfection-api-controls-manager-spacing-size141 .secondary-monitor-workspaces { spacing: 141px; }
+.just-perfection-api-controls-manager-spacing-size142 .controls-manager, .just-perfection-api-controls-manager-spacing-size142 .secondary-monitor-workspaces { spacing: 142px; }
+.just-perfection-api-controls-manager-spacing-size143 .controls-manager, .just-perfection-api-controls-manager-spacing-size143 .secondary-monitor-workspaces { spacing: 143px; }
+.just-perfection-api-controls-manager-spacing-size144 .controls-manager, .just-perfection-api-controls-manager-spacing-size144 .secondary-monitor-workspaces { spacing: 144px; }
+.just-perfection-api-controls-manager-spacing-size145 .controls-manager, .just-perfection-api-controls-manager-spacing-size145 .secondary-monitor-workspaces { spacing: 145px; }
+.just-perfection-api-controls-manager-spacing-size146 .controls-manager, .just-perfection-api-controls-manager-spacing-size146 .secondary-monitor-workspaces { spacing: 146px; }
+.just-perfection-api-controls-manager-spacing-size147 .controls-manager, .just-perfection-api-controls-manager-spacing-size147 .secondary-monitor-workspaces { spacing: 147px; }
+.just-perfection-api-controls-manager-spacing-size148 .controls-manager, .just-perfection-api-controls-manager-spacing-size148 .secondary-monitor-workspaces { spacing: 148px; }
+.just-perfection-api-controls-manager-spacing-size149 .controls-manager, .just-perfection-api-controls-manager-spacing-size149 .secondary-monitor-workspaces { spacing: 149px; }
+.just-perfection-api-controls-manager-spacing-size150 .controls-manager, .just-perfection-api-controls-manager-spacing-size150 .secondary-monitor-workspaces { spacing: 150px; }
 
 .just-perfection-api-osd-position-top .osd-window { margin: 4em 2.5em; }
 .just-perfection-api-osd-position-center .osd-window { margin: 4em 3.5em; }
 .just-perfection-api-osd-position-bottom .osd-window { margin: 4em 3em; }
 
 .just-perfection-api-no-dash-separator .dash-separator,
-.just-perfection-api-no-app-menu-label .panel-status-menu-box StLabel
+.just-perfection-api-no-app-menu-label #appMenu StLabel
 {
     width: 0;
     height: 0;
@@ -807,3 +946,4 @@
     padding: 0;
     margin: 0;
 }
+

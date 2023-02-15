@@ -184,7 +184,7 @@
     
     <key type="i" name="clock-menu-position-offset">
       <default>0</default>
-      <range min="0" max="9"/>
+      <range min="0" max="20"/>
       <summary>0 means start of the position</summary>
       <description>Clock Menu Position Offset</description>
     </key>
@@ -229,7 +229,7 @@
     <key type="i" name="dash-icon-size">
       <default>0</default>
       <range min="0" max="64"/>
-      <summary>0 means default, 16, 22, 24, 32, 48, 64</summary>
+      <summary>0 means default, 16, 22, 24, 32, 40, 48, 56, 64</summary>
       <description>Dash Icon Size</description>
     </key>
     
@@ -317,6 +317,12 @@
       <description>Double Supper To App Grid Status</description>
     </key>
 
+    <key type="b" name="switcher-popup-delay">
+      <default>true</default>
+      <summary>Switcher Popup Delay</summary>
+      <description>Removes the delay for all switcher popups like alt-tab, ctrl-alt-tab, keyboard layout, ...</description>
+    </key>
+
     <key type="b" name="world-clock">
       <default>true</default>
       <summary>World Clock Visibility in Clock Menu</summary>
@@ -401,7 +407,26 @@
       <summary>0 means default size</summary>
       <description>Alt Tab Icon Size</description>
     </key>
+    
+    <key type="b" name="screen-sharing-indicator">
+      <default>true</default>
+      <summary>Screen Sharing Indicator Visibility in Panel</summary>
+      <description>Screen Sharing Indicator Visibility Status</description>
+    </key>
 
+    <key type="b" name="screen-recording-indicator">
+      <default>true</default>
+      <summary>Screen Recording Indicator Visibility in Panel</summary>
+      <description>Screen Recording Indicator Visibility Status</description>
+    </key>
+
+    <key type="i" name="controls-manager-spacing-size">
+      <default>0</default>
+      <range min="0" max="150"/>
+      <summary>0 means default size</summary>
+      <description>Controls manager spacing Size (overview spacing)</description>
+    </key>
+    
   </schema>
   
 </schemalist>

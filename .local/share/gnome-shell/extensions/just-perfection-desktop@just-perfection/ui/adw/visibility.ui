@@ -140,6 +140,32 @@
         </child>
 
         <child>
+          <object class="AdwActionRow" id="screen_sharing_indicator_row">
+            <property name="title" translatable="yes">Screen Sharing Indicator</property>
+            <property name="subtitle" translatable="yes">Screen sharing indicator in panel</property>
+            <property name="activatable-widget">screen_sharing_indicator_switch</property>
+            <child>
+              <object class="GtkSwitch" id="screen_sharing_indicator_switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwActionRow" id="screen_recording_indicator_row">
+            <property name="title" translatable="yes">Screen Recording Indicator</property>
+            <property name="subtitle" translatable="yes">Screen recording indicator in panel</property>
+            <property name="activatable-widget">screen_recording_indicator_switch</property>
+            <child>
+              <object class="GtkSwitch" id="screen_recording_indicator_switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
           <object class="AdwActionRow" id="world_clock_row">
             <property name="title" translatable="yes">World Clock</property>
             <property name="subtitle" translatable="yes">World clock in clock menu</property>
