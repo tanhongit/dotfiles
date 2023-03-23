@@ -311,7 +311,7 @@ var PrefsKeys = class
             {
                 default: true,
                 minimal: true,
-                superminimal: true,
+                superminimal: false,
             }
         );
 

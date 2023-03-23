@@ -232,6 +232,11 @@
     border-radius: 15px 0 0 15px;
 }
 
+.just-perfection.just-perfection-gnome4x-2nd-gen .dash-background
+{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 .just-perfection.just-perfection-gnome3 .workspace-thumbnails
 {
     spacing: 20px;

@@ -6,9 +6,10 @@
     "40",
     "41",
     "42",
-    "43"
+    "43",
+    "44"
   ],
   "url": "https://github.com/SUPERCILEX/gnome-clipboard-history",
   "uuid": "clipboard-history@alexsaveau.dev",
-  "version": 22
+  "version": 24
 }

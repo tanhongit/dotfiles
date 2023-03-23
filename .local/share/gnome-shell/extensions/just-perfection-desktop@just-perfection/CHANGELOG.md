@@ -6,6 +6,17 @@ We go to the next version after each release on [GNOME Shell Extensions website]
 
 ## [Unreleased]
 
+## [24.0.0 Hals] - 2023-03-01
+
+### Changed
+
+- Window preview close button for super minimal profile (to disabled).
+
+### Added
+
+- GNOME Shell 44 support.
+- Transparent dash background for shell theme override (GNOME Shell 4x only).
+
 ## [23.0.0 Goya] - 2023-02-10
 
 ### Changed
