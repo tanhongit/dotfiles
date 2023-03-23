@@ -20,15 +20,19 @@
 'use strict';
 
 const { Atk, Gtk, Gio, GObject, Shell, St, Meta, Clutter, GLib } = imports.gi;
+const Config = imports.misc.config;
 const Main = imports.ui.main;
 const PopupMenu = imports.ui.popupMenu;
 const QuickSettings = imports.ui.quickSettings;
 const QuickSettingsMenu = imports.ui.main.panel.statusArea.quickSettings;
 
+const ShellVersion = Number(Config.PACKAGE_VERSION.split('.')[0]);
+
 const INHIBIT_APPS_KEY = 'inhibit-apps';
 const SHOW_INDICATOR_KEY = 'show-indicator';
 const SHOW_NOTIFICATIONS_KEY = 'show-notifications';
 const SHOW_TIMER_KEY= 'show-timer';
+const DURATION_TIMER_INDEX= 'duration-timer';
 const TOGGLE_STATE_KEY= 'toggle-state';
 const USER_ENABLED_KEY = 'user-enabled';
 const RESTORE_KEY = 'restore-state';
@@ -119,10 +123,10 @@ const AppsTrigger = {
 };
 
 const TIMERS = [
-    {5:['5:00', 'caffeine-short-timer-symbolic']},
-    {10:['10:00', 'caffeine-medium-timer-symbolic']},
-    {30:['30:00', 'caffeine-long-timer-symbolic']},
-    {0:[_('Infinite'), 'caffeine-infinite-timer-symbolic']},
+    [5,10,15,20,30,'caffeine-short-timer-symbolic'],
+    [10,20,30,40,50,'caffeine-medium-timer-symbolic'],
+    [30,45,60,75,80,'caffeine-long-timer-symbolic'],
+    [0,0,0,0,0,'caffeine-infinite-timer-symbolic'],
 ];
 
 let CaffeineIndicator;
@@ -138,7 +142,13 @@ let CaffeineIndicator;
 */
 Gtk.IconTheme.get_default = function() {
     let theme = new Gtk.IconTheme();
-    theme.set_custom_theme(St.Settings.get().gtk_icon_theme);
+    // gnome-shell switched away from GTK3 during the `44.rc` release. The Gtk.IconTheme method `set_custom_name`
+    // has been renamed to `set_theme_name`. The below line allows support for all versions of GNOME 43 and 44+.
+    if (theme.set_theme_name) {
+        theme.set_theme_name(St.Settings.get().gtk_icon_theme);
+    } else {
+        theme.set_custom_theme(St.Settings.get().gtk_icon_theme);
+    }
     return theme;
 };
 
@@ -146,7 +156,10 @@ const CaffeineToggle = GObject.registerClass(
 class CaffeineToggle extends QuickSettings.QuickMenuToggle {
     _init() {
         super._init({
-            label: IndicatorName,
+            // The 'label' property was renamed to 'title' in GNOME 44 but quick settings have otherwise 
+            // not been changed. The below line allows support for both GNOME 43 and 44+ by using the 
+            // appropriate property name based on the GNOME version.
+            [ShellVersion >= 44 ? 'title' : 'label']: IndicatorName,
             toggleMode: true,
         });
 
@@ -184,6 +197,9 @@ class CaffeineToggle extends QuickSettings.QuickMenuToggle {
         this._settings.connect(`changed::${TIMER_KEY}`, () => {
             this._sync();
         });
+        this._settings.connect(`changed::${DURATION_TIMER_INDEX}`, () => {
+            this._syncTimers();
+        });
         this.connect('destroy', () => {
             this._iconActivated = null;
             this._iconDeactivated = null;
@@ -194,16 +210,21 @@ class CaffeineToggle extends QuickSettings.QuickMenuToggle {
     _syncTimers() {
         this._itemsSection.removeAll();
         this._timerItems.clear();
+        const durationIndex = this._settings.get_int(DURATION_TIMER_INDEX);
 
         for (const timer of TIMERS) {
-            const key = Object.keys(timer);
-            const label = timer[key][0];
+            let label = null;
+            if(timer[0] === 0) {
+                label = _('Infinite');
+            } else {
+                label = parseInt(timer[durationIndex]) + 'm';
+            }
             if (!label)
                 continue;
-            const icon = Gio.icon_new_for_string(`${Me.path}/icons/${timer[key][1]}.svg`);
+            const icon = Gio.icon_new_for_string(`${Me.path}/icons/${timer[5]}.svg`);
             const item = new PopupMenu.PopupImageMenuItem(label, icon);
-            item.connect('activate',() => (this._checkTimer(Number(key))));
-            this._timerItems.set(Number(key), item);
+            item.connect('activate',() => (this._checkTimer(timer[durationIndex])));
+            this._timerItems.set(timer[durationIndex], item);
             this._itemsSection.addMenuItem(item);
         }
         this.menuEnabled = TIMERS.length > 2;
@@ -589,6 +610,9 @@ class Caffeine extends QuickSettings.SystemIndicator {
     _updateLabelTimer(text) {
         this._timerLabel.text = text;
         this._caffeineToggle.menu.setHeader(this._caffeineToggle.finalTimerMenuIcon, TimerMenuName, text);
+        if (ShellVersion >= 44) {
+            this._caffeineToggle.subtitle = text;    
+        }   
     }
 
     _handleScrollEvent(event) {
@@ -689,17 +713,9 @@ class Caffeine extends QuickSettings.SystemIndicator {
 
     _manageShowIndicator() {
         if (this._state) {
-            if (this._settings.get_enum(SHOW_INDICATOR_KEY) === ShowIndicator.NEVER) {
-                this._indicator.visible = false;
-            } else {
-                this._indicator.visible = true;
-            }
+            this._indicator.visible = this._settings.get_enum(SHOW_INDICATOR_KEY) !== ShowIndicator.NEVER;
         } else {
-            if (this._settings.get_enum(SHOW_INDICATOR_KEY) === ShowIndicator.ALWAYS) {
-                this._indicator.visible = true;
-            } else {
-                this._indicator.visible = false;
-            }
+            this._indicator.visible = this._settings.get_enum(SHOW_INDICATOR_KEY) === ShowIndicator.ALWAYS;
         }
     }
 
@@ -896,7 +912,7 @@ class Caffeine extends QuickSettings.SystemIndicator {
             if(type === 0) {
                 // Add 100 ms delay to handle window detection
                 this._timeWorkspaceAdd = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-                    this._toggleWorkspace.bind(this);
+                    this._toggleWorkspace();
                     this._timeWorkspaceAdd = null;
                     return GLib.SOURCE_REMOVE;
                 });
@@ -909,7 +925,7 @@ class Caffeine extends QuickSettings.SystemIndicator {
             if(type === 0) {
                 // Add 100 ms delay to handle window detection
                 this._timeWorkspaceRemove = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 100, () => {
-                    this._toggleWorkspace.bind(this);
+                    this._toggleWorkspace();
                     this._timeWorkspaceRemove = null;
                     return GLib.SOURCE_REMOVE;
                 });

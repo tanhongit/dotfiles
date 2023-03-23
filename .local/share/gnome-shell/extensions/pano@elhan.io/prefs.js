@@ -1,5 +1,6 @@
 imports.gi.versions.Gtk = '4.0';
-var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
+const Me = imports.misc.extensionUtils.getCurrentExtension();
+var prefs = (function (gdk4, gtk4, adw1, gio2, pango1, gobject2, glib2) {
     'use strict';
 
     function __decorate(decorators, target, key, desc) {
@@ -8,6 +9,148 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     }
+
+    const createColorRow = (title, subtitle, settings, schemaKey) => {
+        const colorRow = new adw1.ActionRow({
+            title,
+            subtitle,
+        });
+        const colorButton = new gtk4.ColorButton({
+            title,
+            valign: gtk4.Align.CENTER,
+            halign: gtk4.Align.CENTER,
+            use_alpha: true,
+        });
+        const rgba = new gdk4.RGBA();
+        rgba.parse(settings.get_string(schemaKey));
+        colorButton.set_rgba(rgba);
+        colorButton.connect('color-set', () => {
+            const color = colorButton.get_rgba();
+            const colorString = color.to_string();
+            settings.set_string(schemaKey, colorString);
+        });
+        colorRow.add_suffix(colorButton);
+        colorRow.set_activatable_widget(colorButton);
+        const clearButton = new gtk4.Button({
+            icon_name: 'edit-clear-symbolic',
+            valign: gtk4.Align.CENTER,
+            halign: gtk4.Align.CENTER,
+        });
+        const value = settings.get_string(schemaKey);
+        const defaultValue = settings.get_default_value(schemaKey)?.get_string()[0];
+        if (defaultValue === value) {
+            clearButton.sensitive = false;
+        }
+        settings.connect(`changed::${schemaKey}`, () => {
+            const value = settings.get_string(schemaKey);
+            if (defaultValue === value) {
+                clearButton.sensitive = false;
+            }
+            else {
+                clearButton.sensitive = true;
+            }
+            const rgba = new gdk4.RGBA();
+            rgba.parse(value);
+            colorButton.set_rgba(rgba);
+        });
+        clearButton.connect('clicked', () => {
+            settings.reset(schemaKey);
+        });
+        colorRow.add_suffix(clearButton);
+        return colorRow;
+    };
+    const createSpinRow = (title, subtitle, settings, schemaKey, increment, lower, upper) => {
+        const row = new adw1.ActionRow({
+            title,
+            subtitle,
+        });
+        const value = settings.get_int(schemaKey);
+        const spinButton = new gtk4.SpinButton({
+            adjustment: new gtk4.Adjustment({ step_increment: increment, lower, upper }),
+            value,
+            valign: gtk4.Align.CENTER,
+            halign: gtk4.Align.CENTER,
+        });
+        settings.bind(schemaKey, spinButton, 'value', gio2.SettingsBindFlags.DEFAULT);
+        row.add_suffix(spinButton);
+        row.set_activatable_widget(spinButton);
+        const clearButton = new gtk4.Button({
+            icon_name: 'edit-clear-symbolic',
+            valign: gtk4.Align.CENTER,
+            halign: gtk4.Align.CENTER,
+        });
+        const defaultValue = settings.get_default_value(schemaKey)?.get_int32();
+        if (defaultValue === value) {
+            clearButton.sensitive = false;
+        }
+        settings.connect(`changed::${schemaKey}`, () => {
+            const value = settings.get_int(schemaKey);
+            if (defaultValue === value) {
+                clearButton.sensitive = false;
+            }
+            else {
+                clearButton.sensitive = true;
+            }
+        });
+        clearButton.connect('clicked', () => {
+            settings.reset(schemaKey);
+        });
+        row.add_suffix(clearButton);
+        return row;
+    };
+    const createFontRow = (title, subtitle, settings, schemaKey) => {
+        const getFont = () => `${settings.get_string(`${schemaKey}-family`)} ${settings.get_int(`${schemaKey}-size`)}`;
+        const getDefaultFont = () => `${settings.get_default_value(`${schemaKey}-family`)?.get_string()[0]} ${settings
+        .get_default_value(`${schemaKey}-size`)
+        ?.get_int32()}`;
+        const fontRow = new adw1.ActionRow({
+            title,
+            subtitle,
+        });
+        const fontButton = new gtk4.FontButton({
+            title,
+            valign: gtk4.Align.CENTER,
+            halign: gtk4.Align.CENTER,
+            use_font: true,
+            font: getFont(),
+        });
+        fontButton.connect('font-set', () => {
+            const fontFamily = fontButton.get_font_family()?.get_name();
+            const fontSize = fontButton.get_font_size() / pango1.SCALE;
+            settings.set_string(`${schemaKey}-family`, fontFamily || 'Cantarell Regular');
+            settings.set_int(`${schemaKey}-size`, fontSize || 11);
+        });
+        fontRow.add_suffix(fontButton);
+        fontRow.set_activatable_widget(fontButton);
+        const clearButton = new gtk4.Button({
+            icon_name: 'edit-clear-symbolic',
+            valign: gtk4.Align.CENTER,
+            halign: gtk4.Align.CENTER,
+        });
+        const value = getFont();
+        const defaultValue = getDefaultFont();
+        if (defaultValue === value) {
+            clearButton.sensitive = false;
+        }
+        const onChange = () => {
+            const value = getFont();
+            if (defaultValue === value) {
+                clearButton.sensitive = false;
+            }
+            else {
+                clearButton.sensitive = true;
+            }
+            fontButton.set_font(value);
+        };
+        settings.connect(`changed::${schemaKey}-family`, onChange);
+        settings.connect(`changed::${schemaKey}-size`, onChange);
+        clearButton.connect('clicked', () => {
+            settings.reset(`${schemaKey}-family`);
+            settings.reset(`${schemaKey}-size`);
+        });
+        fontRow.add_suffix(clearButton);
+        return fontRow;
+    };
 
     // Taken from https://github.com/material-shell/material-shell/blob/main/src/utils/gjs.ts
     /// Decorator function to call `GObject.registerClass` with the given class.
@@ -46,6 +189,231 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
     const initTranslations = () => imports.misc.extensionUtils.initTranslations(getCurrentExtension().metadata.uuid);
     const _ = imports.gettext.domain(getCurrentExtension().metadata.uuid).gettext;
     imports.gettext.domain(getCurrentExtension().metadata.uuid).ngettext;
+
+    let CommonStyleGroup = class CommonStyleGroup extends adw1.PreferencesGroup {
+        constructor() {
+            super({
+                title: _('Common'),
+            });
+            this.settings = getCurrentExtensionSettings();
+            this.add(createSpinRow(_('Window Height'), _('You can change the window height'), this.settings, 'window-height', 5, 200, 1000));
+            this.add(createColorRow(_('Window Background Color'), _('You can change the window background color'), this.settings, 'window-background-color'));
+            this.add(createColorRow(_('Incognito Window Background Color'), _('You can change the incognito window background color'), this.settings, 'incognito-window-background-color'));
+            this.add(createColorRow(_('Active Item Border Color'), _('You can change the active item border color'), this.settings, 'active-item-border-color'));
+            this.add(createColorRow(_('Hovered Item Border Color'), _('You can change the hovered item border color'), this.settings, 'hovered-item-border-color'));
+        }
+    };
+    CommonStyleGroup = __decorate([
+        registerGObjectClass
+    ], CommonStyleGroup);
+
+    let ItemExpanderRow = class ItemExpanderRow extends adw1.ExpanderRow {
+        constructor(title, subtitle, iconName) {
+            super({
+                title,
+                subtitle,
+            });
+            this.add_prefix(gtk4.Image.new_from_icon_name(iconName));
+        }
+    };
+    ItemExpanderRow = __decorate([
+        registerGObjectClass
+    ], ItemExpanderRow);
+
+    const PanoItemTypes = {
+        LINK: { classSuffix: 'link', title: _('Link'), iconPath: 'link-symbolic.svg', iconName: 'link-symbolic' },
+        TEXT: { classSuffix: 'text', title: _('Text'), iconPath: 'text-symbolic.svg', iconName: 'text-symbolic' },
+        EMOJI: { classSuffix: 'emoji', title: _('Emoji'), iconPath: 'emoji-symbolic.svg', iconName: 'emoji-symbolic' },
+        FILE: { classSuffix: 'file', title: _('File'), iconPath: 'file-symbolic.svg', iconName: 'file-symbolic' },
+        IMAGE: { classSuffix: 'image', title: _('Image'), iconPath: 'image-symbolic.svg', iconName: 'image-symbolic' },
+        CODE: { classSuffix: 'code', title: _('Code'), iconPath: 'code-symbolic.svg', iconName: 'code-symbolic' },
+        COLOR: { classSuffix: 'color', title: _('Color'), iconPath: 'color-symbolic.svg', iconName: 'color-symbolic' },
+    };
+
+    let CodeItemStyleRow = class CodeItemStyleRow extends ItemExpanderRow {
+        constructor() {
+            super(_('Code Item Style'), _('Change the style of the code item'), PanoItemTypes.CODE.iconName);
+            this.settings = getCurrentExtensionSettings().get_child('code-item');
+            // create header background color row
+            this.add_row(createColorRow(_('Header Background Color'), _('You can change the background color of the header'), this.settings, 'header-bg-color'));
+            // create header text color row
+            this.add_row(createColorRow(_('Header Text Color'), _('You can change the text color of the header'), this.settings, 'header-color'));
+            // create body background color row
+            this.add_row(createColorRow(_('Body Background Color'), _('You can change the background color of the body'), this.settings, 'body-bg-color'));
+            // create body font row
+            this.add_row(createFontRow(_('Body Font'), _('You can change the font of the body'), this.settings, 'body-font'));
+            // create character length row
+            this.add_row(createSpinRow(_('Character Length'), _('You can change the character length of the visible text in the body'), this.settings, 'char-length', 50, 50, 5000));
+        }
+    };
+    CodeItemStyleRow = __decorate([
+        registerGObjectClass
+    ], CodeItemStyleRow);
+
+    let ColorItemStyleRow = class ColorItemStyleRow extends ItemExpanderRow {
+        constructor() {
+            super(_('Color Item Style'), _('Change the style of the color item'), PanoItemTypes.COLOR.iconName);
+            this.settings = getCurrentExtensionSettings().get_child('color-item');
+            // create header background color row
+            this.add_row(createColorRow(_('Header Background Color'), _('You can change the background color of the header'), this.settings, 'header-bg-color'));
+            // create header text color row
+            this.add_row(createColorRow(_('Header Text Color'), _('You can change the text color of the header'), this.settings, 'header-color'));
+            // create metadata background color row
+            this.add_row(createColorRow(_('Metadata Background Color'), _('You can change the background color of the metadata'), this.settings, 'metadata-bg-color'));
+            // create metadata text color row
+            this.add_row(createColorRow(_('Metadata Text Color'), _('You can change the text color of the metadata'), this.settings, 'metadata-color'));
+            // create metadata font row
+            this.add_row(createFontRow(_('Body Font'), _('You can change the font of the metadata'), this.settings, 'metadata-font'));
+        }
+    };
+    ColorItemStyleRow = __decorate([
+        registerGObjectClass
+    ], ColorItemStyleRow);
+
+    let EmojiItemStyleRow = class EmojiItemStyleRow extends ItemExpanderRow {
+        constructor() {
+            super(_('Emoji Item Style'), _('Change the style of the emoji item'), PanoItemTypes.EMOJI.iconName);
+            this.settings = getCurrentExtensionSettings().get_child('emoji-item');
+            // create header background color row
+            this.add_row(createColorRow(_('Header Background Color'), _('You can change the background color of the header'), this.settings, 'header-bg-color'));
+            // create header text color row
+            this.add_row(createColorRow(_('Header Text Color'), _('You can change the text color of the header'), this.settings, 'header-color'));
+            // create body background color row
+            this.add_row(createColorRow(_('Body Background Color'), _('You can change the background color of the body'), this.settings, 'body-bg-color'));
+            // create character length row
+            this.add_row(createSpinRow(_('Emoji Size'), _('You can change the emoji size'), this.settings, 'emoji-size', 1, 10, 300));
+        }
+    };
+    EmojiItemStyleRow = __decorate([
+        registerGObjectClass
+    ], EmojiItemStyleRow);
+
+    let FileItemStyleRow = class FileItemStyleRow extends ItemExpanderRow {
+        constructor() {
+            super(_('File Item Style'), _('Change the style of the file item'), PanoItemTypes.FILE.iconName);
+            this.settings = getCurrentExtensionSettings().get_child('file-item');
+            // create header background color row
+            this.add_row(createColorRow(_('Header Background Color'), _('You can change the background color of the header'), this.settings, 'header-bg-color'));
+            // create header text color row
+            this.add_row(createColorRow(_('Header Text Color'), _('You can change the text color of the header'), this.settings, 'header-color'));
+            // create body background color row
+            this.add_row(createColorRow(_('Body Background Color'), _('You can change the background color of the body'), this.settings, 'body-bg-color'));
+            // create body text color row
+            this.add_row(createColorRow(_('Body Text Color'), _('You can change the text color of the body'), this.settings, 'body-color'));
+            // create body font row
+            this.add_row(createFontRow(_('Body Font'), _('You can change the font of the body'), this.settings, 'body-font'));
+        }
+    };
+    FileItemStyleRow = __decorate([
+        registerGObjectClass
+    ], FileItemStyleRow);
+
+    let ImageItemStyleRow = class ImageItemStyleRow extends ItemExpanderRow {
+        constructor() {
+            super(_('Image Item Style'), _('Change the style of the image item'), PanoItemTypes.IMAGE.iconName);
+            this.settings = getCurrentExtensionSettings().get_child('image-item');
+            // create header background color row
+            this.add_row(createColorRow(_('Header Background Color'), _('You can change the background color of the header'), this.settings, 'header-bg-color'));
+            // create header text color row
+            this.add_row(createColorRow(_('Header Text Color'), _('You can change the text color of the header'), this.settings, 'header-color'));
+            // create body background color row
+            this.add_row(createColorRow(_('Body Background Color'), _('You can change the background color of the body'), this.settings, 'body-bg-color'));
+            // create metadata background color row
+            this.add_row(createColorRow(_('Metadata Background Color'), _('You can change the background color of the metadata'), this.settings, 'metadata-bg-color'));
+            // create metadata text color row
+            this.add_row(createColorRow(_('Metadata Text Color'), _('You can change the text color of the metadata'), this.settings, 'metadata-color'));
+            // create metadata font row
+            this.add_row(createFontRow(_('Metadata Font'), _('You can change the font of the metadata'), this.settings, 'metadata-font'));
+        }
+    };
+    ImageItemStyleRow = __decorate([
+        registerGObjectClass
+    ], ImageItemStyleRow);
+
+    let LinkItemStyleRow = class LinkItemStyleRow extends ItemExpanderRow {
+        constructor() {
+            super(_('Link Item Style'), _('Change the style of the link item'), PanoItemTypes.LINK.iconName);
+            this.settings = getCurrentExtensionSettings().get_child('link-item');
+            // create header background color row
+            this.add_row(createColorRow(_('Header Background Color'), _('You can change the background color of the header'), this.settings, 'header-bg-color'));
+            // create header text color row
+            this.add_row(createColorRow(_('Header Text Color'), _('You can change the text color of the header'), this.settings, 'header-color'));
+            // create body background color row
+            this.add_row(createColorRow(_('Body Background Color'), _('You can change the background color of the body'), this.settings, 'body-bg-color'));
+            // create metadata background color row
+            this.add_row(createColorRow(_('Metadata Background Color'), _('You can change the background color of the metadata'), this.settings, 'metadata-bg-color'));
+            // create metadata title color row
+            this.add_row(createColorRow(_('Metadata Title Color'), _('You can change the title color of the metadata'), this.settings, 'metadata-title-color'));
+            // create metadata title font row
+            this.add_row(createFontRow(_('Metadata Title Font'), _('You can change the font of the metadata title'), this.settings, 'metadata-title-font'));
+            // create metadata description color row
+            this.add_row(createColorRow(_('Metadata Description Color'), _('You can change the description color of the metadata'), this.settings, 'metadata-description-color'));
+            // create metadata description font row
+            this.add_row(createFontRow(_('Metadata Description Font'), _('You can change the font of the metadata description'), this.settings, 'metadata-description-font'));
+            // create metadata link color row
+            this.add_row(createColorRow(_('Metadata Link Color'), _('You can change the link color of the metadata'), this.settings, 'metadata-link-color'));
+            // create metadata link font row
+            this.add_row(createFontRow(_('Metadata Link Font'), _('You can change the font of the metadata link'), this.settings, 'metadata-link-font'));
+        }
+    };
+    LinkItemStyleRow = __decorate([
+        registerGObjectClass
+    ], LinkItemStyleRow);
+
+    let TextItemStyleRow = class TextItemStyleRow extends ItemExpanderRow {
+        constructor() {
+            super(_('Text Item Style'), _('Change the style of the text item'), PanoItemTypes.TEXT.iconName);
+            this.settings = getCurrentExtensionSettings().get_child('text-item');
+            // create header background color row
+            this.add_row(createColorRow(_('Header Background Color'), _('You can change the background color of the header'), this.settings, 'header-bg-color'));
+            // create header text color row
+            this.add_row(createColorRow(_('Header Text Color'), _('You can change the text color of the header'), this.settings, 'header-color'));
+            // create body background color row
+            this.add_row(createColorRow(_('Body Background Color'), _('You can change the background color of the body'), this.settings, 'body-bg-color'));
+            // create body text color row
+            this.add_row(createColorRow(_('Body Text Color'), _('You can change the text color of the body'), this.settings, 'body-color'));
+            // create body font row
+            this.add_row(createFontRow(_('Body Font'), _('You can change the font of the body'), this.settings, 'body-font'));
+            // create character length row
+            this.add_row(createSpinRow(_('Character Length'), _('You can change the character length of the visible text in the body'), this.settings, 'char-length', 50, 50, 5000));
+        }
+    };
+    TextItemStyleRow = __decorate([
+        registerGObjectClass
+    ], TextItemStyleRow);
+
+    let ItemStyleGroup = class ItemStyleGroup extends adw1.PreferencesGroup {
+        constructor() {
+            super({
+                title: _('Item Style'),
+                margin_top: 10,
+            });
+            this.add(new LinkItemStyleRow());
+            this.add(new TextItemStyleRow());
+            this.add(new EmojiItemStyleRow());
+            this.add(new FileItemStyleRow());
+            this.add(new ImageItemStyleRow());
+            this.add(new CodeItemStyleRow());
+            this.add(new ColorItemStyleRow());
+        }
+    };
+    ItemStyleGroup = __decorate([
+        registerGObjectClass
+    ], ItemStyleGroup);
+
+    let CustomizationPage = class CustomizationPage extends adw1.PreferencesPage {
+        constructor() {
+            super({
+                title: _('Customization'),
+                icon_name: 'emblem-photos-symbolic',
+            });
+            this.add(new CommonStyleGroup());
+            this.add(new ItemStyleGroup());
+        }
+    };
+    CustomizationPage = __decorate([
+        registerGObjectClass
+    ], CustomizationPage);
 
     let ClearHistoryRow = class ClearHistoryRow extends adw1.ActionRow {
         constructor() {
@@ -108,7 +476,7 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
         constructor() {
             super({
                 title: _('Danger Zone'),
-                icon_name: 'app-remove-symbolic',
+                icon_name: 'user-trash-symbolic',
             });
             const dangerZoneGroup = new adw1.PreferencesGroup();
             dangerZoneGroup.add(new SessionOnlyModeRow());
@@ -304,6 +672,162 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
         registerGObjectClass
     ], HistoryLengthRow);
 
+    let IncognitoShortcutRow = class IncognitoShortcutRow extends adw1.ActionRow {
+        constructor() {
+            super({
+                title: _('Incognito Mode Shortcut'),
+                subtitle: _('Allows you to toggle incognito mode'),
+            });
+            this.settings = getCurrentExtensionSettings();
+            const shortcutLabel = new gtk4.ShortcutLabel({
+                disabled_text: _('Select a shortcut'),
+                accelerator: this.settings.get_strv('incognito-shortcut')[0],
+                valign: gtk4.Align.CENTER,
+                halign: gtk4.Align.CENTER,
+            });
+            this.settings.connect('changed::incognito-shortcut', () => {
+                shortcutLabel.set_accelerator(this.settings.get_strv('incognito-shortcut')[0]);
+            });
+            this.connect('activated', () => {
+                const ctl = new gtk4.EventControllerKey();
+                const content = new adw1.StatusPage({
+                    title: _('New shortcut'),
+                    icon_name: 'preferences-desktop-keyboard-shortcuts-symbolic',
+                });
+                const editor = new adw1.Window({
+                    modal: true,
+                    transient_for: this.get_root(),
+                    hide_on_close: true,
+                    width_request: 320,
+                    height_request: 240,
+                    resizable: false,
+                    content,
+                });
+                editor.add_controller(ctl);
+                // See https://github.com/tuberry/color-picker/blob/1a278db139f00787e365fce5977d30b535529edb/color-picker%40tuberry/prefs.js
+                ctl.connect('key-pressed', (_, keyval, keycode, state) => {
+                    let mask = state & gtk4.accelerator_get_default_mod_mask();
+                    mask &= ~gdk4.ModifierType.LOCK_MASK;
+                    if (!mask && keyval === gdk4.KEY_Escape) {
+                        editor.close();
+                        return gdk4.EVENT_STOP;
+                    }
+                    if (!isValidBinding$1(mask, keycode, keyval) || !isValidAccel$1(mask, keyval)) {
+                        return gdk4.EVENT_STOP;
+                    }
+                    this.settings.set_strv('incognito-shortcut', [gtk4.accelerator_name_with_keycode(null, keyval, keycode, mask)]);
+                    editor.destroy();
+                    return gdk4.EVENT_STOP;
+                });
+                editor.present();
+            });
+            this.add_suffix(shortcutLabel);
+            this.set_activatable_widget(shortcutLabel);
+        }
+    };
+    IncognitoShortcutRow = __decorate([
+        registerGObjectClass
+    ], IncognitoShortcutRow);
+    const keyvalIsForbidden$1 = (keyval) => {
+        return [
+            gdk4.KEY_Home,
+            gdk4.KEY_Left,
+            gdk4.KEY_Up,
+            gdk4.KEY_Right,
+            gdk4.KEY_Down,
+            gdk4.KEY_Page_Up,
+            gdk4.KEY_Page_Down,
+            gdk4.KEY_End,
+            gdk4.KEY_Tab,
+            gdk4.KEY_KP_Enter,
+            gdk4.KEY_Return,
+            gdk4.KEY_Mode_switch,
+        ].includes(keyval);
+    };
+    const isValidAccel$1 = (mask, keyval) => {
+        return gtk4.accelerator_valid(keyval, mask) || (keyval === gdk4.KEY_Tab && mask !== 0);
+    };
+    const isValidBinding$1 = (mask, keycode, keyval) => {
+        return !(mask === 0 ||
+            (mask === gdk4.ModifierType.SHIFT_MASK &&
+                keycode !== 0 &&
+                ((keyval >= gdk4.KEY_a && keyval <= gdk4.KEY_z) ||
+                    (keyval >= gdk4.KEY_A && keyval <= gdk4.KEY_Z) ||
+                    (keyval >= gdk4.KEY_0 && keyval <= gdk4.KEY_9) ||
+                    (keyval >= gdk4.KEY_kana_fullstop && keyval <= gdk4.KEY_semivoicedsound) ||
+                    (keyval >= gdk4.KEY_Arabic_comma && keyval <= gdk4.KEY_Arabic_sukun) ||
+                    (keyval >= gdk4.KEY_Serbian_dje && keyval <= gdk4.KEY_Cyrillic_HARDSIGN) ||
+                    (keyval >= gdk4.KEY_Greek_ALPHAaccent && keyval <= gdk4.KEY_Greek_omega) ||
+                    (keyval >= gdk4.KEY_hebrew_doublelowline && keyval <= gdk4.KEY_hebrew_taf) ||
+                    (keyval >= gdk4.KEY_Thai_kokai && keyval <= gdk4.KEY_Thai_lekkao) ||
+                    (keyval >= gdk4.KEY_Hangul_Kiyeog && keyval <= gdk4.KEY_Hangul_J_YeorinHieuh) ||
+                    (keyval === gdk4.KEY_space && mask === 0) ||
+                    keyvalIsForbidden$1(keyval))));
+    };
+
+    let KeepSearchEntryRow = class KeepSearchEntryRow extends adw1.ActionRow {
+        constructor() {
+            super({
+                title: _('Keep Search Entry'),
+                subtitle: _('Keep search entry when Pano hides'),
+            });
+            this.settings = getCurrentExtensionSettings();
+            const keepSearchEntrySwitch = new gtk4.Switch({
+                active: this.settings.get_boolean('keep-search-entry'),
+                valign: gtk4.Align.CENTER,
+                halign: gtk4.Align.CENTER,
+            });
+            this.settings.bind('keep-search-entry', keepSearchEntrySwitch, 'active', gio2.SettingsBindFlags.DEFAULT);
+            this.add_suffix(keepSearchEntrySwitch);
+            this.set_activatable_widget(keepSearchEntrySwitch);
+        }
+    };
+    KeepSearchEntryRow = __decorate([
+        registerGObjectClass
+    ], KeepSearchEntryRow);
+
+    let LinkPreviewsRow = class LinkPreviewsRow extends adw1.ActionRow {
+        constructor() {
+            super({
+                title: _('Link Previews'),
+                subtitle: _('Allow Pano to visit links on your clipboard to generate link previews'),
+            });
+            this.settings = getCurrentExtensionSettings();
+            const linkPreviews = new gtk4.Switch({
+                active: this.settings.get_boolean('link-previews'),
+                valign: gtk4.Align.CENTER,
+                halign: gtk4.Align.CENTER,
+            });
+            this.settings.bind('link-previews', linkPreviews, 'active', gio2.SettingsBindFlags.DEFAULT);
+            this.add_suffix(linkPreviews);
+            this.set_activatable_widget(linkPreviews);
+        }
+    };
+    LinkPreviewsRow = __decorate([
+        registerGObjectClass
+    ], LinkPreviewsRow);
+
+    let OpenLinksInBrowserRow = class OpenLinksInBrowserRow extends adw1.ActionRow {
+        constructor() {
+            super({
+                title: _('Open Links in Browser'),
+                subtitle: _('Allow Pano to open links on your default browser'),
+            });
+            this.settings = getCurrentExtensionSettings();
+            const openLinksInBrowser = new gtk4.Switch({
+                active: this.settings.get_boolean('open-links-in-browser'),
+                valign: gtk4.Align.CENTER,
+                halign: gtk4.Align.CENTER,
+            });
+            this.settings.bind('open-links-in-browser', openLinksInBrowser, 'active', gio2.SettingsBindFlags.DEFAULT);
+            this.add_suffix(openLinksInBrowser);
+            this.set_activatable_widget(openLinksInBrowser);
+        }
+    };
+    OpenLinksInBrowserRow = __decorate([
+        registerGObjectClass
+    ], OpenLinksInBrowserRow);
+
     let PasteOnSelectRow = class PasteOnSelectRow extends adw1.ActionRow {
         constructor() {
             super({
@@ -346,6 +870,27 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
         registerGObjectClass
     ], PlayAudioOnCopyRow);
 
+    let SendNotificationOnCopyRow = class SendNotificationOnCopyRow extends adw1.ActionRow {
+        constructor() {
+            super({
+                title: _('Send Notification on Copy'),
+                subtitle: _('Allow Pano to send notification when copying new content'),
+            });
+            this.settings = getCurrentExtensionSettings();
+            const sendNotificationOnCopySwitch = new gtk4.Switch({
+                active: this.settings.get_boolean('send-notification-on-copy'),
+                valign: gtk4.Align.CENTER,
+                halign: gtk4.Align.CENTER,
+            });
+            this.settings.bind('send-notification-on-copy', sendNotificationOnCopySwitch, 'active', gio2.SettingsBindFlags.DEFAULT);
+            this.add_suffix(sendNotificationOnCopySwitch);
+            this.set_activatable_widget(sendNotificationOnCopySwitch);
+        }
+    };
+    SendNotificationOnCopyRow = __decorate([
+        registerGObjectClass
+    ], SendNotificationOnCopyRow);
+
     let ShortcutRow = class ShortcutRow extends adw1.ActionRow {
         constructor() {
             super({
@@ -359,122 +904,8 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
                 valign: gtk4.Align.CENTER,
                 halign: gtk4.Align.CENTER,
             });
-            this.settings.connect('changed::shortcut', () => {
+            this.settings.connect('changed::global-shortcut', () => {
                 shortcutLabel.set_accelerator(this.settings.get_strv('global-shortcut')[0]);
-            });
-            this.connect('activated', () => {
-                const ctl = new gtk4.EventControllerKey();
-                const content = new adw1.StatusPage({
-                    title: _('New shortcut'),
-                    icon_name: 'preferences-desktop-keyboard-shortcuts-symbolic',
-                });
-                const editor = new adw1.Window({
-                    modal: true,
-                    transient_for: this.get_root(),
-                    hide_on_close: true,
-                    width_request: 320,
-                    height_request: 240,
-                    resizable: false,
-                    content,
-                });
-                editor.add_controller(ctl);
-                // See https://github.com/tuberry/color-picker/blob/1a278db139f00787e365fce5977d30b535529edb/color-picker%40tuberry/prefs.js
-                ctl.connect('key-pressed', (_, keyval, keycode, state) => {
-                    let mask = state & gtk4.accelerator_get_default_mod_mask();
-                    mask &= ~gdk4.ModifierType.LOCK_MASK;
-                    if (!mask && keyval === gdk4.KEY_Escape) {
-                        editor.close();
-                        return gdk4.EVENT_STOP;
-                    }
-                    if (!isValidBinding$1(mask, keycode, keyval) || !isValidAccel$1(mask, keyval)) {
-                        return gdk4.EVENT_STOP;
-                    }
-                    this.settings.set_strv('global-shortcut', [gtk4.accelerator_name_with_keycode(null, keyval, keycode, mask)]);
-                    editor.destroy();
-                    return gdk4.EVENT_STOP;
-                });
-                editor.present();
-            });
-            this.add_suffix(shortcutLabel);
-            this.set_activatable_widget(shortcutLabel);
-        }
-    };
-    ShortcutRow = __decorate([
-        registerGObjectClass
-    ], ShortcutRow);
-    const keyvalIsForbidden$1 = (keyval) => {
-        return [
-            gdk4.KEY_Home,
-            gdk4.KEY_Left,
-            gdk4.KEY_Up,
-            gdk4.KEY_Right,
-            gdk4.KEY_Down,
-            gdk4.KEY_Page_Up,
-            gdk4.KEY_Page_Down,
-            gdk4.KEY_End,
-            gdk4.KEY_Tab,
-            gdk4.KEY_KP_Enter,
-            gdk4.KEY_Return,
-            gdk4.KEY_Mode_switch,
-        ].includes(keyval);
-    };
-    const isValidAccel$1 = (mask, keyval) => {
-        return gtk4.accelerator_valid(keyval, mask) || (keyval === gdk4.KEY_Tab && mask !== 0);
-    };
-    const isValidBinding$1 = (mask, keycode, keyval) => {
-        return !(mask === 0 ||
-            (mask === gdk4.ModifierType.SHIFT_MASK &&
-                keycode !== 0 &&
-                ((keyval >= gdk4.KEY_a && keyval <= gdk4.KEY_z) ||
-                    (keyval >= gdk4.KEY_A && keyval <= gdk4.KEY_Z) ||
-                    (keyval >= gdk4.KEY_0 && keyval <= gdk4.KEY_9) ||
-                    (keyval >= gdk4.KEY_kana_fullstop && keyval <= gdk4.KEY_semivoicedsound) ||
-                    (keyval >= gdk4.KEY_Arabic_comma && keyval <= gdk4.KEY_Arabic_sukun) ||
-                    (keyval >= gdk4.KEY_Serbian_dje && keyval <= gdk4.KEY_Cyrillic_HARDSIGN) ||
-                    (keyval >= gdk4.KEY_Greek_ALPHAaccent && keyval <= gdk4.KEY_Greek_omega) ||
-                    (keyval >= gdk4.KEY_hebrew_doublelowline && keyval <= gdk4.KEY_hebrew_taf) ||
-                    (keyval >= gdk4.KEY_Thai_kokai && keyval <= gdk4.KEY_Thai_lekkao) ||
-                    (keyval >= gdk4.KEY_Hangul_Kiyeog && keyval <= gdk4.KEY_Hangul_J_YeorinHieuh) ||
-                    (keyval === gdk4.KEY_space && mask === 0) ||
-                    keyvalIsForbidden$1(keyval))));
-    };
-
-    let WatchExclusionsRow = class WatchExclusionsRow extends adw1.ActionRow {
-        constructor() {
-            super({
-                title: _('Watch Exclusions'),
-                subtitle: _('When enabled, Pano will not track clipboard from excluded apps'),
-            });
-            this.settings = getCurrentExtensionSettings();
-            const watchExclusionsSwitch = new gtk4.Switch({
-                active: this.settings.get_boolean('watch-exclusion-list'),
-                valign: gtk4.Align.CENTER,
-                halign: gtk4.Align.CENTER,
-            });
-            this.settings.bind('watch-exclusion-list', watchExclusionsSwitch, 'active', gio2.SettingsBindFlags.DEFAULT);
-            this.add_suffix(watchExclusionsSwitch);
-            this.set_activatable_widget(watchExclusionsSwitch);
-        }
-    };
-    WatchExclusionsRow = __decorate([
-        registerGObjectClass
-    ], WatchExclusionsRow);
-
-    let IncognitoShortcutRow = class IncognitoShortcutRow extends adw1.ActionRow {
-        constructor() {
-            super({
-                title: _('Incognito Mode Shortcut'),
-                subtitle: _('Allows you to toggle incognito mode'),
-            });
-            this.settings = getCurrentExtensionSettings();
-            const shortcutLabel = new gtk4.ShortcutLabel({
-                disabled_text: _('Select a shortcut'),
-                accelerator: this.settings.get_strv('incognito-shortcut')[0],
-                valign: gtk4.Align.CENTER,
-                halign: gtk4.Align.CENTER,
-            });
-            this.settings.connect('changed::incognito-shortcut', () => {
-                shortcutLabel.set_accelerator(this.settings.get_strv('incognito-shortcut')[0]);
             });
             this.connect('activated', () => {
                 const ctl = new gtk4.EventControllerKey();
@@ -503,7 +934,7 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
                     if (!isValidBinding(mask, keycode, keyval) || !isValidAccel(mask, keyval)) {
                         return gdk4.EVENT_STOP;
                     }
-                    this.settings.set_strv('incognito-shortcut', [gtk4.accelerator_name_with_keycode(null, keyval, keycode, mask)]);
+                    this.settings.set_strv('global-shortcut', [gtk4.accelerator_name_with_keycode(null, keyval, keycode, mask)]);
                     editor.destroy();
                     return gdk4.EVENT_STOP;
                 });
@@ -513,9 +944,9 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
             this.set_activatable_widget(shortcutLabel);
         }
     };
-    IncognitoShortcutRow = __decorate([
+    ShortcutRow = __decorate([
         registerGObjectClass
-    ], IncognitoShortcutRow);
+    ], ShortcutRow);
     const keyvalIsForbidden = (keyval) => {
         return [
             gdk4.KEY_Home,
@@ -574,27 +1005,6 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
         registerGObjectClass
     ], ShowIndicatorRow);
 
-    let LinkPreviewsRow = class LinkPreviewsRow extends adw1.ActionRow {
-        constructor() {
-            super({
-                title: _('Link Previews'),
-                subtitle: _('Allow Pano to visit links on your clipboard to generate link previews'),
-            });
-            this.settings = getCurrentExtensionSettings();
-            const linkPreviews = new gtk4.Switch({
-                active: this.settings.get_boolean('link-previews'),
-                valign: gtk4.Align.CENTER,
-                halign: gtk4.Align.CENTER,
-            });
-            this.settings.bind('link-previews', linkPreviews, 'active', gio2.SettingsBindFlags.DEFAULT);
-            this.add_suffix(linkPreviews);
-            this.set_activatable_widget(linkPreviews);
-        }
-    };
-    LinkPreviewsRow = __decorate([
-        registerGObjectClass
-    ], LinkPreviewsRow);
-
     let SyncPrimaryRow = class SyncPrimaryRow extends adw1.ActionRow {
         constructor() {
             super({
@@ -616,26 +1026,26 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
         registerGObjectClass
     ], SyncPrimaryRow);
 
-    let KeepSearchEntryRow = class KeepSearchEntryRow extends adw1.ActionRow {
+    let WatchExclusionsRow = class WatchExclusionsRow extends adw1.ActionRow {
         constructor() {
             super({
-                title: _('Keep Search Entry'),
-                subtitle: _('Keep search entry when Pano hides'),
+                title: _('Watch Exclusions'),
+                subtitle: _('When enabled, Pano will not track clipboard from excluded apps'),
             });
             this.settings = getCurrentExtensionSettings();
-            const pasteOnSelectSwitch = new gtk4.Switch({
-                active: this.settings.get_boolean('keep-search-entry'),
+            const watchExclusionsSwitch = new gtk4.Switch({
+                active: this.settings.get_boolean('watch-exclusion-list'),
                 valign: gtk4.Align.CENTER,
                 halign: gtk4.Align.CENTER,
             });
-            this.settings.bind('keep-search-entry', pasteOnSelectSwitch, 'active', gio2.SettingsBindFlags.DEFAULT);
-            this.add_suffix(pasteOnSelectSwitch);
-            this.set_activatable_widget(pasteOnSelectSwitch);
+            this.settings.bind('watch-exclusion-list', watchExclusionsSwitch, 'active', gio2.SettingsBindFlags.DEFAULT);
+            this.add_suffix(watchExclusionsSwitch);
+            this.set_activatable_widget(watchExclusionsSwitch);
         }
     };
-    KeepSearchEntryRow = __decorate([
+    WatchExclusionsRow = __decorate([
         registerGObjectClass
-    ], KeepSearchEntryRow);
+    ], WatchExclusionsRow);
 
     let GeneralGroup = class GeneralGroup extends adw1.PreferencesGroup {
         constructor() {
@@ -648,10 +1058,12 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
             this.add(new IncognitoShortcutRow());
             this.add(new SyncPrimaryRow());
             this.add(new PasteOnSelectRow());
+            this.add(new SendNotificationOnCopyRow());
             this.add(new PlayAudioOnCopyRow());
             this.add(new KeepSearchEntryRow());
             this.add(new ShowIndicatorRow());
             this.add(new LinkPreviewsRow());
+            this.add(new OpenLinksInBrowserRow());
             this.add(new WatchExclusionsRow());
         }
     };
@@ -680,13 +1092,18 @@ var prefs = (function (adw1, gio2, gtk4, gobject2, glib2, gdk4) {
     };
     const fillPreferencesWindow = (window) => {
         window.add(new GeneralPage());
+        window.add(new CustomizationPage());
         window.add(new DangerZonePage());
         window.search_enabled = true;
+        const display = gdk4.Display.get_default();
+        if (display) {
+            gtk4.IconTheme.get_for_display(display).add_search_path(`${getCurrentExtension().path}/icons/`);
+        }
     };
     var prefs = { init, fillPreferencesWindow };
 
     return prefs;
 
-})(imports.gi.Adw, imports.gi.Gio, imports.gi.Gtk, imports.gi.GObject, imports.gi.GLib, imports.gi.Gdk);
+})(imports.gi.Gdk, imports.gi.Gtk, imports.gi.Adw, imports.gi.Gio, imports.gi.Pango, imports.gi.GObject, imports.gi.GLib);
 var init = prefs.init;
 var fillPreferencesWindow = prefs.fillPreferencesWindow;
