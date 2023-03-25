@@ -77,7 +77,7 @@ if [ "" = "$PKG_OK" ]; then
 "
     echo "*********************************************"
     echo "read notes to change mysql security"
-    mysql_secure_installation
+    #mysql_secure_installation
 fi
 
 echo "=========================== PHP ==========================="
@@ -90,14 +90,18 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo add-apt-repository ppa:ondrej/php
 
     echo "*****************"
-    PHP_VERSION=8.1
+    PHP_VERSION=8.2
     setPHPVersion() {
         PHP_VERSION=$1
         echo "You choose php$PHP_VERSION"
     }
     PS3="Select setup the php version (press * to setup default version - php$PHP_VERSION): "
-    select opt in "8.1" "8.0" "7.4" "7.2" "7.0" "5.6"; do
+    select opt in "8.2" "8.1" "8.0" "7.4" "7.2" "7.0" "5.6"; do
         case $opt in
+        "8.2")
+            setPHPVersion "8.2"
+            break
+            ;;
         "8.1")
             setPHPVersion "8.1"
             break

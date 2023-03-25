@@ -18,7 +18,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 
     echo 'Install docker compose:'
     echo 'Check new version at https://github.com/docker/compose/releases'
-    DOCKER_COMPOSE_VERSION=v2.9.0
+    DOCKER_COMPOSE_VERSION=v2.17.1
     sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo mv /usr/local/bin/docker-compose /usr/bin/docker-compose
     sudo chmod +x /usr/bin/docker-compose

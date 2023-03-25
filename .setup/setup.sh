@@ -123,8 +123,18 @@ PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install 
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
     echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-    curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
-    sodo $REQUIRED_PKG plugins:install heroku-accounts
+    while true; do
+        read -p "Do you want to install some packages, programs for web developer? (Y/N)  " yn
+        case $yn in
+        [Yy]*)
+            curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+            sodo $REQUIRED_PKG plugins:install heroku-accounts
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    done
 fi
 
 echo "=========================== ulauncher ==========================="
