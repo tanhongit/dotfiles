@@ -77,7 +77,7 @@ if [ "" = "$PKG_OK" ]; then
 "
     echo "*********************************************"
     echo "read notes to change mysql security"
-    mysql_secure_installation
+    #mysql_secure_installation
 fi
 
 echo "=========================== PHP ==========================="
