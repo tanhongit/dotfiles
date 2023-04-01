@@ -91,12 +91,14 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo add-apt-repository ppa:ondrej/php
 
     echo "*****************"
-    PHP_VERSION=8.2
+    echo 'Auto checking for latest version...'
+    PHP_VERSION=$(curl -s https://www.php.net/downloads | grep -oP 'PHP [0-9]+\.[0-9]+' | head -1 | awk '{print $2}')
+
     setPHPVersion() {
         PHP_VERSION=$1
         echo "You choose php$PHP_VERSION"
     }
-    PS3="Select setup the php version (press * to setup default version - php$PHP_VERSION): "
+    PS3="Select setup the php version (press * to setup default version - php$PHP_VERSION) - (latest version is php$PHP_VERSION): "
     select opt in "8.2" "8.1" "8.0" "7.4" "7.2" "7.0" "5.6"; do
         case $opt in
         "8.2")
