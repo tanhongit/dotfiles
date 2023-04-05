@@ -145,3 +145,4 @@ application/xml=code.desktop
 application/sql=code.desktop
 application/vnd.ms-publisher=org.gnome.TextEditor.desktop
 application/pdf=google-chrome.desktop
+application/zip=mysql-workbench-community_mysql-workbench-community.desktop
