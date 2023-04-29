@@ -74,6 +74,7 @@ application/zip=mysql-workbench-community_mysql-workbench-community.desktop;
 application/pdf=google-chrome.desktop;
 application/xml=code.desktop;
 application/sql=code.desktop;
+text/csv=phpstorm_phpstorm.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
@@ -146,3 +147,5 @@ application/sql=code.desktop
 application/vnd.ms-publisher=org.gnome.TextEditor.desktop
 application/pdf=google-chrome.desktop
 application/zip=mysql-workbench-community_mysql-workbench-community.desktop
+text/csv=phpstorm_phpstorm.desktop
+text/plain=phpstorm_phpstorm.desktop
