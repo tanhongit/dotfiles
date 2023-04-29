@@ -31,15 +31,15 @@ Now, wait for a while, and you will see some messages question do you want to in
 
 # Screenshots demo
 
-![image](https://user-images.githubusercontent.com/35853002/182054188-3a72f5a2-4907-44e4-9022-1f76486455d7.png)
+![image](https://user-images.githubusercontent.com/35853002/235287944-1c092521-1c75-4fc6-a03b-8fb1a17efd8d.png)
 
-![image](https://user-images.githubusercontent.com/35853002/182054231-0c39f944-60af-41de-89d6-9201a52fbc94.png)
+![image](https://user-images.githubusercontent.com/35853002/235287809-452e05d0-60dc-4960-a56f-2babe883c026.png)
 
-![image](https://user-images.githubusercontent.com/35853002/182054435-00088fbd-dffd-430f-88ab-f7265d029cd9.png)
+![image](https://user-images.githubusercontent.com/35853002/235287770-47cb0775-8889-4a37-b40b-2bc3ec0d66e5.png)
 
-![image](https://user-images.githubusercontent.com/35853002/198906288-7603e985-c22c-49bd-b60e-5c515d415a25.png)
+![image](https://user-images.githubusercontent.com/35853002/235287734-0f8d8c00-bd12-4ae7-acb8-b4f440bdf50f.png)
 
-![image](https://user-images.githubusercontent.com/35853002/182054403-677c1724-4ed8-4ce3-9a6f-c8ac707de322.png)
+![image](https://user-images.githubusercontent.com/35853002/235287704-a6c5835b-c08d-4424-8e98-30bee2d5bbda.png)
 
 # 4. Backup your dotfiles from your local machine
 
