@@ -1,6 +1,0 @@
-<node>
-  <interface name="io.elhan.ExtensionsSync">
-    <method name="save" />
-    <method name="read" />
-  </interface>
-</node>
