@@ -18,7 +18,6 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt-get install -y $REQUIRED_PKG
 fi
 
-mkdir ~/.themes
-sudo git clone https://github.com/B00merang-Project/macOS ~/.themes/macOS-master
-mkdir ~/.icons
-sudo git clone https://github.com/keeferrourke/la-capitaine-icon-theme ~/.icons/la-capitaine-icon-theme-0.6.1
+bash pre-install.sh
+
+cd ../../ # go to .setup directory

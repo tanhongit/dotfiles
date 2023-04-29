@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cp -TRv ${ZSH_CUSTOM:-$HOME}/.local/share/gnome-shell ../.local/share/gnome-shell
 cp -TRv ${ZSH_CUSTOM:-$HOME}/.local/share/grilo-plugins ../.local/share/grilo-plugins
 cp -TRv ${ZSH_CUSTOM:-$HOME}/.local/share/sounds ../.local/share/sounds
