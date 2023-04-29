@@ -19,3 +19,4 @@ Shift_L,   Down, Shift_L|Button5
 EOF
     imwheel --kill
     sudo imwheel --kill --buttons "4 5"
+fi
