@@ -23,15 +23,13 @@ cd ../../
 echo ''
 
 echo '####################################################################'
-WEB_DEVELOP="0"
 while true; do
     read -p "Do you want to install some packages, programs for web developer? (Y/N)  " yn
     case $yn in
     [Yy]*)
-        cd options/web-develop/
-        WEB_DEVELOP="1"
+        cd options/develop/web/
         bash setup.sh
-        cd ../../
+        cd ../../../
         break
         ;;
     [Nn]*) break ;;
@@ -48,19 +46,18 @@ cd options/setup
 bash after-setup.sh
 cd ../../
 
-echo ""
-if [ "1" = "$WEB_DEVELOP" ]; then
-    while true; do
-        read -p "Do you want to install docker? (Y/N)  " yn
-        case $yn in
-        [Yy]*)
-            cd options/web-develop/docker/
-            bash run.sh
-            cd ../../../
-            break
-            ;;
-        [Nn]*) break ;;
-        *) echo "Please answer yes or no." ;;
-        esac
-    done
-fi
+echo "####################################################################"
+echo "######################### install docker ###########################"
+while true; do
+    read -p "Do you want to install docker? (Y/N)  " yn
+    case $yn in
+    [Yy]*)
+        cd options/develop/
+        bash docker.sh
+        cd ../../
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+done

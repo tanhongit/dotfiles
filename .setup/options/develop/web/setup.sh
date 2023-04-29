@@ -130,22 +130,22 @@ else
 fi
 echo ""
 
-echo "=========================== influxdb ==========================="
-REQUIRED_PKG="influxdb"
-PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
-echo Checking for $REQUIRED_PKG: $PKG_OK
-if [ "" = "$PKG_OK" ]; then
-    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    echo 'docs: https://docs.influxdata.com/influxdb/v1.7/introduction/installation/#'
-    wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
-    source /etc/lsb-release
-    echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
-
-    sudo apt-get update && sudo apt-get install influxdb -y
-    sudo service influxdb start
-    lsof -i :8086
-fi
-echo ""
+# echo "=========================== influxdb ==========================="
+# REQUIRED_PKG="influxdb"
+# PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+# echo Checking for $REQUIRED_PKG: $PKG_OK
+# if [ "" = "$PKG_OK" ]; then
+#     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+#     echo 'docs: https://docs.influxdata.com/influxdb/v1.7/introduction/installation/#'
+#     wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+#     source /etc/lsb-release
+#     echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+#
+#     sudo apt-get update && sudo apt-get install influxdb -y
+#     sudo service influxdb start
+#     lsof -i :8086
+# fi
+# echo ""
 
 # echo "=========================== mongodb ==========================="
 # COMMAND_NAME="mongo"
