@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# clone tool create virtual host
-sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git ${ZSH_CUSTOM:-$HOME}/tools/avhc_tool
-
 echo '####################################################################'
 echo '############################### lamp ###############################'
 echo ''
+sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git ${ZSH_CUSTOM:-$HOME}/tools/avhc_tool # clone tool create virtual host
 bash lamp.sh
 
 echo "=========================== phpmyadmin ==========================="
@@ -112,7 +110,7 @@ echo "=========================== nvm ==========================="
 COMMAND_NAME="nvm"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+    curl https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     source ~/.profile
     # nvm install node
     # nvm install 18.7.0
