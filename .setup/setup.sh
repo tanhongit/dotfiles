@@ -29,7 +29,22 @@ while true; do
     [Yy]*)
         cd options/develop/web/php
         bash setup.sh
-        cd ../../../
+        cd ../../../../
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+done
+
+echo '####################################################################'
+while true; do
+    read -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
+    case $yn in
+    [Yy]*)
+        cd options/develop/web/js
+        bash setup.sh
+        cd ../../../../
         break
         ;;
     [Nn]*) break ;;
