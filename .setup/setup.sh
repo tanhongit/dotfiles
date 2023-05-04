@@ -24,10 +24,10 @@ echo ''
 
 echo '####################################################################'
 while true; do
-    read -p "Do you want to install some packages, programs for web developer? (Y/N)  " yn
+    read -p "Do you want to install some packages, programs for PHP web developer? (Y/N)  " yn
     case $yn in
     [Yy]*)
-        cd options/develop/web/
+        cd options/develop/web/php
         bash setup.sh
         cd ../../../
         break
