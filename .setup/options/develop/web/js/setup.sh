@@ -9,9 +9,14 @@ echo "=========================== Yarn ==========================="
 COMMAND_NAME="yarn"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo apt install $COMMAND_NAME
+
+    # remove .yarn already exists
+    if test -d "$HOME/.yarn"; then
+        rm -rf $HOME/.yarn
+    fi
+
+    sudo apt install -y npm
+    sudo npm install --global yarn
 else
     echo "$COMMAND_NAME install ok installed"
 fi
