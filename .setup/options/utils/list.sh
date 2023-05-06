@@ -24,9 +24,6 @@ for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
     echo "=========================== $packageName ==========================="
     if ! command -v $packageName &>/dev/null; then
         echo "$packageName could not be found. Setting up $packageName."
-        if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-            yn="y"
-        fi
         while true; do
             read -p "Do you wish to install this program? (Y/N)  " yn
             case $yn in

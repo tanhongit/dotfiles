@@ -3,9 +3,6 @@
 COMMAND_NAME="anydesk"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-        yn="y"
-    fi
     while true; do
         read -p "Do you wish to install this program? (Y/N)  " yn
         case $yn in

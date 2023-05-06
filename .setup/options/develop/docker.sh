@@ -29,9 +29,6 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "After installing docker, you need to reboot to make sure the features work properly. Rebooting in $REBOOT_TIME seconds."
     sudo shutdown -r $REBOOT_TIME
     echo "If you do not want to reboot, please press 'shutdown -c' to cancel the reboot. If you want to reboot now, please press 'shutdown -r now'."
-    if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-        yn="y"
-    fi
     while true; do
         read -p "Do you want to reboot now? (Y/N)  " yn
         case $yn in

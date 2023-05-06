@@ -23,9 +23,6 @@ cd ../../
 echo ''
 
 echo '####################################################################'
-if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-    yn="y"
-fi
 while true; do
     read -p "Do you want to install some packages, programs for Developer? (Y/N)  " yn
     case $yn in
@@ -51,9 +48,6 @@ cd ../../
 
 echo "####################################################################"
 echo "######################### install docker ###########################"
-if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-    yn="y"
-fi
 while true; do
     read -p "Do you want to install docker? (Y/N)  " yn
     case $yn in

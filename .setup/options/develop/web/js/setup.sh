@@ -27,9 +27,6 @@ COMMAND_NAME="webstorm"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
     while true; do
-        if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-            yn="y"
-        fi
         read -p "Do you want to install webstorm IDE? (y/n) " yn
         case $yn in
         [Yy]*)
