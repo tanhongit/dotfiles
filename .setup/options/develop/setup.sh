@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd web
 bash list.sh
 cd ../

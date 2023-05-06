@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "=========================== vs code ==========================="
 COMMAND_NAME="code"
 if ! command -v $COMMAND_NAME &>/dev/null; then
