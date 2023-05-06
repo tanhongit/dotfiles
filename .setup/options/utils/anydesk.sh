@@ -4,7 +4,12 @@ COMMAND_NAME="anydesk"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
     while true; do
-        read -p "Do you wish to install this program? (Y/N)  " yn
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+            yn="y"
+        else
+            read -p "Do you want to install $COMMAND_NAME? (Y/N)  " yn
+        fi
+
         case $yn in
         [Yy]*)
             wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -

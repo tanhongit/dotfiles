@@ -30,7 +30,12 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo shutdown -r $REBOOT_TIME
     echo "If you do not want to reboot, please press 'shutdown -c' to cancel the reboot. If you want to reboot now, please press 'shutdown -r now'."
     while true; do
-        read -p "Do you want to reboot now? (Y/N)  " yn
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+            yn="y"
+        else
+            read -p "Do you want to reboot now? (Y/N)  " yn
+        fi
+
         case $yn in
         [Yy]*)
             sudo shutdown -r now

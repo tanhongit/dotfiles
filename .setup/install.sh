@@ -24,7 +24,11 @@ echo ''
 
 echo '####################################################################'
 while true; do
-    read -p "Do you want to install some packages, programs for Developer? (Y/N)  " yn
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -p "Do you want to install some packages, programs for Developer? (Y/N)  " yn
+    fi
     case $yn in
     [Yy]*)
         cd options/develop
@@ -49,7 +53,11 @@ cd ../../
 echo "####################################################################"
 echo "######################### install docker ###########################"
 while true; do
-    read -p "Do you want to install docker? (Y/N)  " yn
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -p "Do you want to install docker? (Y/N)  " yn
+    fi
     case $yn in
     [Yy]*)
         cd options/develop/

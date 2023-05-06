@@ -12,12 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set environment variables
+        run: |
+          echo "ACCEPT_INSTALL=y" >> $GITHUB_ENV
+
       - name: Run dotfiles install and test script
         run: |
           set -e
           export CI=1
           git submodule update --init
-          export yn=y
-          export GITHUB_ACTION_INSTALL=true
           cd .setup
           bash workflows/test_ubuntu.sh
