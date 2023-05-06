@@ -24,7 +24,7 @@ Then, run the following command to install dotfiles.
 
 ```bash
 cd .setup
-bash setup.sh
+bash install.sh
 ```
 
 Now, wait for a while, and you will see some messages question do you want to install some tools? If you want to install some tools, please answer **yes(y)**.
