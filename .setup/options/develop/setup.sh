@@ -5,6 +5,9 @@ bash list.sh
 cd ../
 
 echo '####################################################################'
+if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
+    yn="y"
+fi
 while true; do
     read -p "Do you want to install some packages, programs for PHP web developer? (Y/N)  " yn
     case $yn in
@@ -20,6 +23,9 @@ while true; do
 done
 
 echo '####################################################################'
+if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
+    yn="y"
+fi
 while true; do
     read -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
     case $yn in

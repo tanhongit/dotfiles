@@ -10,11 +10,15 @@ jobs:
   test_ubuntu:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
       - uses: actions/checkout@v3
+
       - name: Run dotfiles install and test script
         run: |
           set -e
           export CI=1
           git submodule update --init
+          export GITHUB_ACTION_INSTALL=true
           cd .setup
+          chmod +x install.sh
           bash install.sh
