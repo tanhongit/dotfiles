@@ -36,7 +36,7 @@ installAptDevPackages() {
 installAptDevPackages
 
 installSnapDevPackages() {
-    PACKAGE_LIST=("postman" "mysql-workbench-community" "dbeaver-ce" "ngrok")
+    PACKAGE_LIST=("mysql-workbench-community" "dbeaver-ce")
 
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
@@ -54,22 +54,6 @@ installSnapDevPackages
 
 echo "===================== config for workbrench ==================="
 sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
-
-echo "=========================== vs code ==========================="
-COMMAND_NAME="code"
-if ! command -v $COMMAND_NAME &>/dev/null; then
-    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo apt-get install -y wget gpg
-    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
-    sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings
-    sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-    rm -f packages.microsoft.gpg
-    sudo apt update
-    sudo apt install code # or code-insiders
-else
-    echo "$COMMAND_NAME install ok installed"
-fi
-echo ""
 
 echo "=========================== phpstorm ==========================="
 COMMAND_NAME="phpstorm"
@@ -104,19 +88,6 @@ else
     echo "$PACKAGE_NAME is already installed"
 fi
 echo "how it works : lt --port 8000"
-echo ""
-
-echo "=========================== nvm ==========================="
-COMMAND_NAME="nvm"
-if ! command -v $COMMAND_NAME &>/dev/null; then
-    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    curl https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-    source ~/.profile
-    # nvm install node
-    # nvm install 18.7.0
-else
-    echo "$COMMAND_NAME install ok installed"
-fi
 echo ""
 
 echo "=========================== vite ==========================="
