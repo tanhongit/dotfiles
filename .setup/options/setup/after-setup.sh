@@ -4,6 +4,9 @@ echo "======================= Clear ========================"
 bash ../others/clear.sh
 
 echo "=========================== copy overwrite ==========================="
+if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
+    yn="y"
+fi
 while true; do
     echo "Do you want copy and overwrite existing config folders from this source to your os?"
     echo "If you have just installed ubuntu on your machine, you can copy the config by selecting Y/Yes."
