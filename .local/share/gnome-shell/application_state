@@ -1,26 +1,29 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="gnome-display-panel.desktop" score="0" last-seen="0"/>
-    <application id="org.gnome.tweaks.desktop" score="6" last-seen="1682752199"/>
-    <application id="rambox_rambox.desktop" score="990.45703125" last-seen="1682590463"/>
-    <application id="google-chrome.desktop" score="21190.403332063775" last-seen="1682766332"/>
-    <application id="org.gnome.TextEditor.desktop" score="17.234375" last-seen="1682335182"/>
-    <application id="software-properties-gtk.desktop" score="6" last-seen="1682708810"/>
+    <application id="terminator.desktop" score="12" last-seen="1683219537"/>
+    <application id="org.gnome.tweaks.desktop" score="3" last-seen="1682752199"/>
+    <application id="org.gnome.TextEditor.desktop" score="8.6171875" last-seen="1683212225"/>
+    <application id="rambox_rambox.desktop" score="765.728515625" last-seen="1683285819"/>
+    <application id="google-chrome.desktop" score="16467.201666031888" last-seen="1683287972"/>
+    <application id="software-properties-gtk.desktop" score="18" last-seen="1683284862"/>
+    <application id="webstorm_webstorm.desktop" score="383" last-seen="1683287701"/>
     <application id="anydesk.desktop" score="0" last-seen="1682749835"/>
-    <application id="phpstorm_phpstorm.desktop" score="23514.415405273438" last-seen="1682766621"/>
-    <application id="org.gnome.eog.desktop" score="0" last-seen="1682593211"/>
-    <application id="libreoffice-calc.desktop" score="225.125" last-seen="1682677194"/>
-    <application id="org.gnome.gedit.desktop" score="133.5" last-seen="1682751130"/>
-    <application id="update-manager.desktop" score="11.875" last-seen="1682748691"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="7738.8180643288288" last-seen="1682750359"/>
-    <application id="xdg-desktop-portal-gnome.desktop" score="0" last-seen="1682587830"/>
-    <application id="org.gnome.Calculator.desktop" score="11.5625" last-seen="1682335183"/>
-    <application id="org.gnome.Nautilus.desktop" score="244.0888671875" last-seen="1682752201"/>
-    <application id="org.gnome.Terminal.desktop" score="2" last-seen="1682752167"/>
-    <application id="slack_slack.desktop" score="781.50390625" last-seen="1682676354"/>
-    <application id="gnome-system-monitor.desktop" score="16.0927734375" last-seen="1682750379"/>
-    <application id="code.desktop" score="535.1376953125" last-seen="1682758511"/>
-    <application id="org.gnome.Settings.desktop" score="12" last-seen="1682752136"/>
+    <application id="phpstorm_phpstorm.desktop" score="13268.707702636719" last-seen="1683288100"/>
+    <application id="update-manager.desktop" score="6.9375" last-seen="1683284863"/>
+    <application id="libreoffice-calc.desktop" score="326.5625" last-seen="1683281681"/>
+    <application id="org.gnome.Nautilus.desktop" score="280.54443359375" last-seen="1683287696"/>
+    <application id="org.gnome.eog.desktop" score="0.5" last-seen="1682770164"/>
+    <application id="libreoffice-startcenter.desktop" score="0" last-seen="1683211011"/>
+    <application id="org.gnome.gedit.desktop" score="70.75" last-seen="1683251903"/>
+    <application id="org.gnome.Terminal.desktop" score="6" last-seen="1683213589"/>
+    <application id="org.gnome.seahorse.Application.desktop" score="0" last-seen="1683284410"/>
+    <application id="slack_slack.desktop" score="401.751953125" last-seen="1683279892"/>
+    <application id="postman_postman.desktop" score="0" last-seen="1682920788"/>
+    <application id="gnome-system-monitor.desktop" score="9.04638671875" last-seen="1683272753"/>
+    <application id="code.desktop" score="328.56884765625" last-seen="1683282878"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="5231.4090321644144" last-seen="1683287132"/>
+    <application id="org.gnome.Extensions.desktop" score="5" last-seen="1682767274"/>
+    <application id="org.gnome.Settings.desktop" score="11" last-seen="1683166014"/>
   </context>
 </application-state>
