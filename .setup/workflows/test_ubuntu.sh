@@ -7,7 +7,6 @@ while true; do
         read -p "Do you want to update apt? [Y/n] " yn
     fi
 
-
     case $yn in
     [Yy]*)
         sudo apt update -y

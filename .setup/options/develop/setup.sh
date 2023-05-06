@@ -26,7 +26,12 @@ done
 
 echo '####################################################################'
 while true; do
-    read -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
+    fi
+
     case $yn in
     [Yy]*)
         cd web/js
