@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "======================= Clear ========================"
-bash ../others/clear.sh
+cd ../others
+bash clear.sh
+cd ../setup
 
 echo "=========================== copy overwrite ==========================="
 while true; do
