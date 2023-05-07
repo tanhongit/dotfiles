@@ -27,10 +27,12 @@ COMMAND_NAME="webstorm"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
     while true; do
-        if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
             yn="y"
+        else
+            read -p "Do you want to install webstorm IDE? (y/n) " yn
         fi
-        read -p "Do you want to install webstorm IDE? (y/n) " yn
+
         case $yn in
         [Yy]*)
             sudo snap install $COMMAND_NAME --classic

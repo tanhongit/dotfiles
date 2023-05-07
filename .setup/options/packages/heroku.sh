@@ -5,11 +5,12 @@ PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install 
 echo Checking for $REQUIRED_PKG: $PKG_OK
 if [ "" = "$PKG_OK" ]; then
     echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-    if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-        yn="y"
-    fi
     while true; do
-        read -p "Do you wish to install $REQUIRED_PKG? (y/n) " yn
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+            yn="y"
+        else
+            read -p "Do you want to install $REQUIRED_PKG? (y/n)" yn
+        fi
         case $yn in
         [Yy]*)
             curl https://cli-assets.heroku.com/install-ubuntu.sh | sh

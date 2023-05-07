@@ -2,9 +2,9 @@ name: Test dotfile setup on Ubuntu
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main", "develop" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main", "develop" ]
 
 jobs:
   test_ubuntu:
@@ -12,12 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set environment variables
+        run: |
+          echo "ACCEPT_INSTALL=y" >> $GITHUB_ENV
+
       - name: Run dotfiles install and test script
         run: |
           set -e
           export CI=1
           git submodule update --init
-          export GITHUB_ACTION_INSTALL=true
           cd .setup
-          chmod +x install.sh
+          bash workflows/test_ubuntu.sh
           bash install.sh

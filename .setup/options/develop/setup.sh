@@ -5,11 +5,13 @@ bash list.sh
 cd ../
 
 echo '####################################################################'
-if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-    yn="y"
-fi
 while true; do
-    read -p "Do you want to install some packages, programs for PHP web developer? (Y/N)  " yn
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -p "Do you want to install some packages, programs for PHP web developer? (Y/N)  " yn
+    fi
+
     case $yn in
     [Yy]*)
         cd web/php
@@ -23,11 +25,13 @@ while true; do
 done
 
 echo '####################################################################'
-if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-    yn="y"
-fi
 while true; do
-    read -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
+    fi
+
     case $yn in
     [Yy]*)
         cd web/js

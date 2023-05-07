@@ -24,11 +24,12 @@ for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
     echo "=========================== $packageName ==========================="
     if ! command -v $packageName &>/dev/null; then
         echo "$packageName could not be found. Setting up $packageName."
-        if [ -n "$GITHUB_ACTION_INSTALL" ] && [ "$GITHUB_ACTION_INSTALL" = true ]; then
-            yn="y"
-        fi
         while true; do
-            read -p "Do you wish to install this program? (Y/N)  " yn
+            if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+                yn="y"
+            else
+                read -p "Do you want to install $packageName? (Y/N)  " yn
+            fi
             case $yn in
             [Yy]*)
                 sudo snap install $packageName
