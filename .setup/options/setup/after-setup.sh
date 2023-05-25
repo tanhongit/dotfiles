@@ -21,6 +21,9 @@ while true; do
         sudo apt install gir1.2-gda-5.0 gir1.2-gsound-1.0 -y # install gsound for 'Pano Clipboard Manager'
         cp -TRv ../ ${ZSH_CUSTOM:-$HOME/}
         rm -rf ~/.github
+        rm -rf ~/.gitignore
+        rm -rf ~/.setup
+        rm -rf ~/.backup
         break
         ;;
     [Nn]*) break ;;
