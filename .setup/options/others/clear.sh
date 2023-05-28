@@ -22,5 +22,5 @@ bash remove-old-snap.sh
 
 echo "======================= Clearing thumbnails cache ========================"
 if [ -d "$HOME/.cache/thumbnails" ]; then
-    rm -rfv $HOME/.cache/thumbnails/*
+    rm -rfv "$HOME"/.cache/thumbnails/*
 fi

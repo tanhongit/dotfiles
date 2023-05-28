@@ -66,5 +66,5 @@ if [ "" = "$PKG_OK" ]; then
     echo "*********************************************"
     echo "read notes to change mysql security"
     #mysql_secure_installation
-    sudo mysql -u root -e "use mysql; set password for 'root'@'localhost' = password('root'); flush privileges;";
+    sudo mysql -u root -e "use mysql; set password for 'root'@'localhost' = password('root'); flush privileges;"
 fi

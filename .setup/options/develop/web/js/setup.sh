@@ -12,7 +12,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 
     # remove .yarn already exists
     if test -d "$HOME/.yarn"; then
-        rm -rf $HOME/.yarn
+        rm -rf "$HOME"/.yarn
     fi
 
     sudo apt install -y npm

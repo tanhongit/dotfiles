@@ -1,9 +1,9 @@
 #!/bin/bash
 
 echo '####################################################################'
-echo '############################### lamp ###############################'
+echo '############################### web service ###############################'
 echo ''
-sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git ${ZSH_CUSTOM:-$HOME}/tools/avhc_tool # clone tool create virtual host
+sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool # clone tool create virtual host
 
 bash web-server.sh
 bash mariadb.sh
@@ -28,11 +28,11 @@ installAptDevPackages() {
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
         REQUIRED_PKG=$packageName
-        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' "$REQUIRED_PKG" | grep "install ok installed")
         echo "Checking for $REQUIRED_PKG: $PKG_OK"
         if [ "" = "$PKG_OK" ]; then
             echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
-            sudo apt install -y $REQUIRED_PKG
+            sudo apt install -y "$REQUIRED_PKG"
         fi
         echo ""
     done
@@ -45,9 +45,9 @@ installSnapDevPackages() {
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
         COMMAND_NAME=$packageName
-        if ! command -v $COMMAND_NAME &>/dev/null; then
+        if ! command -v "$COMMAND_NAME" &>/dev/null; then
             echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-            sudo snap install $COMMAND_NAME
+            sudo snap install "$COMMAND_NAME"
         else
             echo "$COMMAND_NAME install ok installed"
         fi
@@ -84,7 +84,7 @@ fi
 echo ""
 
 echo "=========================== localtunnel ==========================="
-PACKAGE_NAME='localtunnel'
+PACKAGE_NAME="localtunnel"
 if [[ "$(npm list -g $PACKAGE_NAME)" =~ "empty" ]]; then
     echo "$PACKAGE_NAME could not be found. Setting up $PACKAGE_NAME."
     sudo npm install -g $PACKAGE_NAME
