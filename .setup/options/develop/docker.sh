@@ -12,7 +12,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo apt install docker-ce -y
 
     sudo usermod -aG docker "${USER}"
-    su - ${USER}+
+    su - "${USER}"+
     id -nG
     docker
 

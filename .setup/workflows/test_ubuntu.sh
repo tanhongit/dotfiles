@@ -4,6 +4,7 @@ while true; do
     if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
         yn="y"
     else
+        # shellcheck disable=SC2162
         read -p "Do you want to update apt? [Y/n] " yn
     fi
 
