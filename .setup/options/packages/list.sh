@@ -8,6 +8,7 @@ bash imwheel.sh
 
 echo "=========================== set time on dual boot system ==========================="
 timedatectl set-local-rtc 1 --adjust-system-clock
+echo ""
 
 echo "=========================== psensor ==========================="
 bash psensor.sh
@@ -23,7 +24,7 @@ installPackages() {
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
         REQUIRED_PKG=$packageName
-        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' "$REQUIRED_PKG" | grep "install ok installed")
         echo "Checking for $REQUIRED_PKG: $PKG_OK"
         if [ "" = "$PKG_OK" ]; then
             echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."

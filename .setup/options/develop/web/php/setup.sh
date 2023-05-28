@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo '####################################################################'
-echo '############################### lamp ###############################'
+echo '############################### web service ###############################'
 echo ''
 sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool # clone tool create virtual host
 
@@ -28,7 +28,7 @@ installAptDevPackages() {
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
         REQUIRED_PKG=$packageName
-        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
+        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' "$REQUIRED_PKG" | grep "install ok installed")
         echo "Checking for $REQUIRED_PKG: $PKG_OK"
         if [ "" = "$PKG_OK" ]; then
             echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
