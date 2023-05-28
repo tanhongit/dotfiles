@@ -26,7 +26,7 @@ if [ "$WEB_SERVER" = "apache2" ]; then
   echo "=========================== apache2 ==========================="
   REQUIRED_PKG="apache2"
   PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
-  echo Checking for $REQUIRED_PKG: $PKG_OK
+  echo "Checking for $REQUIRED_PKG: $PKG_OK"
   if [ "" = "$PKG_OK" ]; then
     echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
     sudo apt install -y $REQUIRED_PKG
@@ -38,7 +38,7 @@ elif [ "$WEB_SERVER" = "nginx" ]; then
   echo "=========================== nginx ==========================="
   REQUIRED_PKG="nginx"
   PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
-  echo Checking for $REQUIRED_PKG: $PKG_OK
+  echo "Checking for $REQUIRED_PKG: $PKG_OK"
   if [ "" = "$PKG_OK" ]; then
     echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
     sudo apt install -y $REQUIRED_PKG

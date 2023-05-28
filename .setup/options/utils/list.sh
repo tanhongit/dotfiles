@@ -28,6 +28,7 @@ for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
             if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
                 yn="y"
             else
+                # shellcheck disable=SC2162
                 read -p "Do you want to install $packageName? (Y/N)  " yn
             fi
             case $yn in
