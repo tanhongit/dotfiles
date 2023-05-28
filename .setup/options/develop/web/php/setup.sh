@@ -4,7 +4,11 @@ echo '####################################################################'
 echo '############################### lamp ###############################'
 echo ''
 sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git ${ZSH_CUSTOM:-$HOME}/tools/avhc_tool # clone tool create virtual host
-bash lamp.sh
+
+bash web-server.sh
+bash mariadb.sh
+bash php.sh
+bash tools.sh
 
 echo "=========================== phpmyadmin ==========================="
 REQUIRED_PKG="phpmyadmin"
