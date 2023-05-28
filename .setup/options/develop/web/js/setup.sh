@@ -30,6 +30,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
         if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
             yn="y"
         else
+            # shellcheck disable=SC2162
             read -p "Do you want to install webstorm IDE? (y/n) " yn
         fi
 

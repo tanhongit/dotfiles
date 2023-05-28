@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# shellcheck disable=SC2164
 cd options/setup
 bash before-setup.sh
 cd ../../
@@ -9,6 +10,7 @@ echo '####################################################################'
 echo '######################### Run package list #########################'
 echo '####################################################################'
 echo ''
+# shellcheck disable=SC2164
 cd options/packages
 bash list.sh
 cd ../../
@@ -27,6 +29,7 @@ while true; do
     if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
         yn="y"
     else
+        # shellcheck disable=SC2162
         read -p "Do you want to install some packages, programs for Developer? (Y/N)  " yn
     fi
     case $yn in
@@ -56,6 +59,7 @@ while true; do
     if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
         yn="y"
     else
+        # shellcheck disable=SC2162
         read -p "Do you want to install docker? (Y/N)  " yn
     fi
     case $yn in
