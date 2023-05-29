@@ -27,6 +27,7 @@ while true; do
         rm -rf ~/.gitignore
         rm -rf ~/.setup
         rm -rf ~/.backup
+        rm -rf ~/.git
         break
         ;;
     [Nn]*) break ;;

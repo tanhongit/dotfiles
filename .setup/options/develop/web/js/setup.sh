@@ -22,6 +22,16 @@ else
 fi
 echo ""
 
+echo "=========================== sass ==========================="
+COMMAND_NAME="sass"
+if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+
+    sudo npm install -g sass
+else
+    echo "$COMMAND_NAME install ok installed"
+fi
+
 echo "=========================== Webstorm ==========================="
 COMMAND_NAME="webstorm"
 if ! command -v $COMMAND_NAME &>/dev/null; then
