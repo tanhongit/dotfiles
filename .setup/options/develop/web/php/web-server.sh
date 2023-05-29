@@ -49,3 +49,6 @@ elif [ "$WEB_SERVER" = "nginx" ]; then
 else
     echo "Web server is not set"
 fi
+
+bash mariadb.sh
+bash php.sh "$WEB_SERVER"

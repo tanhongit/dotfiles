@@ -1,9 +1,11 @@
 #!/bin/bash
 
+WEB_SERVER=$1
+
 echo "=========================== PHP ==========================="
 COMMAND_NAME="php"
-if ! command -v $COMMAND_NAME &>/dev/null; then
-    sudo apt install lsb-release ca-certificates apt-transport-https software-properties-common -y
+if  command -v $COMMAND_NAME &>/dev/null; then
+    sudo apt install lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common -y
     echo "*****************"
     echo "***Press Enter***"
     echo "*****************"
@@ -57,7 +59,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     done
 
     phpExtensions() {
-        sudo apt install php"$PHP_VERSION" php"$PHP_VERSION"-common php"$PHP_VERSION"-mysql php"$PHP_VERSION"-curl php"$PHP_VERSION"-gd php"$PHP_VERSION"-redis php"$PHP_VERSION"-mbstring php"$PHP_VERSION"-xml php"$PHP_VERSION"-zip php"$PHP_VERSION"-readline php"$PHP_VERSION"-json -y
+        sudo apt install php"$PHP_VERSION" php"$PHP_VERSION"-common php"$PHP_VERSION"-mysql php"$PHP_VERSION"-curl php"$PHP_VERSION"-gd php"$PHP_VERSION"-redis php"$PHP_VERSION"-mbstring php"$PHP_VERSION"-xml php"$PHP_VERSION"-zip php"$PHP_VERSION"-readline -y
     }
 
     if [[ $WEB_SERVER == "apache2" ]]; then
@@ -67,39 +69,10 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
         sudo a2enmod rewrite
     elif [[ $WEB_SERVER == "nginx" ]]; then
         ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
-        sudo apt install php"$PHP_VERSION"-fpm -y
         phpExtensions
+        sudo apt install php"$PHP_VERSION"-fpm -y
         sudo systemctl enable php"$PHP_VERSION"-fpm
-        # shellcheck disable=SC2086
-        sudo systemctl start php$PHP_VERSION-fpm
-
-        sudo touch /etc/nginx/sites-available/localhost
-
-        # shellcheck disable=SC2154
-        tee -a /etc/nginx/sites-available/localhost >/dev/null <<EOF
-server {
-        listen 80;
-        root /var/www/html;
-        index index.php index.html index.htm index.nginx-tanhong.html;
-        server_name localhost;
-
-        location / {
-                try_files $uri $uri/ =404;
-        }
-
-        location ~ \.php$ {
-                include snippets/fastcgi-php.conf;
-                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
-        }
-
-        location ~ /\.ht {
-                deny all;
-        }
-}
-EOF
-        sudo ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/
-        sudo rm /etc/nginx/sites-enabled/default
-        # sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/ # for recreate default nginx
+        sudo systemctl start php"$PHP_VERSION"-fpm
     else
         phpExtensions
     fi
