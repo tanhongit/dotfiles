@@ -4,7 +4,7 @@ WEB_SERVER=$1
 
 echo "=========================== PHP ==========================="
 COMMAND_NAME="php"
-if  command -v $COMMAND_NAME &>/dev/null; then
+if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo apt install lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common -y
     echo "*****************"
     echo "***Press Enter***"
@@ -73,6 +73,33 @@ if  command -v $COMMAND_NAME &>/dev/null; then
         sudo apt install php"$PHP_VERSION"-fpm -y
         sudo systemctl enable php"$PHP_VERSION"-fpm
         sudo systemctl start php"$PHP_VERSION"-fpm
+
+        sudo touch /etc/nginx/sites-available/localhost
+
+        tee -a /etc/nginx/sites-available/localhost >/dev/null <<EOF
+server {
+        listen 80;
+        root /var/www/html;
+        index index.php index.html index.htm index.nginx-tanhong.html;
+        server_name localhost;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php$PHP_VERSION-fpm.sock;
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+}
+EOF
+        sudo ln -s /etc/nginx/sites-available/localhost /etc/nginx/sites-enabled/
+        sudo rm /etc/nginx/sites-enabled/default
+        # sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/ # for recreate default nginx
     else
         phpExtensions
     fi

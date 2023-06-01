@@ -43,10 +43,6 @@ echo "=========================== util ==========================="
 bash util.sh
 echo ""
 
-echo "=========================== heroku and set multiple accounts ==========================="
-bash heroku.sh
-echo ""
-
 echo "=========================== deno ==========================="
 bash deno.sh
 echo ""
