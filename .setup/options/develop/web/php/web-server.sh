@@ -1,6 +1,5 @@
 #!/bin/bash
 
-echo "=========================== Web Server ==========================="
 setWebServer() {
     WEB_SERVER=$1
     echo "You choose $WEB_SERVER"
@@ -53,7 +52,8 @@ else
         echo "Web server is not set"
     fi
 fi
-echo ""
+echo ''
 
 bash mariadb.sh
 bash php.sh "$WEB_SERVER"
+bash tools.sh "$WEB_SERVER"

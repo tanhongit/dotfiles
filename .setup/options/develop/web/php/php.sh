@@ -76,11 +76,11 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 
         sudo touch /etc/nginx/sites-available/localhost
 
-        tee -a /etc/nginx/sites-available/localhost >/dev/null <<EOF
+        sudo tee -a /etc/nginx/sites-available/localhost >/dev/null <<EOF
 server {
         listen 80;
         root /var/www/html;
-        index index.php index.html index.htm index.nginx-tanhong.html;
+        index index.php index.html index.htm index.nginx-debian.html;
         server_name localhost;
 
         location / {

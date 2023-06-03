@@ -68,3 +68,4 @@ if [ "" = "$PKG_OK" ]; then
     #mysql_secure_installation
     sudo mysql -u root -e "use mysql; set password for 'root'@'localhost' = password('root'); flush privileges;"
 fi
+echo ''

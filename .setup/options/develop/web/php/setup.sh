@@ -1,13 +1,17 @@
 #!/bin/bash
 
 echo '####################################################################'
-echo '############################### web service ###############################'
-echo ''
-sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool # clone tool create virtual host
+
+echo "=================== Create virtual host tool ====================="
+if [ ! -d "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool ]; then
+    sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool # clone tool create virtual host
+else
+    echo "Apache-Virtual-Hosts-Creator already installed"
+fi
 echo ''
 
+echo "=========================== Web Server ==========================="
 bash web-server.sh
-bash tools.sh
 
 echo "=========================== phpmyadmin ==========================="
 REQUIRED_PKG="phpmyadmin"
@@ -33,7 +37,7 @@ installAptDevPackages() {
             echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
             sudo apt install -y "$REQUIRED_PKG"
         fi
-        echo ""
+        echo ''
     done
 }
 installAptDevPackages
@@ -50,7 +54,7 @@ installSnapDevPackages() {
         else
             echo "$COMMAND_NAME install ok installed"
         fi
-        echo ""
+        echo ''
     done
 }
 installSnapDevPackages
@@ -66,7 +70,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 else
     echo "$COMMAND_NAME install ok installed"
 fi
-echo ""
+echo ''
 
 echo "=========================== composer ==========================="
 COMMAND_NAME="composer"
@@ -80,7 +84,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 else
     echo "$COMMAND_NAME install ok installed"
 fi
-echo ""
+echo ''
 
 echo "=========================== localtunnel ==========================="
 PACKAGE_NAME="localtunnel"
@@ -91,7 +95,7 @@ else
     echo "$PACKAGE_NAME is already installed"
 fi
 echo "how it works : lt --port 8000"
-echo ""
+echo ''
 
 echo "=========================== vite ==========================="
 COMMAND_NAME="vite"
@@ -100,4 +104,4 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 else
     echo "$COMMAND_NAME install ok installed"
 fi
-echo ""
+echo ''
