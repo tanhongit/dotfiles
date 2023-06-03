@@ -4,6 +4,7 @@ echo '####################################################################'
 echo '############################### web service ###############################'
 echo ''
 sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool # clone tool create virtual host
+echo ''
 
 bash web-server.sh
 bash tools.sh
