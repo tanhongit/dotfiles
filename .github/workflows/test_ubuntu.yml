@@ -7,20 +7,11 @@ on:
     branches: [ "main", "develop" ]
 
 jobs:
-  setup:
-    name: Setup
+  shellcheck:
+    name: Shellcheck
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set environment variables
-        run: |
-          echo "ACCEPT_INSTALL=y" >> $GITHUB_ENV
-
-  shellcheck:
-    name: Shellcheck
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
@@ -36,11 +27,15 @@ jobs:
             .p10k.zsh
 
   buildtest:
-    name: Build and Test
-    needs: [setup, shellcheck]
+    needs: shellcheck
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Set environment variables
+        run: |
+          echo "ACCEPT_INSTALL=y" >> $GITHUB_ENV
+
       - name: Run dotfiles install and test script
         run: |
           set -e
