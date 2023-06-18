@@ -11,7 +11,7 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     outputs:
-      accept_install: ${{ env.accept_install }}
+      accept_install: ${{ steps.set_env.outputs.accept_install }}
     steps:
       - uses: actions/checkout@v3
       - name: Set environment variables
@@ -44,7 +44,7 @@ jobs:
     needs: [setup, shellcheck]
     runs-on: ubuntu-latest
     env:
-        ACCEPT_INSTALL: ${{ env.accept_install }}
+        ACCEPT_INSTALL: ${{ needs.setup.outputs.accept_install }}
     steps:
       - uses: actions/checkout@v3
       - name: Run dotfiles install and test script
