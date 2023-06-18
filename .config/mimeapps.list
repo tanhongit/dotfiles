@@ -148,4 +148,4 @@ application/vnd.ms-publisher=org.gnome.TextEditor.desktop
 application/pdf=google-chrome.desktop
 application/zip=org.gnome.FileRoller.desktop
 text/csv=phpstorm_phpstorm.desktop
-text/plain=phpstorm_phpstorm.desktop
+text/plain=org.gnome.gedit.desktop
