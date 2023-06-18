@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WEB_SERVER="$1"
+WEB_SERVER=$1
 
 echo "=========================== libnss3-tools ==========================="
 REQUIRED_PKG="libnss3-tools"
