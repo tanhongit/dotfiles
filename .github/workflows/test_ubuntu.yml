@@ -10,11 +10,15 @@ jobs:
   setup:
     name: Setup
     runs-on: ubuntu-latest
+    outputs:
+      accept_install: ${{ env.accept_install }}
     steps:
       - uses: actions/checkout@v3
       - name: Set environment variables
+        id: set_env
         run: |
           echo "ACCEPT_INSTALL=y" >> $GITHUB_ENV
+          echo "::set-output name=accept_install::true"
 
   shellcheck:
     name: Shellcheck
@@ -39,6 +43,8 @@ jobs:
     name: Build and Test
     needs: [setup, shellcheck]
     runs-on: ubuntu-latest
+    env:
+        ACCEPT_INSTALL: ${{ env.accept_install }}
     steps:
       - uses: actions/checkout@v3
       - name: Run dotfiles install and test script
