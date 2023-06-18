@@ -17,8 +17,7 @@ COMMAND_NAME="mkcert"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
 
-    # shellcheck disable=SC2164
-    cd ~/
+    cd ~ || exit
     wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64
     sudo mv mkcert-v1.4.3-linux-amd64 mkcert
     sudo chmod +x mkcert
@@ -29,8 +28,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     mkdir /var/www/logs
     mkcert -cert-file /var/www/certs/localhost.pem -key-file /var/www/certs/localhost-key.pem localhost
     sudo chmod 777 /etc/"$WEB_SERVER"/sites-available/*
-    # shellcheck disable=SC2086
-    sudo systemctl reload $WEB_SERVER
+    sudo systemctl reload "$WEB_SERVER"
 else
     echo "$COMMAND_NAME install ok installed"
 fi
