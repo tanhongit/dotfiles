@@ -28,25 +28,25 @@ else
 
     if [ "$WEB_SERVER" = "apache2" ]; then
         echo "=========================== apache2 ==========================="
-        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $WEB_SERVER | grep "install ok installed")
+        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' "$WEB_SERVER" | grep "install ok installed")
         echo "Checking for $WEB_SERVER: $PKG_OK"
         if [ "" = "$PKG_OK" ]; then
             echo "No $WEB_SERVER. Setting up $WEB_SERVER."
-            sudo apt install -y $WEB_SERVER
-            systemctl enable $WEB_SERVER
+            sudo apt install -y "$WEB_SERVER"
+            systemctl enable "$WEB_SERVER"
             sudo ufw allow in "Apache Full"
-            systemctl reload $WEB_SERVER
+            systemctl reload "$WEB_SERVER"
         fi
     elif [ "$WEB_SERVER" = "nginx" ]; then
         echo "=========================== nginx ==========================="
-        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $WEB_SERVER | grep "install ok installed")
+        PKG_OK=$(dpkg-query -W --showformat='${Status}\n' "$WEB_SERVER" | grep "install ok installed")
         echo "Checking for $WEB_SERVER: $PKG_OK"
         if [ "" = "$PKG_OK" ]; then
             echo "No $WEB_SERVER. Setting up $WEB_SERVER."
-            sudo apt install -y $WEB_SERVER
-            systemctl enable $WEB_SERVER
+            sudo apt install -y "$WEB_SERVER"
+            systemctl enable "$WEB_SERVER"
             sudo ufw allow in "Nginx Full"
-            systemctl reload $WEB_SERVER
+            systemctl reload "$WEB_SERVER"
         fi
     else
         echo "Web server is not set"

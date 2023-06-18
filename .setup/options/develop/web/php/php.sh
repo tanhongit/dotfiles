@@ -76,6 +76,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
 
         sudo touch /etc/nginx/sites-available/localhost
 
+        # shellcheck disable=SC2154
         sudo tee -a /etc/nginx/sites-available/localhost >/dev/null <<EOF
 server {
         listen 80;

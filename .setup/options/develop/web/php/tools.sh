@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$WEB_SERVER=$1
+WEB_SERVER=$1
 
 echo "=========================== libnss3-tools ==========================="
 REQUIRED_PKG="libnss3-tools"
@@ -28,7 +28,8 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     mkdir /var/www/certs
     mkdir /var/www/logs
     mkcert -cert-file /var/www/certs/localhost.pem -key-file /var/www/certs/localhost-key.pem localhost
-    sudo chmod 777 /etc/$WEB_SERVER/sites-available/*
+    sudo chmod 777 /etc/"$WEB_SERVER"/sites-available/*
+    # shellcheck disable=SC2086
     sudo systemctl reload $WEB_SERVER
 else
     echo "$COMMAND_NAME install ok installed"
