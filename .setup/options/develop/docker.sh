@@ -33,8 +33,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
         if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
             yn="y"
         else
-            # shellcheck disable=SC2162
-            read -p "Do you want to reboot now? (Y/N)  " yn
+            read -r -p "Do you want to reboot now? (Y/N)  " yn
         fi
 
         case $yn in

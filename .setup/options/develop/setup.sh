@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# shellcheck disable=SC2164
-cd web
+cd web || exit
 bash list.sh
 cd ../
 
@@ -10,13 +9,12 @@ while true; do
     if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
         yn="y"
     else
-        # shellcheck disable=SC2162
-        read -p "Do you want to install some packages, programs for PHP web developer? (Y/N)  " yn
+        read -r -p "Do you want to install some packages, programs for PHP web developer? (Y/N)  " yn
     fi
 
     case $yn in
     [Yy]*)
-        cd web/php
+        cd web/php || exit
         bash setup.sh
         cd ../../
         break
@@ -31,13 +29,12 @@ while true; do
     if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
         yn="y"
     else
-        # shellcheck disable=SC2162
-        read -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
+        read -r -p "Do you want to install some packages, programs for JS web developer? (Y/N)  " yn
     fi
 
     case $yn in
     [Yy]*)
-        cd web/js
+        cd web/js || exit
         bash setup.sh
         cd ../../
         break

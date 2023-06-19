@@ -9,8 +9,7 @@ if [ "" = "$PKG_OK" ]; then
         if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
             yn="y"
         else
-            # shellcheck disable=SC2162
-            read -p "Do you want to install $REQUIRED_PKG? (y/n)" yn
+            read -r -p "Do you want to install $REQUIRED_PKG? (y/n)" yn
         fi
         case $yn in
         [Yy]*)

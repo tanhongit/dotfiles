@@ -14,8 +14,7 @@ for packageName in "${NPM_PACKAGE_LIST[@]}"; do
             if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
                 yn="y"
             else
-                # shellcheck disable=SC2162
-                read -p "Do you want to install $packageName? (Y/N)  " yn
+                read -r -p "Do you want to install $packageName? (Y/N)  " yn
             fi
             case $yn in
             [Yy]*)
@@ -51,8 +50,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
         if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
             yn="y"
         else
-            # shellcheck disable=SC2162
-            read -p "Do you want to install webstorm IDE? (y/n) " yn
+            read -r -p "Do you want to install webstorm IDE? (y/n) " yn
         fi
 
         case $yn in

@@ -1,11 +1,10 @@
 #!/bin/bash
 
 echo "======================= Clear ========================"
-# shellcheck disable=SC2164
-cd ../others
+
+cd ../others || exit
 bash clear.sh
-# shellcheck disable=SC2164
-cd ../setup
+cd ../setup || exit
 
 echo "=========================== copy overwrite ==========================="
 while true; do
@@ -15,8 +14,7 @@ while true; do
         echo "Do you want copy and overwrite existing config folders from this source to your os?"
         echo "If you have just installed ubuntu on your machine, you can copy the config by selecting Y/Yes."
         echo "Please select N/No to skip if your os was installed long ago to avoid conflicts."
-        # shellcheck disable=SC2162
-        read -p "Please choose (Y/N)  " yn
+        read -r -p "Please choose (Y/N)  " yn
     fi
 
     case $yn in
