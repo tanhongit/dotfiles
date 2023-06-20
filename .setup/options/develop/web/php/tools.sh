@@ -18,7 +18,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
 
     cd ~ || exit
-    wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64
+    wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64
     sudo mv mkcert-v1.4.3-linux-amd64 mkcert
     sudo chmod +x mkcert
     sudo cp mkcert /usr/local/bin/
