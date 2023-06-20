@@ -8,14 +8,14 @@ setWebServer() {
 if [ -x "$(command -v apache2)" ] || [ -x "$(command -v nginx)" ]; then
     echo "Apache2 or Nginx already installed"
 else
-    select sOption in "apache2" "nginx"; do
+    select sOption in "nginx" "apache2"; do
         case $sOption in
-        "apache2")
-            setWebServer "apache2"
-            break
-            ;;
         "nginx")
             setWebServer "nginx"
+            break
+            ;;
+        "apache2")
+            setWebServer "apache2"
             break
             ;;
         *)

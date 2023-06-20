@@ -26,6 +26,7 @@ while true; do
         rm -rf ~/.setup
         rm -rf ~/.backup
         rm -rf ~/.git
+        rm -rf ~/_config.yml
         break
         ;;
     [Nn]*) break ;;
