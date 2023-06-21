@@ -1,10 +1,12 @@
-# Welcome to dotfiles installation script for Linux by tanhongit. 
+# Welcome to the dotfiles installation script for Linux by tanhongit. 
 
 This script will install dotfiles to your system. It also will install some useful tools, packages, and programs.
 
-After installed Ubuntu, you can run this script to install dotfiles. I added some programs, packages, and tools to this script. All of them need to be installed for Ubuntu.
+After installing Ubuntu, you can run this script to install dotfiles. I added some programs, packages, and tools to this script. All of them need to be installed for Ubuntu.
 
 It's a simple script, so you can run it easily.
+
+[![Build Status](https://github.com/tanhongit/dotfiles/actions/workflows/test_ubuntu.yml/badge.svg)](https://github.com/tanhongit/dotfiles/actions/workflows/test_ubuntu.yml)
 
 # Information
 
@@ -16,13 +18,13 @@ It's a simple script, so you can run it easily.
 
 # Requirements
 
-You will need to have an Ubuntu or Debian based system.
+You will need to have an Ubuntu or Debian-based system.
 
-For Ubuntu, you should use the version 22.04 or higher.
+For Ubuntu, you should use version 22.04 or higher.
 
 # Installing
 
-Before run this script, please clone the repository to your local machine.
+Before running this script, please clone the repository to your local machine.
 
 ```bash
 git clone https://github.com/tanhongit/dotfiles.git
@@ -36,7 +38,7 @@ cd .setup
 bash install.sh
 ```
 
-Now, wait for a while, and you will see some messages question do you want to install some tools? If you want to install some tools, please answer **yes(y)**.
+Now, wait for a while, and you will see some messages questioning do you want to install some tools. If you want to install some tools, please answer **yes(y)**.
 
 # Screenshots demo
 
@@ -59,4 +61,4 @@ cd .backup
 bash run.sh
 ```
 
-Please wait for a while, it will take some time to back up your dotfiles. When you are ready, you can run the following command from step 2 to restore your dotfiles.
+Please wait for a while, it will take some time to back up your dotfiles. When you are ready, you can run the following command from Step 2 to restore your dotfiles.
