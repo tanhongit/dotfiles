@@ -27,6 +27,7 @@ jobs:
             .p10k.zsh
 
   buildtest:
+    name: Build and test dotfiles
     needs: shellcheck
     runs-on: ubuntu-latest
     steps:

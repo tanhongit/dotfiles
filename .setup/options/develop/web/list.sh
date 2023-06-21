@@ -26,6 +26,10 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     curl https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
     # shellcheck disable=SC1090
     source ~/.profile
+
+    nvm install node
+    nvm use node
+    nvm alias default node
 else
     echo "$COMMAND_NAME install ok installed"
 fi
