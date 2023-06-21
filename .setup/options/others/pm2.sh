@@ -4,7 +4,8 @@
 if ! command -v "nvm" &>/dev/null; then
     echo "nvm could not be found. Setting up nvm."
     curl https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
-    source "${ZSH_CUSTOM:-$HOME}"/.profile || source "${ZSH_CUSTOM:-$HOME}"/.bashrc
+    # shellcheck disable=SC1090
+    source ~/.profile
 
     nvm install node
     nvm use node
