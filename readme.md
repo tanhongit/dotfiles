@@ -6,12 +6,21 @@ After installed Ubuntu, you can run this script to install dotfiles. I added som
 
 It's a simple script, so you can run it easily.
 
-# 1. Requirements
+# Information
+
+- Platform: Linux
+- OS: Ubuntu, Debian
+- Language: Bash
+- Plash: GNOME
+- Shell: ZSH
+
+# Requirements
+
 You will need to have an Ubuntu or Debian based system.
 
 For Ubuntu, you should use the version 22.04 or higher.
 
-# 2. Installing
+# Installing
 
 Before run this script, please clone the repository to your local machine.
 
@@ -41,13 +50,13 @@ Now, wait for a while, and you will see some messages question do you want to in
 
 ![image](https://user-images.githubusercontent.com/35853002/235287704-a6c5835b-c08d-4424-8e98-30bee2d5bbda.png)
 
-# 4. Backup your dotfiles from your local machine
+# Backup your dotfiles from your local machine
 
-If you want to backup your dotfiles from your local machine, please run the following command.
+If you want to back up your dotfiles from your local machine, please run the following command.
 
 ```bash
 cd .backup
 bash run.sh
 ```
 
-Please wait for a while, it will take some time to backup your dotfiles. When you are ready, you can run the following command from step 2 to restore your dotfiles.
+Please wait for a while, it will take some time to back up your dotfiles. When you are ready, you can run the following command from step 2 to restore your dotfiles.
