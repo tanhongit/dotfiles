@@ -1,0 +1,99 @@
+<schemalist gettext-domain="io.github.mreditor.gnome-shell-extensions.scroll-panel">
+    <schema id="org.gnome.shell.extensions.mreditor.scroll-panel"
+            path="/org/gnome/shell/extensions/mreditor/scroll-panel/">
+
+        <key type="as" name="highlight-path">
+            <default>[]</default>
+            <summary>Current actor path to highlight.</summary>
+            <description>Path to scrollable actor candidate. Should be empty array unless the user is picking an actor right now.</description>
+        </key>
+        <key type="s" name="picking-actor-path-action">
+            <default>''</default>
+            <summary>Name of switch action currently being picking actor for.</summary>
+            <description>Unless empty, used in 'VALUE-path' as key of setting to pick actor path for.</description>
+        </key>
+
+        <key type="as" name="workspaces-switcher-path">
+            <default>[ 'uiGroup', 'panelBox', 'panel' ]</default>
+            <summary>Workspaces switcher actor path.</summary>
+            <description>Path to workspaces switcher scrollable actor. Empty array to disable the switcher.</description>
+        </key>
+        <key type="s" name="workspaces-switcher-align">
+            <default>''</default>
+            <summary>Workspaces switcher actor content align.</summary>
+            <description>Workspaces switcher scrollable actor align, either 'left', 'right', 'center' or '' (keep unchanged).</description>
+        </key>
+        <key type="d" name="workspaces-switcher-width">
+            <default>-1</default>
+            <summary>Workspaces switcher actor fixed width.</summary>
+            <description>Fixed width to set for workspaces switcher scrollable actor.</description>
+        </key>
+        <key type="d" name="workspaces-switcher-horizontal-multiplier">
+            <default>1</default>
+            <summary>Horizontal scrolling multiplier for switching workspaces.</summary>
+            <description>Distance multiplier of workspaces switching for horizontal scrolling.</description>
+        </key>
+        <key type="d" name="workspaces-switcher-vertical-multiplier">
+            <default>1</default>
+            <summary>Vertical scrolling multiplier for switching workspaces.</summary>
+            <description>Distance multiplier of workspaces switching for vertical scrolling.</description>
+        </key>
+        <key type="b" name="workspaces-switcher-cycle">
+            <default>false</default>
+            <summary>Enable cyclic scrolling for switching workspaces.</summary>
+            <description>Whether is workspaces switching is cyclic.</description>
+        </key>
+        <key type="b" name="workspaces-switcher-visualize">
+            <default>true</default>
+            <summary>Visualize switching workspaces.</summary>
+            <description>Whether visualize workspaces switching or not.</description>
+        </key>
+        <key type="d" name="workspaces-switcher-timeout">
+            <default>350</default>
+            <summary>Workspaces switching timeout.</summary>
+            <description>After switching, further scrolling will be ignored by workspaces switcher for the timeout.</description>
+        </key>
+
+        <key type="as" name="windows-switcher-path">
+            <default>[ 'uiGroup', 'panelBox', 'panel', 'panelLeft' ]</default>
+            <summary>Windows switcher actor path.</summary>
+            <description>Path to windows switcher scrollable actor. Empty array to disable the switcher.</description>
+        </key>
+        <key type="s" name="windows-switcher-align">
+            <default>''</default>
+            <summary>Windows switcher actor content align.</summary>
+            <description>Windows switcher scrollable actor align, either 'left', 'right', 'center' or '' (keep unchanged).</description>
+        </key>
+        <key type="d" name="windows-switcher-width">
+            <default>250</default>
+            <summary>Windows switcher actor fixed width.</summary>
+            <description>Fixed width to set for windows switcher scrollable actor.</description>
+        </key>
+        <key type="d" name="windows-switcher-horizontal-multiplier">
+            <default>1</default>
+            <summary>Horizontal scrolling multiplier for switching windows.</summary>
+            <description>Distance multiplier of windows switching for horizontal scrolling.</description>
+        </key>
+        <key type="d" name="windows-switcher-vertical-multiplier">
+            <default>1</default>
+            <summary>Vertical scrolling multiplier for switching windows.</summary>
+            <description>Distance multiplier of windows switching for vertical scrolling.</description>
+        </key>
+        <key type="b" name="windows-switcher-cycle">
+            <default>true</default>
+            <summary>Enable cyclic scrolling for switching windows.</summary>
+            <description>Whether is windows switching is cyclic.</description>
+        </key>
+        <key type="b" name="windows-switcher-visualize">
+            <default>true</default>
+            <summary>Visualize switching windows.</summary>
+            <description>Whether visualize windows switching or not.</description>
+        </key>
+        <key type="d" name="windows-switcher-timeout">
+            <default>350</default>
+            <summary>Windows switching timeout.</summary>
+            <description>After switching, further scrolling will be ignored by windows switcher for the timeout.</description>
+        </key>
+
+    </schema>
+</schemalist>

@@ -255,7 +255,20 @@
             </child>
           </object>
         </child>
-        
+
+        <child>
+          <object class="AdwActionRow" id="dash_app_running_row">
+            <property name="title" translatable="yes">Dash App Running Indicator</property>
+            <property name="subtitle" translatable="yes">The dot indicator in dash that shows the app is running</property>
+            <property name="activatable-widget">dash_app_running_switch</property>
+            <child>
+              <object class="GtkSwitch" id="dash_app_running_switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
         <child>
           <object class="AdwActionRow" id="show_apps_button_row">
             <property name="title" translatable="yes">Show Applications Button</property>
@@ -392,3 +405,4 @@
   </object>
   
 </interface>
+

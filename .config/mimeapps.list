@@ -70,10 +70,11 @@ application/vnd.ms-publisher=org.gnome.gedit.desktop;org.gnome.TextEditor.deskto
 application/octet-stream=org.gnome.gedit.desktop;
 text/x-python=code_code.desktop;
 text/plain=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;code_code.desktop;
-application/zip=mysql-workbench-community_mysql-workbench-community.desktop;
+application/zip=mysql-workbench-community_mysql-workbench-community.desktop;org.gnome.FileRoller.desktop;
 application/pdf=google-chrome.desktop;
 application/xml=code.desktop;
 application/sql=code.desktop;
+text/csv=phpstorm_phpstorm.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
@@ -145,4 +146,6 @@ application/xml=code.desktop
 application/sql=code.desktop
 application/vnd.ms-publisher=org.gnome.TextEditor.desktop
 application/pdf=google-chrome.desktop
-application/zip=mysql-workbench-community_mysql-workbench-community.desktop
+application/zip=org.gnome.FileRoller.desktop
+text/csv=phpstorm_phpstorm.desktop
+text/plain=org.gnome.gedit.desktop

@@ -1,1 +1,0 @@
-# check if packagename was installed: dpkg -s <packagename>
