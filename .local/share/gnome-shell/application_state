@@ -1,21 +1,23 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="libreoffice-writer.desktop" score="1" last-seen="1687171150"/>
-    <application id="rambox_rambox.desktop" score="85.8125" last-seen="1687257138"/>
-    <application id="google-chrome.desktop" score="5067.7484130859375" last-seen="1687311789"/>
-    <application id="webstorm_webstorm.desktop" score="16.97607421875" last-seen="1686989733"/>
-    <application id="phpstorm_phpstorm.desktop" score="1889.7193603515625" last-seen="1687311898"/>
-    <application id="org.gnome.Nautilus.desktop" score="73.0240478515625" last-seen="1687255094"/>
-    <application id="org.gnome.gedit.desktop" score="15.32470703125" last-seen="1687251747"/>
-    <application id="xdg-desktop-portal-gnome.desktop" score="0.25" last-seen="1687236813"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="3150.0721435546875" last-seen="1687311898"/>
-    <application id="filezilla.desktop" score="108.279296875" last-seen="1687244274"/>
-    <application id="org.gnome.Terminal.desktop" score="1" last-seen="1687176590"/>
-    <application id="slack_slack.desktop" score="94.154296875" last-seen="1687258924"/>
-    <application id="gnome-system-monitor.desktop" score="18732.360443115234" last-seen="1687255130"/>
-    <application id="code.desktop" score="9.59765625" last-seen="1686977133"/>
-    <application id="vmware-workstation.desktop" score="333" last-seen="1687257603"/>
-    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="1.6890869140625" last-seen="1686739670"/>
+    <application id="termius-app.desktop" score="236.5625" last-seen="1695919294"/>
+    <application id="org.gnome.FileRoller.desktop" score="0" last-seen="1695549458"/>
+    <application id="rambox_rambox.desktop" score="507.4464111328125" last-seen="1695913661"/>
+    <application id="google-chrome.desktop" score="16659.259896752192" last-seen="1696058235"/>
+    <application id="org.gnome.Evolution-alarm-notify.desktop" score="1.5" last-seen="1695561055"/>
+    <application id="org.gnome.gedit.desktop" score="5.25" last-seen="1696056488"/>
+    <application id="update-manager.desktop" score="25.625" last-seen="1695879658"/>
+    <application id="org.gnome.Nautilus.desktop" score="510.50529479980469" last-seen="1696058235"/>
+    <application id="phpstorm_phpstorm.desktop" score="11698.818185270997" last-seen="1696058017"/>
+    <application id="org.gnome.eog.desktop" score="0.5" last-seen="1696058053"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="7178.0816594546195" last-seen="1695994856"/>
+    <application id="xdg-desktop-portal-gnome.desktop" score="0" last-seen="1695785465"/>
+    <application id="filezilla.desktop" score="132.17861175537109" last-seen="1695547360"/>
+    <application id="org.gnome.Terminal.desktop" score="22.174118041992188" last-seen="1695994858"/>
+    <application id="slack_slack.desktop" score="249.84519958496094" last-seen="1695978371"/>
+    <application id="gnome-system-monitor.desktop" score="169.73067352379439" last-seen="1695725018"/>
+    <application id="code.desktop" score="15" last-seen="1695718477"/>
+    <application id="org.gnome.Settings.desktop" score="16.765625" last-seen="1695912508"/>
   </context>
 </application-state>

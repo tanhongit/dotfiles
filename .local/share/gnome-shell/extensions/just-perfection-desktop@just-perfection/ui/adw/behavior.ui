@@ -9,31 +9,6 @@
     <child>
       <object class="AdwPreferencesGroup" id="behavior_group">
       <property name="title" translatable="yes">Behavior</property>
-
-        <child>
-          <object class="AdwActionRow" id="hot_corner_row">
-            <property name="title" translatable="yes">Hot Corner</property>
-            <property name="activatable-widget">hot_corner_switch</property>
-            <child>
-              <object class="GtkSwitch" id="hot_corner_switch">
-                <property name="valign">center</property>
-              </object>
-            </child>
-          </object>
-        </child>
-
-        <child>
-          <object class="AdwActionRow" id="gesture_row">
-            <property name="title" translatable="yes">App Gesture</property>
-            <property name="subtitle" translatable="yes"></property>
-            <property name="activatable-widget">gesture_switch</property>
-            <child>
-              <object class="GtkSwitch" id="gesture_switch">
-                <property name="valign">center</property>
-              </object>
-            </child>
-          </object>
-        </child>
         
         <child>
           <object class="AdwActionRow" id="workspace_wrap_around_row">
@@ -42,6 +17,19 @@
             <property name="activatable-widget">workspace_wrap_around_switch</property>
             <child>
               <object class="GtkSwitch" id="workspace_wrap_around_switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
+          <object class="AdwActionRow" id="workspace_peek_row">
+            <property name="title" translatable="yes">Workspace Peek</property>
+            <property name="subtitle" translatable="yes">Whether the next and previous workspace should be visible in overview.</property>
+            <property name="activatable-widget">workspace_peek_switch</property>
+            <child>
+              <object class="GtkSwitch" id="workspace_peek_switch">
                 <property name="valign">center</property>
               </object>
             </child>
@@ -88,10 +76,24 @@
         </child>
 
         <child>
+          <object class="AdwActionRow" id="overlay_key_row">
+            <property name="title" translatable="yes">Overlay Key</property>
+            <property name="subtitle" translatable="yes">Disable overlay key (super key)</property>
+            <property name="activatable-widget">overlay_key_switch</property>
+            <child>
+              <object class="GtkSwitch" id="overlay_key_switch">
+                <property name="valign">center</property>
+              </object>
+            </child>
+          </object>
+        </child>
+
+        <child>
           <object class="AdwActionRow" id="double_super_to_appgrid_row">
             <property name="title" translatable="yes">Double Super to App Grid</property>
             <property name="subtitle" translatable="yes">Shows app grid when you double hit super key fast</property>
             <property name="activatable-widget">double_super_to_appgrid_switch</property>
+            <property name="sensitive" bind-source="overlay_key_switch" bind-property="active" bind-flags="sync-create"/>
             <child>
               <object class="GtkSwitch" id="double_super_to_appgrid_switch">
                 <property name="valign">center</property>
@@ -102,7 +104,7 @@
 
         <child>
           <object class="AdwActionRow" id="switcher_popup_delay_row">
-            <property name="title" translatable="yes">Switcher Popup Delay</property>
+            <property name="title" translatable="yes">Popup Delay</property>
             <property name="subtitle" translatable="yes">Removes the delay for all switcher popups like alt-tab, ctrl-alt-tab, keyboard layout, ...</property>
             <property name="activatable-widget">switcher_popup_delay_switch</property>
             <child>
