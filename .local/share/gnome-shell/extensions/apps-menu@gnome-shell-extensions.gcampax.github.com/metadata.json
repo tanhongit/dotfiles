@@ -10,9 +10,9 @@
   ],
   "settings-schema": "org.gnome.shell.extensions.apps-menu",
   "shell-version": [
-    "44"
+    "43"
   ],
   "url": "https://gitlab.gnome.org/GNOME/gnome-shell-extensions",
   "uuid": "apps-menu@gnome-shell-extensions.gcampax.github.com",
-  "version": 53
+  "version": 52
 }

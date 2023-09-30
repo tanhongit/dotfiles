@@ -4,13 +4,13 @@
     <application id="termius-app.desktop" score="236.5625" last-seen="1695919294"/>
     <application id="org.gnome.FileRoller.desktop" score="0" last-seen="1695549458"/>
     <application id="rambox_rambox.desktop" score="507.4464111328125" last-seen="1695913661"/>
-    <application id="google-chrome.desktop" score="16481.259896752192" last-seen="1696056330"/>
+    <application id="google-chrome.desktop" score="16659.259896752192" last-seen="1696058235"/>
     <application id="org.gnome.Evolution-alarm-notify.desktop" score="1.5" last-seen="1695561055"/>
     <application id="org.gnome.gedit.desktop" score="5.25" last-seen="1696056488"/>
     <application id="update-manager.desktop" score="25.625" last-seen="1695879658"/>
-    <application id="org.gnome.Nautilus.desktop" score="498.50529479980469" last-seen="1696056576"/>
-    <application id="phpstorm_phpstorm.desktop" score="11661.818185270997" last-seen="1695994861"/>
-    <application id="org.gnome.eog.desktop" score="0.5" last-seen="1695626855"/>
+    <application id="org.gnome.Nautilus.desktop" score="510.50529479980469" last-seen="1696058235"/>
+    <application id="phpstorm_phpstorm.desktop" score="11698.818185270997" last-seen="1696058017"/>
+    <application id="org.gnome.eog.desktop" score="0.5" last-seen="1696058053"/>
     <application id="telegram-desktop_telegram-desktop.desktop" score="7178.0816594546195" last-seen="1695994856"/>
     <application id="xdg-desktop-portal-gnome.desktop" score="0" last-seen="1695785465"/>
     <application id="filezilla.desktop" score="132.17861175537109" last-seen="1695547360"/>
