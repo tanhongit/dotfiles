@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "=========================== phpmyadmin ==========================="
 REQUIRED_PKG="phpmyadmin"
 PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG | grep "install ok installed")
