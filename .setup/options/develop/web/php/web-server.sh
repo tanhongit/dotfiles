@@ -57,3 +57,7 @@ echo ''
 bash mariadb.sh
 bash php.sh "$WEB_SERVER"
 bash tools.sh "$WEB_SERVER"
+
+if [ "$WEB_SERVER" = "apache2" ]; then
+    bash phpmyadmin.sh
+fi
