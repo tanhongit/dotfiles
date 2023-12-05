@@ -11,7 +11,7 @@ It's a simple script, so you can run it easily.
 # Information
 
 - Platform: Linux
-- OS: Ubuntu, Debian
+- OS: Ubuntu
 - Language: Bash
 - Plash: GNOME
 - Shell: ZSH
