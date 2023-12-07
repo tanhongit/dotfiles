@@ -18,7 +18,20 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
 
     cd ~ || exit
-    sudo apt install mkcert -y
+
+    # shellcheck disable=SC1091
+    if [ -f "/etc/os-release" ]; then
+        . /etc/os-release
+        OS=$NAME
+
+        if [ "$OS" == "Ubuntu" ]; then
+            sudo apt install mkcert -y
+        elif [ "$OS" == "Zorin OS" ]; then
+            sudo wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64 -O mkcert
+            sudo chmod +x mkcert
+            sudo mv mkcert /usr/local/bin/
+        fi
+    fi
 
     mkcert -install
     if [ ! -d "/var/www/certs" ]; then
