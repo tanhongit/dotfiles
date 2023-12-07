@@ -5,6 +5,7 @@ COMMAND_NAME="code"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
 
+    # shellcheck disable=SC1091
     if [ -f "/etc/os-release" ]; then
         . /etc/os-release
         OS=$NAME
