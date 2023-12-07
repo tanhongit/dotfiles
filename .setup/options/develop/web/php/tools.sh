@@ -21,8 +21,8 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo apt install mkcert -y
 
     mkcert -install
-    mkdir /var/www/certs
-    mkdir /var/www/logs
+    sudo mkdir /var/www/certs
+    sudo mkdir /var/www/logs
     mkcert -cert-file /var/www/certs/localhost.pem -key-file /var/www/certs/localhost-key.pem localhost
     sudo chmod 777 /etc/"$WEB_SERVER"/sites-available/*
     sudo systemctl reload "$WEB_SERVER"
