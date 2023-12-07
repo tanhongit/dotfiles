@@ -5,6 +5,34 @@ WEB_SERVER=$1
 echo "=========================== PHP ==========================="
 COMMAND_NAME="php"
 if ! command -v $COMMAND_NAME &>/dev/null; then
+    echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
+
+    # check and set WEB_SERVER if not set
+    if [ -x "$(command -v nginx)" ]; then
+        WEB_SERVER="nginx"
+    elif [ -x "$(command -v apache2)" ]; then
+        WEB_SERVER="apache2"
+    fi
+
+    if [[ $WEB_SERVER == '' ]]; then
+        PS3="Still not set web server now, please select web server: "
+        select opt in "nginx" "apache2"; do
+            case $opt in
+            "nginx")
+                WEB_SERVER="nginx"
+                break
+                ;;
+            "apache2")
+                WEB_SERVER="apache2"
+                break
+                ;;
+            *)
+                echo "Invalid option $REPLY"
+                ;;
+            esac
+        done
+    fi
+
     sudo apt install lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common -y
     echo "*****************"
     echo "***Press Enter***"

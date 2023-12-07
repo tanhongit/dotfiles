@@ -21,10 +21,13 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo apt install mkcert -y
 
     mkcert -install
-    sudo mkdir /var/www/certs
-    sudo mkdir /var/www/logs
+    if [ ! -d "/var/www/certs" ]; then
+        sudo mkdir /var/www/certs
+    fi
+    if [ ! -d "/var/www/logs" ]; then
+        sudo mkdir /var/www/logs
+    fi
     mkcert -cert-file /var/www/certs/localhost.pem -key-file /var/www/certs/localhost-key.pem localhost
-    sudo chmod 777 /etc/"$WEB_SERVER"/sites-available/*
     sudo systemctl reload "$WEB_SERVER"
 else
     echo "$COMMAND_NAME install ok installed"
