@@ -19,7 +19,7 @@ for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
     echo ""
 done
 
-UTILS_PACKAGE_LIST=("obs-studio" "rambox" "skype" "telegram-desktop" "slack" "termius-app" "zoom-client")
+UTILS_PACKAGE_LIST=("rambox" "skype" "telegram-desktop" "slack" "zoom-client" "termius-app" "obs-studio")
 for packageName in "${UTILS_PACKAGE_LIST[@]}"; do
     echo "=========================== $packageName ==========================="
     if ! command -v "$packageName" &>/dev/null; then
