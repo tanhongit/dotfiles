@@ -35,7 +35,7 @@ installPackages() {
 }
 installPackages
 
-echo "=========================== npm ==========================="
+echo "==================== nvm, npm, node ========================"
 bash npm.sh
 echo ""
 
