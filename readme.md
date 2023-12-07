@@ -11,16 +11,17 @@ It's a simple script, so you can run it easily.
 # Information
 
 - Platform: Linux
-- OS: Ubuntu
+- OS Available: **Ubuntu, Zorin OS**
 - Language: Bash
 - Plash: GNOME
 - Shell: ZSH
 
 # Requirements
 
-You will need to have an Ubuntu or Debian-based system.
+You will need to have an Ubuntu or Zorin OS installed on your system.
 
-For Ubuntu, you should use version 22.04 or higher.
+- For Ubuntu, you should use version **22.04** is stable.
+- For Zorin OS, you should use version **16** is stable.
 
 # Installing
 
@@ -41,6 +42,8 @@ bash install.sh
 Now, wait for a while, and you will see some messages questioning do you want to install some tools. If you want to install some tools, please answer **yes(y)**.
 
 # Screenshots demo
+
+## Ubuntu 22.04
 
 ![image](https://user-images.githubusercontent.com/35853002/235287944-1c092521-1c75-4fc6-a03b-8fb1a17efd8d.png)
 
