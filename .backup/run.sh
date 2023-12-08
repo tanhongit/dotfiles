@@ -11,7 +11,6 @@ cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/compton ../.config/compton
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/nautilus ../.config/nautilus
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/terminator ../.config/terminator
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/ulauncher ../.config/ulauncher
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/sounds ../.local/share/sounds
 
 # shellcheck disable=SC1091
 if [ -f "/etc/os-release" ]; then
@@ -21,6 +20,7 @@ if [ -f "/etc/os-release" ]; then
     if [ "$OS" == "Ubuntu" ]; then
         cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/dconf ../ubuntu/.config/dconf
         cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/mimeapps.list ../ubuntu/.config/mimeapps.list
+        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/sounds ../ubuntu/.local/share/sounds
 
         cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/gnome-shell ../.local/share/gnome-shell
         cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/grilo-plugins ../.local/share/grilo-plugins
@@ -29,5 +29,6 @@ if [ -f "/etc/os-release" ]; then
     elif [ "$OS" == "Zorin OS" ]; then
         cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/dconf ../zorin/.config/dconf
         cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/mimeapps.list ../zorin/.config/mimeapps.list
+        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/sounds ../zorin/.local/share/sounds
     fi
 fi
