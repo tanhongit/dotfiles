@@ -47,7 +47,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
         PHP_VERSION=$1
         echo "You choose php$PHP_VERSION"
     }
-    PS3="Select setup the php version (press * to setup default version - php$PHP_VERSION) - (latest version is php$PHP_VERSION): "
+    PS3="Press * to setup default version - php$PHP_VERSION (latest version is php$PHP_VERSION) \n Select setup the php version (Warning: choose new version may not be successful because it is not yet complete support, please choose the stable version): "
     select opt in "8.2" "8.1" "8.0" "7.4" "7.2" "7.0" "5.6"; do
         case $opt in
         "8.2")
