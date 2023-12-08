@@ -2,22 +2,29 @@
     "com.github.nastuzzisamy.ulauncher-youtube-search": {
         "id": "com.github.nastuzzisamy.ulauncher-youtube-search",
         "url": "https://github.com/NastuzziSamy/ulauncher-youtube-search",
-        "updated_at": "2023-09-30T22:45:42.596093",
+        "updated_at": "2023-12-08T02:09:57.852183",
         "last_commit": "fe855811358b2f15ec6ed69ca18e20639874fa28",
         "last_commit_time": "2021-03-27T11:29:18"
     },
     "com.github.glovecc.ulauncher-github-search": {
         "id": "com.github.glovecc.ulauncher-github-search",
         "url": "https://github.com/Glovecc/ulauncher-github-search",
-        "updated_at": "2023-09-30T22:46:08.147696",
+        "updated_at": "2023-12-08T02:10:17.461929",
         "last_commit": "ee3ea43e905cf184449c328f0dadaa4395f3ec0c",
         "last_commit_time": "2022-01-14T13:46:35"
     },
     "com.github.brpaz.ulauncher-timestamp": {
         "id": "com.github.brpaz.ulauncher-timestamp",
         "url": "https://github.com/brpaz/ulauncher-timestamp",
-        "updated_at": "2023-09-30T22:46:20.315746",
+        "updated_at": "2023-12-08T02:10:39.017559",
         "last_commit": "e366a81f92b8130dddc0b1bddecad253124c49b9",
         "last_commit_time": "2021-12-12T15:49:08"
+    },
+    "com.github.ulauncher.ulauncher-hash": {
+        "id": "com.github.ulauncher.ulauncher-hash",
+        "url": "https://github.com/Ulauncher/ulauncher-hash",
+        "updated_at": "2023-12-08T10:18:42.039069",
+        "last_commit": "237dbb3610ff04df993c3223b12df42cb7df221f",
+        "last_commit_time": "2022-09-04T14:29:55"
     }
 }
