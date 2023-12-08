@@ -4,7 +4,7 @@
     <application id="gnome-control-center.desktop" score="18755.509521484375" last-seen="1702010465"/>
     <application id="gnome-session-properties.desktop" score="2" last-seen="1702006541"/>
     <application id="org.gnome.Tour.desktop" score="0.000518798828125" last-seen="1702045223"/>
-    <application id="phpstorm_phpstorm.desktop" score="608.28125" last-seen="1702011304"/>
+    <application id="phpstorm_phpstorm.desktop" score="642.28125" last-seen="1702017835"/>
     <application id="firefox.desktop" score="0.00390625" last-seen="1701971855"/>
     <application id="org.gnome.tweaks.desktop" score="5" last-seen="1701975167"/>
     <application id="software-properties-gtk.desktop" score="0" last-seen="1701972300"/>
@@ -16,8 +16,8 @@
     <application id="zorin-connect.desktop" score="0" last-seen="1701970000"/>
     <application id="code_code.desktop" score="3" last-seen="1702000058"/>
     <application id="org.gnome.Terminal.desktop" score="17.17724609375" last-seen="1702002743"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="17.002685546875" last-seen="1702010437"/>
     <application id="postman_postman.desktop" score="3" last-seen="1702010400"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="17.002685546875" last-seen="1702010437"/>
     <application id="slack_slack.desktop" score="10.59375" last-seen="1702010899"/>
     <application id="org.gnome.Nautilus.desktop" score="49.1279296875" last-seen="1702011114"/>
     <application id="ulauncher.desktop" score="6" last-seen="1702005612"/>
@@ -27,9 +27,9 @@
     <application id="update-manager.desktop" score="0.0009765625" last-seen="1701969985"/>
     <application id="telegram-desktop_telegram-desktop.desktop" score="149.03125" last-seen="1702011085"/>
     <application id="webstorm_webstorm.desktop" score="20" last-seen="1702003268"/>
-    <application id="google-chrome.desktop" score="1930.3017578125" last-seen="1702011112"/>
-    <application id="gnome-system-monitor.desktop" score="1.4375" last-seen="1702010479"/>
+    <application id="google-chrome.desktop" score="1980.3017578125" last-seen="1702017773"/>
     <application id="ibus-setup-Unikey.desktop" score="0.125" last-seen="1701974786"/>
     <application id="org.gnome.gedit.desktop" score="4.5" last-seen="1702010942"/>
+    <application id="gnome-system-monitor.desktop" score="1.4375" last-seen="1702010479"/>
   </context>
 </application-state>
