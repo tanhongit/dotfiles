@@ -5,23 +5,23 @@
     <application id="org.bleachbit.BleachBit.desktop" score="33" last-seen="1702019496"/>
     <application id="gnome-session-properties.desktop" score="2" last-seen="1702020613"/>
     <application id="org.gnome.Tour.desktop" score="0.000518798828125" last-seen="1702045223"/>
-    <application id="phpstorm_phpstorm.desktop" score="1786.28125" last-seen="1702121686"/>
+    <application id="phpstorm_phpstorm.desktop" score="1841.28125" last-seen="1702122397"/>
     <application id="firefox.desktop" score="0.00390625" last-seen="1701971855"/>
     <application id="org.gnome.tweaks.desktop" score="20" last-seen="1702020511"/>
     <application id="software-properties-gtk.desktop" score="0" last-seen="1701972300"/>
     <application id="org.gnome.eog.desktop" score="0" last-seen="1702001437"/>
-    <application id="steam.desktop" score="3698.5478515625" last-seen="1702121787"/>
+    <application id="steam.desktop" score="3705.5478515625" last-seen="1702121840"/>
     <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="9.8125" last-seen="1702121095"/>
     <application id="org.gnome.NetworkDisplays.desktop" score="0" last-seen="1702020547"/>
-    <application id="org.gnome.Software.desktop" score="1.25634765625" last-seen="1701978208"/>
-    <application id="rambox_rambox.desktop" score="31.078125" last-seen="1702120800"/>
+    <application id="org.gnome.Software.desktop" score="6.25634765625" last-seen="1702122307"/>
+    <application id="rambox_rambox.desktop" score="31.078125" last-seen="1702122309"/>
     <application id="zorin-connect.desktop" score="0" last-seen="1701970000"/>
     <application id="code_code.desktop" score="3" last-seen="1702000058"/>
     <application id="org.gnome.Terminal.desktop" score="37.17724609375" last-seen="1702019050"/>
     <application id="postman_postman.desktop" score="108" last-seen="1702033827"/>
     <application id="org.gnome.Shell.Extensions.desktop" score="17.002685546875" last-seen="1702010437"/>
     <application id="slack_slack.desktop" score="10.59375" last-seen="1702019197"/>
-    <application id="org.gnome.Nautilus.desktop" score="57.1279296875" last-seen="1702100965"/>
+    <application id="org.gnome.Nautilus.desktop" score="60.1279296875" last-seen="1702122135"/>
     <application id="ulauncher.desktop" score="6" last-seen="1702005612"/>
     <application id="termius-app.desktop" score="5.5" last-seen="1702000374"/>
     <application id="org.gnome.FileRoller.desktop" score="0.5" last-seen="1701977085"/>
@@ -32,6 +32,6 @@
     <application id="google-chrome.desktop" score="2603.3017578125" last-seen="1702121726"/>
     <application id="gnome-system-monitor.desktop" score="1.4375" last-seen="1702115522"/>
     <application id="ibus-setup-Unikey.desktop" score="0.125" last-seen="1701974786"/>
-    <application id="org.gnome.gedit.desktop" score="4.5" last-seen="1702010942"/>
+    <application id="org.gnome.gedit.desktop" score="10.5" last-seen="1702122114"/>
   </context>
 </application-state>
