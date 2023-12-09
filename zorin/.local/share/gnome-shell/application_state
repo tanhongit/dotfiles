@@ -1,35 +1,37 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="gnome-control-center.desktop" score="18755.509521484375" last-seen="1702010465"/>
-    <application id="gnome-session-properties.desktop" score="2" last-seen="1702006541"/>
+    <application id="gnome-control-center.desktop" score="18770.509521484375" last-seen="1702020690"/>
+    <application id="org.bleachbit.BleachBit.desktop" score="33" last-seen="1702019496"/>
+    <application id="gnome-session-properties.desktop" score="2" last-seen="1702020613"/>
     <application id="org.gnome.Tour.desktop" score="0.000518798828125" last-seen="1702045223"/>
-    <application id="phpstorm_phpstorm.desktop" score="642.28125" last-seen="1702017835"/>
+    <application id="phpstorm_phpstorm.desktop" score="1697.28125" last-seen="1702033837"/>
     <application id="firefox.desktop" score="0.00390625" last-seen="1701971855"/>
-    <application id="org.gnome.tweaks.desktop" score="5" last-seen="1701975167"/>
+    <application id="org.gnome.tweaks.desktop" score="20" last-seen="1702020511"/>
     <application id="software-properties-gtk.desktop" score="0" last-seen="1701972300"/>
     <application id="org.gnome.eog.desktop" score="0" last-seen="1702001437"/>
-    <application id="steam.desktop" score="0.5478515625" last-seen="1701973189"/>
+    <application id="steam.desktop" score="3691.5478515625" last-seen="1702115519"/>
     <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="1.8125" last-seen="1701974927"/>
+    <application id="org.gnome.NetworkDisplays.desktop" score="0" last-seen="1702020547"/>
     <application id="org.gnome.Software.desktop" score="1.25634765625" last-seen="1701978208"/>
-    <application id="rambox_rambox.desktop" score="3.078125" last-seen="1702010867"/>
+    <application id="rambox_rambox.desktop" score="19.078125" last-seen="1702069676"/>
     <application id="zorin-connect.desktop" score="0" last-seen="1701970000"/>
     <application id="code_code.desktop" score="3" last-seen="1702000058"/>
-    <application id="org.gnome.Terminal.desktop" score="17.17724609375" last-seen="1702002743"/>
-    <application id="postman_postman.desktop" score="3" last-seen="1702010400"/>
+    <application id="org.gnome.Terminal.desktop" score="37.17724609375" last-seen="1702019050"/>
+    <application id="postman_postman.desktop" score="108" last-seen="1702033827"/>
     <application id="org.gnome.Shell.Extensions.desktop" score="17.002685546875" last-seen="1702010437"/>
-    <application id="slack_slack.desktop" score="10.59375" last-seen="1702010899"/>
-    <application id="org.gnome.Nautilus.desktop" score="49.1279296875" last-seen="1702011114"/>
+    <application id="slack_slack.desktop" score="10.59375" last-seen="1702019197"/>
+    <application id="org.gnome.Nautilus.desktop" score="57.1279296875" last-seen="1702100965"/>
     <application id="ulauncher.desktop" score="6" last-seen="1702005612"/>
     <application id="termius-app.desktop" score="5.5" last-seen="1702000374"/>
     <application id="org.gnome.FileRoller.desktop" score="0.5" last-seen="1701977085"/>
     <application id="zorin-appearance.desktop" score="2.3770751953125" last-seen="1701975761"/>
     <application id="update-manager.desktop" score="0.0009765625" last-seen="1701969985"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="149.03125" last-seen="1702011085"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="390.03125" last-seen="1702044254"/>
     <application id="webstorm_webstorm.desktop" score="20" last-seen="1702003268"/>
-    <application id="google-chrome.desktop" score="1980.3017578125" last-seen="1702017773"/>
+    <application id="google-chrome.desktop" score="2526.3017578125" last-seen="1702056273"/>
+    <application id="gnome-system-monitor.desktop" score="1.4375" last-seen="1702115522"/>
     <application id="ibus-setup-Unikey.desktop" score="0.125" last-seen="1701974786"/>
     <application id="org.gnome.gedit.desktop" score="4.5" last-seen="1702010942"/>
-    <application id="gnome-system-monitor.desktop" score="1.4375" last-seen="1702010479"/>
   </context>
 </application-state>
