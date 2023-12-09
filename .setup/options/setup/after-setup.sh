@@ -22,12 +22,25 @@ while true; do
         sudo apt install gir1.2-gda-5.0 gir1.2-gsound-1.0 -y # install gsound for 'Pano Clipboard Manager'
         #cp -TRv ../../../ "${ZSH_CUSTOM:-$HOME/}"
 
-        cp -TR ../../../.config ~/.config
-        cp -TR ../../../.local ~/.local
         cp -TR ../../../.psensor ~/.psensor
         cp ../../../.bashrc ~/.bashrc
         cp ../../../.zshrc ~/.zshrc
         cp ../../../.p10k.zsh ~/.p10k.zsh
+        cp -TR ../../../.config ~/.config
+
+        # shellcheck disable=SC1091
+        if [ -f "/etc/os-release" ]; then
+            . /etc/os-release
+            OS=$NAME
+
+            if [ "$OS" == "Ubuntu" ]; then
+                cp -TR ../../../ubuntu/.config ~/.config
+                cp -TR ../../../ubuntu/.local ~/.local
+            elif [ "$OS" == "Zorin OS" ]; then
+                cp -TR ../../../zorin/.config ~/.config
+                cp -TR ../../../zorin/.local ~/.local
+            fi
+        fi
 
         break
         ;;

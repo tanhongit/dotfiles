@@ -53,20 +53,24 @@ cd ../../
 
 echo "####################################################################"
 echo "######################### install docker ###########################"
-while true; do
-    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
-        yn="y"
-    else
-        read -r -p "Do you want to install docker? (Y/N)  " yn
-    fi
-    case $yn in
-    [Yy]*)
-        cd options/develop/ || exit
-        bash docker.sh
-        cd ../../
-        break
-        ;;
-    [Nn]*) break ;;
-    *) echo "Please answer yes or no." ;;
-    esac
-done
+if ! command -v "docker" &>/dev/null; then
+    while true; do
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+            yn="y"
+        else
+            read -r -p "Do you want to install docker? (Y/N)  " yn
+        fi
+        case $yn in
+        [Yy]*)
+            cd options/develop/ || exit
+            bash docker.sh
+            cd ../../
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    done
+else
+    echo "docker install ok installed"
+fi
