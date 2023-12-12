@@ -11,6 +11,7 @@ cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/compton ../.config/compton
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/nautilus ../.config/nautilus
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/terminator ../.config/terminator
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/ulauncher ../.config/ulauncher
+cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/Dharkael ../.config/Dharkael
 
 # shellcheck disable=SC1091
 if [ -f "/etc/os-release" ]; then
