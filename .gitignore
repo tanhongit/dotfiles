@@ -8,3 +8,4 @@
 .psensor/log
 .vscode
 .idea
+.config/autostart
