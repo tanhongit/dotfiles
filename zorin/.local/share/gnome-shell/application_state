@@ -1,33 +1,31 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="termius-app.desktop" score="414.125" last-seen="1702829949"/>
-    <application id="libreoffice-writer.desktop" score="13.75" last-seen="1702609654"/>
-    <application id="rambox_rambox.desktop" score="868.26953125" last-seen="1702830060"/>
-    <application id="org.gnome.Software.desktop" score="2.5640869140625" last-seen="1702551100"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="5.50067138671875" last-seen="1702829658"/>
-    <application id="webstorm_webstorm.desktop" score="446.5" last-seen="1702701098"/>
-    <application id="zorin-appearance.desktop" score="0.594268798828125" last-seen="1702266693"/>
-    <application id="steam.desktop" score="1365.136962890625" last-seen="1702490598"/>
-    <application id="gnome-control-center.desktop" score="4721.3773803710938" last-seen="1702829661"/>
-    <application id="phpstorm_phpstorm.desktop" score="2183.0703125" last-seen="1702829188"/>
-    <application id="org.gnome.DejaDup.desktop" score="0" last-seen="1702148766"/>
-    <application id="org.gnome.Nautilus.desktop" score="46.781982421875" last-seen="1702829987"/>
-    <application id="code_code.desktop" score="89.75" last-seen="1702830009"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="2557.0078125" last-seen="1702830106"/>
-    <application id="zoom-client_zoom-client.desktop" score="70.75" last-seen="1702432416"/>
-    <application id="update-manager.desktop" score="1" last-seen="1702654663"/>
-    <application id="org.gnome.Terminal.desktop" score="32.5443115234375" last-seen="1702829972"/>
-    <application id="rhythmbox.desktop" score="6.75" last-seen="1702292667"/>
-    <application id="org.gnome.gedit.desktop" score="13.875" last-seen="1702827486"/>
-    <application id="org.gnome.Evolution.desktop" score="6" last-seen="1702695151"/>
-    <application id="zorin-connect.desktop" score="0" last-seen="1702636321"/>
-    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="3.703125" last-seen="1702142474"/>
-    <application id="flameshot.desktop" score="4.5" last-seen="1702432917"/>
-    <application id="postman_postman.desktop" score="87.5" last-seen="1702352949"/>
-    <application id="google-chrome.desktop" score="24547.325439453125" last-seen="1702830104"/>
-    <application id="slack_slack.desktop" score="103.1484375" last-seen="1702637580"/>
-    <application id="sidekick-browser.desktop" score="5333.5" last-seen="1702824163"/>
-    <application id="gnome-system-monitor.desktop" score="2.859375" last-seen="1702410798"/>
+    <application id="termius-app.desktop" score="3.25" last-seen="1704420696"/>
+    <application id="org.gnome.Shell.PortalHelper.desktop" score="19.5" last-seen="1704547833"/>
+    <application id="org.gnome.FileRoller.desktop" score="6" last-seen="1704533459"/>
+    <application id="rambox_rambox.desktop" score="2844.9573364257812" last-seen="1704428042"/>
+    <application id="google-chrome.desktop" score="6" last-seen="1704548457"/>
+    <application id="org.kde.krita.desktop" score="450" last-seen="1704524368"/>
+    <application id="webstorm_webstorm.desktop" score="94" last-seen="1704540042"/>
+    <application id="com.github.debauchee.barrier.desktop" score="0.75" last-seen="1704344524"/>
+    <application id="org.gnome.Software.desktop" score="2.25" last-seen="1704344427"/>
+    <application id="gnome-control-center.desktop" score="88.02152156829834" last-seen="1704580482"/>
+    <application id="update-manager.desktop" score="413.40625" last-seen="1704085168"/>
+    <application id="org.gnome.eog.desktop" score="1" last-seen="1704533439"/>
+    <application id="phpstorm_phpstorm.desktop" score="6431.7354736328125" last-seen="1704645771"/>
+    <application id="net.scribus.Scribus.desktop" score="0" last-seen="1704501384"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="644.9532470703125" last-seen="1704533925"/>
+    <application id="org.gnome.gedit.desktop" score="1" last-seen="1704548433"/>
+    <application id="org.gnome.Calculator.desktop" score="16.5625" last-seen="1704422921"/>
+    <application id="org.gnome.Nautilus.desktop" score="125.5278434753418" last-seen="1704533470"/>
+    <application id="org.gnome.Terminal.desktop" score="7.1960048675537109" last-seen="1704533503"/>
+    <application id="slack_slack.desktop" score="27.2679443359375" last-seen="1704452225"/>
+    <application id="xdg-desktop-portal-gtk.desktop" score="0" last-seen="1704344531"/>
+    <application id="org.inkscape.Inkscape.desktop" score="1" last-seen="1704344463"/>
+    <application id="postman_postman.desktop" score="13.84375" last-seen="1704645433"/>
+    <application id="flameshot.desktop" score="0.2265625" last-seen="1704422380"/>
+    <application id="gimp.desktop" score="6.5" last-seen="1704504354"/>
+    <application id="sidekick-browser.desktop" score="14346.2734375" last-seen="1704645712"/>
   </context>
 </application-state>
