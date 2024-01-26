@@ -1,6 +1,6 @@
 [Added Associations]
 application/vnd.debian.binary-package=gnome-software-local-file.desktop;snap-store_ubuntu-software-local-file.desktop;
-inode/directory=phpstorm_phpstorm.desktop;webstorm_webstorm.desktop;code_code.desktop;code.desktop;
+inode/directory=webstorm_webstorm.desktop;code_code.desktop;phpstorm_phpstorm.desktop;code.desktop;
 x-content/audio-player=rhythmbox-device.desktop;
 x-content/image-dcf=org.gnome.eog.desktop;
 video/mp4=org.gnome.Totem.desktop;vlc.desktop;
@@ -86,6 +86,7 @@ x-scheme-handler/sms=org.gnome.Shell.Extensions.ZorinConnect.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.ZorinConnect.desktop;
 application/x-shellscript=org.gnome.gedit.desktop;
 application/x-rpm=gnome-software-local-file.desktop;
+image/x-canon-cr2=org.gnome.eog.desktop;
 
 [Default Applications]
 text/html=sidekick-browser.desktop
