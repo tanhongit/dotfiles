@@ -1,6 +1,6 @@
 [Added Associations]
 application/vnd.debian.binary-package=gnome-software-local-file.desktop;snap-store_ubuntu-software-local-file.desktop;
-inode/directory=phpstorm_phpstorm.desktop;webstorm_webstorm.desktop;code.desktop;code_code.desktop;
+inode/directory=webstorm_webstorm.desktop;code_code.desktop;phpstorm_phpstorm.desktop;code.desktop;
 x-content/audio-player=rhythmbox-device.desktop;
 x-content/image-dcf=org.gnome.eog.desktop;
 video/mp4=org.gnome.Totem.desktop;vlc.desktop;
@@ -65,7 +65,7 @@ application/x-php=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;code_code.de
 application/vnd.appimage=apturl.desktop;
 text/html=org.gnome.gedit.desktop;code_code.desktop;google-chrome.desktop;sidekick-browser.desktop;
 application/x-bittorrent=transmission-gtk.desktop;
-image/svg+xml=phpstorm_phpstorm.desktop;org.gnome.gedit.desktop;google-chrome.desktop;
+image/svg+xml=sidekick-browser.desktop;phpstorm_phpstorm.desktop;org.gnome.gedit.desktop;google-chrome.desktop;
 application/vnd.ms-publisher=org.gnome.gedit.desktop;org.gnome.TextEditor.desktop;
 application/octet-stream=org.gnome.gedit.desktop;
 text/x-python=code_code.desktop;
@@ -74,7 +74,7 @@ application/zip=mysql-workbench-community_mysql-workbench-community.desktop;org.
 application/pdf=sidekick-browser.desktop;google-chrome.desktop;
 application/xml=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;libreoffice-writer.desktop;code.desktop;
 application/sql=code_code.desktop;phpstorm_phpstorm.desktop;org.gnome.gedit.desktop;code.desktop;
-text/csv=phpstorm_phpstorm.desktop;
+text/csv=libreoffice-calc.desktop;org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;
 application/x-gettext-translation=poedit_poedit.desktop;
 text/x-log=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=sidekick-browser.desktop;
@@ -86,6 +86,7 @@ x-scheme-handler/sms=org.gnome.Shell.Extensions.ZorinConnect.desktop;
 x-scheme-handler/tel=org.gnome.Shell.Extensions.ZorinConnect.desktop;
 application/x-shellscript=org.gnome.gedit.desktop;
 application/x-rpm=gnome-software-local-file.desktop;
+image/x-canon-cr2=org.gnome.eog.desktop;
 
 [Default Applications]
 text/html=sidekick-browser.desktop
