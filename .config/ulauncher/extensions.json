@@ -16,14 +16,14 @@
     "com.github.brpaz.ulauncher-timestamp": {
         "id": "com.github.brpaz.ulauncher-timestamp",
         "url": "https://github.com/brpaz/ulauncher-timestamp",
-        "updated_at": "2023-12-08T02:10:39.017559",
+        "updated_at": "2024-02-01T21:50:59.845185",
         "last_commit": "e366a81f92b8130dddc0b1bddecad253124c49b9",
         "last_commit_time": "2021-12-12T15:49:08"
     },
     "com.github.ulauncher.ulauncher-hash": {
         "id": "com.github.ulauncher.ulauncher-hash",
         "url": "https://github.com/Ulauncher/ulauncher-hash",
-        "updated_at": "2023-12-08T10:18:42.039069",
+        "updated_at": "2024-02-01T21:55:50.370690",
         "last_commit": "237dbb3610ff04df993c3223b12df42cb7df221f",
         "last_commit_time": "2022-09-04T14:29:55"
     }
