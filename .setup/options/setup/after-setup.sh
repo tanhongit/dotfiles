@@ -23,7 +23,6 @@ while true; do
         #cp -TRv ../../../ "${ZSH_CUSTOM:-$HOME/}"
 
         cp -TR ../../../.psensor ~/.psensor
-        cp ../../../.bashrc ~/.bashrc
         cp ../../../.zshrc ~/.zshrc
         cp ../../../.p10k.zsh ~/.p10k.zsh
         cp -TR ../../../.config ~/.config

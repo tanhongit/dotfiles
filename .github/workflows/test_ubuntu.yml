@@ -21,7 +21,6 @@ jobs:
             .local
             .psensor
           ignore_names: >-
-            .bashrc
             .bash_logout
             .zshrc
             .p10k.zsh
