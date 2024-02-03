@@ -35,26 +35,58 @@ installSnapDevPackages() {
 
     for packageName in "${PACKAGE_LIST[@]}"; do
         echo "=========================== $packageName ==========================="
-        COMMAND_NAME=$packageName
-        if ! command -v "$COMMAND_NAME" &>/dev/null; then
-            echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-            sudo snap install "$COMMAND_NAME"
+
+        if ! command -v "$packageName" &>/dev/null; then
+            echo "$packageName could not be found. Setting up $packageName."
+            while true; do
+                if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+                    yn="y"
+                else
+                    read -r -p "Do you want to install $packageName? (Y/N)  " yn
+                fi
+                case $yn in
+                [Yy]*)
+                    sudo snap install "$packageName"
+                    break
+                    ;;
+                [Nn]*) break ;;
+                *) echo "Please answer yes or no." ;;
+                esac
+            done
         else
-            echo "$COMMAND_NAME install ok installed"
+            echo "$packageName install ok installed"
         fi
         echo ''
     done
 }
 installSnapDevPackages
 
-echo "===================== config for workbrench ==================="
-sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
+if command -v "mysql-workbench-community" &>/dev/null; then
+    echo "===================== config for workbrench ==================="
+    sudo snap connect mysql-workbench-community:password-manager-service :password-manager-service
+fi
+echo ''
 
 echo "=========================== phpstorm ==========================="
 COMMAND_NAME="phpstorm"
 if ! command -v $COMMAND_NAME &>/dev/null; then
     echo "$COMMAND_NAME could not be found. Setting up $COMMAND_NAME."
-    sudo snap install $COMMAND_NAME --classic
+    while true; do
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+            yn="y"
+        else
+            read -r -p "Do you want to install $COMMAND_NAME? (Y/N)  " yn
+        fi
+
+        case $yn in
+        [Yy]*)
+            sudo snap install $COMMAND_NAME --classic
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    done
 else
     echo "$COMMAND_NAME install ok installed"
 fi
@@ -88,7 +120,22 @@ echo ''
 echo "=========================== vite ==========================="
 COMMAND_NAME="vite"
 if ! command -v $COMMAND_NAME &>/dev/null; then
-    sudo apt-get install -y $COMMAND_NAME
+    while true; do
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+            yn="y"
+        else
+            read -r -p "Do you want to install $COMMAND_NAME? (Y/N)  " yn
+        fi
+
+        case $yn in
+        [Yy]*)
+            sudo apt-get install -y $COMMAND_NAME
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    done
 else
     echo "$COMMAND_NAME install ok installed"
 fi
