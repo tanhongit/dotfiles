@@ -21,7 +21,7 @@ It's a simple script, so you can run it easily.
 You will need to have an Ubuntu or Zorin OS installed on your system.
 
 - For Ubuntu, you should use version **22.04** is stable.
-- For Zorin OS, you should use version **16** is stable.
+- For Zorin OS, you should use version **17** is stable.
 
 # Installing
 
