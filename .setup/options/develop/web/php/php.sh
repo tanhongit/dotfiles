@@ -87,7 +87,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     done
 
     phpExtensions() {
-        sudo apt install php"$PHP_VERSION" php"$PHP_VERSION"-common php"$PHP_VERSION"-mysql php"$PHP_VERSION"-curl php"$PHP_VERSION"-gd php"$PHP_VERSION"-redis php"$PHP_VERSION"-mbstring php"$PHP_VERSION"-xml php"$PHP_VERSION"-zip php"$PHP_VERSION"-readline -y
+        sudo apt install php"$PHP_VERSION" php"$PHP_VERSION"-{common,mysql,curl,gd,redis,mbstring,xml,zip,readline,bcmath,intl,json,opcache,soap,sqlite3,xmlrpc,xsl,imagick,dev,cli} -y
     }
 
     if [[ $WEB_SERVER == "apache2" ]]; then
