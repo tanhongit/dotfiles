@@ -1,33 +1,28 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="libreoffice-writer.desktop" score="93" last-seen="1706282648"/>
-    <application id="zorin-appearance.desktop" score="5" last-seen="1706865328"/>
+    <application id="com.zorin.desktop.upgrader.desktop" score="1" last-seen="1706861245"/>
     <application id="gnome-session-properties.desktop" score="0" last-seen="1706861774"/>
-    <application id="com.zorin.exec-guard.linux.desktop" score="0" last-seen="1706840540"/>
-    <application id="google-chrome.desktop" score="57" last-seen="1706863457"/>
-    <application id="com.zorin.desktop.upgrader.desktop" score="2" last-seen="1706861245"/>
-    <application id="webstorm_webstorm.desktop" score="868.890625" last-seen="1706266937"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="40" last-seen="1706865314"/>
-    <application id="bytedance-lark.desktop" score="243" last-seen="1706866188"/>
-    <application id="gnome-control-center.desktop" score="234.43783627450466" last-seen="1706866529"/>
-    <application id="org.gnome.gedit.desktop" score="4.875" last-seen="1706842083"/>
-    <application id="org.gnome.eog.desktop" score="2" last-seen="1706813160"/>
-    <application id="update-manager.desktop" score="382.9375" last-seen="1706840672"/>
-    <application id="phpstorm_phpstorm.desktop" score="8173.4333667755127" last-seen="1706866429"/>
-    <application id="xdg-desktop-portal-gnome.desktop" score="1" last-seen="1706857690"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="5889.2648944854736" last-seen="1706866438"/>
-    <application id="code_code.desktop" score="18" last-seen="1706858001"/>
-    <application id="org.gnome.Software.desktop" score="5" last-seen="1706840543"/>
-    <application id="org.gnome.Terminal.desktop" score="40.628062576055527" last-seen="1706845203"/>
-    <application id="vlc.desktop" score="1" last-seen="1706861723"/>
-    <application id="slack_slack.desktop" score="31.238561630249023" last-seen="1706857778"/>
-    <application id="org.gnome.Nautilus.desktop" score="320.97699755430222" last-seen="1706865744"/>
-    <application id="yelp.desktop" score="0" last-seen="1706846638"/>
-    <application id="ulauncher.desktop" score="5" last-seen="1706799867"/>
-    <application id="gnome-system-monitor.desktop" score="35" last-seen="1706865640"/>
-    <application id="zorin-connect.desktop" score="0" last-seen="1706848286"/>
-    <application id="sidekick-browser.desktop" score="25681.676147460938" last-seen="1706866416"/>
-    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="53" last-seen="1706849669"/>
+    <application id="zorin-appearance.desktop" score="2.5" last-seen="1706865328"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="20" last-seen="1706865314"/>
+    <application id="google-chrome.desktop" score="28.5" last-seen="1706870289"/>
+    <application id="webstorm_webstorm.desktop" score="434.4453125" last-seen="1706870284"/>
+    <application id="bytedance-lark.desktop" score="188.5" last-seen="1707407162"/>
+    <application id="org.gnome.Software.desktop" score="5.5" last-seen="1707375027"/>
+    <application id="phpstorm_phpstorm.desktop" score="4263.7166833877563" last-seen="1707456570"/>
+    <application id="update-manager.desktop" score="193.46875" last-seen="1707456565"/>
+    <application id="gnome-control-center.desktop" score="121.21891813725233" last-seen="1706870384"/>
+    <application id="org.gnome.gedit.desktop" score="2.4375" last-seen="1706894479"/>
+    <application id="code_code.desktop" score="9" last-seen="1706858001"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="3079.6324472427368" last-seen="1707406578"/>
+    <application id="xdg-desktop-portal-gnome.desktop" score="0.5" last-seen="1706857690"/>
+    <application id="org.gnome.Terminal.desktop" score="21.314031288027763" last-seen="1707409424"/>
+    <application id="termius-app_termius-app.desktop" score="27" last-seen="1707454690"/>
+    <application id="vlc.desktop" score="0.5" last-seen="1706861723"/>
+    <application id="slack_slack.desktop" score="62.619280815124512" last-seen="1706869029"/>
+    <application id="org.gnome.Nautilus.desktop" score="172.48849877715111" last-seen="1707409451"/>
+    <application id="gnome-system-monitor.desktop" score="27.5" last-seen="1707407205"/>
+    <application id="nvidia-settings.desktop" score="0" last-seen="1707374958"/>
+    <application id="sidekick-browser.desktop" score="21393.338073730469" last-seen="1707456468"/>
   </context>
 </application-state>
