@@ -41,6 +41,12 @@ bash install.sh
 
 Now, wait for a while, and you will see some messages questioning do you want to install some tools. If you want to install some tools, please answer **yes(y)**.
 
+> [!IMPORTANT]
+> ## What to do after overwriting existing configurations?
+> In the installing process, you see a message that says "**Do you want copy and overwrite existing config folders from this source to your os?**".
+> 
+> If answer **yes(y)** but don't see any changes after rebooting, please **LOG OUT** and **LOG IN AGAIN** to your OS.
+
 # Screenshots demo
 
 ## Ubuntu 22.04
