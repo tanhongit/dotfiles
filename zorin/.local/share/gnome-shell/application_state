@@ -1,19 +1,23 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="sidekick-browser.desktop" score="22873.338073730469" last-seen="1708208685"/>
-    <application id="zorin-appearance.desktop" score="5" last-seen="1708196702"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="0" last-seen="1708192783"/>
-    <application id="org.gnome.Nautilus.desktop" score="31" last-seen="1708208628"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="7" last-seen="1708198718"/>
-    <application id="google-chrome.desktop" score="122" last-seen="1708197083"/>
-    <application id="gnome-system-monitor.desktop" score="67" last-seen="1708190471"/>
-    <application id="org.gnome.Software.desktop" score="3" last-seen="1708190851"/>
-    <application id="phpstorm_phpstorm.desktop" score="4359.7166833877563" last-seen="1708208699"/>
-    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="33" last-seen="1708192721"/>
-    <application id="gnome-control-center.desktop" score="55" last-seen="1708198753"/>
-    <application id="code_code.desktop" score="33" last-seen="1708195108"/>
-    <application id="org.gnome.Terminal.desktop" score="8" last-seen="1708199334"/>
-    <application id="bytedance-lark.desktop" score="22" last-seen="1708207744"/>
+    <application id="google-chrome.desktop" score="66" last-seen="1708341112"/>
+    <application id="zorin-appearance.desktop" score="8.5" last-seen="1708209922"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="3.5" last-seen="1708198718"/>
+    <application id="org.gnome.Software.desktop" score="1.5" last-seen="1708190851"/>
+    <application id="bytedance-lark.desktop" score="184" last-seen="1708437430"/>
+    <application id="gnome-control-center.desktop" score="142.5" last-seen="1708437828"/>
+    <application id="org.gnome.gedit.desktop" score="1" last-seen="1708257610"/>
+    <application id="phpstorm_phpstorm.desktop" score="2680.8583416938782" last-seen="1708437843"/>
+    <application id="org.gnome.Nautilus.desktop" score="18.5" last-seen="1708353286"/>
+    <application id="code_code.desktop" score="17" last-seen="1708209567"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="262.5" last-seen="1708432443"/>
+    <application id="termius-app_termius-app.desktop" score="1" last-seen="1708273110"/>
+    <application id="org.gnome.Terminal.desktop" score="8" last-seen="1708257617"/>
+    <application id="zorin-connect.desktop" score="0" last-seen="1708340889"/>
+    <application id="gnome-system-monitor.desktop" score="35.5" last-seen="1708273873"/>
+    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="16.5" last-seen="1708192721"/>
+    <application id="sidekick-browser.desktop" score="17084.669036865234" last-seen="1708437837"/>
+    <application id="anydesk.desktop" score="293" last-seen="1708431571"/>
   </context>
 </application-state>
