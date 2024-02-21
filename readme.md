@@ -1,8 +1,9 @@
-# Welcome to the dotfiles installation script for Linux by tanhongit. 
+# Welcome to the dotfiles installation script for Linux by tanhongit.
 
 This script will install dotfiles to your system. It also will install some useful tools, packages, and programs.
 
-After installing Ubuntu, you can run this script to install dotfiles. I added some programs, packages, and tools to this script. All of them need to be installed for Ubuntu.
+After installing Ubuntu, you can run this script to install dotfiles. I added some programs, packages, and tools to this
+script. All of them need to be installed for Ubuntu.
 
 It's a simple script, so you can run it easily.
 
@@ -39,13 +40,24 @@ cd .setup
 bash install.sh
 ```
 
-Now, wait for a while, and you will see some messages questioning do you want to install some tools. If you want to install some tools, please answer **yes(y)**.
+Now, wait for a while, and you will see some messages questioning do you want to install some tools. If you want to
+install some tools, please answer **yes(y)**.
 
 > [!IMPORTANT]
 > ## What to do after overwriting existing configurations?
-> In the installing process, you see a message that says "**Do you want copy and overwrite existing config folders from this source to your os?**".
+> In the installing process, you see a message that says "**Do you want copy and overwrite existing config folders from
+this source to your os?**".
+>
+> If answer **yes(y)** but don't see any changes after rebooting, please handle as follows:
 > 
-> If answer **yes(y)** but don't see any changes after rebooting, please **LOG OUT** and **LOG IN AGAIN** to your OS.
+> 1. Open the terminal and run the following command:
+>
+> ```bash
+> cd .setup
+> bash config.sh
+> ```
+>
+> 2. **LOG OUT** and **LOG IN AGAIN** to your OS.
 
 # Screenshots demo
 
@@ -70,4 +82,5 @@ cd .backup
 bash run.sh
 ```
 
-Please wait for a while, it will take some time to back up your dotfiles. When you are ready, you can run the following command from Step 2 to restore your dotfiles.
+Please wait for a while, it will take some time to back up your dotfiles. When you are ready, you can run the following
+command from Step 2 to restore your dotfiles.
