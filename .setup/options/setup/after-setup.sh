@@ -27,6 +27,10 @@ while true; do
         cp ../../../.p10k.zsh ~/.p10k.zsh
         cp -TR ../../../.config ~/.config
 
+        if [ -d ~/.local ]; then
+            cp -TR ../../../.local ~/.local
+        fi
+
         # shellcheck disable=SC1091
         if [ -f "/etc/os-release" ]; then
             . /etc/os-release
