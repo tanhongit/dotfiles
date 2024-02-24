@@ -1,23 +1,33 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="google-chrome.desktop" score="66" last-seen="1708341112"/>
-    <application id="zorin-appearance.desktop" score="8.5" last-seen="1708209922"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="3.5" last-seen="1708198718"/>
-    <application id="org.gnome.Software.desktop" score="1.5" last-seen="1708190851"/>
-    <application id="bytedance-lark.desktop" score="184" last-seen="1708437430"/>
-    <application id="gnome-control-center.desktop" score="142.5" last-seen="1708437828"/>
-    <application id="org.gnome.gedit.desktop" score="1" last-seen="1708257610"/>
-    <application id="phpstorm_phpstorm.desktop" score="2680.8583416938782" last-seen="1708437843"/>
-    <application id="org.gnome.Nautilus.desktop" score="18.5" last-seen="1708353286"/>
-    <application id="code_code.desktop" score="17" last-seen="1708209567"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="262.5" last-seen="1708432443"/>
-    <application id="termius-app_termius-app.desktop" score="1" last-seen="1708273110"/>
-    <application id="org.gnome.Terminal.desktop" score="8" last-seen="1708257617"/>
-    <application id="zorin-connect.desktop" score="0" last-seen="1708340889"/>
-    <application id="gnome-system-monitor.desktop" score="35.5" last-seen="1708273873"/>
-    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="16.5" last-seen="1708192721"/>
-    <application id="sidekick-browser.desktop" score="17084.669036865234" last-seen="1708437837"/>
-    <application id="anydesk.desktop" score="293" last-seen="1708431571"/>
+    <application id="zorin-connect.desktop" score="0" last-seen="1708801592"/>
+    <application id="org.gnome.eog.desktop" score="0" last-seen="1708618177"/>
+    <application id="google-chrome.desktop" score="65" last-seen="1708801753"/>
+    <application id="zorin-appearance.desktop" score="4.25" last-seen="1708209922"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="14.75" last-seen="1708766323"/>
+    <application id="org.gnome.Software.desktop" score="0.75" last-seen="1708190851"/>
+    <application id="webstorm_webstorm.desktop" score="400.5" last-seen="1708750117"/>
+    <application id="bytedance-lark.desktop" score="2283" last-seen="1708772638"/>
+    <application id="gnome-control-center.desktop" score="183.25" last-seen="1708801754"/>
+    <application id="org.gnome.gedit.desktop" score="0.5" last-seen="1708257610"/>
+    <application id="update-manager.desktop" score="3.5" last-seen="1708750514"/>
+    <application id="psensor.desktop" score="16.5" last-seen="1708742787"/>
+    <application id="phpstorm_phpstorm.desktop" score="1999.4291708469391" last-seen="1708801890"/>
+    <application id="code_code.desktop" score="13.5" last-seen="1708750092"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="493.75" last-seen="1708801620"/>
+    <application id="anydesk.desktop" score="375.5" last-seen="1708688437"/>
+    <application id="org.gnome.Calculator.desktop" score="0" last-seen="1708748543"/>
+    <application id="termius-app_termius-app.desktop" score="6.5" last-seen="1708750422"/>
+    <application id="org.gnome.Terminal.desktop" score="90.5" last-seen="1708770435"/>
+    <application id="dbeaver-ce_dbeaver-ce.desktop" score="28" last-seen="1708769368"/>
+    <application id="slack_slack.desktop" score="0.5" last-seen="1708756644"/>
+    <application id="gnome-system-monitor.desktop" score="17.75" last-seen="1708801756"/>
+    <application id="org.gnome.Shell.PortalHelper.desktop" score="3.5" last-seen="1708527259"/>
+    <application id="postman_postman.desktop" score="0.5" last-seen="1708525399"/>
+    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="8.25" last-seen="1708192721"/>
+    <application id="org.gnome.Nautilus.desktop" score="116.25" last-seen="1708771007"/>
+    <application id="sidekick-browser.desktop" score="14276.334518432617" last-seen="1708801891"/>
+    <application id="yelp.desktop" score="1" last-seen="1708689030"/>
   </context>
 </application-state>

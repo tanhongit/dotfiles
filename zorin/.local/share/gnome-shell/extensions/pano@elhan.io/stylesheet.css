@@ -1,0 +1,193 @@
+.pano-window {
+  border-top: 1px solid rgba(69, 69, 69, 1);
+}
+
+.pano-window.incognito {
+  background-image: url('./images/incognito-mode.svg');
+  background-size: 48px;
+  background-position: 10px 10px;
+}
+
+.pano-window .search-entry-container {
+  padding: 14px;
+  padding-bottom: 5px;
+}
+
+.pano-window .search-entry-icon {
+  padding: 0 4px;
+  color: inherit;
+}
+
+.pano-window .search-entry-fav-icon {
+  padding: 0 4px;
+  color: inherit;
+}
+
+.pano-window .search-entry-fav-icon.active {
+  color: #f6d32d;
+}
+
+.pano-item {
+  border-radius: 11px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-left: 6px;
+  margin-right: 6px;
+  border: 4px solid transparent;
+}
+
+.pano-item:visible:first-child {
+  margin-left: 14px;
+}
+.pano-item:visible:last-child {
+  margin-right: 14px;
+}
+
+.pano-item-header {
+  border-radius: 6px 6px 0px 0px;
+  padding: 5px;
+  height: 50px;
+}
+
+.pano-item-body {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.pano-item-body-code-content {
+  margin: 12px;
+  tab-size: 2;
+}
+
+.pano-item-body-link {
+  padding: 0px;
+}
+
+.pano-item-body-link .image-container {
+  background-size: cover;
+  border-radius: 1px 1px 0px 0px;
+}
+
+.pano-item-body-text-content {
+  margin: 12px;
+  tab-size: 2;
+}
+
+.pano-item-body-emoji .emoji-container {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.pano-item-body-emoji-content {
+  font-family: sans-serif;
+  tab-size: 2;
+  text-shadow: 0 0 5px #000;
+}
+
+.pano-item-body-color .color-container {
+  border-radius: 0px 0px 6px 6px;
+}
+
+.pano-item-body-color .color-label {
+  border-radius: 999px;
+  padding: 10px;
+}
+
+.pano-item-title-container {
+  margin-left: 5px;
+}
+
+.pano-item-title {
+  font-size: 24px;
+}
+
+.pano-item-date {
+  font-size: 12px;
+}
+
+.pano-item-body-file .file-icon {
+  padding: 0 4px;
+}
+
+.copied-files-container {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.pano-item-body-file .copied-file-name:first-child {
+  border-top: 0px !important;
+}
+
+.pano-item-body-file .copied-file-name {
+  margin-bottom: 2px;
+  border-top: 1px solid rgba(63, 63, 63, 0.2);
+}
+
+.pano-item-body-meta-container {
+  height: 50px;
+  padding: 10px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.pano-item-body-image-resolution-container {
+  border-bottom: 1px solid rgba(76, 76, 76);
+  padding-bottom: 5px;
+}
+
+.pano-item-body-image-size-container {
+  border-top: 1px solid rgb(76, 76, 76);
+  padding-top: 5px;
+}
+
+.pano-item-body-link-meta-container {
+  padding: 0px, 12px, 12px, 12px;
+}
+
+.pano-item-body-link .link-title-label {
+  font-weight: bold;
+}
+
+.pano-item-body-link .link-label {
+  margin-top: 5px;
+}
+
+.pano-item-remove-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 99px;
+  padding: 6px;
+  margin: 5px;
+  margin-right: 0px;
+}
+
+.pano-item-remove-button:hover,
+.pano-item-remove-button:active {
+  background-color: #e01b24;
+}
+
+.pano-item-favorite-button {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 99px;
+  padding: 6px;
+  margin: 5px;
+  margin-right: 0px;
+}
+
+.pano-item-favorite-button:hover {
+  background-color: rgba(246, 211, 45, 0.3);
+  color: black;
+}
+
+.pano-item-favorite-button:active {
+  background-color: #f6d32d;
+  color: black;
+}
+
+.indicator-icon {
+  padding: 0px;
+  margin: 0px;
+}
+
+.pano-monitor-box {
+  background-color: transparent !important;
+}
