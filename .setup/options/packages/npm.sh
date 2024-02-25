@@ -8,9 +8,14 @@ if [ ! -s "$HOME/.nvm/nvm.sh" ]; then
     # shellcheck disable=SC1090
     source ~/.profile
 
-    nvm install node
-    nvm use node
-    nvm alias default node
+    # get and convert the number of the latest version of node
+    NODE_VERSION=$(nvm ls-remote | grep LTS | tail -n 1 | awk '{print $1}')
+    NODE_VERSION=$(echo "$NODE_VERSION" | cut -d. -f1)
+    echo "Installing node version $NODE_VERSION..."
+
+    nvm install "$NODE_VERSION"
+    nvm use "$NODE_VERSION"
+    nvm alias default "$NODE_VERSION"
 else
     echo "$COMMAND_NAME install ok installed"
 fi
