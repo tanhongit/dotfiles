@@ -1,32 +1,25 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="slack_slack.desktop" score="0.5" last-seen="1708756644"/>
-    <application id="anydesk.desktop" score="375.5" last-seen="1708688437"/>
     <application id="libreoffice-writer.desktop" score="6" last-seen="1709012530"/>
-    <application id="google-chrome.desktop" score="74" last-seen="1709012012"/>
-    <application id="org.gnome.Shell.Extensions.desktop" score="31.75" last-seen="1708802148"/>
-    <application id="webstorm_webstorm.desktop" score="652.5" last-seen="1708923044"/>
-    <application id="bytedance-lark.desktop" score="2795" last-seen="1709013087"/>
-    <application id="org.gnome.Shell.PortalHelper.desktop" score="3.5" last-seen="1708527259"/>
+    <application id="org.gnome.tweaks.desktop" score="11" last-seen="1709461522"/>
+    <application id="google-chrome.desktop" score="1923" last-seen="1709461528"/>
+    <application id="org.gnome.Software.desktop" score="8" last-seen="1709447603"/>
+    <application id="webstorm_webstorm.desktop" score="685.5" last-seen="1709460995"/>
+    <application id="rambox_rambox.desktop" score="1" last-seen="1709457047"/>
+    <application id="bytedance-lark.desktop" score="43" last-seen="1709461534"/>
     <application id="psensor.desktop" score="25.5" last-seen="1708841771"/>
-    <application id="update-manager.desktop" score="3.5" last-seen="1708750514"/>
-    <application id="org.gnome.Nautilus.desktop" score="144.25" last-seen="1709013234"/>
-    <application id="code_code.desktop" score="13.5" last-seen="1708750092"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="586.75" last-seen="1709013310"/>
-    <application id="phpstorm_phpstorm.desktop" score="2351.4291708469391" last-seen="1709013341"/>
-    <application id="org.gnome.Calculator.desktop" score="0" last-seen="1708748543"/>
-    <application id="org.gnome.Terminal.desktop" score="93.5" last-seen="1709013187"/>
-    <application id="gnome-control-center.desktop" score="253.25" last-seen="1708959731"/>
-    <application id="org.gnome.gedit.desktop" score="1.5" last-seen="1708841790"/>
-    <application id="org.gnome.eog.desktop" score="15" last-seen="1708842135"/>
-    <application id="dbeaver-ce_dbeaver-ce.desktop" score="28" last-seen="1708769368"/>
-    <application id="gnome-system-monitor.desktop" score="17.75" last-seen="1708801756"/>
-    <application id="termius-app_termius-app.desktop" score="12.5" last-seen="1708917617"/>
-    <application id="postman_postman.desktop" score="0.5" last-seen="1708525399"/>
-    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="3" last-seen="1708838385"/>
-    <application id="zorin-connect.desktop" score="0" last-seen="1708801592"/>
-    <application id="sidekick-browser.desktop" score="20035.334518432617" last-seen="1709013333"/>
-    <application id="yelp.desktop" score="1" last-seen="1708689030"/>
+    <application id="phpstorm_phpstorm.desktop" score="2767.4291708469391" last-seen="1709461537"/>
+    <application id="org.gnome.eog.desktop" score="15" last-seen="1709450351"/>
+    <application id="org.gnome.Nautilus.desktop" score="969.25" last-seen="1709457474"/>
+    <application id="org.gnome.gedit.desktop" score="3.5" last-seen="1709450427"/>
+    <application id="update-manager.desktop" score="0" last-seen="1709404586"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="610.75" last-seen="1709461053"/>
+    <application id="xdg-desktop-portal-gnome.desktop" score="3" last-seen="1709450362"/>
+    <application id="org.gnome.Terminal.desktop" score="102.5" last-seen="1709460954"/>
+    <application id="gnome-control-center.desktop" score="257.25" last-seen="1709460993"/>
+    <application id="org.flameshot.Flameshot.desktop" score="31" last-seen="1709450260"/>
+    <application id="gnome-system-monitor.desktop" score="6" last-seen="1709458134"/>
+    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="9" last-seen="1709439924"/>
   </context>
 </application-state>

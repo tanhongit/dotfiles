@@ -89,11 +89,11 @@ application/x-rpm=gnome-software-local-file.desktop;
 image/x-canon-cr2=org.gnome.eog.desktop;
 
 [Default Applications]
-text/html=sidekick-browser.desktop
-x-scheme-handler/http=sidekick-browser.desktop
-x-scheme-handler/https=sidekick-browser.desktop
-x-scheme-handler/about=sidekick-browser.desktop
-x-scheme-handler/unknown=sidekick-browser.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
 x-content/audio-player=rhythmbox-device.desktop
 x-content/image-dcf=org.gnome.eog.desktop
 video/x-ogm+ogg=vlc.desktop
