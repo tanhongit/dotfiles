@@ -1,25 +1,22 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="libreoffice-writer.desktop" score="6" last-seen="1709012530"/>
-    <application id="org.gnome.tweaks.desktop" score="11" last-seen="1709461522"/>
-    <application id="google-chrome.desktop" score="1923" last-seen="1709461528"/>
-    <application id="org.gnome.Software.desktop" score="8" last-seen="1709447603"/>
-    <application id="webstorm_webstorm.desktop" score="685.5" last-seen="1709460995"/>
-    <application id="rambox_rambox.desktop" score="1" last-seen="1709457047"/>
-    <application id="bytedance-lark.desktop" score="43" last-seen="1709461534"/>
-    <application id="psensor.desktop" score="25.5" last-seen="1708841771"/>
-    <application id="phpstorm_phpstorm.desktop" score="2767.4291708469391" last-seen="1709461537"/>
-    <application id="org.gnome.eog.desktop" score="15" last-seen="1709450351"/>
-    <application id="org.gnome.Nautilus.desktop" score="969.25" last-seen="1709457474"/>
-    <application id="org.gnome.gedit.desktop" score="3.5" last-seen="1709450427"/>
-    <application id="update-manager.desktop" score="0" last-seen="1709404586"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="610.75" last-seen="1709461053"/>
-    <application id="xdg-desktop-portal-gnome.desktop" score="3" last-seen="1709450362"/>
-    <application id="org.gnome.Terminal.desktop" score="102.5" last-seen="1709460954"/>
-    <application id="gnome-control-center.desktop" score="257.25" last-seen="1709460993"/>
-    <application id="org.flameshot.Flameshot.desktop" score="31" last-seen="1709450260"/>
-    <application id="gnome-system-monitor.desktop" score="6" last-seen="1709458134"/>
-    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="9" last-seen="1709439924"/>
+    <application id="termius-app.desktop" score="66" last-seen="1710606307"/>
+    <application id="google-chrome.desktop" score="23645" last-seen="1710606368"/>
+    <application id="org.gnome.Shell.Extensions.desktop" score="23" last-seen="1710091411"/>
+    <application id="webstorm_webstorm.desktop" score="890.5" last-seen="1710175266"/>
+    <application id="anydesk.desktop" score="0" last-seen="1710091142"/>
+    <application id="gnome-control-center.desktop" score="4104.25" last-seen="1710601357"/>
+    <application id="phpstorm_phpstorm.desktop" score="5883.4291708469391" last-seen="1710606067"/>
+    <application id="google-chat-electron_google-chat-electron.desktop" score="55" last-seen="1710348061"/>
+    <application id="org.gnome.Nautilus.desktop" score="1120.25" last-seen="1710603553"/>
+    <application id="org.gnome.gedit.desktop" score="30.5" last-seen="1710601710"/>
+    <application id="update-manager.desktop" score="0" last-seen="1710572154"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="2959.75" last-seen="1710606067"/>
+    <application id="org.gnome.eog.desktop" score="1" last-seen="1710575534"/>
+    <application id="org.gnome.Terminal.desktop" score="192.5" last-seen="1710605336"/>
+    <application id="slack_slack.desktop" score="0" last-seen="1710346510"/>
+    <application id="org.gnome.Software.desktop" score="19" last-seen="1710601355"/>
+    <application id="gnome-power-panel.desktop" score="0" last-seen="0"/>
   </context>
 </application-state>
