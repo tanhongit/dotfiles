@@ -87,6 +87,7 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     done
 
     phpExtensions() {
+        sudo apt-get update
         sudo apt install libgd3 -y
         sudo apt install php"$PHP_VERSION" php"$PHP_VERSION"-{common,mysql,curl,gd,redis,mbstring,xml,zip,readline,bcmath,intl,opcache,soap,sqlite3,xmlrpc,xsl,imagick,dev,cli} -y
     }
