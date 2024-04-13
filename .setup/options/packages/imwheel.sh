@@ -8,8 +8,8 @@ if [ "" = "$PKG_OK" ]; then
     sudo apt-get install -y $REQUIRED_PKG
     tee -a ~/.imwheelrc <<EOF
 ".*"
-None,      Up,   Button4, 3
-None,      Down, Button5, 3
+None,      Up,   Button4, 2
+None,      Down, Button5, 2
 None,      Thumb1, Alt_L|Left
 None,      Thumb2, Alt_L|Right
 Control_L, Up,   Control_L|Button4
