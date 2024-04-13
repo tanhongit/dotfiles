@@ -1,23 +1,19 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="termius-app.desktop" score="36.5" last-seen="1710652027"/>
-    <application id="google-chat-electron_google-chat-electron.desktop" score="12" last-seen="1711168137"/>
-    <application id="google-chrome.desktop" score="20724.5" last-seen="1711169834"/>
-    <application id="org.gnome.Software.desktop" score="9.5" last-seen="1710601355"/>
-    <application id="bytedance-lark.desktop" score="2" last-seen="1711123692"/>
-    <application id="psensor.desktop" score="11" last-seen="1710864414"/>
-    <application id="gnome-control-center.desktop" score="2108.125" last-seen="1711169539"/>
-    <application id="phpstorm_phpstorm.desktop" score="5253.7145854234695" last-seen="1711169793"/>
-    <application id="org.gnome.Nautilus.desktop" score="577.125" last-seen="1711168116"/>
-    <application id="org.gnome.gedit.desktop" score="15.25" last-seen="1710601710"/>
-    <application id="update-manager.desktop" score="0" last-seen="1710572154"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="3536.375" last-seen="1711168669"/>
-    <application id="org.gnome.eog.desktop" score="0.5" last-seen="1710865481"/>
-    <application id="org.gnome.Terminal.desktop" score="116.25" last-seen="1711023964"/>
-    <application id="org.gnome.Calculator.desktop" score="12" last-seen="1710944265"/>
-    <application id="dbeaver-ce_dbeaver-ce.desktop" score="42" last-seen="1711041387"/>
-    <application id="gnome-system-monitor.desktop" score="5" last-seen="1710864423"/>
-    <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="0" last-seen="1711038514"/>
+    <application id="termius-app.desktop" score="4" last-seen="1712750467"/>
+    <application id="google-chrome.desktop" score="23457.625" last-seen="1712989037"/>
+    <application id="gnome-control-center.desktop" score="33" last-seen="1712984670"/>
+    <application id="org.gnome.eog.desktop" score="8.75" last-seen="1712579124"/>
+    <application id="update-manager.desktop" score="0" last-seen="1712459314"/>
+    <application id="org.gnome.Nautilus.desktop" score="46" last-seen="1712989020"/>
+    <application id="code_code.desktop" score="0" last-seen="1712489587"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="2490.84375" last-seen="1712988297"/>
+    <application id="phpstorm_phpstorm.desktop" score="7856.6786463558674" last-seen="1712989028"/>
+    <application id="pgadmin4.desktop" score="96.5" last-seen="1712395003"/>
+    <application id="org.gnome.Terminal.desktop" score="2" last-seen="1712577985"/>
+    <application id="org.gnome.gedit.desktop" score="28" last-seen="1712913806"/>
+    <application id="dbeaver-ce_dbeaver-ce.desktop" score="50.25" last-seen="1712394669"/>
+    <application id="gnome-system-monitor.desktop" score="4.5" last-seen="1712844327"/>
   </context>
 </application-state>
