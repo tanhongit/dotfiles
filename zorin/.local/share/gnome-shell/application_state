@@ -1,19 +1,20 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="termius-app.desktop" score="4" last-seen="1712750467"/>
-    <application id="google-chrome.desktop" score="23457.625" last-seen="1712989037"/>
-    <application id="gnome-control-center.desktop" score="33" last-seen="1712984670"/>
-    <application id="org.gnome.eog.desktop" score="8.75" last-seen="1712579124"/>
-    <application id="update-manager.desktop" score="0" last-seen="1712459314"/>
-    <application id="org.gnome.Nautilus.desktop" score="46" last-seen="1712989020"/>
-    <application id="code_code.desktop" score="0" last-seen="1712489587"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="2490.84375" last-seen="1712988297"/>
-    <application id="phpstorm_phpstorm.desktop" score="7856.6786463558674" last-seen="1712989028"/>
-    <application id="pgadmin4.desktop" score="96.5" last-seen="1712395003"/>
-    <application id="org.gnome.Terminal.desktop" score="2" last-seen="1712577985"/>
-    <application id="org.gnome.gedit.desktop" score="28" last-seen="1712913806"/>
-    <application id="dbeaver-ce_dbeaver-ce.desktop" score="50.25" last-seen="1712394669"/>
-    <application id="gnome-system-monitor.desktop" score="4.5" last-seen="1712844327"/>
+    <application id="google-chrome.desktop" score="13966.65625" last-seen="1713694535"/>
+    <application id="webstorm_webstorm.desktop" score="1053" last-seen="1713694564"/>
+    <application id="org.gnome.Shell.PortalHelper.desktop" score="4" last-seen="1713670089"/>
+    <application id="gnome-control-center.desktop" score="23.75" last-seen="1713688375"/>
+    <application id="update-manager.desktop" score="5" last-seen="1713694468"/>
+    <application id="org.gnome.Nautilus.desktop" score="64" last-seen="1713686340"/>
+    <application id="org.gnome.gedit.desktop" score="4" last-seen="1713601183"/>
+    <application id="code_code.desktop" score="0" last-seen="1713295101"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="2608.7109375" last-seen="1713694308"/>
+    <application id="phpstorm_phpstorm.desktop" score="4987.9196615889668" last-seen="1713693174"/>
+    <application id="org.gnome.Terminal.desktop" score="2" last-seen="1713594128"/>
+    <application id="xdg-desktop-portal-gnome.desktop" score="0" last-seen="1713373937"/>
+    <application id="vlc.desktop" score="3" last-seen="1713623657"/>
+    <application id="dbeaver-ce_dbeaver-ce.desktop" score="46" last-seen="1713611584"/>
+    <application id="postman_postman.desktop" score="0" last-seen="1713529089"/>
   </context>
 </application-state>
