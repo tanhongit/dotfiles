@@ -1,6 +1,6 @@
 [Added Associations]
 application/vnd.debian.binary-package=gnome-software-local-file.desktop;snap-store_ubuntu-software-local-file.desktop;
-inode/directory=phpstorm_phpstorm.desktop;webstorm_webstorm.desktop;code_code.desktop;code.desktop;
+inode/directory=webstorm_webstorm.desktop;phpstorm_phpstorm.desktop;code_code.desktop;code.desktop;
 x-content/audio-player=rhythmbox-device.desktop;
 x-content/image-dcf=org.gnome.eog.desktop;
 video/mp4=org.gnome.Totem.desktop;vlc.desktop;
@@ -88,6 +88,8 @@ application/x-shellscript=com.zorin.exec-guard.linux.desktop;org.gnome.gedit.des
 application/x-rpm=gnome-software-local-file.desktop;
 image/x-canon-cr2=org.gnome.eog.desktop;
 text/markdown=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;
+application/x-compressed-tar=com.zorin.exec-guard.linux.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop

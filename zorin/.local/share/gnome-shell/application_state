@@ -1,20 +1,23 @@
 <?xml version="1.0"?>
 <application-state>
   <context id="">
-    <application id="google-chrome.desktop" score="13966.65625" last-seen="1713694535"/>
-    <application id="webstorm_webstorm.desktop" score="1053" last-seen="1713694564"/>
-    <application id="org.gnome.Shell.PortalHelper.desktop" score="4" last-seen="1713670089"/>
-    <application id="gnome-control-center.desktop" score="23.75" last-seen="1713688375"/>
-    <application id="update-manager.desktop" score="5" last-seen="1713694468"/>
-    <application id="org.gnome.Nautilus.desktop" score="64" last-seen="1713686340"/>
-    <application id="org.gnome.gedit.desktop" score="4" last-seen="1713601183"/>
-    <application id="code_code.desktop" score="0" last-seen="1713295101"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="2608.7109375" last-seen="1713694308"/>
-    <application id="phpstorm_phpstorm.desktop" score="4987.9196615889668" last-seen="1713693174"/>
-    <application id="org.gnome.Terminal.desktop" score="2" last-seen="1713594128"/>
-    <application id="xdg-desktop-portal-gnome.desktop" score="0" last-seen="1713373937"/>
-    <application id="vlc.desktop" score="3" last-seen="1713623657"/>
-    <application id="dbeaver-ce_dbeaver-ce.desktop" score="46" last-seen="1713611584"/>
-    <application id="postman_postman.desktop" score="0" last-seen="1713529089"/>
+    <application id="termius-app.desktop" score="170.75" last-seen="1714927400"/>
+    <application id="libreoffice-writer.desktop" score="61" last-seen="1715000218"/>
+    <application id="google-chrome.desktop" score="23618.1640625" last-seen="1715409650"/>
+    <application id="webstorm_webstorm.desktop" score="3451.25" last-seen="1715409655"/>
+    <application id="gnome-control-center.desktop" score="85.9375" last-seen="1715404725"/>
+    <application id="phpstorm_phpstorm.desktop" score="7149.7299153972417" last-seen="1715409168"/>
+    <application id="org.gnome.eog.desktop" score="8.5" last-seen="1715024984"/>
+    <application id="org.gnome.Nautilus.desktop" score="193" last-seen="1715408801"/>
+    <application id="org.gnome.gedit.desktop" score="8.75" last-seen="1715271206"/>
+    <application id="update-manager.desktop" score="23.25" last-seen="1714943802"/>
+    <application id="org.flameshot.Flameshot.desktop" score="0" last-seen="1714946328"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="6488.427734375" last-seen="1715409587"/>
+    <application id="code_code.desktop" score="18" last-seen="1714948152"/>
+    <application id="org.gnome.Terminal.desktop" score="10.5" last-seen="1715021273"/>
+    <application id="vlc.desktop" score="8" last-seen="1715094532"/>
+    <application id="spotify_spotify.desktop" score="177.75" last-seen="1715409424"/>
+    <application id="gnome-system-monitor.desktop" score="1" last-seen="1715190543"/>
+    <application id="org.gnome.Shell.Extensions.ZorinConnect.Preferences.desktop" score="4" last-seen="1715012285"/>
   </context>
 </application-state>
