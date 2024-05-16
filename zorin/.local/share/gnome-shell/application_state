@@ -2,12 +2,12 @@
 <application-state>
   <context id="">
     <application id="termius-app.desktop" score="85.375" last-seen="1715795861"/>
-    <application id="google-chrome.desktop" score="21669.08203125" last-seen="1715888825"/>
+    <application id="google-chrome.desktop" score="21767.08203125" last-seen="1715889763"/>
     <application id="org.gnome.Software.desktop" score="5" last-seen="1715869599"/>
     <application id="webstorm_webstorm.desktop" score="3008.125" last-seen="1715887827"/>
     <application id="anydesk.desktop" score="0" last-seen="1715704379"/>
     <application id="gnome-control-center.desktop" score="124.96875" last-seen="1715887418"/>
-    <application id="phpstorm_phpstorm.desktop" score="5342.3649576986209" last-seen="1715888781"/>
+    <application id="phpstorm_phpstorm.desktop" score="5353.3649576986209" last-seen="1715889732"/>
     <application id="org.gnome.eog.desktop" score="9" last-seen="1715807067"/>
     <application id="update-manager.desktop" score="0" last-seen="1715625095"/>
     <application id="org.gnome.Nautilus.desktop" score="157.5" last-seen="1715888871"/>
@@ -22,7 +22,7 @@
     <application id="spotify_spotify.desktop" score="94.875" last-seen="1715512520"/>
     <application id="org.gnome.clocks.desktop" score="5" last-seen="1715626496"/>
     <application id="org.gnome.Weather.desktop" score="2" last-seen="1715626448"/>
-    <application id="ulauncher.desktop" score="32" last-seen="1715864451"/>
+    <application id="ulauncher.desktop" score="41" last-seen="1715889784"/>
     <application id="postman_postman.desktop" score="0" last-seen="1715503219"/>
     <application id="gnome-system-monitor.desktop" score="0" last-seen="1715868451"/>
   </context>
