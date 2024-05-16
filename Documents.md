@@ -4,6 +4,8 @@
 
 ======= change npm version =======
 ```bash
-nvm install v21
-nvm use v21
+nvm install v22
+nvm use v22
 ```
+
+======= Create 'Verified' (Sign) Git Commit =======
