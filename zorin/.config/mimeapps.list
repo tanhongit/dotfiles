@@ -88,6 +88,8 @@ application/x-shellscript=com.zorin.exec-guard.linux.desktop;org.gnome.gedit.des
 application/x-rpm=gnome-software-local-file.desktop;
 image/x-canon-cr2=org.gnome.eog.desktop;
 text/markdown=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;
+application/x-compressed-tar=com.zorin.exec-guard.linux.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop;
 
 [Default Applications]
 text/html=google-chrome.desktop
