@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ZXxzzxAPP_LIST=("visual-studio-code" "postman" "dbngin" "tableplus")
+APP_LIST=("visual-studio-code" "postman" "dbngin" "tableplus")
 
 for appName in "${APP_LIST[@]}"; do
     echo "=========================== $appName ==========================="
