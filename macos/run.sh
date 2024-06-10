@@ -1,5 +1,7 @@
 #!/bin/bash
 
+bash packages/homebrew.sh
+
 if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     brew tap homebrew/cask
 fi
