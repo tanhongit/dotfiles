@@ -9,5 +9,3 @@ if test ! "$(which brew)"; then
 fi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-brew bundle
