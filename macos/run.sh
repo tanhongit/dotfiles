@@ -2,7 +2,8 @@
 
 bash packages/homebrew.sh
 
-brew bundle
+# Brew bundle
+bash packages/bundle.sh
 
 if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     brew tap homebrew/cask

@@ -41,6 +41,6 @@ jobs:
           set -e
           export CI=1
           git submodule update --init
-          cd .setup
+          cd linux
           bash workflows/test_ubuntu.sh
           bash install.sh

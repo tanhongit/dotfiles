@@ -20,4 +20,4 @@ fi
 
 bash pre-install.sh
 
-cd ../../ # go to .setup directory
+cd ../../ # go to linux directory

@@ -13,20 +13,21 @@ It's a simple script, so you can run it easily.
 # Information
 
 - Platform: Linux
-- OS Available: **Ubuntu, Zorin OS**
+- OS Available: **Ubuntu, Zorin OS, macOS**
 - Language: Bash
 - Plash: GNOME
 - Shell: ZSH
 
 # Requirements
 
-You will need to have an Ubuntu or Zorin OS installed on your system.
+You will need to have an Ubuntu, Zorin OS, or macOS installed on your system.
 
 - For Ubuntu, you should use version **22.04** is stable.
 - For Zorin OS, you should use version **17** is stable.
 
 # Installing
 
+## Install for Linux
 Before running this script, please clone the repository to your local machine.
 
 ```bash
@@ -37,7 +38,7 @@ cd dotfiles
 Then, run the following command to install dotfiles.
 
 ```bash
-cd .setup
+cd linux
 bash install.sh
 ```
 
@@ -49,12 +50,12 @@ install some tools, please answer **yes(y)**.
 > In the installing process, you see a message that says "**Do you want copy and overwrite existing config folders from
 this source to your os?**".
 >
-> If answer **yes(y)** but don't see any changes after rebooting, please handle as follows:
+> If answer **yes(y)** but don't see any changes after rebooting, please handle it as follows:
 > 
 > 1. Open the terminal and run the following command:
 >
 > ```bash
-> cd .setup
+> cd linux
 > bash config.sh
 > ```
 >

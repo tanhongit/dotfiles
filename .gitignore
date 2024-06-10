@@ -4,7 +4,7 @@
 .config/gtk-4.0/
 .config/bleachbit/
 !.config/bleachbit/bleachbit.ini
-.setup/*.deb
+linux/*.deb
 .psensor/log
 .vscode
 .idea
