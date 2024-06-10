@@ -4,26 +4,29 @@ APP_LIST=("phpstorm")
 
 for appName in "${APP_LIST[@]}"; do
     echo "=========================== $appName ==========================="
-    REQUIRED_PKG=$appName
-    PKG_OK=$(brew list --cask | grep "^$REQUIRED_PKG$")
-    echo "Checking for $REQUIRED_PKG: $PKG_OK"
+
+    PKG_OK=$(brew list --cask | grep "^$appName$")
+    echo "Checking for $appName: $PKG_OK"
     if [ "" = "$PKG_OK" ]; then
-        echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+        echo "No $appName. Setting up $appName."
 
-        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
-            yn="y"
-        else
-            read -r -p "Do you want to install $REQUIRED_PKG? (Y/N)  " yn
-        fi
-
-        case $yn in
-        [Yy]*)
-            brew install --cask "$REQUIRED_PKG"
-            break
-            ;;
-        [Nn]*) break ;;
-        *) echo "Please answer yes or no." ;;
-        esac
+        while true; do
+            if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+                yn="y"
+            else
+                read -r -p "Do you want to install $appName? (Y/N)  " yn
+            fi
+            case $yn in
+            [Yy]*)
+                brew install --cask "$appName"
+                break
+                ;;
+            [Nn]*) break ;;
+            *) echo "Please answer yes or no." ;;
+            esac
+        done
+    else
+        echo "$appName install ok installed"
     fi
     echo ""
 done
