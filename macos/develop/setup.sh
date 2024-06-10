@@ -66,6 +66,7 @@ brewFormulaInstallation() {
         echo ""
     done
 }
+brewFormulaInstallation
 
 echo '####################################################################'
 while true; do
