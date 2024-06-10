@@ -24,6 +24,7 @@ You will need to have an Ubuntu, Zorin OS, or macOS installed on your system.
 
 - For Ubuntu, you should use version **22.04** is stable.
 - For Zorin OS, you should use version **17** is stable.
+- For macOS
 
 # Installing
 
@@ -60,6 +61,22 @@ this source to your os?**".
 > ```
 >
 > 2. **LOG OUT** and **LOG IN AGAIN** to your OS.
+
+## Install for macOS
+
+Before running this script on a macOS system, please clone the repository to your local machine.
+
+```bash
+git clone https://github.com/tanhongit/dotfiles.git
+cd dotfiles
+```
+
+Then, navigate to the macOS directory and run the installation script.
+
+```bash
+cd macos
+bash install.sh
+```
 
 # Screenshots demo
 
