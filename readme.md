@@ -8,6 +8,7 @@ script. All of them need to be installed for Ubuntu.
 It's a simple script, so you can run it easily.
 
 [![Build Status](https://github.com/tanhongit/dotfiles/actions/workflows/test_ubuntu.yml/badge.svg)](https://github.com/tanhongit/dotfiles/actions/workflows/test_ubuntu.yml)
+[![Build Status](https://github.com/tanhongit/dotfiles/actions/workflows/test_macos.yml/badge.svg)](https://github.com/tanhongit/dotfiles/actions/workflows/test_macos.yml)
 
 # Information
 

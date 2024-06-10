@@ -1,0 +1,45 @@
+name: Test dotfile setup on MacOS
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          ignore_paths: >-
+            .config
+            .github
+            .local
+            .psensor
+          ignore_names: >-
+            .bash_logout
+            .zshrc
+            .p10k.zsh
+
+  buildtest:
+    name: Build and test dotfiles
+    needs: shellcheck
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set environment variables
+        run: |
+          echo "ACCEPT_INSTALL=y" >> $GITHUB_ENV
+
+      - name: Run dotfiles install and test script
+        run: |
+          set -e
+          export CI=1
+          git submodule update --init
+          cd macos
+          bash run.sh
