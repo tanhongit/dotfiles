@@ -4,13 +4,39 @@ if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     brew tap homebrew/cask
 fi
 
-apps=(skype spotify anydesk phpstorm webstorm postman)
-for app in "${apps[@]}"; do
-    output=$(brew install --cask $app 2>&1)
-    clean_output=$(echo "$output" | grep -v "Warning: macOS's Gatekeeper has been disabled for this Cask")
-    echo "$clean_output"
+APP_LIST=("skype" "spotify" "anydesk" "postman")
+
+for appName in "${APP_LIST[@]}"; do
+    echo "=========================== $appName ==========================="
+    REQUIRED_PKG=$appName
+    PKG_OK=$(brew list --cask | grep "^$REQUIRED_PKG$")
+    echo "Checking for $REQUIRED_PKG: $PKG_OK"
+    if [ "" = "$PKG_OK" ]; then
+        echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+        brew install --cask "$REQUIRED_PKG"
+    fi
+    echo ""
 done
 
 if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     sudo spctl --master-enable
 fi
+
+echo '####################################################################'
+while true; do
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -r -p "Do you want to install some packages, programs for Developer? (Y/N)  " yn
+    fi
+    case $yn in
+    [Yy]*)
+        cd develop || exit
+        bash setup.sh
+        cd ../
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+done
