@@ -1,6 +1,6 @@
 #!/bin/bash
 
-installSnapDevPackages() {
+brewInstallation() {
     APP_LIST=("visual-studio-code" "dbngin" "tableplus" "postman")
 
     for appName in "${APP_LIST[@]}"; do
@@ -29,6 +29,7 @@ installSnapDevPackages() {
         echo ""
     done
 }
+brewInstallation
 
 echo '####################################################################'
 while true; do
