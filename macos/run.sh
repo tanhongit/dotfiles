@@ -2,7 +2,6 @@
 
 bash packages/homebrew.sh
 
-brew bundle
 
 if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     brew tap homebrew/cask
@@ -28,7 +27,7 @@ while true; do
 done
 
 echo '####################################################################'
-APP_LIST=("skype" "anydesk" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma")
+APP_LIST=("skype" "spotify" "anydesk" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma")
 
 for appName in "${APP_LIST[@]}"; do
     echo "=========================== $appName ==========================="
