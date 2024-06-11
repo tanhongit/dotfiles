@@ -1,7 +1,9 @@
 #!/bin/bash
 
+bash packages/nvm.sh
+
 brewInstallation() {
-    APP_LIST=("visual-studio-code" "dbngin" "tableplus" "postman")
+    APP_LIST=("visual-studio-code" "dbngin" "tableplus" "postman" "insomnia")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
@@ -40,9 +42,9 @@ brewFormulaInstallation() {
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
 
-        PKG_OK=$(brew list --formula | grep "^$appName$")
+        PKG_OK=$(brew list | grep "^$appName$")
         echo "Checking for $appName: $PKG_OK"
-        if [ "" = "$PKG_OK" ]; then
+        if [ -z "$PKG_OK" ]; then
             echo "No $appName. Setting up $appName."
 
             while true; do
