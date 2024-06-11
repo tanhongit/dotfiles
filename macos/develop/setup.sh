@@ -44,7 +44,7 @@ brewFormulaInstallation() {
 
         PKG_OK=$(brew list --formula | grep "^$appName$")
         echo "Checking for $appName: $PKG_OK"
-        if [ "" = "$PKG_OK" ]; then
+        if [ -z "$PKG_OK" ]; then
             echo "No $appName. Setting up $appName."
 
             while true; do
