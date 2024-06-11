@@ -101,3 +101,5 @@ brewFormulaInstallation
 if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     sudo spctl --master-enable
 fi
+
+bash config.sh
