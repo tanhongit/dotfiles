@@ -42,4 +42,4 @@ jobs:
           export CI=1
           git submodule update --init
           cd macos
-          ./install.sh
+          bash install.sh
