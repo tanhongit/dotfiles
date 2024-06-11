@@ -121,6 +121,10 @@ alias phpstan='vendor/bin/phpstan'
 
 alias c='clear'
 
+alias g='git'
+alias gti='git'
+alias nah='git reset --hard; git clean -df'
+
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/F-Sy-H.plugin.zsh
 
