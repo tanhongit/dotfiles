@@ -3,7 +3,7 @@
 bash packages/homebrew.sh
 
 # Brew bundle
-if [[ $1 =~ ^bundle$ ]]; then
+if [[ $1 =~ ^bundle$ ]] || [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
   bash packages/bundle.sh
 fi
 
