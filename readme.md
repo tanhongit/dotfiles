@@ -78,6 +78,11 @@ cd macos
 bash install.sh
 ```
 
+If you wish to install using the bundle parameter, please add it to the bash command as follows:
+
+```bash
+bash install.sh bundle
+```
 # Screenshots demo
 
 ## Ubuntu 22.04

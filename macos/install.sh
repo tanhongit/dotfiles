@@ -3,7 +3,9 @@
 bash packages/homebrew.sh
 
 # Brew bundle
-bash packages/bundle.sh
+if [[ $1 =~ ^bundle$ ]]; then
+  bash packages/bundle.sh
+fi
 
 if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     brew tap homebrew/cask
@@ -62,7 +64,6 @@ brewInstallation() {
     done
 }
 brewInstallation
-
 
 brewFormulaInstallation() {
     APP_LIST=("flameshot")
