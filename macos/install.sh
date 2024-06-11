@@ -30,7 +30,7 @@ done
 
 echo '####################################################################'
 brewInstallation() {
-    APP_LIST=("skype" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma")
+    APP_LIST=("skype" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma" "vlc")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="

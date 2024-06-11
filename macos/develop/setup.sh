@@ -1,5 +1,7 @@
 #!/bin/bash
 
+bash packages/nvm.sh
+
 brewInstallation() {
     APP_LIST=("visual-studio-code" "dbngin" "tableplus" "postman")
 
