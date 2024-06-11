@@ -38,8 +38,10 @@ brewInstallation() {
         echo "=========================== $appName ==========================="
 
         PKG_OK=$(brew list --cask | grep "^$appName$")
+        APP_PATH="/Applications/${appName^}.app"
+
         echo "Checking for $appName: $PKG_OK"
-        if [ "" = "$PKG_OK" ]; then
+        if [[ -z "$PKG_OK" && ! -d "$APP_PATH" ]]; then
             echo "No $appName. Setting up $appName."
 
             while true; do

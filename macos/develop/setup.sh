@@ -42,7 +42,7 @@ brewFormulaInstallation() {
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
 
-        PKG_OK=$(brew list --formula | grep "^$appName$")
+        PKG_OK=$(brew list | grep "^$appName$")
         echo "Checking for $appName: $PKG_OK"
         if [ -z "$PKG_OK" ]; then
             echo "No $appName. Setting up $appName."
