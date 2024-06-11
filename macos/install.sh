@@ -38,7 +38,8 @@ brewInstallation() {
         echo "=========================== $appName ==========================="
 
         PKG_OK=$(brew list --cask | grep "^$appName$")
-        APP_PATH="/Applications/${appName^}.app"
+        AppNameCapitalized=$(echo "$appName" | awk '{print toupper(substr($0,1,1)) tolower(substr($0,2))}')
+        APP_PATH="/Applications/$AppNameCapitalized.app"
 
         echo "Checking for $appName: $PKG_OK"
         if [[ -z "$PKG_OK" && ! -d "$APP_PATH" ]]; then
