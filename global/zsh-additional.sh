@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# start ====== oh-my-zsh
+sudo git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
 # Fast Syntax Highlighting
 sudo git clone https://github.com/zdharma/fast-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/fast-syntax-highlighting
 # ZSH Autosuggestions
