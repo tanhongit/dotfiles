@@ -19,7 +19,7 @@ jobs:
             .config
             .github
             .local
-            .psensor
+            linux/.psensor
           ignore_names: >-
             .bash_logout
             .zshrc

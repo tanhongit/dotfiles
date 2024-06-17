@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.psensor ../.psensor
+cp -TRv "${ZSH_CUSTOM:-$HOME}"/.psensor ../linux/.psensor
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.p10k.zsh ../.p10k.zsh
 cp -TRv "${ZSH_CUSTOM:-$HOME}"/.zshrc ../.zshrc
 

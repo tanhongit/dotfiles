@@ -5,7 +5,7 @@
 .config/bleachbit/
 !.config/bleachbit/bleachbit.ini
 linux/*.deb
-.psensor/log
+linux/.psensor/log
 .vscode
 .idea
 .config/autostart
