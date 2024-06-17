@@ -7,7 +7,8 @@ case "$OS" in
     echo "Running on MacOS"
     ;;
   "Linux")
-    if [ -f /etc/os-release ]; then
+    # shellcheck disable=SC1091
+    if [ -f "/etc/os-release" ]; then
       . /etc/os-release
       echo "Running on $NAME"
 
