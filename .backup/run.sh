@@ -1,36 +1,51 @@
 #!/bin/bash
 
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.psensor ../linux/.psensor
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.p10k.zsh ../.p10k.zsh
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.zshrc ../.zshrc
+OS=$(uname -s)
 
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/bleachbit ../linux/.config/bleachbit
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/autostart ../linux/.config/autostart
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/compton ../linux/.config/compton
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/nautilus ../linux/.config/nautilus
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/terminator ../linux/.config/terminator
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/ulauncher ../linux/.config/ulauncher
-cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/Dharkael ../linux/.config/Dharkael
+case "$OS" in
+  "Darwin")
+    echo "Running on MacOS"
+    ;;
+  "Linux")
+    if [ -f /etc/os-release ]; then
+      . /etc/os-release
+      echo "Running on $NAME"
 
-# shellcheck disable=SC1091
-if [ -f "/etc/os-release" ]; then
-    . /etc/os-release
-    OS=$NAME
+      cp -TRv "${HOME}"/.p10k.zsh ../.p10k.zsh
+      cp -TRv "${HOME}"/.zshrc ../.zshrc
 
-    if [ "$OS" == "Ubuntu" ]; then
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/dconf ../ubuntu/.config/dconf
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/mimeapps.list ../ubuntu/.config/mimeapps.list
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/gnome-shell ../ubuntu/.config/gnome-shell
+      cp -TRv "${HOME}"/.psensor ../linux/.psensor
+      cp -TRv "${HOME}"/.config/bleachbit ../linux/.config/bleachbit
+      cp -TRv "${HOME}"/.config/autostart ../linux/.config/autostart
+      cp -TRv "${HOME}"/.config/compton ../linux/.config/compton
+      cp -TRv "${HOME}"/.config/nautilus ../linux/.config/nautilus
+      cp -TRv "${HOME}"/.config/terminator ../linux/.config/terminator
+      cp -TRv "${HOME}"/.config/ulauncher ../linux/.config/ulauncher
+      cp -TRv "${HOME}"/.config/Dharkael ../linux/.config/Dharkael
 
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/sounds ../ubuntu/.local/share/sounds
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/grilo-plugins ../ubuntu/.local/share/grilo-plugins
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/gnome-shell ../ubuntu/.local/share/gnome-shell
+      if [ "$NAME" == "Ubuntu" ]; then
+          cp -TRv "${HOME}"/.config/dconf ../ubuntu/.config/dconf
+          cp -TRv "${HOME}"/.config/mimeapps.list ../ubuntu/.config/mimeapps.list
+          cp -TRv "${HOME}"/.config/gnome-shell ../ubuntu/.config/gnome-shell
 
-    elif [ "$OS" == "Zorin OS" ]; then
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/dconf ../zorin/.config/dconf
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.config/mimeapps.list ../zorin/.config/mimeapps.list
+          cp -TRv "${HOME}"/.local/share/sounds ../ubuntu/.local/share/sounds
+          cp -TRv "${HOME}"/.local/share/grilo-plugins ../ubuntu/.local/share/grilo-plugins
+          cp -TRv "${HOME}"/.local/share/gnome-shell ../ubuntu/.local/share/gnome-shell
 
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/sounds ../zorin/.local/share/sounds
-        cp -TRv "${ZSH_CUSTOM:-$HOME}"/.local/share/gnome-shell ../zorin/.local/share/gnome-shell
+      elif [ "$NAME" == "Zorin OS" ]; then
+          cp -TRv "${HOME}"/.config/dconf ../zorin/.config/dconf
+          cp -TRv "${HOME}"/.config/mimeapps.list ../zorin/.config/mimeapps.list
+
+          cp -TRv "${HOME}"/.local/share/sounds ../zorin/.local/share/sounds
+          cp -TRv "${HOME}"/.local/share/gnome-shell ../zorin/.local/share/gnome-shell
+      fi
+    elif command -v lsb_release &> /dev/null; then
+      echo "Running on $(lsb_release -s -d)"
+    else
+      echo "Linux distribution detection requires /etc/os-release or lsb_release"
     fi
-fi
+    ;;
+  *)
+    echo "Running on $OS"
+    ;;
+esac
