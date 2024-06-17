@@ -6,7 +6,7 @@ case "$OS" in
   "Darwin")
     echo "Running on MacOS"
     cd macos || exit
-    bash install.sh
+    bash install.sh "$1"
     ;;
   "Linux")
     # shellcheck disable=SC1091
@@ -14,7 +14,7 @@ case "$OS" in
       . /etc/os-release
       echo "Running on $NAME"
       cd linux || exit
-        bash install.sh
+      bash install.sh "$1"
     elif command -v lsb_release &> /dev/null; then
       echo "Running on $(lsb_release -s -d)"
     else

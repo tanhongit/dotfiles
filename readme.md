@@ -28,7 +28,6 @@ You will need to have an Ubuntu, Zorin OS, or macOS installed on your system.
 
 # Installing
 
-## Install for Linux
 Before running this script, please clone the repository to your local machine.
 
 ```bash
@@ -39,7 +38,6 @@ cd dotfiles
 Then, run the following command to install dotfiles.
 
 ```bash
-cd linux
 bash install.sh
 ```
 
@@ -47,7 +45,7 @@ Now, wait for a while, and you will see some messages questioning do you want to
 install some tools, please answer **yes(y)**.
 
 > [!IMPORTANT]
-> ## What to do after overwriting existing configurations?
+> ## What to do after overwriting existing configurations? (Only for Linux)
 > In the installing process, you see a message that says "**Do you want copy and overwrite existing config folders from
 this source to your os?**".
 >
@@ -62,21 +60,7 @@ this source to your os?**".
 >
 > 2. **LOG OUT** and **LOG IN AGAIN** to your OS.
 
-## Install for macOS
-
-Before running this script on a macOS system, please clone the repository to your local machine.
-
-```bash
-git clone https://github.com/tanhongit/dotfiles.git
-cd dotfiles
-```
-
-Then, navigate to the macOS directory and run the installation script.
-
-```bash
-cd macos
-bash install.sh
-```
+## Install with option for macOS
 
 If you wish to install using the bundle parameter, please add it to the bash command as follows:
 

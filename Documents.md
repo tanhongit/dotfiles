@@ -4,7 +4,7 @@
 
 ======= change npm version =======
 ```bash
-nvm install v22
+nvm install v22 -g
 nvm use v22
 ```
 
