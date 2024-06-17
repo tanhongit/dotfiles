@@ -22,10 +22,10 @@ while true; do
         sudo apt install gir1.2-gda-5.0 gir1.2-gsound-1.0 -y # install gsound for 'Pano Clipboard Manager'
         #cp -TRv ../../../ "${ZSH_CUSTOM:-$HOME/}"
 
-        cp -TR ../../../.psensor "${ZSH_CUSTOM:-$HOME}"/.psensor
+        cp -TR ../../.psensor "${ZSH_CUSTOM:-$HOME}"/.psensor
+        cp -TR ../../.config "${ZSH_CUSTOM:-$HOME}"/.config
         cp ../../../.zshrc "${ZSH_CUSTOM:-$HOME}"/.zshrc
         cp ../../../.p10k.zsh "${ZSH_CUSTOM:-$HOME}"/.p10k.zsh
-        cp -TR ../../../.config "${ZSH_CUSTOM:-$HOME}"/.config
 
         if [ -d "${ZSH_CUSTOM:-$HOME}"/.local ]; then
             cp -TR ../../../.local "${ZSH_CUSTOM:-$HOME}"/.local

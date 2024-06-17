@@ -16,10 +16,10 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         with:
           ignore_paths: >-
-            .config
+            linux/.config
             .github
             .local
-            .psensor
+            linux/.psensor
           ignore_names: >-
             .bash_logout
             .zshrc
