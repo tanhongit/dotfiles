@@ -9,7 +9,8 @@ case "$OS" in
     bash install.sh
     ;;
   "Linux")
-    if [ -f /etc/os-release ]; then
+    # shellcheck disable=SC1091
+    if [ -f "/etc/os-release" ]; then
       . /etc/os-release
       echo "Running on $NAME"
       cd linux || exit
