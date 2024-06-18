@@ -32,7 +32,7 @@ done
 
 echo '####################################################################'
 brewInstallation() {
-    APP_LIST=("openkey" "rectangle" "maccy" "keepingyouawake" "iterm2" "skype" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma" "vlc")
+    APP_LIST=("openkey" "rectangle" "maccy" "keepingyouawake" "iterm2" "karabiner-elements" "skype" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma" "vlc")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
@@ -66,7 +66,6 @@ brewInstallation() {
         echo ""
     done
 }
-brewInstallation
 
 brewFormulaInstallation() {
     APP_LIST=("flameshot")
@@ -100,10 +99,40 @@ brewFormulaInstallation() {
         echo ""
     done
 }
-brewFormulaInstallation
+
+while true; do
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -r -p "Do you want to install packages, app with brew? (Y/N)  " yn
+    fi
+    case $yn in
+    [Yy]*)
+        brewInstallation
+        brewFormulaInstallation
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+done
 
 if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
     sudo spctl --master-enable
 fi
 
-bash config.sh
+while true; do
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -r -p "Do you want to install zsh (Need if it not installed)? (Y/N)  " yn
+    fi
+    case $yn in
+    [Yy]*)
+        bash config.sh
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+done
