@@ -3,8 +3,8 @@
 echo '####################################################################'
 
 echo "=================== Create virtual host tool ====================="
-if [ ! -d "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool ]; then
-    sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git "${ZSH_CUSTOM:-$HOME}"/tools/avhc_tool # clone tool create virtual host
+if [ ! -d "${HOME}"/tools/avhc_tool ]; then
+    sudo git clone https://github.com/tanhongit/Apache-Virtual-Hosts-Creator.git "${HOME}"/tools/avhc_tool # clone tool create virtual host
 else
     echo "Apache-Virtual-Hosts-Creator already installed"
 fi

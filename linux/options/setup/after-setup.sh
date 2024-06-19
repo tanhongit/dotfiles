@@ -22,13 +22,13 @@ while true; do
         sudo apt install gir1.2-gda-5.0 gir1.2-gsound-1.0 -y # install gsound for 'Pano Clipboard Manager'
         #cp -TRv ../../../ "${ZSH_CUSTOM:-$HOME/}"
 
-        cp -TR ../../.psensor "${ZSH_CUSTOM:-$HOME}"/.psensor
-        cp -TR ../../.config "${ZSH_CUSTOM:-$HOME}"/.config
-        cp ../../../.zshrc "${ZSH_CUSTOM:-$HOME}"/.zshrc
-        cp ../../../.p10k.zsh "${ZSH_CUSTOM:-$HOME}"/.p10k.zsh
+        cp -TR ../../.psensor "${HOME}"/.psensor
+        cp -TR ../../.config "${HOME}"/.config
+        cp ../../../.zshrc "${HOME}"/.zshrc
+        cp ../../../.p10k.zsh "${HOME}"/.p10k.zsh
 
-        if [ -d "${ZSH_CUSTOM:-$HOME}"/.local ]; then
-            cp -TR ../../../.local "${ZSH_CUSTOM:-$HOME}"/.local
+        if [ -d "${HOME}"/.local ]; then
+            cp -TR ../../../.local "${HOME}"/.local
         fi
 
         # shellcheck disable=SC1091
@@ -37,11 +37,11 @@ while true; do
             OS=$NAME
 
             if [ "$OS" == "Ubuntu" ]; then
-                cp -TR ../../../ubuntu/.config "${ZSH_CUSTOM:-$HOME}"/.config
-                cp -TR ../../../ubuntu/.local "${ZSH_CUSTOM:-$HOME}"/.local
+                cp -TR ../../../ubuntu/.config "${HOME}"/.config
+                cp -TR ../../../ubuntu/.local "${HOME}"/.local
             elif [ "$OS" == "Zorin OS" ]; then
-                cp -TR ../../../zorin/.config "${ZSH_CUSTOM:-$HOME}"/.config
-                cp -TR ../../../zorin/.local "${ZSH_CUSTOM:-$HOME}"/.local
+                cp -TR ../../../zorin/.config "${HOME}"/.config
+                cp -TR ../../../zorin/.local "${HOME}"/.local
             fi
         fi
 
