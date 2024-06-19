@@ -62,7 +62,7 @@ this source to your os?**".
 
 ## Install with option for macOS
 
-If you wish to install using the bundle parameter, please add it to the bash command as follows:
+If you wish to install using the `bundle` parameter, please add it to the bash command as follows:
 
 ```bash
 bash install.sh bundle
