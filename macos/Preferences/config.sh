@@ -60,3 +60,15 @@ defaults write com.apple.dock wvous-tr-corner -int 1
 defaults write com.apple.dock wvous-tr-modifier -int 1048576
 defaults write com.apple.dock workspaces-swoosh-animation-off -bool false
 killall Dock
+
+# ===================== Maccy ===================== #
+# Maccy is a clipboard manager for macOS
+# defaults read org.p0deje.Maccy
+defaults write org.p0deje.Maccy historySize 999
+defaults write org.p0deje.Maccy menuIcon clipboard
+defaults write org.p0deje.Maccy sortBy lastCopiedAt
+defaults write org.p0deje.Maccy showSpecialSymbols 1
+defaults write org.p0deje.Maccy popupPosition cursor
+defaults write org.p0deje.Maccy hideFooter 0
+defaults write org.p0deje.Maccy hideSearch 0
+defaults write org.p0deje.Maccy hideTitle 0
