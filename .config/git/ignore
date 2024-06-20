@@ -1,0 +1,23 @@
+## git config --global core.excludesfile '~/.gitignore_global'
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+.*.sw?
+
+.idea
+.fleet
+.vscode
+*.sublime-project
+*.sublime-workspace
+_ide_helper.php
+.phpstorm.meta.php
+
+node_modules
+npm-debug.log
+yarn-error.log
+
+.phpunit-watcher-cache.php
