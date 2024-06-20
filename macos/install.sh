@@ -136,3 +136,21 @@ while true; do
     *) echo "Please answer yes or no." ;;
     esac
 done
+
+while true; do
+    if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+        yn="y"
+    else
+        read -r -p "Do you want to import config for apps? (Y/N)  " yn
+    fi
+    case $yn in
+    [Yy]*)
+        cd Preferences || exit
+        bash config.sh
+        cd ../
+        break
+        ;;
+    [Nn]*) break ;;
+    *) echo "Please answer yes or no." ;;
+    esac
+done

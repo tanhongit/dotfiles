@@ -1,5 +1,8 @@
 #!/bin/bash
 
+cp -Rfv "${HOME}"/.p10k.zsh ../.p10k.zsh
+cp -Rfv "${HOME}"/.zshrc ../.zshrc
+
 OS=$(uname -s)
 
 case "$OS" in
@@ -11,9 +14,6 @@ case "$OS" in
     if [ -f "/etc/os-release" ]; then
       . /etc/os-release
       echo "Running on $NAME"
-
-      cp -TRv "${HOME}"/.p10k.zsh ../.p10k.zsh
-      cp -TRv "${HOME}"/.zshrc ../.zshrc
 
       cp -TRv "${HOME}"/.psensor ../linux/.psensor
       cp -TRv "${HOME}"/.config/bleachbit ../linux/.config/bleachbit
