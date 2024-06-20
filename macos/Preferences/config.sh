@@ -102,3 +102,37 @@ if [[ -d "/Applications/KeepingYouAwake.app" ]]; then
     defaults write info.marcel-dierkes.KeepingYouAwake "info.marcel-dierkes.KeepingYouAwake.LowPowerModeMonitoringEnabled" -int 1
     killall KeepingYouAwake
 fi
+
+# ===================== iTerm2 ===================== #
+# iTerm2 is a terminal emulator for macOS
+# defaults read com.googlecode.iterm2
+if [[ -d "/Applications/iTerm.app" ]]; then
+    defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${HOME}/.config/iterm2"
+    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
+    defaults write com.googlecode.iterm2 HideScrollbar -int 1
+    defaults write com.googlecode.iterm2 SUAutomaticallyUpdate -int 1
+    defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -int 1
+    defaults write com.googlecode.iterm2 SUHasLaunchedBefore -int 1
+    echo "iTerm2 is configured"
+fi
+
+# ===================== ScreenShot ===================== #
+# ScreenShot is a screen capture tool for macOS
+# defaults read com.apple.screencapture
+
+mkdir -p "${HOME}/Pictures/Screenshots"
+
+# shellcheck disable=SC2088
+defaults write com.apple.screencapture location -string "~/Pictures/Screenshots"
+# shellcheck disable=SC2088
+defaults write com.apple.screencapture location-last -string "~/Pictures/Screenshots"
+
+defaults write com.apple.screencapture type "png"
+defaults write com.apple.screencapture disable-shadow -int 1
+defaults write com.apple.screencapture show-thumbnail -int 1
+defaults write com.apple.screencapture include-date -bool true
+defaults write com.apple.screencapture show-include-date -bool true
+defaults write com.apple.screencapture showsClicks -int 1
+defaults write com.apple.screencapture showCursor -int 1
+
+defaults write com.apple.screencapture target clipboard # file, clipboard, preview, mail, printer
