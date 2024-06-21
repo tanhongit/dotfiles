@@ -45,7 +45,7 @@ defaults write com.apple.dock largesize -float 60
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock mineffect -string "genie"
 defaults write com.apple.dock minimize-to-application -bool true
-defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock "mru-spaces" -bool true
 defaults write com.apple.dock orientation -string "bottom"
 defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock show-recents -bool false
@@ -66,6 +66,9 @@ defaults write com.apple.dock expose-group-by-app -bool false
 
 # double-click a window's title bar to minimize
 defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Do Nothing"
+
+# animate opening applications from the Dock
+defaults write com.apple.dock launchanim -bool true
 
 killall Dock
 
