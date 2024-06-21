@@ -97,6 +97,7 @@ if [[ -d "/Applications/KeepingYouAwake.app" ]]; then
     defaults write com.knollsoft.Rectangle doubleClickTitleBar -int 3
     defaults write com.knollsoft.Rectangle allowAnyShortcut -int 1
     defaults write com.knollsoft.Rectangle alternateDefaultShortcuts -int 1
+    echo "Rectangle is configured"
 fi
 
 # ===================== keepyouawake ===================== #
@@ -109,6 +110,7 @@ if [[ -d "/Applications/KeepingYouAwake.app" ]]; then
     defaults write info.marcel-dierkes.KeepingYouAwake "info.marcel-dierkes.KeepingYouAwake.BatteryCapacityThresholdEnabled" -int 1
     defaults write info.marcel-dierkes.KeepingYouAwake "info.marcel-dierkes.KeepingYouAwake.LowPowerModeMonitoringEnabled" -int 1
     killall KeepingYouAwake
+    echo "KeepingYouAwake is configured"
 fi
 
 # ===================== iTerm2 ===================== #
@@ -144,6 +146,7 @@ defaults write com.apple.screencapture showsClicks -int 1
 defaults write com.apple.screencapture showCursor -int 1
 
 defaults write com.apple.screencapture target clipboard # file, clipboard, preview, mail, printer
+echo "ScreenShot is configured"
 
 # ===================== TextEdit ===================== #
 # TextEdit is a simple text editor included with macOS
@@ -152,6 +155,7 @@ defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 defaults write com.apple.TextEdit ShowRuler -int 1
+echo "TextEdit is configured"
 
 # ===================== preferences ===================== #
 # defaults read NSGlobalDomain
@@ -171,3 +175,4 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool true
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true
 defaults write NSGlobalDomain NSSpellCheckerAutomaticallyIdentifiesLanguages -bool true
+echo "Preferences is configured"
