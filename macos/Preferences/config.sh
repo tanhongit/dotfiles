@@ -198,3 +198,8 @@ defaults write com.theron.UnnaturalScrollWheels.plist ShowMenuBarIcon -bool fals
 defaults write com.theron.UnnaturalScrollWheels.plist LaunchAtLogin -bool true
 killall UnnaturalScrollWheels
 echo "UnnaturalScrollWheel is configured"
+
+# ===================== Clock Options ===================== #
+# defaults read com.apple.menuextra.clock
+defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
+defaults write com.apple.menuextra.clock ShowSeconds -bool true
