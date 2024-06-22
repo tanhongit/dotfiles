@@ -190,3 +190,11 @@ defaults write com.apple.AppleMultitouchTrackpad Dragging -int 1
 defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
 defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
 echo "Trackpad is configured"
+
+# ===================== UnnaturalScrollWheel ===================== #
+# defaults read com.theron.UnnaturalScrollWheels.plist
+# Show menu bar icon
+defaults write com.theron.UnnaturalScrollWheels.plist ShowMenuBarIcon -bool false
+defaults write com.theron.UnnaturalScrollWheels.plist LaunchAtLogin -bool true
+killall UnnaturalScrollWheels
+echo "UnnaturalScrollWheel is configured"
