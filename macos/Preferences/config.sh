@@ -203,3 +203,8 @@ echo "UnnaturalScrollWheel is configured"
 # defaults read com.apple.menuextra.clock
 defaults write com.apple.menuextra.clock ShowDayOfWeek -bool true
 defaults write com.apple.menuextra.clock ShowSeconds -bool true
+
+# ===================== Keyboard Options ===================== #
+# defaults read NSGlobalDomain
+defaults write NSGlobalDomain KeyRepeat -int 2 # key repeat fast
+defaults write NSGlobalDomain InitialKeyRepeat -int 25 # key repeat fast
