@@ -193,11 +193,12 @@ echo "Trackpad is configured"
 
 # ===================== UnnaturalScrollWheel ===================== #
 # defaults read com.theron.UnnaturalScrollWheels.plist
-# Show menu bar icon
-defaults write com.theron.UnnaturalScrollWheels.plist ShowMenuBarIcon -bool false
-defaults write com.theron.UnnaturalScrollWheels.plist LaunchAtLogin -bool true
-killall UnnaturalScrollWheels
-echo "UnnaturalScrollWheel is configured"
+if [[ -d "/Applications/UnnaturalScrollWheels.app" ]]; then
+    defaults write com.theron.UnnaturalScrollWheels.plist ShowMenuBarIcon -bool false
+    defaults write com.theron.UnnaturalScrollWheels.plist LaunchAtLogin -bool true
+    killall UnnaturalScrollWheels
+    echo "UnnaturalScrollWheel is configured"
+fi
 
 # ===================== Clock Options ===================== #
 # defaults read com.apple.menuextra.clock
