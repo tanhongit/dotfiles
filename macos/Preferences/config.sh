@@ -65,7 +65,7 @@ defaults write com.apple.dock workspaces-swoosh-animation-off -bool false
 defaults write com.apple.dock expose-group-by-app -bool false
 
 # double-click a window's title bar to minimize
-defaults write NSGlobalDomain AppleActionOnDoubleClick -string "Do Nothing"
+defaults write NSGlobalDomain AppleActionOnDoubleClick -string "None"
 
 # animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool true
@@ -120,7 +120,6 @@ fi
 # iTerm2 is a terminal emulator for macOS
 # defaults read com.googlecode.iterm2
 if [[ -d "/Applications/iTerm.app" ]]; then
-    defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${HOME}/.config/iterm2"
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
     defaults write com.googlecode.iterm2 HideScrollbar -int 1
     defaults write com.googlecode.iterm2 SUAutomaticallyUpdate -int 1
@@ -178,4 +177,16 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool true
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write NSGlobalDomain NSCloseAlwaysConfirmsChanges -bool true
 defaults write NSGlobalDomain NSSpellCheckerAutomaticallyIdentifiesLanguages -bool true
+defaults write NSGlobalDomain AppleScrollerPagingBehavior -int 2
+defaults write NSGlobalDomain AppleAccentColor -int 3 # Accent color (Green)
 echo "Preferences is configured"
+
+# ===================== Trackpad ===================== #
+# defaults read com.apple.AppleMultitouchTrackpad
+defaults write com.apple.AppleMultitouchTrackpad ActuateDetents -int 1
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write com.apple.AppleMultitouchTrackpad DragLock -int 0
+defaults write com.apple.AppleMultitouchTrackpad Dragging -int 1
+defaults write com.apple.AppleMultitouchTrackpad FirstClickThreshold -int 1
+defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 0
+echo "Trackpad is configured"
