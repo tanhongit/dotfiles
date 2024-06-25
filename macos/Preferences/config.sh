@@ -39,7 +39,6 @@ killall Finder
 
 # ===================== Dock ===================== #
 # defaults read com.apple.dock
-defaults write com.apple.dock autohide -bool false
 defaults write com.apple.dock expose-group-apps -bool false
 defaults write com.apple.dock largesize -float 60
 defaults write com.apple.dock magnification -bool true
@@ -60,6 +59,10 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 defaults write com.apple.dock wvous-tr-corner -int 1
 defaults write com.apple.dock wvous-tr-modifier -int 1048576
 defaults write com.apple.dock workspaces-swoosh-animation-off -bool false
+
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0;
+defaults write com.apple.dock autohide-time-modifier -int 0;
 
 # group windows by application in Mission Control
 defaults write com.apple.dock expose-group-by-app -bool false
