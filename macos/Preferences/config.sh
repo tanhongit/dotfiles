@@ -40,7 +40,6 @@ killall Finder
 # ===================== Dock ===================== #
 # defaults read com.apple.dock
 defaults write com.apple.dock expose-group-apps -bool false
-defaults write com.apple.dock largesize -float 60
 defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock mineffect -string "genie"
 defaults write com.apple.dock minimize-to-application -bool true
@@ -50,6 +49,7 @@ defaults write com.apple.dock show-process-indicators -bool true
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock showAppExposeGestureEnabled -bool true
 defaults write com.apple.dock tilesize -float 45
+defaults write com.apple.dock largesize -float 70
 defaults write com.apple.dock trash-full -bool true
 defaults write com.apple.dock wvous-bl-corner -int 2
 defaults write com.apple.dock wvous-bl-modifier -int 0
