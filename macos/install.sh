@@ -32,7 +32,7 @@ done
 
 echo '####################################################################'
 brewInstallation() {
-    APP_LIST=("openkey" "rectangle" "maccy" "keepingyouawake" "iterm2" "karabiner-elements" "skype" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma" "vlc")
+    APP_LIST=("openkey" "rectangle" "maccy" "keepingyouawake" "iterm2" "karabiner-elements" "skype" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma" "vlc" "figlet")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
