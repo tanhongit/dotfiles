@@ -212,3 +212,6 @@ defaults write com.apple.menuextra.clock ShowSeconds -bool true
 # defaults read NSGlobalDomain
 defaults write NSGlobalDomain KeyRepeat -int 2 # key repeat fast
 defaults write NSGlobalDomain InitialKeyRepeat -int 25 # key repeat fast
+
+# ===================== Accessibility Options ===================== #
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1 # Dragging style - 1: three finger drag, 0: one finger drag
