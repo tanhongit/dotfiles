@@ -215,3 +215,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 25 # key repeat fast
 
 # ===================== Accessibility Options ===================== #
 #defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1 # Dragging style - 1: three finger drag, 0: one finger drag
+
+# ===================== Control Center Options ===================== #
+# defaults read com.apple.controlcenter
+defaults write com.apple.controlcenter "NSStatusItem Visible Display" -bool true
