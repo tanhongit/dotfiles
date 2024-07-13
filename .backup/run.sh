@@ -2,6 +2,7 @@
 
 cp -Rfv "${HOME}"/.p10k.zsh ../.p10k.zsh
 cp -Rfv "${HOME}"/.zshrc ../.zshrc
+cp -Rfv "${HOME}"/.config/git ../.config
 
 OS=$(uname -s)
 
