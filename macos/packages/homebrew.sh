@@ -19,6 +19,7 @@ fi
 
 # Add Homebrew to the profile if it's not already present
 if ! grep -q '/opt/homebrew/bin/brew shellenv' "$PROFILE_FILE"; then
+  # shellcheck disable=SC2016
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$PROFILE_FILE"
   echo "Homebrew added to $PROFILE_FILE"
 else
