@@ -1,0 +1,16 @@
+alias dc='docker compose'
+alias dce='dc exec'
+alias dcr='dc run'
+
+alias art='php artisan'
+alias tinker='art tinker'
+alias phpunit='vendor/bin/phpunit'
+alias sail='vendor/bin/sail'
+alias pint='vendor/bin/pint'
+alias phpstan='vendor/bin/phpstan'
+
+alias c='clear'
+
+alias g='git'
+alias gti='git'
+alias nah='git reset --hard; git clean -df'

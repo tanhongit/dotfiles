@@ -108,22 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dc='docker compose'
-alias dce='dc exec'
-alias dcr='dc run'
 
-alias art='php artisan'
-alias tinker='art tinker'
-alias phpunit='vendor/bin/phpunit'
-alias sail='vendor/bin/sail'
-alias pint='vendor/bin/pint'
-alias phpstan='vendor/bin/phpstan'
-
-alias c='clear'
-
-alias g='git'
-alias gti='git'
-alias nah='git reset --hard; git clean -df'
+# Source aliases
+source ~/.zsh_aliases
 
 source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting/F-Sy-H.plugin.zsh
