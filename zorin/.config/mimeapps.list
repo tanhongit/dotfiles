@@ -65,7 +65,7 @@ application/x-php=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;code_code.de
 application/vnd.appimage=apturl.desktop;
 text/html=org.gnome.gedit.desktop;code_code.desktop;google-chrome.desktop;sidekick-browser.desktop;
 application/x-bittorrent=transmission-gtk.desktop;
-image/svg+xml=google-chrome.desktop;sidekick-browser.desktop;phpstorm_phpstorm.desktop;org.gnome.gedit.desktop;
+image/svg+xml=sidekick-browser.desktop;phpstorm_phpstorm.desktop;org.gnome.gedit.desktop;google-chrome.desktop;
 application/vnd.ms-publisher=org.gnome.gedit.desktop;org.gnome.TextEditor.desktop;
 application/octet-stream=org.gnome.gedit.desktop;
 text/x-python=code_code.desktop;
@@ -87,8 +87,7 @@ x-scheme-handler/tel=org.gnome.Shell.Extensions.ZorinConnect.desktop;
 application/x-shellscript=com.zorin.exec-guard.linux.desktop;org.gnome.gedit.desktop;
 application/x-rpm=gnome-software-local-file.desktop;
 image/x-canon-cr2=org.gnome.eog.desktop;
-text/markdown=org.gnome.gedit.desktop;phpstorm_phpstorm.desktop;
-application/x-compressed-tar=com.zorin.exec-guard.linux.desktop;
+inode/symlink=org.gnome.gedit.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=google-chrome.desktop;
 
 [Default Applications]
@@ -165,4 +164,3 @@ application/zip=org.gnome.FileRoller.desktop
 text/csv=phpstorm_phpstorm.desktop
 text/plain=org.gnome.gedit.desktop
 application/xhtml+xml=sidekick-browser.desktop
-x-scheme-handler/webcal=google-chrome.desktop
