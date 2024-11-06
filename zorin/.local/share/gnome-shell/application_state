@@ -3,20 +3,21 @@
   <context id="">
     <application id="termius-app.desktop" score="62" last-seen="1730801115"/>
     <application id="org.gnome.FileRoller.desktop" score="1" last-seen="1730693027"/>
-    <application id="google-chrome.desktop" score="22822.57421875" last-seen="1730869413"/>
+    <application id="google-chrome.desktop" score="22833.57421875" last-seen="1730871813"/>
     <application id="webstorm_webstorm.desktop" score="1448.5" last-seen="1730866432"/>
     <application id="anydesk.desktop" score="19" last-seen="1730864900"/>
     <application id="gnome-control-center.desktop" score="29.5" last-seen="1730792157"/>
-    <application id="org.gnome.gedit.desktop" score="0" last-seen="1730693513"/>
+    <application id="org.gnome.gedit.desktop" score="0" last-seen="1730872267"/>
     <application id="org.gnome.eog.desktop" score="6" last-seen="1730773606"/>
     <application id="update-manager.desktop" score="0.5" last-seen="1730164910"/>
-    <application id="org.gnome.Nautilus.desktop" score="88.75" last-seen="1730864237"/>
+    <application id="org.gnome.Nautilus.desktop" score="91.75" last-seen="1730872269"/>
     <application id="code_code.desktop" score="1" last-seen="1730714542"/>
-    <application id="telegram-desktop_telegram-desktop.desktop" score="10921.41748046875" last-seen="1730869311"/>
-    <application id="phpstorm_phpstorm.desktop" score="7534.0731038493104" last-seen="1730869272"/>
+    <application id="telegram-desktop_telegram-desktop.desktop" score="10927.41748046875" last-seen="1730871662"/>
+    <application id="phpstorm_phpstorm.desktop" score="7600.0731038493104" last-seen="1730872324"/>
     <application id="org.gnome.Terminal.desktop" score="37" last-seen="1730864232"/>
     <application id="dbeaver-ce_dbeaver-ce.desktop" score="136" last-seen="1730869288"/>
     <application id="gnome-system-monitor.desktop" score="5.5" last-seen="1730280341"/>
+    <application id="ulauncher.desktop" score="5" last-seen="1730871930"/>
     <application id="mysql-workbench-community_mysql-workbench-community.desktop" score="159" last-seen="1730434237"/>
   </context>
 </application-state>

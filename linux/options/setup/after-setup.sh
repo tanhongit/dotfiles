@@ -28,10 +28,6 @@ while true; do
         cp ../../../.zshrc "${HOME}"/.zshrc
         cp ../../../.p10k.zsh "${HOME}"/.p10k.zsh
 
-        if [ -d "${HOME}"/.local ]; then
-            cp -TR ../../../.local "${HOME}"/.local
-        fi
-
         # shellcheck disable=SC1091
         if [ -f "/etc/os-release" ]; then
             . /etc/os-release
