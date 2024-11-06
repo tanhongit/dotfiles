@@ -24,6 +24,7 @@ while true; do
 
         cp -TR ../../.psensor "${HOME}"/.psensor
         cp -TR ../../.config "${HOME}"/.config
+        cp ../../../.zsh_aliases "${HOME}"/.zsh_aliases
         cp ../../../.zshrc "${HOME}"/.zshrc
         cp ../../../.p10k.zsh "${HOME}"/.p10k.zsh
 
