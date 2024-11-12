@@ -11,3 +11,4 @@ linux/.psensor/log
 linux/.config/autostart
 .DS_Store
 *.pyc
+*.lock.json
