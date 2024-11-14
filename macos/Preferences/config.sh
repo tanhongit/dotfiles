@@ -219,3 +219,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 25 # key repeat fast
 # ===================== Control Center Options ===================== #
 # defaults read com.apple.controlcenter
 defaults write com.apple.controlcenter "NSStatusItem Visible Display" -bool true
+
+# ===================== Calendar Options ===================== #
+# defaults read com.apple.iCal
+defaults write com.apple.iCal "first day of week" -int 1
