@@ -37,7 +37,7 @@ brewInstallation() {
 brewInstallation
 
 brewFormulaInstallation() {
-    APP_LIST=("orbstack" "lazydocker")
+    APP_LIST=("sequel-ace" "orbstack" "lazydocker")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
