@@ -16,6 +16,7 @@ alias dcrestart='dc down && dc up -d'
 alias dcpl='dc pull'
 alias dcdel='dc down && dc rm -f'
 alias dcrm='dc rm -f'
+alias dcup='dc up -d'
 
 alias art='php artisan'
 alias tinker='art tinker'
