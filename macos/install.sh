@@ -32,7 +32,7 @@ done
 
 echo '####################################################################'
 brewInstallation() {
-    APP_LIST=("openkey" "rectangle" "shottr" "maccy" "keepingyouawake" "iterm2" "karabiner-elements" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma" "vlc" "figlet" "wget" "mkcert")
+    APP_LIST=("openkey" "rectangle" "shottr" "maccy" "keepingyouawake" "iterm2" "karabiner-elements" "spotify" "anydesk" "teamviewer" "obs" "chatgpt" "slack" "gpg-suite" "notion" "zoom" "figma" "vlc")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
@@ -68,7 +68,7 @@ brewInstallation() {
 }
 
 brewFormulaInstallation() {
-    APP_LIST=("shellcheck" "shortcat" "flameshot")
+    APP_LIST=("shellcheck" "shortcat" "flameshot" "figlet" "wget" "mkcert")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
