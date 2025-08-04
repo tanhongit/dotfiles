@@ -68,7 +68,7 @@ brewInstallation() {
 }
 
 brewFormulaInstallation() {
-    APP_LIST=("shellcheck" "flameshot")
+    APP_LIST=("shellcheck" "shortcat" "flameshot")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
