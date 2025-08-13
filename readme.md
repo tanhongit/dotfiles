@@ -92,3 +92,13 @@ bash run.sh
 
 Please wait for a while, it will take some time to back up your dotfiles. When you are ready, you can run the following
 command from Step 2 to restore your dotfiles.
+
+# Update only for Mac
+
+Terminal font setup in iterm2.
+
+![img.png](assets/img.png)
+
+Terminal font setup in terminal.
+
+![img.png](assets/img2.png)
