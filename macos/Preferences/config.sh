@@ -142,18 +142,18 @@ if [[ -d "/Applications/iTerm.app" ]]; then
 
     # Set iTerm2 appearance settings
     # Note: These settings are applied to the default profile
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Unlimited Scrollback' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Transparency' 0.45" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Blur Radius' 25.0" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Columns' 150" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Rows' 40" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Cursor Type' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Icon' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Open Toolbelt' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Custom Tab Title' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Custom Window Title' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Underline Color (Dark)' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
-    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Underline Color (Light)' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Unlimited Scrollback' bool 1" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Unlimited Scrollback' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Transparency' real 0.45" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Transparency' 0.45" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Blur Radius' real 25.0" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Blur Radius' 25.0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Columns' integer 150" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Columns' 150" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Rows' integer 40" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Rows' 40" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Cursor Type' integer 1" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Cursor Type' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Icon' integer 1" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Icon' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Open Toolbelt' bool 0" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Open Toolbelt' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Use Custom Tab Title' bool 0" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Custom Tab Title' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Use Custom Window Title' bool 0" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Custom Window Title' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Use Underline Color (Dark)' bool 1" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Underline Color (Dark)' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Add :'New Bookmarks':0:'Use Underline Color (Light)' bool 0" ~/Library/Preferences/com.googlecode.iterm2.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Underline Color (Light)' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
 
     echo "iTerm2 is configured"
 fi
