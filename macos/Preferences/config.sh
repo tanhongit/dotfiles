@@ -128,6 +128,16 @@ if [[ -d "/Applications/iTerm.app" ]]; then
     defaults write com.googlecode.iterm2 SUAutomaticallyUpdate -int 1
     defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -int 1
     defaults write com.googlecode.iterm2 SUHasLaunchedBefore -int 1
+
+    # Set iTerm2 appearance settings
+    # Note: These settings are applied to the default profile
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Unlimited Scrollback' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Transparency' 0.45" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Blur Radius' 25.0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Columns' 150" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Rows' 40" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Cursor Type' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+
     echo "iTerm2 is configured"
 fi
 
