@@ -124,10 +124,21 @@ fi
 # defaults read com.googlecode.iterm2
 if [[ -d "/Applications/iTerm.app" ]]; then
     defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
-    defaults write com.googlecode.iterm2 HideScrollbar -int 1
+    defaults write com.googlecode.iterm2 HideScrollbar -int 0
     defaults write com.googlecode.iterm2 SUAutomaticallyUpdate -int 1
     defaults write com.googlecode.iterm2 SUEnableAutomaticChecks -int 1
     defaults write com.googlecode.iterm2 SUHasLaunchedBefore -int 1
+    defaults write com.googlecode.iterm2 HideTabNumber -int 0
+    defaults write com.googlecode.iterm2 DimBackgroundWindows -int 0
+    defaults write com.googlecode.iterm2 DimInactiveSplitPanes -int 1
+    defaults write com.googlecode.iterm2 DimOnlyText -int 0
+    defaults write com.googlecode.iterm2 SeparateStatusBarsPerPane -int 0
+    defaults write com.googlecode.iterm2 ShowFullScreenTabBar -int 1
+    defaults write com.googlecode.iterm2 SoundForEsc -int 0
+    defaults write com.googlecode.iterm2 SplitPaneDimmingAmount -float 0.3967509527439024
+    defaults write com.googlecode.iterm2 TabStyleWithAutomaticOption -int 5
+    defaults write com.googlecode.iterm2 TabsHaveCloseButton -int 1
+    defaults write com.googlecode.iterm2 UseBorder -int 0
 
     # Set iTerm2 appearance settings
     # Note: These settings are applied to the default profile
@@ -137,6 +148,12 @@ if [[ -d "/Applications/iTerm.app" ]]; then
     /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Columns' 150" ~/Library/Preferences/com.googlecode.iterm2.plist
     /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Rows' 40" ~/Library/Preferences/com.googlecode.iterm2.plist
     /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Cursor Type' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Icon' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Open Toolbelt' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Custom Tab Title' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Custom Window Title' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Underline Color (Dark)' 1" ~/Library/Preferences/com.googlecode.iterm2.plist
+    /usr/libexec/PlistBuddy -c "Set :'New Bookmarks':0:'Use Underline Color (Light)' 0" ~/Library/Preferences/com.googlecode.iterm2.plist
 
     echo "iTerm2 is configured"
 fi
