@@ -148,43 +148,47 @@ if [[ -d "/System/Applications/Terminal.app" || -d "/Applications/Utilities/Term
     # Set default profile to Basic
     defaults write com.apple.terminal "Default Window Settings" -string "Basic"
     defaults write com.apple.terminal "Startup Window Settings" -string "Basic"
-    
+
     # Enable UTF-8 in Terminal
     defaults write com.apple.terminal StringEncodings -array 4
-    
+
     # Enable Secure Keyboard Entry
     defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 
     # Enable anti-aliased text
     /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:FontAntialias -bool true" ~/Library/Preferences/com.apple.Terminal.plist
-    
-    # Set default window size (columns x rows)
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:columnCount 150" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:rowCount 40" ~/Library/Preferences/com.apple.Terminal.plist
-    
-    # Enable bold text
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:UseBoldFonts -bool true" ~/Library/Preferences/com.apple.Terminal.plist
-    
-    # Enable ANSI color
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:UseBrightBold -bool true" ~/Library/Preferences/com.apple.Terminal.plist
-    
-    # Set cursor style (0 = Block, 2 = Vertical Bar, 1 = Underline)
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:CursorType 2" ~/Library/Preferences/com.apple.Terminal.plist
 
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowWindowSettingsNameInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowTTYNameInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowShellCommandInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowRepresentedURLPathInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowCommandKeyInTitle -bool true" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:EnableSmoothResizing -bool true" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:DisableANSIColor -int 0" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:BlinkText -int 1" ~/Library/Preferences/com.apple.Terminal.plist
-    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:BackgroundBlur -float 0.31" ~/Library/Preferences/com.apple.Terminal.plist
+    # Set default window size (columns x rows)
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:columnCount integer 150" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:columnCount 150" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:rowCount integer 40" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:rowCount 40" ~/Library/Preferences/com.apple.Terminal.plist
+
+    # Enable bold text
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:UseBoldFonts bool true" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:UseBoldFonts true" ~/Library/Preferences/com.apple.Terminal.plist
+
+    # Enable ANSI color
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:UseBrightBold bool true" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:UseBrightBold true" ~/Library/Preferences/com.apple.Terminal.plist
+
+    # Set cursor style (0 = Block, 2 = Vertical Bar, 1 = Underline)
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:CursorType integer 2" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:CursorType 2" ~/Library/Preferences/com.apple.Terminal.plist
+
+    # Window title settings
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:ShowWindowSettingsNameInTitle bool false" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowWindowSettingsNameInTitle false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:ShowTTYNameInTitle bool false" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowTTYNameInTitle false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:ShowShellCommandInTitle bool false" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowShellCommandInTitle false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:ShowRepresentedURLPathInTitle bool false" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowRepresentedURLPathInTitle false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:ShowCommandKeyInTitle bool true" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowCommandKeyInTitle true" ~/Library/Preferences/com.apple.Terminal.plist
+
+    # Window behavior settings
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:EnableSmoothResizing bool true" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:EnableSmoothResizing true" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:DisableANSIColor integer 0" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:DisableANSIColor 0" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:BlinkText integer 1" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:BlinkText 1" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:BackgroundBlur real 0.31" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:BackgroundBlur 0.31" ~/Library/Preferences/com.apple.Terminal.plist
 
     # Disable audible bell
+
     /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:audibleBell bool false" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:audibleBell false" ~/Library/Preferences/com.apple.Terminal.plist
-    
+
     # Enable visual bell
     /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:visualBell bool true" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:visualBell true" ~/Library/Preferences/com.apple.Terminal.plist
     
