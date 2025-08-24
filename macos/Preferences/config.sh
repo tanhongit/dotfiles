@@ -141,6 +141,62 @@ if [[ -d "/Applications/iTerm.app" ]]; then
     echo "iTerm2 is configured"
 fi
 
+# ===================== Terminal ===================== #
+# Terminal is the default terminal emulator for macOS
+# defaults read com.apple.terminal
+if [[ -d "/System/Applications/Terminal.app" || -d "/Applications/Utilities/Terminal.app" ]]; then
+    # Set default profile to Basic
+    defaults write com.apple.terminal "Default Window Settings" -string "Basic"
+    defaults write com.apple.terminal "Startup Window Settings" -string "Basic"
+    
+    # Enable UTF-8 in Terminal
+    defaults write com.apple.terminal StringEncodings -array 4
+    
+    # Enable Secure Keyboard Entry
+    defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+
+    # Enable anti-aliased text
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:FontAntialias -bool true" ~/Library/Preferences/com.apple.Terminal.plist
+    
+    # Set default window size (columns x rows)
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:columnCount 150" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:rowCount 40" ~/Library/Preferences/com.apple.Terminal.plist
+    
+    # Enable bold text
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:UseBoldFonts -bool true" ~/Library/Preferences/com.apple.Terminal.plist
+    
+    # Enable ANSI color
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:UseBrightBold -bool true" ~/Library/Preferences/com.apple.Terminal.plist
+    
+    # Set cursor style (0 = Block, 2 = Vertical Bar, 1 = Underline)
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:CursorType 2" ~/Library/Preferences/com.apple.Terminal.plist
+
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowWindowSettingsNameInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowTTYNameInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowShellCommandInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowRepresentedURLPathInTitle -bool false" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:ShowCommandKeyInTitle -bool true" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:EnableSmoothResizing -bool true" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:DisableANSIColor -int 0" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:BlinkText -int 1" ~/Library/Preferences/com.apple.Terminal.plist
+    /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:BackgroundBlur -float 0.31" ~/Library/Preferences/com.apple.Terminal.plist
+
+    # Disable audible bell
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:audibleBell bool false" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:audibleBell false" ~/Library/Preferences/com.apple.Terminal.plist
+    
+    # Enable visual bell
+    /usr/libexec/PlistBuddy -c "Add :'Window Settings':Basic:visualBell bool true" ~/Library/Preferences/com.apple.Terminal.plist 2>/dev/null || /usr/libexec/PlistBuddy -c "Set :'Window Settings':Basic:visualBell true" ~/Library/Preferences/com.apple.Terminal.plist
+    
+    # Set shell to use (empty for default)
+    defaults write com.apple.terminal Shell -string ""
+    
+    # Allow sessions to survive logout
+    defaults write com.apple.terminal "NSQuitAlwaysKeepsWindows" -bool false
+    
+    echo "Terminal is configured"
+fi
+
 # ===================== ScreenShot ===================== #
 # ScreenShot is a screen capture tool for macOS
 # defaults read com.apple.screencapture
