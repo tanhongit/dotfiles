@@ -30,7 +30,7 @@ yarn-error.log
 Homestead.yaml
 Homestead.json
 .vagrant
-/vendor
-/storage/*.key
-/storage/debugbar
-/storage/*.log
+vendor
+storage/*.key
+storage/debugbar
+storage/*.log
