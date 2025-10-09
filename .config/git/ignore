@@ -21,3 +21,16 @@ npm-debug.log
 yarn-error.log
 
 .phpunit-watcher-cache.php
+
+.claude
+.env
+.env.backup
+.env.local
+.env.*.local
+Homestead.yaml
+Homestead.json
+.vagrant
+/vendor
+/storage/*.key
+/storage/debugbar
+/storage/*.log
