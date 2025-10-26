@@ -40,3 +40,4 @@ CLAUDE.md
 *.sqlite
 *.sqlite3
 copilot-instructions.md
+AGENTS.md
