@@ -32,5 +32,10 @@ Homestead.json
 .vagrant
 vendor
 storage/*.key
+GEMINI.md
 storage/debugbar
 storage/*.log
+CLAUDE.md
+.cursor
+*.sqlite
+*.sqlite3
