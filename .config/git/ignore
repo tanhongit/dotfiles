@@ -39,3 +39,4 @@ CLAUDE.md
 .cursor
 *.sqlite
 *.sqlite3
+copilot-instructions.md
