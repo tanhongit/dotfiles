@@ -41,3 +41,5 @@ CLAUDE.md
 *.sqlite3
 copilot-instructions.md
 AGENTS.md
+merge_develop
+task.md
