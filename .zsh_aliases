@@ -1,3 +1,16 @@
+# Color definitions
+alias grep='grep --color=auto'
+alias ls='ls --color=auto'
+alias ll='ls -alh'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# Docker Compose shortcuts
 alias dc='docker compose'
 alias dce='dc exec'
 alias dcr='dc run'
@@ -18,6 +31,10 @@ alias dcdel='dc down && dc rm -f'
 alias dcrm='dc rm -f'
 alias dcup='dc up -d'
 
+# Docker-specific
+alias cdv='cd /var/dev'
+alias cdw='cd /var/www'
+
 alias art='php artisan'
 alias tinker='art tinker'
 alias phpunit='vendor/bin/phpunit'
@@ -28,9 +45,19 @@ alias php-cs-fixer='vendor/bin/php-cs-fixer'
 alias phpcbf='vendor/bin/phpcbf'
 alias phpcpd='vendor/bin/phpcpd'
 
+# Composer shortcuts
+alias ci='composer install'
+alias cu='composer update'
+alias cr='composer require'
+alias cdu='composer dump-autoload'
+alias ccp='composer clear-cache'
+
+# General shortcuts
 alias c='clear'
 alias cl='clear'
+alias e='exit'
 
+# Git aliases
 alias g='git'
 alias gti='git'
 alias nah='git reset --hard; git clean -df'
@@ -50,3 +77,13 @@ alias gbm='git branch -m'
 alias gr='git rebase'
 
 alias lzd='lazydocker'
+
+# Utilities
+alias week='date +%V'
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowdate='date +"%d-%m-%Y"'
+
+# Logs
+alias log-nginx='tail -f /var/log/nginx/error.log'
+alias log-php='tail -f /var/log/php-fpm/error.log'
