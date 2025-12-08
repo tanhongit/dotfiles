@@ -24,6 +24,25 @@ if ! command -v $COMMAND_NAME &>/dev/null; then
     sudo mv /usr/local/bin/docker-compose /usr/bin/docker-compose
     sudo chmod +x /usr/bin/docker-compose
 
+
+    echo "####################################################################"
+    echo "######################## install lazydocker ########################"
+    while true; do
+        if [[ $ACCEPT_INSTALL =~ ^[Yy]$ ]]; then
+            yn="y"
+        else
+            read -r -p "Do you want to install lazydocker? (Y/N)  " yn
+        fi
+        case $yn in
+        [Yy]*)
+            bash lazydocker.sh
+            break
+            ;;
+        [Nn]*) break ;;
+        *) echo "Please answer yes or no." ;;
+        esac
+    done
+
     REBOOT_TIME=3
     echo ""
     echo "After installing docker, you need to reboot to make sure the features work properly. Rebooting in $REBOOT_TIME seconds."
