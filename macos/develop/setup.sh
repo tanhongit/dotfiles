@@ -3,7 +3,7 @@
 bash packages/nvm.sh
 
 brewInstallation() {
-    APP_LIST=("visual-studio-code" "dbeaver-community" "mysqlworkbench" "dbngin" "tableplus" "postman" "insomnia")
+    APP_LIST=("visual-studio-code" "datagrip" "dbeaver-community" "mysqlworkbench" "dbngin" "tableplus" "postman" "insomnia")
 
     for appName in "${APP_LIST[@]}"; do
         echo "=========================== $appName ==========================="
