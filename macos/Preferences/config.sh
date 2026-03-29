@@ -312,3 +312,7 @@ defaults write com.apple.controlcenter "NSStatusItem Visible Display" -bool true
 defaults write com.apple.iCal "first day of week" -int 1
 defaults write com.apple.iCal "show week numbers" -bool true
 defaults write com.apple.iCal "TimeZone support enabled" -bool true
+
+# ===================== Mail Options ===================== #
+#defaults delete com.apple.mail NSRequiresAquaSystemAppearance
+defaults write com.apple.mail NSRequiresAquaSystemAppearance -bool yes
