@@ -22,7 +22,6 @@ yarn-error.log
 
 .phpunit-watcher-cache.php
 
-.claude
 .env
 .env.backup
 .env.local
@@ -32,15 +31,13 @@ Homestead.json
 .vagrant
 vendor
 storage/*.key
-GEMINI.md
 storage/debugbar
 storage/*.log
-CLAUDE.md
 .cursor
 *.sqlite
 *.sqlite3
-copilot-instructions.md
-AGENTS.md
-merge_develop
 task.md
 pull_main
+merge_develop
+settings.local.json
+**/.claude/settings.local.json
